@@ -768,7 +768,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>packages\gt911-latest\src\gt911.c</PathWithFileName>
+      <PathWithFileName>packages\gt911-v1.0.0\src\gt911.c</PathWithFileName>
       <FilenameWithoutPath>gt911.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>

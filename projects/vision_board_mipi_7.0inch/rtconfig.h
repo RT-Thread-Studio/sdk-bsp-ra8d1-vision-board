@@ -141,15 +141,6 @@
 /* Wiced WiFi */
 
 
-/* CYW43012 WiFi */
-
-
-/* BL808 WiFi */
-
-
-/* CYW43439 WiFi */
-
-
 /* IoT Cloud */
 
 
@@ -197,7 +188,7 @@
 /* touch drivers */
 
 #define PKG_USING_GT911
-#define PKG_USING_GT911_LATEST_VERSION
+#define PKG_USING_GT911_V100
 
 /* Kendryte SDK */
 

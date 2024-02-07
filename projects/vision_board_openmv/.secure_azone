@@ -55,6 +55,9 @@
             <slot name="P407" secure="true"/>
             <slot name="P408" secure="true"/>
             <slot name="P409" secure="true"/>
+            <slot name="P410" secure="true"/>
+            <slot name="P411" secure="true"/>
+            <slot name="P412" secure="true"/>
         </peripheral>
         <peripheral name="PORT5" group="PORT">
             <slot name="P500" secure="true"/>
@@ -167,6 +170,10 @@
             <slot name="IRQ13" secure="true"/>
             <slot name="IRQ14" secure="true"/>
             <slot name="IRQ15" secure="true"/>
+            <slot name="IRQ16" secure="true"/>
+            <slot name="IRQ17" secure="true"/>
+            <slot name="IRQ18" secure="true"/>
+            <slot name="IRQ19" secure="true"/>
         </peripheral>
     </partition>
 </azone>

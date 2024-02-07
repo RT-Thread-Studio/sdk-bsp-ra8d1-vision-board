@@ -21,13 +21,17 @@
             [13] = dmac_int_isr, /* DMAC0 INT (DMAC0 transfer end 0) */
             [14] = sci_b_i2c_txi_isr, /* SCI3 TXI (Transmit data empty) */
             [15] = sci_b_i2c_tei_isr, /* SCI3 TEI (Transmit end) */
-            [16] = usbfs_interrupt_handler, /* USBFS INT (USBFS interrupt) */
-            [17] = usbfs_resume_handler, /* USBFS RESUME (USBFS resume interrupt) */
-            [18] = usbfs_d0fifo_handler, /* USBFS FIFO 0 (DMA transfer request 0) */
-            [19] = usbfs_d1fifo_handler, /* USBFS FIFO 1 (DMA transfer request 1) */
-            [20] = usbhs_interrupt_handler, /* USBHS USB INT RESUME (USBHS interr) */
-            [21] = usbhs_d0fifo_handler, /* USBHS FIFO 0 (DMA transfer request 0) */
-            [22] = usbhs_d1fifo_handler, /* USBHS FIFO 1 (DMA transfer request 1) */
+            [16] = spi_b_rxi_isr, /* SPI1 RXI (Receive buffer full) */
+            [17] = spi_b_txi_isr, /* SPI1 TXI (Transmit buffer empty) */
+            [18] = spi_b_tei_isr, /* SPI1 TEI (Transmission complete event) */
+            [19] = spi_b_eri_isr, /* SPI1 ERI (Error) */
+            [20] = usbfs_interrupt_handler, /* USBFS INT (USBFS interrupt) */
+            [21] = usbfs_resume_handler, /* USBFS RESUME (USBFS resume interrupt) */
+            [22] = usbfs_d0fifo_handler, /* USBFS FIFO 0 (DMA transfer request 0) */
+            [23] = usbfs_d1fifo_handler, /* USBFS FIFO 1 (DMA transfer request 1) */
+            [24] = usbhs_interrupt_handler, /* USBHS USB INT RESUME (USBHS interr) */
+            [25] = usbhs_d0fifo_handler, /* USBHS FIFO 0 (DMA transfer request 0) */
+            [26] = usbhs_d1fifo_handler, /* USBHS FIFO 1 (DMA transfer request 1) */
         };
         const bsp_interrupt_event_t g_interrupt_event_link_select[BSP_ICU_VECTOR_MAX_ENTRIES] =
         {
@@ -47,13 +51,17 @@
             [13] = BSP_PRV_IELS_ENUM(EVENT_DMAC0_INT), /* DMAC0 INT (DMAC0 transfer end 0) */
             [14] = BSP_PRV_IELS_ENUM(EVENT_SCI3_TXI), /* SCI3 TXI (Transmit data empty) */
             [15] = BSP_PRV_IELS_ENUM(EVENT_SCI3_TEI), /* SCI3 TEI (Transmit end) */
-            [16] = BSP_PRV_IELS_ENUM(EVENT_USBFS_INT), /* USBFS INT (USBFS interrupt) */
-            [17] = BSP_PRV_IELS_ENUM(EVENT_USBFS_RESUME), /* USBFS RESUME (USBFS resume interrupt) */
-            [18] = BSP_PRV_IELS_ENUM(EVENT_USBFS_FIFO_0), /* USBFS FIFO 0 (DMA transfer request 0) */
-            [19] = BSP_PRV_IELS_ENUM(EVENT_USBFS_FIFO_1), /* USBFS FIFO 1 (DMA transfer request 1) */
-            [20] = BSP_PRV_IELS_ENUM(EVENT_USBHS_USB_INT_RESUME), /* USBHS USB INT RESUME (USBHS interr) */
-            [21] = BSP_PRV_IELS_ENUM(EVENT_USBHS_FIFO_0), /* USBHS FIFO 0 (DMA transfer request 0) */
-            [22] = BSP_PRV_IELS_ENUM(EVENT_USBHS_FIFO_1), /* USBHS FIFO 1 (DMA transfer request 1) */
+            [16] = BSP_PRV_IELS_ENUM(EVENT_SPI1_RXI), /* SPI1 RXI (Receive buffer full) */
+            [17] = BSP_PRV_IELS_ENUM(EVENT_SPI1_TXI), /* SPI1 TXI (Transmit buffer empty) */
+            [18] = BSP_PRV_IELS_ENUM(EVENT_SPI1_TEI), /* SPI1 TEI (Transmission complete event) */
+            [19] = BSP_PRV_IELS_ENUM(EVENT_SPI1_ERI), /* SPI1 ERI (Error) */
+            [20] = BSP_PRV_IELS_ENUM(EVENT_USBFS_INT), /* USBFS INT (USBFS interrupt) */
+            [21] = BSP_PRV_IELS_ENUM(EVENT_USBFS_RESUME), /* USBFS RESUME (USBFS resume interrupt) */
+            [22] = BSP_PRV_IELS_ENUM(EVENT_USBFS_FIFO_0), /* USBFS FIFO 0 (DMA transfer request 0) */
+            [23] = BSP_PRV_IELS_ENUM(EVENT_USBFS_FIFO_1), /* USBFS FIFO 1 (DMA transfer request 1) */
+            [24] = BSP_PRV_IELS_ENUM(EVENT_USBHS_USB_INT_RESUME), /* USBHS USB INT RESUME (USBHS interr) */
+            [25] = BSP_PRV_IELS_ENUM(EVENT_USBHS_FIFO_0), /* USBHS FIFO 0 (DMA transfer request 0) */
+            [26] = BSP_PRV_IELS_ENUM(EVENT_USBHS_FIFO_1), /* USBHS FIFO 1 (DMA transfer request 1) */
         };
         #elif __has_include("r_ioport_b.h")
         BSP_DONT_REMOVE const fsp_vector_t g_vector_table[BSP_IRQ_VECTOR_MAX_ENTRIES] BSP_PLACE_IN_SECTION(BSP_SECTION_APPLICATION_VECTORS) =
@@ -74,6 +82,10 @@
             [BSP_PRV_IELS_ENUM(DMAC0_INT)] = dmac_int_isr, /* DMAC0 INT (DMAC0 transfer end 0) */
             [BSP_PRV_IELS_ENUM(SCI3_TXI)] = sci_b_i2c_txi_isr, /* SCI3 TXI (Transmit data empty) */
             [BSP_PRV_IELS_ENUM(SCI3_TEI)] = sci_b_i2c_tei_isr, /* SCI3 TEI (Transmit end) */
+            [BSP_PRV_IELS_ENUM(SPI1_RXI)] = spi_b_rxi_isr, /* SPI1 RXI (Receive buffer full) */
+            [BSP_PRV_IELS_ENUM(SPI1_TXI)] = spi_b_txi_isr, /* SPI1 TXI (Transmit buffer empty) */
+            [BSP_PRV_IELS_ENUM(SPI1_TEI)] = spi_b_tei_isr, /* SPI1 TEI (Transmission complete event) */
+            [BSP_PRV_IELS_ENUM(SPI1_ERI)] = spi_b_eri_isr, /* SPI1 ERI (Error) */
             [BSP_PRV_IELS_ENUM(USBFS_INT)] = usbfs_interrupt_handler, /* USBFS INT (USBFS interrupt) */
             [BSP_PRV_IELS_ENUM(USBFS_RESUME)] = usbfs_resume_handler, /* USBFS RESUME (USBFS resume interrupt) */
             [BSP_PRV_IELS_ENUM(USBFS_FIFO_0)] = usbfs_d0fifo_handler, /* USBFS FIFO 0 (DMA transfer request 0) */
