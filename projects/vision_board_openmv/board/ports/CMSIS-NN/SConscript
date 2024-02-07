@@ -1,0 +1,27 @@
+from building import *
+import rtconfig
+
+# get current directory
+cwd     = GetCurrentDir()
+# The set of source files associated with this SConscript file.
+src  = Glob('Source/ActivationFunctions/*.c')
+src += Glob('Source/BasicMathFunctions/*.c')
+src += Glob('Source/ConcatenationFunctions/*.c')
+src += Glob('Source/ConvolutionFunctions/*.c')
+src += Glob('Source/FullyConnectedFunctions/*.c')
+src += Glob('Source/LSTMFunctions/*.c')
+src += Glob('Source/NNSupportFunctions/*.c')
+src += Glob('Source/PoolingFunctions/*.c')
+src += Glob('Source/ReshapeFunctions/*.c')
+src += Glob('Source/SoftmaxFunctions/*.c')
+src += Glob('Source/SVDFunctions/*.c')
+
+path    = [cwd + '/']
+path    += [cwd + '/include']
+path    += [cwd + '/include/Internal']
+
+CPPDEFINES = ['CMSIS_NN']
+
+group = DefineGroup('CMSIS_NN', src, depend = ['OMV_ENABLE_TF'], CPPPATH = path, CPPDEFINES = CPPDEFINES)
+
+Return('group')

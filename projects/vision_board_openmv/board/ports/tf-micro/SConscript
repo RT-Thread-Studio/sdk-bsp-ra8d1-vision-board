@@ -1,0 +1,81 @@
+from building import *
+import rtconfig
+
+# get current directory
+cwd     = GetCurrentDir()
+# The set of source files associated with this SConscript file.
+src  = Glob('tensorflow/lite/kernels/kernel_util.cpp')
+src += Glob('tensorflow/lite/micro/memory_planner/greedy_memory_planner.cpp')
+src += Glob('tensorflow/lite/micro/memory_planner/linear_memory_planner.cpp')
+src += Glob('tensorflow/lite/micro/arena_allocator/non_persistent_arena_buffer_allocator.cpp')
+src += Glob('tensorflow/lite/micro/arena_allocator/persistent_arena_buffer_allocator.cpp')
+src += Glob('tensorflow/lite/micro/arena_allocator/recording_single_arena_buffer_allocator.cpp')
+src += Glob('tensorflow/lite/micro/arena_allocator/single_arena_buffer_allocator.cpp')
+src += Glob('tensorflow/lite/core/c/common.cpp')
+src += Glob('tensorflow/lite/core/api/error_reporter.cpp')
+src += Glob('tensorflow/lite/core/api/flatbuffer_conversions.cpp')
+src += Glob('tensorflow/lite/core/api/tensor_utils.cpp')
+src += Glob('tensorflow/lite/kernels/internal/common.cpp')
+src += Glob('tensorflow/lite/kernels/internal/quantization_util.cpp')
+src += Glob('tensorflow/lite/kernels/internal/portable_tensor_utils.cpp')
+src += Glob('tensorflow/lite/kernels/internal/tensor_utils.cpp')
+src += Glob('tensorflow/lite/kernels/internal/tensor_ctypes.cpp')
+src += Glob('tensorflow/lite/kernels/internal/reference/portable_tensor_utils.cpp')
+src += Glob('tensorflow/lite/kernels/internal/reference/comparisons.cpp')
+src += Glob('tensorflow/lite/schema/schema_utils.cpp')
+
+signal_src  =  Glob('signal/micro/kernels/*.c')
+signal_src  += Glob('signal/micro/kernels/*.cpp')
+signal_src  += Glob('signal/src/*.c')
+signal_src  += Glob('signal/src/*.cpp')
+signal_src  += Glob('signal/src/kiss_fft_wrappers/kiss_fft_float.cpp')
+signal_src  += Glob('signal/src/kiss_fft_wrappers/kiss_fft_int16.cpp')
+signal_src  += Glob('signal/src/kiss_fft_wrappers/kiss_fft_int32.cpp')
+
+micro_src =  Glob('tensorflow/lite/micro/*.c')
+micro_src += Glob('tensorflow/lite/micro/*.cpp')
+micro_src += Glob('tensorflow/lite/micro/tflite_bridge/*.c')
+micro_src += Glob('tensorflow/lite/micro/tflite_bridge/*.cpp')
+
+# micro_frontend_src =  Glob('tensorflow/lite/experimental/microfrontend/lib')
+
+micro_nn_src =  Glob('tensorflow/lite/micro/kernels/cmsis_nn/*.cpp')
+
+libtf_src =  Glob('libtf/*.c')
+libtf_src += Glob('libtf/*.cpp')
+
+micro_kernels_src =  Glob('tensorflow/lite/micro/kernels/*.c')
+micro_kernels_src += Glob('tensorflow/lite/micro/kernels/*.cpp')
+micro_kernels_src += Glob('tensorflow/lite/micro/cortex_m_generic/*.cpp')
+
+SrcRemove(micro_kernels_src, ['tensorflow/lite/micro/kernels/add.cpp'])
+SrcRemove(micro_kernels_src, ['tensorflow/lite/micro/kernels/conv.cpp'])
+SrcRemove(micro_kernels_src, ['tensorflow/lite/micro/kernels/depthwise_conv.cpp'])
+SrcRemove(micro_kernels_src, ['tensorflow/lite/micro/kernels/fully_connected.cpp'])
+SrcRemove(micro_kernels_src, ['tensorflow/lite/micro/kernels/mul.cpp'])
+SrcRemove(micro_kernels_src, ['tensorflow/lite/micro/kernels/pooling.cpp'])
+SrcRemove(micro_kernels_src, ['tensorflow/lite/micro/kernels/softmax.cpp'])
+SrcRemove(micro_kernels_src, ['tensorflow/lite/micro/kernels/svdf.cpp'])
+SrcRemove(micro_src, ['tensorflow/lite/micro/debug_log.cpp'])
+SrcRemove(micro_src, ['tensorflow/lite/micro/micro_time.cpp'])
+
+path    = [cwd + '/']
+path   += [cwd + '/libtf']
+path   += [cwd + '/third_party/gemmlowp']
+path   += [cwd + '/third_party/flatbuffers/include']
+path   += [cwd + '/third_party/ruy']
+path   += [cwd + '/third_party/kissfft']
+path   += [cwd + '/signal/micro/kernels']
+path   += [cwd + '/signal/src']
+path   += [cwd + '/signal/src/kiss_fft_wrappers']
+
+CPPDEFINES = ['TF_LITE_STATIC_MEMORY']
+
+group = DefineGroup('tensorflow/lib', libtf_src, depend = ['OMV_ENABLE_TF'])
+group = DefineGroup('tensorflow/signal', signal_src, depend = ['OMV_ENABLE_TF'])
+group = DefineGroup('tensorflow/micro', micro_src, depend = ['OMV_ENABLE_TF'])
+group = DefineGroup('tensorflow/cmsis_nn', micro_nn_src, depend = ['OMV_ENABLE_TF'])
+group = DefineGroup('tensorflow/kernels', micro_kernels_src, depend = ['OMV_ENABLE_TF'])
+group = group + DefineGroup('tensorflow', src, depend = ['OMV_ENABLE_TF'], CPPPATH = path, CPPDEFINES = CPPDEFINES)
+
+Return('group')
