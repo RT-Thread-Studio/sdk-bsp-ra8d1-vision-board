@@ -1,0 +1,111 @@
+board:
+  buy_url_cn: N/A
+  buy_url_global: N/A
+  debug_interface: SWD
+  debugger: DAP-LINK
+  description_en: N/A
+  description_zh: Vision-Board 开发板是 RT-Thread 推出基于瑞萨 Cortex-M85 架构 RA8D1 芯片，为工程师们提供了一个灵活、全面的开发平台，助力开发者在机器视觉领域获得更深层次的体验。
+  emulator_machine: ''
+  large_image: documents/images/big.png
+  name: VISION-BOARD
+  price_cn: N/A CNY
+  price_global: N/A USD
+  sale_contact_cn: N/A
+  sale_contact_global: N/A
+  small_image: documents/images/small.png
+  vendor: Renesas
+  version: 1.0.0
+chip:
+  chip_name: R7FA8D1BH
+  clock_source: HSE
+  device_vendor: RENESAS
+  family_name: RA
+  rx_name: PA10
+  series_name: RA8D1
+  source_freq: '8000000'
+  sub_series_name: RA8D1
+  target_freq: '240000000'
+  tx_name: PA9
+  uart_name: UART9
+docs:
+- category: manual
+  file: documents/RA8D1_User’s Manual.pdf
+  title: RA8D1_User’s Manual
+- category: sheet
+  file: documents/RA8D1_Datasheet.pdf
+  title: RA8D1_Datasheet
+- category: other
+  file: documents/Vision_Board_schematic.pdf
+  title: Vision_Board_schematic
+features:
+- Arm Cortex-M85
+- 480MHz frequency,on-chip 2Mb Flash,1Mb SRAM
+- 32Mb-SDRAM;8Mb-QSPI Flash
+- MIPI-DSI;RGB666;8bit Camera
+- DAP-LINK
+- Raspberry Pi Interface
+- TensorFlow Lite
+- OpenMV
+- LVGL
+- TinyUSB
+- MicroPython
+features_zh:
+- Arm Cortex-M85
+- 480Mhz主频,片上2Mb-Flash,1Mb-SRAM
+- 32Mb-SDRAM;8Mb-QSPI Flash
+- MIPI-DSI;RGB666;8bit Camera接口
+- DAP-LINK 仿真器
+- 树莓派接口
+- TensorFlow Lite
+- OpenMV
+- LVGL
+- TinyUSB
+- MicroPython
+pkg_type: Board_Support_Packages
+pkg_vendor: RealThread
+pkg_version: 1.0.0
+example_projects:
+- project_name: vision_board_mipi_7.0inch
+  project_description: 7.0寸mipi屏幕显示+触摸测试工程
+  project_type: rt-thread|@full|@5.0.2
+  builtin_files:
+  - source_path_offset: projects/vision_board_mipi_7.0inch
+    target_path_offset: ''
+    files_and_folders:
+    - "*"
+  - source_path_offset: ''
+    target_path_offset: ''
+    files_and_folders:
+    - libraries
+    - rt-thread
+  external_files: []
+- project_name: vision_board_wifi
+  project_description: Wi-Fi 测试工程,提供基础的扫描、联网功能
+  project_type: rt-thread|@full|@5.0.2
+  builtin_files:
+  - source_path_offset: projects/vision_board_wifi
+    target_path_offset: ''
+    files_and_folders:
+    - "*"
+  - source_path_offset: ''
+    target_path_offset: ''
+    files_and_folders:
+    - libraries
+    - rt-thread
+  external_files: []
+template_projects:
+- project_name: hmi-board-led
+  project_description: 实现 LED 闪烁功能,可作为二次开发的基础工程
+  project_type: rt-thread|@full|@5.0.2
+  builtin_files:
+  - source_path_offset: projects/vision_board_blink_led
+    target_path_offset: ''
+    files_and_folders:
+    - "*"
+  - source_path_offset: ''
+    target_path_offset: ''
+    files_and_folders:
+    - libraries
+    - rt-thread
+  external_files: []
+yaml_version: 3

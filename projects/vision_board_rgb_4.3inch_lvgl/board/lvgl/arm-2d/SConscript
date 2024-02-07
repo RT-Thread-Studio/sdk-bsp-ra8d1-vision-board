@@ -1,0 +1,14 @@
+from building import *
+import os
+
+cwd = GetCurrentDir()
+
+src = Glob("Source/*.c")
+
+path = [cwd]
+path += [cwd + '/Include']
+path += [cwd + '/Include/template']
+
+group = DefineGroup('LVGL-arm2d', src, depend = ['BSP_USING_LVGL'], CPPPATH = path)
+
+Return('group')
