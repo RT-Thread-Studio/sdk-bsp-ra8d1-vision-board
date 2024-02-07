@@ -1,0 +1,49 @@
+# Compiled source #
+###################
+*.o
+*.bin
+*.map
+*.hex
+*.dis
+*.pyc
+
+# Packages #
+############
+
+# Logs and databases #
+######################
+*.log
+
+# VIM swap files #
+######################
+*.swp
+
+# Build dir #
+######################
+src/build
+docker/build/
+*.dapper
+
+
+# Old releases
+releases
+
+# IDE config file #
+######################
+usr/openmv.config
+
+# Caffe #
+######################
+ml/cmsisnn/caffe
+
+# VS Code #
+######################
+.vscode/
+
+# Qt Creator #
+######################
+openmv.config
+openmv.creator
+openmv.creator.user
+openmv.files
+openmv.includes

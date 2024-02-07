@@ -1,0 +1,48 @@
+from building import *
+import rtconfig
+
+# get current directory
+cwd     = GetCurrentDir()
+# The set of source files associated with this SConscript file.
+src     = Glob('py/*.c')
+src    += Glob('extmod/*.c')
+src    += Glob('port/*.c')
+src    += Glob('port/modules/*.c')
+src    += Glob('port/modules/user/*.c')
+src    += Glob('lib/utils/*.c')
+src    += Glob('lib/netutils/*.c')
+src    += Glob('lib/timeutils/*.c')
+src    += Glob('lib/mp-readline/*.c')
+src    += Glob('drivers/bus/*.c')
+src    += Glob('port/native/*.c')
+
+port_src = Glob('ports/renesas/*.c')
+machine_src = Glob('port/modules/machine/*.c')
+
+SrcRemove(src, ['extmod/vfs_*.c'])
+SrcRemove(src, ['lib/libm_dbl/sqrt.c'])
+
+path    = [cwd + '/']
+path   += [cwd + '/py']
+path   += [cwd + '/port']
+path   += [cwd + '/lib/utils']
+path   += [cwd + '/lib/libm_dbl']
+path   += [cwd + '/port/modules']
+path   += [cwd + '/port/modules/machine']
+path   += [cwd + '/ports/renesas']
+path   += [cwd + '/ports/renesas/boards/EK-RA8D1']
+
+LOCAL_CCFLAGS = ''
+CPPDEFINES = ['MICROPY_PY_SENSOR = 1']
+CPPDEFINES += ['NDEBUG']
+
+if rtconfig.PLATFORM in ['gcc', 'armclang'] :
+    LOCAL_CCFLAGS += ' -std=gnu99'
+elif rtconfig.PLATFORM == 'armcc':
+    LOCAL_CCFLAGS += ' --c99 --gnu'
+
+group = DefineGroup('micropython/omv-port', port_src, depend = ['PKG_USING_MICROPYTHON'])
+group = DefineGroup('micropython/machine', machine_src, depend = ['PKG_USING_MICROPYTHON'])
+group = group + DefineGroup('micropython', src, depend = ['PKG_USING_MICROPYTHON'], CPPPATH = path, LOCAL_CCFLAGS = LOCAL_CCFLAGS, CPPDEFINES=CPPDEFINES)
+
+Return('group')

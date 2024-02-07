@@ -207,6 +207,9 @@
       <configSetting altId="sdram.sdclk.pa09" configurationId="sdram.sdclk"/>
       <configSetting altId="sdram.sdcs.p115" configurationId="sdram.sdcs"/>
       <configSetting altId="sdram.we.p114" configurationId="sdram.we"/>
+      <configSetting altId="spi1.miso1.p410" configurationId="spi1.miso1" isUsedByDriver="true"/>
+      <configSetting altId="spi1.mosi1.p411" configurationId="spi1.mosi1" isUsedByDriver="true"/>
+      <configSetting altId="spi1.rspck1.p412" configurationId="spi1.rspck1" isUsedByDriver="true"/>
       <configSetting altId="usbfs.usb_dm.p815" configurationId="usbfs.usb_dm"/>
       <configSetting altId="usbfs.usb_dp.p814" configurationId="usbfs.usb_dp"/>
       <configSetting altId="usbfs.usb_vbus.p407" configurationId="usbfs.usb_vbus"/>

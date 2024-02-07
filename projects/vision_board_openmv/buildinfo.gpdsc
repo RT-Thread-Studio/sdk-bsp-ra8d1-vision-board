@@ -22,6 +22,7 @@
         <file category="include" name="ra/fsp/inc/"/>
         <file category="include" name="ra/fsp/inc/api/"/>
         <file category="include" name="ra/fsp/inc/instances/"/>
+        <file category="include" name="ra/fsp/src/r_usb_basic/src/driver/inc/"/>
         <file category="include" name="ra/tes/dave2d/inc/"/>
         <file category="header" name="ra/arm/CMSIS_5/CMSIS/Core/Include/cachel1_armv7.h" path=""/>
         <file category="header" name="ra/arm/CMSIS_5/CMSIS/Core/Include/cmsis_armcc.h" path=""/>
@@ -72,6 +73,7 @@
         <file category="header" name="ra/fsp/inc/api/r_i2c_master_api.h" path=""/>
         <file category="header" name="ra/fsp/inc/api/r_ioport_api.h" path=""/>
         <file category="header" name="ra/fsp/inc/api/r_sdmmc_api.h" path=""/>
+        <file category="header" name="ra/fsp/inc/api/r_spi_api.h" path=""/>
         <file category="header" name="ra/fsp/inc/api/r_timer_api.h" path=""/>
         <file category="header" name="ra/fsp/inc/api/r_transfer_api.h" path=""/>
         <file category="header" name="ra/fsp/inc/api/r_uart_api.h" path=""/>
@@ -79,6 +81,7 @@
         <file category="header" name="ra/fsp/inc/fsp_version.h" path=""/>
         <file category="header" name="ra/fsp/inc/instances/r_ceu.h" path=""/>
         <file category="header" name="ra/fsp/inc/instances/r_dmac.h" path=""/>
+        <file category="header" name="ra/fsp/inc/instances/r_dtc.h" path=""/>
         <file category="header" name="ra/fsp/inc/instances/r_flash_hp.h" path=""/>
         <file category="header" name="ra/fsp/inc/instances/r_glcdc.h" path=""/>
         <file category="header" name="ra/fsp/inc/instances/r_gpt.h" path=""/>
@@ -86,6 +89,7 @@
         <file category="header" name="ra/fsp/inc/instances/r_sci_b_i2c.h" path=""/>
         <file category="header" name="ra/fsp/inc/instances/r_sci_b_uart.h" path=""/>
         <file category="header" name="ra/fsp/inc/instances/r_sdhi.h" path=""/>
+        <file category="header" name="ra/fsp/inc/instances/r_spi_b.h" path=""/>
         <file category="header" name="ra/fsp/src/bsp/cmsis/Device/RENESAS/Include/R7FA8D1BH.h" path=""/>
         <file category="header" name="ra/fsp/src/bsp/cmsis/Device/RENESAS/Include/renesas.h" path=""/>
         <file category="header" name="ra/fsp/src/bsp/cmsis/Device/RENESAS/Include/system.h" path=""/>
@@ -126,6 +130,7 @@
         <file category="header" name="ra/fsp/src/r_drw/r_drw_base.h" path=""/>
         <file category="source" name="ra/fsp/src/r_drw/r_drw_irq.c"/>
         <file category="source" name="ra/fsp/src/r_drw/r_drw_memory.c"/>
+        <file category="source" name="ra/fsp/src/r_dtc/r_dtc.c"/>
         <file category="source" name="ra/fsp/src/r_flash_hp/r_flash_hp.c"/>
         <file category="source" name="ra/fsp/src/r_glcdc/r_glcdc.c"/>
         <file category="source" name="ra/fsp/src/r_gpt/r_gpt.c"/>
@@ -134,6 +139,7 @@
         <file category="source" name="ra/fsp/src/r_sci_b_uart/r_sci_b_uart.c"/>
         <file category="source" name="ra/fsp/src/r_sdhi/r_sdhi.c"/>
         <file category="header" name="ra/fsp/src/r_sdhi/r_sdhi_private.h" path=""/>
+        <file category="source" name="ra/fsp/src/r_spi_b/r_spi_b.c"/>
         <file category="other" name="ra/SConscript"/>
         <file category="header" name="ra/tes/dave2d/inc/dave_base.h" path=""/>
         <file category="header" name="ra/tes/dave2d/inc/dave_driver.h" path=""/>
@@ -205,6 +211,7 @@
         <file category="header" name="ra_cfg/fsp_cfg/r_ceu_cfg.h" path=""/>
         <file category="header" name="ra_cfg/fsp_cfg/r_dmac_cfg.h" path=""/>
         <file category="header" name="ra_cfg/fsp_cfg/r_drw_cfg.h" path=""/>
+        <file category="header" name="ra_cfg/fsp_cfg/r_dtc_cfg.h" path=""/>
         <file category="header" name="ra_cfg/fsp_cfg/r_flash_hp_cfg.h" path=""/>
         <file category="header" name="ra_cfg/fsp_cfg/r_glcdc_cfg.h" path=""/>
         <file category="header" name="ra_cfg/fsp_cfg/r_gpt_cfg.h" path=""/>
@@ -212,6 +219,7 @@
         <file category="header" name="ra_cfg/fsp_cfg/r_sci_b_i2c_cfg.h" path=""/>
         <file category="header" name="ra_cfg/fsp_cfg/r_sci_b_uart_cfg.h" path=""/>
         <file category="header" name="ra_cfg/fsp_cfg/r_sdhi_cfg.h" path=""/>
+        <file category="header" name="ra_cfg/fsp_cfg/r_spi_b_cfg.h" path=""/>
         <file category="header" name="ra_cfg/fsp_cfg/r_usb_basic_cfg.h" path=""/>
         <file category="header" name="ra_cfg/fsp_cfg/r_usb_class_cfg.h" path=""/>
         <file category="header" name="ra_cfg/fsp_cfg/r_usb_pcdc_cfg.h" path=""/>

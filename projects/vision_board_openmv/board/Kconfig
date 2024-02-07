@@ -611,9 +611,8 @@ menu "Hardware Drivers Config"
                 bool "Enable RW007"
                 default n
                 select PKG_USING_RW007
-                select BSP_USING_SCI
-                select BSP_USING_SCI2
-                select BSP_USING_SCI2_SPI
+                select BSP_USING_SPI
+                select BSP_USING_SPI1
                 select RT_USING_MEMPOOL
                 select RW007_NOT_USE_EXAMPLE_DRIVERS
 
@@ -624,23 +623,23 @@ menu "Hardware Drivers Config"
 
                 config RA_RW007_CS_PIN
                     hex "(HEX)CS pin index"
-                    default 0x060C
+                    default 0x040D
 
                 config RA_RW007_BOOT0_PIN
                     hex "(HEX)BOOT0 pin index (same as spi clk pin)"
-                    default 0x060B
+                    default 0x040C
 
                 config RA_RW007_BOOT1_PIN
                     hex "(HEX)BOOT1 pin index (same as spi cs pin)"
-                    default 0x060C
+                    default 0x040D
 
                 config RA_RW007_INT_BUSY_PIN
                     hex "(HEX)INT/BUSY pin index"
-                    default 0x0006
+                    default 0x0800
 
                 config RA_RW007_RST_PIN
                     hex "(HEX)RESET pin index"
-                    default 0x0A08
+                    default 0x0504
             endif
     endmenu
 endmenu
