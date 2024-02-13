@@ -1,0 +1,16 @@
+from building import *
+import os
+
+cwd = GetCurrentDir()
+src = []
+src += Glob('*.c')
+src += Glob('platform/*.c')
+
+SrcRemove(src, ['i_video.c'])
+SrcRemove(src, ['i_videohr.c'])
+
+path =  [cwd]
+path += [cwd + '/platform']
+
+group = DefineGroup('Game-Doom', src, depend = ['BSP_USING_LCD'], CPPPATH = path)
+Return('group')
