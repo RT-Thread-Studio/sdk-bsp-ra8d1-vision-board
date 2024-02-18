@@ -490,6 +490,8 @@ menu "Hardware Drivers Config"
                 config BSP_USING_SDCARD_FS
                     bool "Enable SDCARD filesystem"
                     select BSP_USING_SDHI
+                    select BSP_USING_SDHI1
+                    select SDHI_USING_CD
                     select RT_USING_DFS_ELMFAT
                     default n
             endif
@@ -516,7 +518,7 @@ menu "Hardware Drivers Config"
                 config SDHI_USING_1_BIT
                     bool "Use 1-bit Mode(4-bit when disable)"
                     default y
-        endif
+            endif
 
         menuconfig BSP_USING_PWM
             bool "Enable PWM"
@@ -619,7 +621,7 @@ menu "Hardware Drivers Config"
             if BSP_USING_RW007
                 config RA_RW007_SPI_BUS_NAME
                     string "RW007 BUS NAME"
-                    default "scpi0"
+                    default "spi1"
 
                 config RA_RW007_CS_PIN
                     hex "(HEX)CS pin index"
