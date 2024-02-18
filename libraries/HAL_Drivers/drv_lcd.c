@@ -144,7 +144,7 @@ void lcd_draw_jpg(int32_t x, int32_t y, const void *p, int32_t xSize, int32_t yS
     d2_cliprect(*_d2_handle_user, 0, 0, LCD_WIDTH, LCD_HEIGHT);
     d2_setblitsrc(*_d2_handle_user, (void *) p, xSize, xSize, ySize, ModeSrc);
     d2_blitcopy(*_d2_handle_user, xSize, ySize, 0, 0, (d2_width)(LCD_WIDTH << 4), (d2_width)(LCD_HEIGHT << 4),
-                (d2_point)(0 << 4), (d2_point)(0 << 4), 0);
+                (d2_point)(x << 4), (d2_point)(y << 4), 0);
 
     // Execute render operations
     d2_executerenderbuffer(*_d2_handle_user, renderbuffer, 0);
@@ -340,6 +340,8 @@ int rt_hw_lcd_init(void)
 
     /* turn on lcd  backlight */
     turn_on_lcd_backlight();
+
+    ra_bsp_lcd_clear(0x0);
 
     screen_rotation = ROTATION_ZERO;
 
