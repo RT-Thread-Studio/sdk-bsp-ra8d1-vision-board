@@ -151,6 +151,7 @@
         <peripheral name="GPT6" group="GPT" security=""/>
         <peripheral name="ICU_EXT_IRQ">
             <slot name="ICU_EXT_IRQ14" secure="true"/>
+            <slot name="ICU_EXT_IRQ10" secure="true"/>
         </peripheral>
         <peripheral name="SDHI1" group="SDHI" security=""/>
         <peripheral name="DMA_DMAC0" group="DMA_DMAC" security=""/>
@@ -167,6 +168,7 @@
             <slot name="IRQ9" secure="true"/>
             <slot name="IRQ10" secure="true"/>
             <slot name="IRQ11" secure="true"/>
+            <slot name="IRQ12" secure="true"/>
         </peripheral>
     </partition>
 </azone>

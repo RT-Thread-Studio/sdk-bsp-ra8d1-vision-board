@@ -17,6 +17,7 @@
             [9] = sdhimmc_accs_isr, /* SDHIMMC1 ACCS (Card access) */
             [10] = sdhimmc_card_isr, /* SDHIMMC1 CARD (Card detect) */
             [11] = dmac_int_isr, /* DMAC0 INT (DMAC0 transfer end 0) */
+            [12] = r_icu_isr, /* ICU IRQ10 (External pin interrupt 10) */
         };
         const bsp_interrupt_event_t g_interrupt_event_link_select[BSP_ICU_VECTOR_MAX_ENTRIES] =
         {
@@ -32,6 +33,7 @@
             [9] = BSP_PRV_IELS_ENUM(EVENT_SDHIMMC1_ACCS), /* SDHIMMC1 ACCS (Card access) */
             [10] = BSP_PRV_IELS_ENUM(EVENT_SDHIMMC1_CARD), /* SDHIMMC1 CARD (Card detect) */
             [11] = BSP_PRV_IELS_ENUM(EVENT_DMAC0_INT), /* DMAC0 INT (DMAC0 transfer end 0) */
+            [12] = BSP_PRV_IELS_ENUM(EVENT_ICU_IRQ10), /* ICU IRQ10 (External pin interrupt 10) */
         };
         #elif __has_include("r_ioport_b.h")
         BSP_DONT_REMOVE const fsp_vector_t g_vector_table[BSP_IRQ_VECTOR_MAX_ENTRIES] BSP_PLACE_IN_SECTION(BSP_SECTION_APPLICATION_VECTORS) =
@@ -48,6 +50,7 @@
             [BSP_PRV_IELS_ENUM(SDHIMMC1_ACCS)] = sdhimmc_accs_isr, /* SDHIMMC1 ACCS (Card access) */
             [BSP_PRV_IELS_ENUM(SDHIMMC1_CARD)] = sdhimmc_card_isr, /* SDHIMMC1 CARD (Card detect) */
             [BSP_PRV_IELS_ENUM(DMAC0_INT)] = dmac_int_isr, /* DMAC0 INT (DMAC0 transfer end 0) */
+            [BSP_PRV_IELS_ENUM(ICU_IRQ10)] = r_icu_isr, /* ICU IRQ10 (External pin interrupt 10) */
         };
         #endif
         #endif

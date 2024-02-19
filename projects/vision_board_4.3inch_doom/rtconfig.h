@@ -122,6 +122,8 @@
 #define RT_MMCSD_THREAD_PREORITY 22
 #define RT_MMCSD_MAX_PARTITION 16
 #define RT_USING_SPI
+#define RT_USING_TOUCH
+#define RT_TOUCH_PIN_IRQ
 
 /* Using USB */
 
@@ -192,6 +194,12 @@
 
 /* tools packages */
 
+#define PKG_USING_CMBACKTRACE
+#define PKG_CMBACKTRACE_PLATFORM_M7
+#define PKG_CMBACKTRACE_DUMP_STACK
+#define PKG_CMBACKTRACE_PRINT_ENGLISH
+#define PKG_USING_CMBACKTRACE_V10401
+#define PKG_CMBACKTRACE_VER_NUM 0x10401
 
 /* system packages */
 
@@ -214,6 +222,8 @@
 
 /* touch drivers */
 
+#define PKG_USING_GT9147
+#define PKG_USING_GT9147_V110
 
 /* Kendryte SDK */
 
