@@ -137,7 +137,7 @@
       <configSetting altId="gpt6.gtioc6a.pa11" configurationId="gpt6.gtioc6a" isUsedByDriver="true"/>
       <configSetting altId="iic1.scl1.p512" configurationId="iic1.scl1"/>
       <configSetting altId="iic1.sda1.p511" configurationId="iic1.sda1"/>
-      <configSetting altId="irq10.irq10.p907" configurationId="irq10.irq10"/>
+      <configSetting altId="irq10.irq10.p907" configurationId="irq10.irq10" isUsedByDriver="true"/>
       <configSetting altId="irq12.irq12_dash_ds.p008" configurationId="irq12.irq12_dash_ds"/>
       <configSetting altId="irq13.irq13_dash_ds.p009" configurationId="irq13.irq13_dash_ds"/>
       <configSetting altId="irq14.irq14.p010" configurationId="irq14.irq14" isUsedByDriver="true"/>

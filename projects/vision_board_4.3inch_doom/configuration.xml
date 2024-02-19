@@ -603,6 +603,15 @@
       <property id="module.driver.transfer.offset" value="1"/>
       <property id="module.driver.transfer.src.buffer" value="1"/>
     </module>
+    <module id="module.driver.external_irq_on_icu.1415308352">
+      <property id="module.driver.external_irq.name" value="g_external_irq10"/>
+      <property id="module.driver.external_irq.channel" value="10"/>
+      <property id="module.driver.external_irq.trigger" value="module.driver.external_irq.trigger.trig_falling"/>
+      <property id="module.driver.external_irq.filter_enable" value="module.driver.external_irq.filter_enable.true"/>
+      <property id="module.driver.external_irq.clock_source_div" value="module.driver.external_irq.clock_source_div.clock_source_div_by_64"/>
+      <property id="module.driver.external_irq.p_callback" value="irq_callback"/>
+      <property id="module.driver.external_irq.ipl" value="board.icu.common.irq.priority12"/>
+    </module>
     <context id="_hal.0">
       <stack module="module.driver.ioport_on_ioport.0"/>
       <stack module="module.driver.uart_on_sci_b_uart.1514241209"/>
@@ -616,6 +625,7 @@
       <stack module="module.driver.sdmmc_on_sdmmc.2050224946">
         <stack module="module.driver.transfer_on_dmac.234205299" requires="module.driver.sdmmc_on_sdmmc.requires.transfer"/>
       </stack>
+      <stack module="module.driver.external_irq_on_icu.1415308352"/>
     </context>
     <config id="config.driver.glcdc">
       <property id="config.driver.glcdc.param_checking_enable" value="config.driver.glcdc.param_checking_enable.bsp"/>
@@ -781,7 +791,6 @@
     <symbolicName propertyId="p904.symbolic_name" value="LCD_DATA6"/>
     <symbolicName propertyId="p905.symbolic_name" value="ARDUINO_D4"/>
     <symbolicName propertyId="p906.symbolic_name" value="ARDUINO_D2"/>
-    <symbolicName propertyId="p907.symbolic_name" value="ARDUINO_D3_MIKROBUS_GTIOC13A"/>
     <symbolicName propertyId="p908.symbolic_name" value="ARDUINO_D7"/>
     <symbolicName propertyId="p909.symbolic_name" value="ARDUINO_D8"/>
     <symbolicName propertyId="p910.symbolic_name" value="LCD_DATA2"/>

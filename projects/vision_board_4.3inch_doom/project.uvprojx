@@ -340,7 +340,7 @@
               <MiscControls>-Wno-license-management -Wuninitialized -Wall -Wmissing-declarations -Wpointer-arith -Waggregate-return -Wfloat-equal</MiscControls>
               <Define>RT_USING_LIBC, RT_USING_ARMLIBC, __STDC_LIMIT_MACROS, __RTTHREAD__, __CLK_TCK=RT_TICK_PER_SECOND</Define>
               <Undefine></Undefine>
-              <IncludePath>rt-thread\components\drivers\include;rt-thread\components\libc\compilers\common\extension;rt-thread\components\finsh;rt-thread\libcpu\arm\common;board\ports\doom;rt-thread\components\libc\posix\io\eventfd;rt-thread\include;libraries\HAL_Drivers;rt-thread\components\drivers\include;board;rt-thread\libcpu\arm\cortex-m85;rt-thread\components\dfs\dfs_v1\include;rt-thread\components\libc\posix\io\poll;rt-thread\components\dfs\dfs_v1\filesystems\elmfat;rt-thread\components\drivers\include;rt-thread\components\libc\posix\ipc;rt-thread\components\libc\compilers\common\include;rt-thread\components\drivers\spi;board\ports;.;rt-thread\components\dfs\dfs_v1\filesystems\devfs;rt-thread\components\drivers\include;rt-thread\components\drivers\include;rt-thread\components\libc\compilers\common\extension\fcntl\octal;rt-thread\components\libc\posix\io\epoll;rt-thread\components\drivers\include;libraries\HAL_Drivers\config;rt-thread\components\drivers\include;board\ports\doom\platform</IncludePath>
+              <IncludePath>rt-thread\components\drivers\include;rt-thread\components\drivers\include;rt-thread\components\libc\compilers\common\extension;rt-thread\components\finsh;rt-thread\libcpu\arm\common;board;rt-thread\components\libc\posix\io\eventfd;rt-thread\include;libraries\HAL_Drivers;rt-thread\components\drivers\include;board\ports\doom;rt-thread\libcpu\arm\cortex-m85;rt-thread\components\dfs\dfs_v1\include;rt-thread\components\drivers\include;rt-thread\components\libc\posix\io\poll;rt-thread\components\dfs\dfs_v1\filesystems\elmfat;packages\CmBacktrace-v1.4.1;rt-thread\components\libc\posix\ipc;rt-thread\components\libc\compilers\common\include;rt-thread\components\drivers\spi;board\ports;.;packages\gt9147-v1.1.0\inc;rt-thread\components\dfs\dfs_v1\filesystems\devfs;rt-thread\components\drivers\include;rt-thread\components\drivers\include;rt-thread\components\libc\compilers\common\extension\fcntl\octal;rt-thread\components\libc\posix\io\epoll;rt-thread\components\drivers\include;libraries\HAL_Drivers\config;rt-thread\components\drivers\touch;rt-thread\components\drivers\include;board\ports\doom\platform</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -381,6 +381,179 @@
         </TargetArmAds>
       </TargetOption>
       <Groups>
+        <Group>
+          <GroupName>cm_backtrace</GroupName>
+          <Files>
+            <File>
+              <FileName>cmb_port.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\CmBacktrace-v1.4.1\cmb_port.c</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>1</IncludeInBuild>
+                  <AlwaysBuild>0</AlwaysBuild>
+                  <GenerateAssemblyFile>0</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>0</AssembleAssemblyFile>
+                  <PublicsOnly>0</PublicsOnly>
+                  <StopOnExitCode>3</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>0</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <uGnu>2</uGnu>
+                    <useXO>2</useXO>
+                    <v6Lang>0</v6Lang>
+                    <v6LangP>0</v6LangP>
+                    <vShortEn>2</vShortEn>
+                    <vShortWch>2</vShortWch>
+                    <v6Lto>2</v6Lto>
+                    <v6WtE>2</v6WtE>
+                    <v6Rtti>2</v6Rtti>
+                    <VariousControls>
+                      <MiscControls>  -std=gnu99</MiscControls>
+                      <Define> </Define>
+                      <Undefine> </Undefine>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>cm_backtrace.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\CmBacktrace-v1.4.1\cm_backtrace.c</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>1</IncludeInBuild>
+                  <AlwaysBuild>0</AlwaysBuild>
+                  <GenerateAssemblyFile>0</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>0</AssembleAssemblyFile>
+                  <PublicsOnly>0</PublicsOnly>
+                  <StopOnExitCode>3</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>0</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <uGnu>2</uGnu>
+                    <useXO>2</useXO>
+                    <v6Lang>0</v6Lang>
+                    <v6LangP>0</v6LangP>
+                    <vShortEn>2</vShortEn>
+                    <vShortWch>2</vShortWch>
+                    <v6Lto>2</v6Lto>
+                    <v6WtE>2</v6WtE>
+                    <v6Rtti>2</v6Rtti>
+                    <VariousControls>
+                      <MiscControls>  -std=gnu99</MiscControls>
+                      <Define> </Define>
+                      <Undefine> </Undefine>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>cmb_flash_log.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\CmBacktrace-v1.4.1\cmb_flash_log.c</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>1</IncludeInBuild>
+                  <AlwaysBuild>0</AlwaysBuild>
+                  <GenerateAssemblyFile>0</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>0</AssembleAssemblyFile>
+                  <PublicsOnly>0</PublicsOnly>
+                  <StopOnExitCode>3</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>0</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <uGnu>2</uGnu>
+                    <useXO>2</useXO>
+                    <v6Lang>0</v6Lang>
+                    <v6LangP>0</v6LangP>
+                    <vShortEn>2</vShortEn>
+                    <vShortWch>2</vShortWch>
+                    <v6Lto>2</v6Lto>
+                    <v6WtE>2</v6WtE>
+                    <v6Rtti>2</v6Rtti>
+                    <VariousControls>
+                      <MiscControls>  -std=gnu99</MiscControls>
+                      <Define> </Define>
+                      <Undefine> </Undefine>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
+            </File>
+          </Files>
+        </Group>
         <Group>
           <GroupName>Compiler</GroupName>
           <Files>
@@ -569,6 +742,11 @@
               <FileType>1</FileType>
               <FilePath>rt-thread\components\drivers\spi\spi_dev.c</FilePath>
             </File>
+            <File>
+              <FileName>touch.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>rt-thread\components\drivers\touch\touch.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -705,49 +883,19 @@
           <GroupName>Game-Doom</GroupName>
           <Files>
             <File>
-              <FileName>m_random.c</FileName>
+              <FileName>p_inter.c</FileName>
               <FileType>1</FileType>
-              <FilePath>board\ports\doom\m_random.c</FilePath>
+              <FilePath>board\ports\doom\p_inter.c</FilePath>
             </File>
             <File>
-              <FileName>d_mode.c</FileName>
+              <FileName>st_stuff.c</FileName>
               <FileType>1</FileType>
-              <FilePath>board\ports\doom\d_mode.c</FilePath>
+              <FilePath>board\ports\doom\st_stuff.c</FilePath>
             </File>
             <File>
-              <FileName>info.c</FileName>
+              <FileName>d_event.c</FileName>
               <FileType>1</FileType>
-              <FilePath>board\ports\doom\info.c</FilePath>
-            </File>
-            <File>
-              <FileName>r_things.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\r_things.c</FilePath>
-            </File>
-            <File>
-              <FileName>p_user.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\p_user.c</FilePath>
-            </File>
-            <File>
-              <FileName>am_map.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\am_map.c</FilePath>
-            </File>
-            <File>
-              <FileName>f_finale.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\f_finale.c</FilePath>
-            </File>
-            <File>
-              <FileName>i_timer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\i_timer.c</FilePath>
-            </File>
-            <File>
-              <FileName>hu_lib.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\hu_lib.c</FilePath>
+              <FilePath>board\ports\doom\d_event.c</FilePath>
             </File>
             <File>
               <FileName>i_cdmus.c</FileName>
@@ -755,54 +903,129 @@
               <FilePath>board\ports\doom\i_cdmus.c</FilePath>
             </File>
             <File>
+              <FileName>w_file_stdc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\w_file_stdc.c</FilePath>
+            </File>
+            <File>
+              <FileName>button.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\button.c</FilePath>
+            </File>
+            <File>
+              <FileName>p_setup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\p_setup.c</FilePath>
+            </File>
+            <File>
+              <FileName>memio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\memio.c</FilePath>
+            </File>
+            <File>
+              <FileName>hu_lib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\hu_lib.c</FilePath>
+            </File>
+            <File>
+              <FileName>d_items.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\d_items.c</FilePath>
+            </File>
+            <File>
+              <FileName>r_main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\r_main.c</FilePath>
+            </File>
+            <File>
+              <FileName>i_video.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\platform\i_video.c</FilePath>
+            </File>
+            <File>
+              <FileName>dstrings.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\dstrings.c</FilePath>
+            </File>
+            <File>
+              <FileName>f_finale.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\f_finale.c</FilePath>
+            </File>
+            <File>
+              <FileName>i_system.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\i_system.c</FilePath>
+            </File>
+            <File>
+              <FileName>m_config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\m_config.c</FilePath>
+            </File>
+            <File>
+              <FileName>i_input.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\i_input.c</FilePath>
+            </File>
+            <File>
+              <FileName>m_misc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\m_misc.c</FilePath>
+            </File>
+            <File>
+              <FileName>sha1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\sha1.c</FilePath>
+            </File>
+            <File>
+              <FileName>p_sight.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\p_sight.c</FilePath>
+            </File>
+            <File>
+              <FileName>p_telept.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\p_telept.c</FilePath>
+            </File>
+            <File>
+              <FileName>doomgeneric_rtthread.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\platform\doomgeneric_rtthread.c</FilePath>
+            </File>
+            <File>
+              <FileName>i_endoom.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\i_endoom.c</FilePath>
+            </File>
+            <File>
+              <FileName>z_zone.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\z_zone.c</FilePath>
+            </File>
+            <File>
+              <FileName>p_lights.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\p_lights.c</FilePath>
+            </File>
+            <File>
+              <FileName>p_maputl.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\p_maputl.c</FilePath>
+            </File>
+            <File>
               <FileName>r_bsp.c</FileName>
               <FileType>1</FileType>
               <FilePath>board\ports\doom\r_bsp.c</FilePath>
             </File>
             <File>
-              <FileName>statdump.c</FileName>
+              <FileName>v_video.c</FileName>
               <FileType>1</FileType>
-              <FilePath>board\ports\doom\statdump.c</FilePath>
+              <FilePath>board\ports\doom\v_video.c</FilePath>
             </File>
             <File>
-              <FileName>w_file.c</FileName>
+              <FileName>m_controls.c</FileName>
               <FileType>1</FileType>
-              <FilePath>board\ports\doom\w_file.c</FilePath>
-            </File>
-            <File>
-              <FileName>i_scale.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\i_scale.c</FilePath>
-            </File>
-            <File>
-              <FileName>doomdef.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\doomdef.c</FilePath>
-            </File>
-            <File>
-              <FileName>d_main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\d_main.c</FilePath>
-            </File>
-            <File>
-              <FileName>i_joystick.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\i_joystick.c</FilePath>
-            </File>
-            <File>
-              <FileName>w_main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\w_main.c</FilePath>
-            </File>
-            <File>
-              <FileName>p_enemy.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\p_enemy.c</FilePath>
-            </File>
-            <File>
-              <FileName>dummy.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\dummy.c</FilePath>
+              <FilePath>board\ports\doom\m_controls.c</FilePath>
             </File>
             <File>
               <FileName>icon.c</FileName>
@@ -815,139 +1038,14 @@
               <FilePath>board\ports\doom\m_argv.c</FilePath>
             </File>
             <File>
-              <FileName>doomstat.c</FileName>
+              <FileName>doomdef.c</FileName>
               <FileType>1</FileType>
-              <FilePath>board\ports\doom\doomstat.c</FilePath>
+              <FilePath>board\ports\doom\doomdef.c</FilePath>
             </File>
             <File>
-              <FileName>w_checksum.c</FileName>
+              <FileName>info.c</FileName>
               <FileType>1</FileType>
-              <FilePath>board\ports\doom\w_checksum.c</FilePath>
-            </File>
-            <File>
-              <FileName>st_lib.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\st_lib.c</FilePath>
-            </File>
-            <File>
-              <FileName>s_sound.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\s_sound.c</FilePath>
-            </File>
-            <File>
-              <FileName>z_zone.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\z_zone.c</FilePath>
-            </File>
-            <File>
-              <FileName>i_main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\i_main.c</FilePath>
-            </File>
-            <File>
-              <FileName>p_sight.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\p_sight.c</FilePath>
-            </File>
-            <File>
-              <FileName>gusconf.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\gusconf.c</FilePath>
-            </File>
-            <File>
-              <FileName>m_controls.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\m_controls.c</FilePath>
-            </File>
-            <File>
-              <FileName>p_maputl.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\p_maputl.c</FilePath>
-            </File>
-            <File>
-              <FileName>r_draw.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\r_draw.c</FilePath>
-            </File>
-            <File>
-              <FileName>m_misc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\m_misc.c</FilePath>
-            </File>
-            <File>
-              <FileName>p_tick.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\p_tick.c</FilePath>
-            </File>
-            <File>
-              <FileName>d_event.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\d_event.c</FilePath>
-            </File>
-            <File>
-              <FileName>i_sound.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\i_sound.c</FilePath>
-            </File>
-            <File>
-              <FileName>dstrings.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\dstrings.c</FilePath>
-            </File>
-            <File>
-              <FileName>sha1.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\sha1.c</FilePath>
-            </File>
-            <File>
-              <FileName>doomgeneric_rtthread.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\platform\doomgeneric_rtthread.c</FilePath>
-            </File>
-            <File>
-              <FileName>memio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\memio.c</FilePath>
-            </File>
-            <File>
-              <FileName>tables.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\tables.c</FilePath>
-            </File>
-            <File>
-              <FileName>r_sky.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\r_sky.c</FilePath>
-            </File>
-            <File>
-              <FileName>wi_stuff.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\wi_stuff.c</FilePath>
-            </File>
-            <File>
-              <FileName>m_menu.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\m_menu.c</FilePath>
-            </File>
-            <File>
-              <FileName>p_plats.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\p_plats.c</FilePath>
-            </File>
-            <File>
-              <FileName>w_file_stdc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\w_file_stdc.c</FilePath>
-            </File>
-            <File>
-              <FileName>i_system.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\i_system.c</FilePath>
-            </File>
-            <File>
-              <FileName>button.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\button.c</FilePath>
+              <FilePath>board\ports\doom\info.c</FilePath>
             </File>
             <File>
               <FileName>r_data.c</FileName>
@@ -955,124 +1053,54 @@
               <FilePath>board\ports\doom\r_data.c</FilePath>
             </File>
             <File>
-              <FileName>w_wad.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\w_wad.c</FilePath>
-            </File>
-            <File>
-              <FileName>i_video.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\platform\i_video.c</FilePath>
-            </File>
-            <File>
-              <FileName>r_main.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\r_main.c</FilePath>
-            </File>
-            <File>
-              <FileName>p_telept.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\p_telept.c</FilePath>
-            </File>
-            <File>
-              <FileName>p_lights.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\p_lights.c</FilePath>
-            </File>
-            <File>
-              <FileName>m_fixed.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\m_fixed.c</FilePath>
-            </File>
-            <File>
-              <FileName>p_inter.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\p_inter.c</FilePath>
-            </File>
-            <File>
-              <FileName>p_switch.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\p_switch.c</FilePath>
-            </File>
-            <File>
-              <FileName>i_input.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\i_input.c</FilePath>
-            </File>
-            <File>
-              <FileName>doomgeneric.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\doomgeneric.c</FilePath>
-            </File>
-            <File>
-              <FileName>d_items.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\d_items.c</FilePath>
-            </File>
-            <File>
-              <FileName>p_pspr.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\p_pspr.c</FilePath>
-            </File>
-            <File>
-              <FileName>d_iwad.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\d_iwad.c</FilePath>
-            </File>
-            <File>
-              <FileName>m_config.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\m_config.c</FilePath>
-            </File>
-            <File>
-              <FileName>f_wipe.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\f_wipe.c</FilePath>
-            </File>
-            <File>
-              <FileName>i_endoom.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\i_endoom.c</FilePath>
-            </File>
-            <File>
-              <FileName>p_doors.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\p_doors.c</FilePath>
-            </File>
-            <File>
-              <FileName>p_floor.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\p_floor.c</FilePath>
-            </File>
-            <File>
-              <FileName>p_setup.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>board\ports\doom\p_setup.c</FilePath>
-            </File>
-            <File>
               <FileName>m_cheat.c</FileName>
               <FileType>1</FileType>
               <FilePath>board\ports\doom\m_cheat.c</FilePath>
             </File>
             <File>
-              <FileName>p_map.c</FileName>
+              <FileName>d_mode.c</FileName>
               <FileType>1</FileType>
-              <FilePath>board\ports\doom\p_map.c</FilePath>
+              <FilePath>board\ports\doom\d_mode.c</FilePath>
             </File>
             <File>
-              <FileName>r_plane.c</FileName>
+              <FileName>p_user.c</FileName>
               <FileType>1</FileType>
-              <FilePath>board\ports\doom\r_plane.c</FilePath>
+              <FilePath>board\ports\doom\p_user.c</FilePath>
             </File>
             <File>
-              <FileName>hu_stuff.c</FileName>
+              <FileName>w_wad.c</FileName>
               <FileType>1</FileType>
-              <FilePath>board\ports\doom\hu_stuff.c</FilePath>
+              <FilePath>board\ports\doom\w_wad.c</FilePath>
             </File>
             <File>
-              <FileName>p_saveg.c</FileName>
+              <FileName>dummy.c</FileName>
               <FileType>1</FileType>
-              <FilePath>board\ports\doom\p_saveg.c</FilePath>
+              <FilePath>board\ports\doom\dummy.c</FilePath>
+            </File>
+            <File>
+              <FileName>p_tick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\p_tick.c</FilePath>
+            </File>
+            <File>
+              <FileName>i_joystick.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\i_joystick.c</FilePath>
+            </File>
+            <File>
+              <FileName>d_main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\d_main.c</FilePath>
+            </File>
+            <File>
+              <FileName>i_scale.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\i_scale.c</FilePath>
+            </File>
+            <File>
+              <FileName>w_file.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\w_file.c</FilePath>
             </File>
             <File>
               <FileName>d_net.c</FileName>
@@ -1080,19 +1108,44 @@
               <FilePath>board\ports\doom\d_net.c</FilePath>
             </File>
             <File>
-              <FileName>v_video.c</FileName>
+              <FileName>i_sound.c</FileName>
               <FileType>1</FileType>
-              <FilePath>board\ports\doom\v_video.c</FilePath>
+              <FilePath>board\ports\doom\i_sound.c</FilePath>
             </File>
             <File>
-              <FileName>p_ceilng.c</FileName>
+              <FileName>p_map.c</FileName>
               <FileType>1</FileType>
-              <FilePath>board\ports\doom\p_ceilng.c</FilePath>
+              <FilePath>board\ports\doom\p_map.c</FilePath>
             </File>
             <File>
-              <FileName>p_spec.c</FileName>
+              <FileName>r_things.c</FileName>
               <FileType>1</FileType>
-              <FilePath>board\ports\doom\p_spec.c</FilePath>
+              <FilePath>board\ports\doom\r_things.c</FilePath>
+            </File>
+            <File>
+              <FileName>p_enemy.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\p_enemy.c</FilePath>
+            </File>
+            <File>
+              <FileName>p_switch.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\p_switch.c</FilePath>
+            </File>
+            <File>
+              <FileName>tables.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\tables.c</FilePath>
+            </File>
+            <File>
+              <FileName>am_map.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\am_map.c</FilePath>
+            </File>
+            <File>
+              <FileName>r_draw.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\r_draw.c</FilePath>
             </File>
             <File>
               <FileName>r_segs.c</FileName>
@@ -1100,19 +1153,39 @@
               <FilePath>board\ports\doom\r_segs.c</FilePath>
             </File>
             <File>
-              <FileName>st_stuff.c</FileName>
+              <FileName>wi_stuff.c</FileName>
               <FileType>1</FileType>
-              <FilePath>board\ports\doom\st_stuff.c</FilePath>
+              <FilePath>board\ports\doom\wi_stuff.c</FilePath>
             </File>
             <File>
-              <FileName>m_bbox.c</FileName>
+              <FileName>p_doors.c</FileName>
               <FileType>1</FileType>
-              <FilePath>board\ports\doom\m_bbox.c</FilePath>
+              <FilePath>board\ports\doom\p_doors.c</FilePath>
             </File>
             <File>
-              <FileName>g_game.c</FileName>
+              <FileName>m_fixed.c</FileName>
               <FileType>1</FileType>
-              <FilePath>board\ports\doom\g_game.c</FilePath>
+              <FilePath>board\ports\doom\m_fixed.c</FilePath>
+            </File>
+            <File>
+              <FileName>st_lib.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\st_lib.c</FilePath>
+            </File>
+            <File>
+              <FileName>w_checksum.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\w_checksum.c</FilePath>
+            </File>
+            <File>
+              <FileName>p_floor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\p_floor.c</FilePath>
+            </File>
+            <File>
+              <FileName>p_saveg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\p_saveg.c</FilePath>
             </File>
             <File>
               <FileName>sounds.c</FileName>
@@ -1120,14 +1193,129 @@
               <FilePath>board\ports\doom\sounds.c</FilePath>
             </File>
             <File>
-              <FileName>d_loop.c</FileName>
+              <FileName>m_menu.c</FileName>
               <FileType>1</FileType>
-              <FilePath>board\ports\doom\d_loop.c</FilePath>
+              <FilePath>board\ports\doom\m_menu.c</FilePath>
+            </File>
+            <File>
+              <FileName>d_iwad.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\d_iwad.c</FilePath>
+            </File>
+            <File>
+              <FileName>p_pspr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\p_pspr.c</FilePath>
+            </File>
+            <File>
+              <FileName>i_main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\i_main.c</FilePath>
+            </File>
+            <File>
+              <FileName>g_game.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\g_game.c</FilePath>
+            </File>
+            <File>
+              <FileName>s_sound.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\s_sound.c</FilePath>
+            </File>
+            <File>
+              <FileName>f_wipe.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\f_wipe.c</FilePath>
+            </File>
+            <File>
+              <FileName>p_plats.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\p_plats.c</FilePath>
+            </File>
+            <File>
+              <FileName>w_main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\w_main.c</FilePath>
+            </File>
+            <File>
+              <FileName>doomstat.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\doomstat.c</FilePath>
+            </File>
+            <File>
+              <FileName>gusconf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\gusconf.c</FilePath>
+            </File>
+            <File>
+              <FileName>r_sky.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\r_sky.c</FilePath>
+            </File>
+            <File>
+              <FileName>hu_stuff.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\hu_stuff.c</FilePath>
+            </File>
+            <File>
+              <FileName>m_random.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\m_random.c</FilePath>
             </File>
             <File>
               <FileName>p_mobj.c</FileName>
               <FileType>1</FileType>
               <FilePath>board\ports\doom\p_mobj.c</FilePath>
+            </File>
+            <File>
+              <FileName>statdump.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\statdump.c</FilePath>
+            </File>
+            <File>
+              <FileName>p_ceilng.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\p_ceilng.c</FilePath>
+            </File>
+            <File>
+              <FileName>d_loop.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\d_loop.c</FilePath>
+            </File>
+            <File>
+              <FileName>m_bbox.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\m_bbox.c</FilePath>
+            </File>
+            <File>
+              <FileName>r_plane.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\r_plane.c</FilePath>
+            </File>
+            <File>
+              <FileName>doomgeneric.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\doomgeneric.c</FilePath>
+            </File>
+            <File>
+              <FileName>p_spec.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\p_spec.c</FilePath>
+            </File>
+            <File>
+              <FileName>i_timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>board\ports\doom\i_timer.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>gt9147</GroupName>
+          <Files>
+            <File>
+              <FileName>gt9147.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>packages\gt9147-v1.1.0\src\gt9147.c</FilePath>
             </File>
           </Files>
         </Group>

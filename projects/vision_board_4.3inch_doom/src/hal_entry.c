@@ -11,6 +11,8 @@
 #include <rtthread.h>
 #include <rtdevice.h>
 #include "hal_data.h"
+
+#include "doomgeneric.h"
 #include "doom.h"
 
 #define LED_PIN    BSP_IO_PORT_01_PIN_02 /* Onboard LED pins */
@@ -25,8 +27,8 @@ void hal_entry(void)
 }
 
 static void doom_thread_entry(void *param)
-{
-    extern void D_DoomMain(void);
+{	
+	DG_Init();
     D_DoomMain();
 }
 

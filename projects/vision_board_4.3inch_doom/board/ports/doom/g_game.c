@@ -1593,8 +1593,8 @@ void G_DoSaveGame (void)
     char *temp_savegame_file;
     FRESULT res;
 
-    temp_savegame_file = _strupr_d (P_TempSaveGameFile());
-    savegame_file = _strupr_d (P_SaveGameFile(savegameslot));
+    temp_savegame_file = P_TempSaveGameFile();
+    savegame_file = P_SaveGameFile(savegameslot);
 
     // Open the savegame file for writing.  We write to a temporary file
     // and then rename it at the end if it was successfully written.

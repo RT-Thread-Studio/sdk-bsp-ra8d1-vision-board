@@ -6,7 +6,7 @@
         #endif
                 /* Number of interrupts allocated */
         #ifndef VECTOR_DATA_IRQ_COUNT
-        #define VECTOR_DATA_IRQ_COUNT    (12)
+        #define VECTOR_DATA_IRQ_COUNT    (13)
         #endif
         /* ISR prototypes */
         void sci_b_uart_rxi_isr(void);
@@ -48,6 +48,8 @@
         #define SDHIMMC1_CARD_IRQn          ((IRQn_Type) 10) /* SDHIMMC1 CARD (Card detect) */
         #define VECTOR_NUMBER_DMAC0_INT ((IRQn_Type) 11) /* DMAC0 INT (DMAC0 transfer end 0) */
         #define DMAC0_INT_IRQn          ((IRQn_Type) 11) /* DMAC0 INT (DMAC0 transfer end 0) */
+        #define VECTOR_NUMBER_ICU_IRQ10 ((IRQn_Type) 12) /* ICU IRQ10 (External pin interrupt 10) */
+        #define ICU_IRQ10_IRQn          ((IRQn_Type) 12) /* ICU IRQ10 (External pin interrupt 10) */
         #endif
 
         #ifdef __cplusplus
