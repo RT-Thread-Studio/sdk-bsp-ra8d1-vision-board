@@ -2,22 +2,19 @@ import os
 import sys
 import rtconfig
 
-if os.getenv('RTT_ROOT'):
-    RTT_ROOT = os.getenv('RTT_ROOT')
+if os.path.exists('rt-thread'):
+    RTT_ROOT = os.path.normpath(os.getcwd() + '/rt-thread')
 else:
-    RTT_ROOT = os.path.normpath(os.getcwd() + '/../../..')
-
-# set RTT_ROOT
-if not os.getenv("RTT_ROOT"): 
-    RTT_ROOT="rt-thread"
+    RTT_ROOT = os.path.normpath(os.getcwd() + '../../../rt-thread')
 
 sys.path = sys.path + [os.path.join(RTT_ROOT, 'tools')]
 try:
     from building import *
-except:
+except Exception as e:
+    print("Error message:", e.message)
     print('Cannot found RT-Thread root directory, please check RTT_ROOT')
     print(RTT_ROOT)
-    exit(-1)
+    sys.exit(-1)
 
 TARGET = 'rtthread.' + rtconfig.TARGET_EXT
 
@@ -42,7 +39,7 @@ SDK_ROOT = os.path.abspath('./')
 if os.path.exists(SDK_ROOT + '/libraries'):
     libraries_path_prefix = SDK_ROOT + '/libraries'
 else:
-    libraries_path_prefix = os.path.dirname(SDK_ROOT) + '/libraries'
+    libraries_path_prefix = os.path.dirname(SDK_ROOT) + '/../libraries'
 
 SDK_LIB = libraries_path_prefix
 Export('SDK_LIB')
