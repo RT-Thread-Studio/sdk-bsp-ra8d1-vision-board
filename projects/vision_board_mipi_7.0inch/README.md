@@ -1,4 +1,4 @@
-# vision_board-mipi_7.0inch 示例说明
+# vision_board_mipi_7.0inch 示例说明
 
 ## 简介
 
@@ -17,9 +17,9 @@ mipi接口引脚定义如上图所示，需要将7寸屏幕通过FPC反接排线
 
 ## 软件说明
 
-触摸部分的代码位于 `/projects/vision_board-mipi_7.0inch/src/hal_entry.c` 中。在 hal_entry 中主要对野火的7寸屏幕进行了初始化，并单独开辟了一个线程用于测试读取触摸坐标点。
+触摸部分的代码位于 `/projects/vision_board_mipi_7.0inch/src/hal_entry.c` 中。在 hal_entry 中主要对野火的7寸屏幕进行了初始化，并单独开辟了一个线程用于测试读取触摸坐标点。
 
-mipi 屏幕初始化配置代码位于： `vision_board-mipi_7.0inch\board\ports\mipi_lcd\mipi_config.c` 中。其中包括了对mipi屏幕参数的初始化。
+mipi 屏幕初始化配置代码位于： `vision_board_mipi_7.0inch\board\ports\mipi_lcd\mipi_config.c` 中。其中包括了对mipi屏幕参数的初始化。
 
 ## 运行
 

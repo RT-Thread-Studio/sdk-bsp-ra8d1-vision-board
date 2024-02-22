@@ -16,7 +16,7 @@
 #include "gt911.h"
 
 #define RST_PIN   "p000"
-#define INT_PIN   "p001"
+#define INT_PIN   "p010"
 
 static rt_device_t touch_dev = RT_NULL;
 static struct rt_touch_data *read_data = RT_NULL;
