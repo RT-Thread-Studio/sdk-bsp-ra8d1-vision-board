@@ -38,13 +38,13 @@ typedef struct nes nes_t;
 
 // https://www.nesdev.org/wiki/PPU_OAM
 typedef struct{
-    uint8_t	y;		                    /*  Y position of top of sprite */
+    uint8_t y;                          /*  Y position of top of sprite */
     union {
         struct {
             uint8_t pattern_8x16:1;     /*  Bank ($0000 or $1000) of tiles */
             uint8_t tile_index_8x16 :7; /*  Tile number of top of sprite (0 to 254; bottom half gets the next tile) */
         };
-        uint8_t	tile_index_number;	    /*  Tile index number */
+        uint8_t tile_index_number;      /*  Tile index number */
     };
     union {
         struct {
@@ -54,9 +54,9 @@ typedef struct{
             uint8_t flip_h :1;          /*  Flip sprite horizontally */
             uint8_t flip_v :1;          /*  Flip sprite vertically */
         };
-        uint8_t	attributes;	            /*  Attributes */
+        uint8_t attributes;             /*  Attributes */
     };
-    uint8_t	x;		                    /*  X position of left side of sprite. */
+    uint8_t x;                          /*  X position of left side of sprite. */
 } sprite_info_t;
 
 // https://www.nesdev.org/wiki/PPU_registers
@@ -97,7 +97,7 @@ typedef struct nes_ppu{
     };
     union {
         struct {
-            uint8_t  :4;    
+            uint8_t  :4;
             uint8_t STATUS_F:1;         /*  VRAM write flag: 0 = write valid, 1 = write ignored */
             uint8_t STATUS_O:1;         /*  Sprite overflow. The intent was for this flag to be set
                                             whenever more than eight sprites appear on a scanline, but a
@@ -131,23 +131,23 @@ typedef struct nes_ppu{
                                             12-15 mirrors */
     };
     union {
-		struct{ // Scroll
-			uint16_t coarse_x  : 5;     
-			uint16_t coarse_y  : 5;     
-			uint16_t nametable : 2;     
-			uint16_t fine_y    : 3;     
-			uint16_t           : 1;     
-		}v;
+        struct{ // Scroll
+            uint16_t coarse_x  : 5;
+            uint16_t coarse_y  : 5;
+            uint16_t nametable : 2;
+            uint16_t fine_y    : 3;
+            uint16_t           : 1;
+        }v;
         uint16_t v_reg;                 /*  Current VRAM address (15 bits) */
     };
     union {
-		struct{ // Scroll
-			uint16_t coarse_x  : 5;
-			uint16_t coarse_y  : 5;
-			uint16_t nametable : 2;
-			uint16_t fine_y    : 3;
-			uint16_t           : 1;
-		}t;
+        struct{ // Scroll
+            uint16_t coarse_x  : 5;
+            uint16_t coarse_y  : 5;
+            uint16_t nametable : 2;
+            uint16_t fine_y    : 3;
+            uint16_t           : 1;
+        }t;
         uint16_t t_reg;                 /*  Temporary VRAM address (15 bits); can also be thought of as the address of the top left onscreen tile. */
     };
     struct {
@@ -158,8 +158,8 @@ typedef struct nes_ppu{
     uint8_t oam_addr;                   /*  OAM read/write address */
     union {
         sprite_info_t sprite_info[0x100 / 4];
-        uint8_t oam_data[0x100];        /*  OAM data read/write 
-                                            The OAM (Object Attribute Memory) is internal memory inside the PPU that contains a display list of up to 64 sprites, 
+        uint8_t oam_data[0x100];        /*  OAM data read/write
+                                            The OAM (Object Attribute Memory) is internal memory inside the PPU that contains a display list of up to 64 sprites,
                                             where each sprite's information occupies 4 bytes.*/
     };
     uint8_t buffer;                     /*  PPU internal buffer */
@@ -177,7 +177,7 @@ void nes_ppu_init(nes_t *nes);
 uint8_t nes_read_ppu_register(nes_t *nes,uint16_t address);
 void nes_write_ppu_register(nes_t *nes,uint16_t address, uint8_t data);
 
-#ifdef __cplusplus          
+#ifdef __cplusplus
     }
 #endif
 

@@ -14,7 +14,7 @@
 //
 //
 // DESCRIPTION:
-//	DOOM strings, by language.
+//  DOOM strings, by language.
 //
 
 
@@ -27,7 +27,7 @@
 #include "d_englsh.h"
 
 // Misc. other strings.
-#define SAVEGAMENAME	"doomsav"
+#define SAVEGAMENAME    "doomsav"
 
 
 // QuitDOOM messages

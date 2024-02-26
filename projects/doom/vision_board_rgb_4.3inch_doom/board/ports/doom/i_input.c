@@ -224,14 +224,14 @@ static const char shiftxform[] =
 
 static unsigned char TranslateKey(unsigned char key)
 {
-	return key;
+    return key;
 
-	/*
+    /*
     if (key < sizeof(at_to_doom))
         return at_to_doom[key];
     else
         return 0x0;
-	*/
+    */
 
     //default:
     //  return tolower(key);
@@ -282,13 +282,13 @@ void I_GetEvent(void)
     int pressed;
     unsigned char key;
 
-    
-	while (DG_GetKey(&pressed, &key))
+
+    while (DG_GetKey(&pressed, &key))
     {
         UpdateShiftStatus(pressed, key);
 
         // process event
-        
+
         if (pressed)
         {
             // data1 has the key pressed, data2 has the character

@@ -62,7 +62,7 @@ int nes_mapper1_init(nes_t* nes);
 int nes_mapper2_init(nes_t* nes);
 int nes_mapper3_init(nes_t* nes);
 
-#ifdef __cplusplus          
+#ifdef __cplusplus
     }
 #endif
 

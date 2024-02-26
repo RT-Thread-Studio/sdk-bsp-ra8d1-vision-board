@@ -13,7 +13,7 @@
 // GNU General Public License for more details.
 //
 // DESCRIPTION:
-//	System specific interface stuff.
+//  System specific interface stuff.
 //
 
 
@@ -27,8 +27,8 @@
 
 // Read events from all input devices
 
-void D_ProcessEvents (void); 
-	
+void D_ProcessEvents (void);
+
 
 //
 // BASE LEVEL
@@ -38,7 +38,7 @@ void D_PageDrawer (void);
 void D_AdvanceDemo (void);
 void D_DoAdvanceDemo (void);
 void D_StartTitle (void);
- 
+
 //
 // GLOBAL VARIABLES
 //

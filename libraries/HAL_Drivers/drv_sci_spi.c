@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2021, RT-Thread Development Team
+ * Copyright (c) 2006-2024, RT-Thread Development Team
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -314,13 +314,13 @@ static rt_ssize_t ra_spixfer(struct rt_spi_device *device, struct rt_spi_message
             /**< receive message */
             err = ra_read_message(device, (void *)message->recv_buf, (const rt_size_t)message->length);
 //#ifdef __DCACHE_PRESENT
-//			SCB_InvalidateDCache_by_Addr((uint32_t *) message->recv_buf,  message->length);
-//#endif        
-		}
+//          SCB_InvalidateDCache_by_Addr((uint32_t *) message->recv_buf,  message->length);
+//#endif
+        }
         else if (message->send_buf != RT_NULL && message->recv_buf == RT_NULL)
         {
 //#ifdef __DCACHE_PRESENT
-//			SCB_CleanDCache_by_Addr((uint32_t *) message->send_buf,  message->length);
+//          SCB_CleanDCache_by_Addr((uint32_t *) message->send_buf,  message->length);
 //#endif
             /**< send message */
             err = ra_write_message(device, (const void *)message->send_buf, (const rt_size_t)message->length);
@@ -328,12 +328,12 @@ static rt_ssize_t ra_spixfer(struct rt_spi_device *device, struct rt_spi_message
         else if (message->send_buf != RT_NULL && message->recv_buf != RT_NULL)
         {
 //#ifdef __DCACHE_PRESENT
-//			SCB_CleanInvalidateDCache();
+//          SCB_CleanInvalidateDCache();
 //#endif
             /**< send and receive message */
             err =  ra_write_read_message(device, message);
 //#ifdef __DCACHE_PRESENT
-//			SCB_CleanInvalidateDCache();
+//          SCB_CleanInvalidateDCache();
 //#endif
         }
     }

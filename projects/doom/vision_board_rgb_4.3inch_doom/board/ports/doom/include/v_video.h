@@ -13,9 +13,9 @@
 // GNU General Public License for more details.
 //
 // DESCRIPTION:
-//	Gamma correction LUT.
-//	Functions to draw patches (by post) directly to screen.
-//	Functions to blit a block to the screen.
+//  Gamma correction LUT.
+//  Functions to draw patches (by post) directly to screen.
+//  Functions to blit a block to the screen.
 //
 
 
@@ -31,7 +31,7 @@
 // VIDEO
 //
 
-#define CENTERY			(SCREENHEIGHT/2)
+#define CENTERY         (SCREENHEIGHT/2)
 
 
 extern int dirtybox[4];
@@ -85,7 +85,7 @@ void V_UseBuffer(byte *buffer);
 
 void V_RestoreBuffer(void);
 
-// Save a screenshot of the current screen to a file, named in the 
+// Save a screenshot of the current screen to a file, named in the
 // format described in the string passed to the function, eg.
 // "DOOM%02i.pcx"
 

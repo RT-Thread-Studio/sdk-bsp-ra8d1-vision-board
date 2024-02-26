@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2023, RT-Thread Development Team
+ * Copyright (c) 2006-2024, RT-Thread Development Team
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -165,11 +165,11 @@ soft_reset:
     led_state(LED_GREEN, 0);
     led_state(LED_BLUE, 0);
 
-	/* Run main.py script on first soft-reset */
+    /* Run main.py script on first soft-reset */
     if (first_soft_reset && !interrupted)
     {
         exec_boot_script("main.py", true);
-		goto soft_reset_exit;
+        goto soft_reset_exit;
     }
 
     /* If there's no script ready, just re-exec REPL */
@@ -232,7 +232,7 @@ soft_reset:
     }
 
 soft_reset_exit:
-	// soft reset
+    // soft reset
     mp_printf(&mp_plat_print, "MPY: soft reboot\n");
 
     gc_sweep_all();
@@ -278,7 +278,7 @@ static bool exec_boot_script(const char *path, bool interruptible)
         mp_obj_print_exception(&mp_plat_print, (mp_obj_t) nlr.ret_val);
     }
 
-	return interrupted;
+    return interrupted;
 }
 
 static void omv_init_func(void)

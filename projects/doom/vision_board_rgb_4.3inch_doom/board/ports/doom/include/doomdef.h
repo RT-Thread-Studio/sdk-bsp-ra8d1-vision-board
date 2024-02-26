@@ -46,7 +46,7 @@
 
 // The current state of the game: whether we are
 // playing, gazing at the intermission screen,
-// the game final animation, or a demo. 
+// the game final animation, or a demo.
 typedef enum
 {
     GS_LEVEL,
@@ -74,12 +74,12 @@ typedef enum
 //
 
 // Skill flags.
-#define	MTF_EASY		1
-#define	MTF_NORMAL		2
-#define	MTF_HARD		4
+#define MTF_EASY        1
+#define MTF_NORMAL      2
+#define MTF_HARD        4
 
 // Deaf monsters/do not react to sound.
-#define	MTF_AMBUSH		8
+#define MTF_AMBUSH      8
 
 
 //
@@ -93,9 +93,9 @@ typedef enum
     it_blueskull,
     it_yellowskull,
     it_redskull,
-    
+
     NUMCARDS
-    
+
 } card_t;
 
 
@@ -116,7 +116,7 @@ typedef enum
     wp_supershotgun,
 
     NUMWEAPONS,
-    
+
     // No pending weapon change.
     wp_nochange
 
@@ -126,12 +126,12 @@ typedef enum
 // Ammunition types defined.
 typedef enum
 {
-    am_clip,	// Pistol / chaingun ammo.
-    am_shell,	// Shotgun / double barreled shotgun.
-    am_cell,	// Plasma rifle, BFG.
-    am_misl,	// Missile launcher.
+    am_clip,    // Pistol / chaingun ammo.
+    am_shell,   // Shotgun / double barreled shotgun.
+    am_cell,    // Plasma rifle, BFG.
+    am_misl,    // Missile launcher.
     NUMAMMO,
-    am_noammo	// Unlimited for chainsaw / fist.	
+    am_noammo   // Unlimited for chainsaw / fist.
 
 } ammotype_t;
 
@@ -146,7 +146,7 @@ typedef enum
     pw_allmap,
     pw_infrared,
     NUMPOWERS
-    
+
 } powertype_t;
 
 
@@ -158,11 +158,11 @@ typedef enum
 //
 typedef enum
 {
-    INVULNTICS	= (30*TICRATE),
-    INVISTICS	= (60*TICRATE),
-    INFRATICS	= (120*TICRATE),
-    IRONTICS	= (60*TICRATE)
-    
+    INVULNTICS  = (30*TICRATE),
+    INVISTICS   = (60*TICRATE),
+    INFRATICS   = (120*TICRATE),
+    IRONTICS    = (60*TICRATE)
+
 } powerduration_t;
 
 #endif          // __DOOMDEF__

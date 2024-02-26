@@ -13,9 +13,9 @@
 // GNU General Public License for more details.
 //
 // DESCRIPTION:
-//	Typedefs related to to textures etc.,
-//	 isolated here to make it easier separating modules.
-//    
+//  Typedefs related to to textures etc.,
+//   isolated here to make it easier separating modules.
+//
 
 
 #ifndef __D_TEXTUR__
@@ -32,9 +32,9 @@
 // a pic is an unmasked block of pixels
 typedef struct
 {
-    byte		width;
-    byte		height;
-    byte		data;
+    byte        width;
+    byte        height;
+    byte        data;
 } pic_t;
 
 

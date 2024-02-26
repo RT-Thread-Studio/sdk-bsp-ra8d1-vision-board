@@ -13,7 +13,7 @@
 // GNU General Public License for more details.
 //
 // DESCRIPTION:
-//	Endianess handling, swapping 16bit and 32bit.
+//  Endianess handling, swapping 16bit and 32bit.
 //
 
 
@@ -43,7 +43,7 @@
 #endif
 
 #else
-	
+
 #define SHORT(x)  ((signed short) (x))
 #define LONG(x)   ((signed int) (x))
 

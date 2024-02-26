@@ -203,52 +203,52 @@ boolean M_WriteFile(char *name, void *source, int length)
 #endif
 
 FRESULT f_readn (
-	FIL *fp, 		/* Pointer to the file object */
-	void *buff,		/* Pointer to data buffer */
-	UINT btr,		/* Number of bytes to read */
-	UINT *br		/* Pointer to number of bytes read */
+    FIL *fp,        /* Pointer to the file object */
+    void *buff,     /* Pointer to data buffer */
+    UINT btr,       /* Number of bytes to read */
+    UINT *br        /* Pointer to number of bytes read */
 )
 {
-	if (btr <= FF_MAX_SS)
-	{
-		return f_read (fp, buff, btr, br);
-	}
-	else
-	{
-		UINT remaining;
-		UINT offset;
-		UINT length;
-		FRESULT res;
+    if (btr <= FF_MAX_SS)
+    {
+        return f_read (fp, buff, btr, br);
+    }
+    else
+    {
+        UINT remaining;
+        UINT offset;
+        UINT length;
+        FRESULT res;
 
-		remaining = btr;
-		offset = 0;
+        remaining = btr;
+        offset = 0;
 
-		while (remaining != 0)
-		{
-			if (remaining > FF_MAX_SS)
-			{
-				length = FF_MAX_SS;
-			}
-			else
-			{
-				length = remaining;
-			}
+        while (remaining != 0)
+        {
+            if (remaining > FF_MAX_SS)
+            {
+                length = FF_MAX_SS;
+            }
+            else
+            {
+                length = remaining;
+            }
 
-			res = f_read (fp, buff + offset, length, br);
+            res = f_read (fp, buff + offset, length, br);
 
-			if (*br != length)
-			{
-				return FR_INT_ERR;
-			}
+            if (*br != length)
+            {
+                return FR_INT_ERR;
+            }
 
-			offset += length;
-			remaining -= length;
-		}
+            offset += length;
+            remaining -= length;
+        }
 
-		*br = offset;
+        *br = offset;
 
-		return res;
-	}
+        return res;
+    }
 }
 
 //

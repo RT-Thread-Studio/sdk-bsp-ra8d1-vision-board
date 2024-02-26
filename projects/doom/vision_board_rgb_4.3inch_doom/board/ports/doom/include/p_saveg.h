@@ -13,7 +13,7 @@
 // GNU General Public License for more details.
 //
 // DESCRIPTION:
-//	Savegame I/O, archiving, persistence.
+//  Savegame I/O, archiving, persistence.
 //
 
 

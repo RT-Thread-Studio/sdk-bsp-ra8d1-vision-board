@@ -14,9 +14,9 @@
 //
 // DESCRIPTION:
 //      Zone Memory Allocation, perhaps NeXT ObjectiveC inspired.
-//	Remark: this was the only stuff that, according
-//	 to John Carmack, might have been useful for
-//	 Quake.
+//  Remark: this was the only stuff that, according
+//   to John Carmack, might have been useful for
+//   Quake.
 //
 
 
@@ -38,7 +38,7 @@ enum
     PU_FREE,                        // a free block
     PU_LEVEL,                       // static until level exited
     PU_LEVSPEC,                     // a special thinker in a level
-    
+
     // Tags >= PU_PURGELEVEL are purgable whenever needed.
 
     PU_PURGELEVEL,
@@ -48,10 +48,10 @@ enum
 
     PU_NUM_TAGS
 };
-        
 
-void	Z_Init (void);
-void*	Z_Malloc (int size, int tag, void *ptr);
+
+void    Z_Init (void);
+void*   Z_Malloc (int size, int tag, void *ptr);
 void    Z_Free (void *ptr);
 void    Z_FreeTags (int lowtag, int hightag);
 void    Z_DumpHeap (int lowtag, int hightag);

@@ -42,9 +42,9 @@ typedef struct nes nes_t;
 
 /*
 Bit No. 15      14      13      12      11      10      9       8
-        A1      B1      Select1 Start1  Up1     Down1   Left1   Right1 
+        A1      B1      Select1 Start1  Up1     Down1   Left1   Right1
 Bit No. 7       6       5       4       3       2       1       0
-        A2      B2      Select2 Start2  Up2     Down2   Left2   Right2 
+        A2      B2      Select2 Start2  Up2     Down2   Left2   Right2
 */
 typedef struct nes_joypad{
     uint8_t offset1;
@@ -52,22 +52,22 @@ typedef struct nes_joypad{
     uint8_t mask;
     union {
         struct {
-            uint8_t R2:1;   
-            uint8_t L2:1;    
-            uint8_t D2:1;    
-            uint8_t U2:1;  
-            uint8_t ST2:1; 
+            uint8_t R2:1;
+            uint8_t L2:1;
+            uint8_t D2:1;
+            uint8_t U2:1;
+            uint8_t ST2:1;
             uint8_t SE2:1;
-            uint8_t B2:1;    
+            uint8_t B2:1;
             uint8_t A2:1;
-            uint8_t R1:1;   
-            uint8_t L1:1;    
-            uint8_t D1:1;    
-            uint8_t U1:1;  
-            uint8_t ST1:1; 
+            uint8_t R1:1;
+            uint8_t L1:1;
+            uint8_t D1:1;
+            uint8_t U1:1;
+            uint8_t ST1:1;
             uint8_t SE1:1;
-            uint8_t B1:1;    
-            uint8_t A1:1;  
+            uint8_t B1:1;
+            uint8_t A1:1;
         };
         uint16_t joypad;
     };
@@ -94,8 +94,8 @@ typedef struct nes_cpu{
         };
         uint8_t P;                      /*  Status Register */
     };
-    uint32_t cycles;  
-    uint8_t opcode;     
+    uint32_t cycles;
+    uint8_t opcode;
     uint8_t cpu_ram[NES_CPU_RAM_SIZE];
     uint8_t* prg_banks[4];              /*  4 bank ( 8Kb * 4 ) = 32KB  */
     nes_joypad_t joypad;
@@ -107,7 +107,7 @@ void nes_cpu_reset(nes_t* nes);
 void nes_nmi(nes_t* nes);
 void nes_opcode(nes_t* nes,uint16_t ticks);
 
-#ifdef __cplusplus          
+#ifdef __cplusplus
     }
 #endif
 

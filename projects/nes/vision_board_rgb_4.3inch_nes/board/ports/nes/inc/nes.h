@@ -40,7 +40,7 @@
 #define NES_WIDTH               240
 #define NES_HEIGHT              240
 
-#define NES_OK                  0 
+#define NES_OK                  0
 #define NES_ERROR               -1
 
 typedef struct nes{
@@ -62,7 +62,7 @@ int nes_deinitex(nes_t* nes);
 void nes_run(nes_t* nes);
 void nes_frame(nes_t* nes);
 
-#ifdef __cplusplus          
+#ifdef __cplusplus
     }
 #endif
 

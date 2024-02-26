@@ -92,7 +92,7 @@ static uint32_t basetime = 0;
 
 int I_GetTicks(void)
 {
-	return DG_GetTicksMs();
+    return DG_GetTicksMs();
 }
 
 int I_GetTime(void)
@@ -106,7 +106,7 @@ int I_GetTime(void)
 
     ticks -= basetime;
 
-    return (ticks * TICRATE) / 1000;   
+    return (ticks * TICRATE) / 1000;
 }
 
 //
