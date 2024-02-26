@@ -69,7 +69,7 @@ example_projects:
   project_description: 4.3寸屏幕-nes游戏移植工程
   project_type: rt-thread|@full|@5.0.2
   builtin_files:
-  - source_path_offset: projects/vision_board_rgb_4.3inch_nes
+  - source_path_offset: projects/nes/vision_board_rgb_4.3inch_nes
     target_path_offset: ''
     files_and_folders:
     - "*"
@@ -79,11 +79,11 @@ example_projects:
     - libraries
     - rt-thread
   external_files: []
-- project_name: vision_board_4.3inch_doom
+- project_name: vision_board_rgb_4.3inch_doom
   project_description: 4.3寸屏幕-毁灭战士(Doom)游戏移植工程
   project_type: rt-thread|@full|@5.0.2
   builtin_files:
-  - source_path_offset: projects/vision_board_4.3inch_doom
+  - source_path_offset: projects/doom/vision_board_rgb_4.3inch_doom
     target_path_offset: ''
     files_and_folders:
     - "*"
@@ -97,7 +97,7 @@ example_projects:
   project_description: 7.0寸mipi屏幕显示+触摸测试工程
   project_type: rt-thread|@full|@5.0.2
   builtin_files:
-  - source_path_offset: projects/vision_board_mipi_7.0inch
+  - source_path_offset: projects/lcd/vision_board_mipi_7.0inch
     target_path_offset: ''
     files_and_folders:
     - "*"
@@ -111,7 +111,7 @@ example_projects:
   project_description: 4.3寸RGB屏幕显示+触摸测试工程
   project_type: rt-thread|@full|@5.0.2
   builtin_files:
-  - source_path_offset: projects/vision_board_rgb_4.3inch
+  - source_path_offset: projects/lcd/vision_board_rgb_4.3inch
     target_path_offset: ''
     files_and_folders:
     - "*"

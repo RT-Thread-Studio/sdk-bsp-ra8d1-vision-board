@@ -17,7 +17,7 @@
 
 ## 软件说明
 
-启动doom游戏的源代码位于 `/projects/vision_board_4.3inch_doom/src/hal_entry.c` 中。
+启动doom游戏的源代码位于 `/projects/vision_board_rgb_4.3inch_doom/src/hal_entry.c` 中。
 
 ### 编译&下载
 
