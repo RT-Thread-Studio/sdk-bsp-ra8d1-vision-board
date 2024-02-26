@@ -245,11 +245,14 @@ static rt_err_t ra_lcd_control(rt_device_t device, int cmd, void *args)
     case RTGRAPHIC_CTRL_RECT_UPDATE:
     {
         struct rt_device_rect_info *info = (struct rt_device_rect_info *)args;
+        
+        SCB_CleanInvalidateDCache_by_Addr((uint32_t *)lcd->lcd_info.framebuffer, sizeof(fb_background[0]));
+
 #if defined(ENABLE_DOUBLE_BUFFER) && ENABLE_DOUBLE_BUFFER
         /* Swap the active framebuffer */
         lcd_current_working_buffer = (lcd_current_working_buffer == gp_single_buffer) ? gp_double_buffer : gp_single_buffer;
-//		SCB_CleanInvalidateDCache_by_Addr((uint32_t *)lcd->lcd_info.framebuffer, sizeof(fb_background[0]));
 #endif
+
         g2d_display_write_area((uint8_t *)lcd->lcd_info.framebuffer, lcd_current_working_buffer,
                                info->width, info->height, info->x, info->y);
 #if defined(ENABLE_DOUBLE_BUFFER) && ENABLE_DOUBLE_BUFFER
