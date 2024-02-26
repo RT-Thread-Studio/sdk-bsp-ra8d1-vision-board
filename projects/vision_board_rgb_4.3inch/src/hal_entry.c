@@ -27,9 +27,11 @@ rt_err_t gt911_register(void);
 
 void hal_entry(void)
 {
-    rt_kprintf("this is rgb-4.3inch lcd demo\n");
-
-    gt911_register();
+    rt_kprintf("This is rgb-4.3inch lcd demo.\n\n");
+    rt_kprintf("======================================================\n");
+    rt_kprintf("You can enter the lcd_test command to test the lcd.\n\n");
+    rt_kprintf("You can enter the gt911_register command to test the touch.\n\n");
+    rt_kprintf("======================================================\n");
 }
 
 static void gt911_entry(void *parameter)
@@ -133,3 +135,4 @@ rt_err_t gt911_register(void)
 
     return RT_EOK;
 }
+MSH_CMD_EXPORT(gt911_register, touch device test)

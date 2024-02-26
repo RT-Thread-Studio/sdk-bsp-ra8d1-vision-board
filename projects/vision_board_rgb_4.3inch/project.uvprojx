@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no" ?>
 <Project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="project_projx.xsd">
+
   <SchemaVersion>2.1</SchemaVersion>
+
   <Header>### uVision Project, (C) Keil Software</Header>
+
   <Targets>
     <Target>
       <TargetName>Target 1</TargetName>
@@ -16,28 +19,28 @@
           <PackID>Renesas.RA8_DFP.0.0.2</PackID>
           <PackURL>https://www2.renesas.eu/Keil_MDK_Packs/</PackURL>
           <Cpu>IRAM(0x22000000,0xE0000) IRAM2(0x0,0x10000) IROM(0x02000000,0x001F8000) XRAM(0x20000000,0x10000) CPUTYPE("Cortex-M85") FPU3(DFPU) DSP TZ MVE(FP) PACBTI CLOCK(12000000) ELITTLE</Cpu>
-          <FlashUtilSpec />
-          <StartupFile />
+          <FlashUtilSpec></FlashUtilSpec>
+          <StartupFile></StartupFile>
           <FlashDriverDll>UL2V8M(-S0 -C0 -P0 -FD22000000 -FC2000 -FN3 -FF0RA8D1_2M -FS02000000 -FL01F8000 -FF1RA8D1_DATA_C2M -FS127000000 -FL13000 -FF2RA8D1_CCONF -FS2300A100 -FL2200 -FP0($$Device:R7FA8D1BH$Flash\RA8D1_2M.FLM) -FP1($$Device:R7FA8D1BH$Flash\RA8D1_DATA_C2M.FLM) -FP2($$Device:R7FA8D1BH$Flash\RA8D1_CCONF.FLM))</FlashDriverDll>
           <DeviceId>0</DeviceId>
-          <RegisterFile />
-          <MemoryEnv />
-          <Cmp />
-          <Asm />
-          <Linker />
-          <OHString />
-          <InfinionOptionDll />
-          <SLE66CMisc />
-          <SLE66AMisc />
-          <SLE66LinkerMisc />
+          <RegisterFile></RegisterFile>
+          <MemoryEnv></MemoryEnv>
+          <Cmp></Cmp>
+          <Asm></Asm>
+          <Linker></Linker>
+          <OHString></OHString>
+          <InfinionOptionDll></InfinionOptionDll>
+          <SLE66CMisc></SLE66CMisc>
+          <SLE66AMisc></SLE66AMisc>
+          <SLE66LinkerMisc></SLE66LinkerMisc>
           <SFDFile>$$Device:R7FA8D1BH$SVD\R7FA8D1BH.svd</SFDFile>
           <bCustSvd>0</bCustSvd>
           <UseEnv>0</UseEnv>
-          <BinPath />
-          <IncludePath />
-          <LibPath />
-          <RegisterFilePath />
-          <DBRegisterFilePath />
+          <BinPath></BinPath>
+          <IncludePath></IncludePath>
+          <LibPath></LibPath>
+          <RegisterFilePath></RegisterFilePath>
+          <DBRegisterFilePath></DBRegisterFilePath>
           <TargetStatus>
             <Error>0</Error>
             <ExitCodeStop>0</ExitCodeStop>
@@ -59,8 +62,8 @@
           <BeforeCompile>
             <RunUserProg1>0</RunUserProg1>
             <RunUserProg2>0</RunUserProg2>
-            <UserProg1Name />
-            <UserProg2Name />
+            <UserProg1Name></UserProg1Name>
+            <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
             <nStopU1X>0</nStopU1X>
@@ -69,8 +72,8 @@
           <BeforeMake>
             <RunUserProg1>0</RunUserProg1>
             <RunUserProg2>0</RunUserProg2>
-            <UserProg1Name />
-            <UserProg2Name />
+            <UserProg1Name></UserProg1Name>
+            <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
             <nStopB1X>0</nStopB1X>
@@ -80,14 +83,14 @@
             <RunUserProg1>1</RunUserProg1>
             <RunUserProg2>0</RunUserProg2>
             <UserProg1Name>cmd /c "start "Renesas" /w cmd /c ""$Slauncher\rasc_launcher.bat" "$Prasc_version.txt" -nosplash --launcher.suppressErrors --gensmartbundle --compiler ARMv6 "$Pconfiguration.xml" "$L%L" 2&gt; "%%TEMP%%\rasc_stderr.out"""</UserProg1Name>
-            <UserProg2Name />
+            <UserProg2Name></UserProg2Name>
             <UserProg1Dos16Mode>0</UserProg1Dos16Mode>
             <UserProg2Dos16Mode>0</UserProg2Dos16Mode>
             <nStopA1X>2</nStopA1X>
             <nStopA2X>0</nStopA2X>
           </AfterMake>
           <SelectedForBatchBuild>0</SelectedForBatchBuild>
-          <SVCSIdString />
+          <SVCSIdString></SVCSIdString>
         </TargetCommonOption>
         <CommonProperty>
           <UseCPPCompiler>0</UseCPPCompiler>
@@ -101,15 +104,15 @@
           <AssembleAssemblyFile>0</AssembleAssemblyFile>
           <PublicsOnly>0</PublicsOnly>
           <StopOnExitCode>3</StopOnExitCode>
-          <CustomArgument />
-          <IncludeLibraryModules />
+          <CustomArgument></CustomArgument>
+          <IncludeLibraryModules></IncludeLibraryModules>
           <ComprImg>1</ComprImg>
         </CommonProperty>
         <DllOption>
-          <SimDllName />
-          <SimDllArguments />
-          <SimDlgDll />
-          <SimDlgDllArguments />
+          <SimDllName></SimDllName>
+          <SimDllArguments></SimDllArguments>
+          <SimDlgDll></SimDlgDll>
+          <SimDlgDllArguments></SimDlgDllArguments>
           <TargetDllName>SARMV8M.DLL</TargetDllName>
           <TargetDllArguments> -MPU -MVE -PACBTI</TargetDllArguments>
           <TargetDlgDll>TCM.DLL</TargetDlgDll>
@@ -136,10 +139,10 @@
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2V8M.DLL</Flash2>
           <Flash3>"" ()</Flash3>
-          <Flash4 />
-          <pFcarmOut />
-          <pFcarmGrp />
-          <pFcArmRoot />
+          <Flash4></Flash4>
+          <pFcarmOut></pFcarmOut>
+          <pFcarmGrp></pFcarmGrp>
+          <pFcArmRoot></pFcArmRoot>
           <FcArmLst>0</FcArmLst>
         </Utilities>
         <TargetArmAds>
@@ -172,7 +175,7 @@
             <RvctClst>0</RvctClst>
             <GenPPlst>0</GenPPlst>
             <AdsCpuType>"Cortex-M85"</AdsCpuType>
-            <RvctDeviceName />
+            <RvctDeviceName></RvctDeviceName>
             <mOS>0</mOS>
             <uocRom>0</uocRom>
             <uocRam>0</uocRam>
@@ -307,7 +310,7 @@
                 <Size>0x10000</Size>
               </OCR_RVCT10>
             </OnChipMemories>
-            <RvctStartVector />
+            <RvctStartVector></RvctStartVector>
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
@@ -336,7 +339,7 @@
             <VariousControls>
               <MiscControls>-Wno-license-management -Wuninitialized -Wall -Wmissing-declarations -Wpointer-arith -Waggregate-return -Wfloat-equal</MiscControls>
               <Define>RT_USING_LIBC, RT_USING_ARMLIBC, __STDC_LIMIT_MACROS, __RTTHREAD__, __CLK_TCK=RT_TICK_PER_SECOND</Define>
-              <Undefine />
+              <Undefine></Undefine>
               <IncludePath>..\..\libraries\HAL_Drivers;..\..\rt-thread\components\libc\posix\io\eventfd;..\..\rt-thread\components\drivers\include;board;..\..\rt-thread\components\finsh;.;..\..\rt-thread\components\libc\compilers\common\extension;..\..\rt-thread\components\libc\compilers\common\include;..\..\rt-thread\components\drivers\touch;..\..\rt-thread\components\libc\posix\ipc;..\..\rt-thread\components\libc\posix\io\poll;packages\gt9147-v1.1.0\inc;..\..\rt-thread\include;..\..\rt-thread\components\drivers\include;..\..\rt-thread\components\drivers\include;..\..\rt-thread\libcpu\arm\common;..\..\rt-thread\components\drivers\include;board\ports;..\..\rt-thread\components\libc\posix\io\epoll;..\..\rt-thread\libcpu\arm\cortex-m85;..\..\rt-thread\components\libc\compilers\common\extension\fcntl\octal;..\..\libraries\HAL_Drivers\config;..\..\rt-thread\components\drivers\include;..\..\rt-thread\components\drivers\include</IncludePath>
             </VariousControls>
           </Cads>
@@ -352,10 +355,10 @@
             <useXO>0</useXO>
             <ClangAsOpt>2</ClangAsOpt>
             <VariousControls>
-              <MiscControls />
-              <Define />
-              <Undefine />
-              <IncludePath />
+              <MiscControls></MiscControls>
+              <Define></Define>
+              <Undefine></Undefine>
+              <IncludePath></IncludePath>
             </VariousControls>
           </Aads>
           <LDads>
@@ -365,14 +368,14 @@
             <noStLib>0</noStLib>
             <RepFail>0</RepFail>
             <useFile>0</useFile>
-            <TextAddressRange />
-            <DataAddressRange />
-            <pXoBase />
+            <TextAddressRange></TextAddressRange>
+            <DataAddressRange></DataAddressRange>
+            <pXoBase></pXoBase>
             <ScatterFile>.\script\fsp.scat</ScatterFile>
-            <IncludeLibs />
-            <IncludeLibsPath />
-            <Misc />
-            <LinkerInputFile />
+            <IncludeLibs></IncludeLibs>
+            <IncludeLibsPath></IncludeLibsPath>
+            <Misc></Misc>
+            <LinkerInputFile></LinkerInputFile>
             <DisabledWarnings>6319,6314</DisabledWarnings>
           </LDads>
         </TargetArmAds>
@@ -386,50 +389,36 @@
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\components\libc\compilers\armlibc\syscall_mem.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>syscalls.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\components\libc\compilers\armlibc\syscalls.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>cctype.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\components\libc\compilers\common\cctype.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>cstdlib.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\components\libc\compilers\common\cstdlib.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>cstring.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\components\libc\compilers\common\cstring.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>ctime.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\components\libc\compilers\common\ctime.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>cunistd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\components\libc\compilers\common\cunistd.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>cwchar.c</FileName>
               <FileType>1</FileType>
@@ -445,29 +434,21 @@
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\libcpu\arm\common\atomic_arm.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>div0.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\libcpu\arm\common\div0.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>showmem.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\libcpu\arm\common\showmem.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>context_gcc.S</FileName>
               <FileType>2</FileType>
               <FilePath>..\..\rt-thread\libcpu\arm\cortex-m85\context_gcc.S</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>cpuport.c</FileName>
               <FileType>1</FileType>
@@ -483,99 +464,71 @@
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\components\drivers\core\device.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>i2c-bit-ops.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\components\drivers\i2c\i2c-bit-ops.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>i2c_core.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\components\drivers\i2c\i2c_core.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>i2c_dev.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\components\drivers\i2c\i2c_dev.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>completion.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\components\drivers\ipc\completion.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>dataqueue.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\components\drivers\ipc\dataqueue.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>pipe.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\components\drivers\ipc\pipe.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>ringblk_buf.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\components\drivers\ipc\ringblk_buf.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>ringbuffer.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\components\drivers\ipc\ringbuffer.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>waitqueue.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\components\drivers\ipc\waitqueue.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>workqueue.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\components\drivers\ipc\workqueue.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>pin.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\components\drivers\misc\pin.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>rt_drv_pwm.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\components\drivers\misc\rt_drv_pwm.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>serial_v2.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\components\drivers\serial\serial_v2.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>touch.c</FileName>
               <FileType>1</FileType>
@@ -591,50 +544,36 @@
               <FileType>1</FileType>
               <FilePath>board\ports\drv_sdram.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>ra8_it.c</FileName>
               <FileType>1</FileType>
               <FilePath>board\ra8_it.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>drv_common.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\libraries\HAL_Drivers\drv_common.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>drv_gpio.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\libraries\HAL_Drivers\drv_gpio.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>drv_lcd.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\libraries\HAL_Drivers\drv_lcd.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>drv_pwm.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\libraries\HAL_Drivers\drv_pwm.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>drv_sci.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\libraries\HAL_Drivers\drv_sci.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>drv_usart_v2.c</FileName>
               <FileType>1</FileType>
@@ -650,22 +589,16 @@
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\components\finsh\shell.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>msh.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\components\finsh\msh.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>msh_parse.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\components\finsh\msh_parse.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>cmd.c</FileName>
               <FileType>1</FileType>
@@ -691,78 +624,56 @@
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\src\clock.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>components.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\src\components.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>idle.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\src\idle.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>ipc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\src\ipc.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>irq.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\src\irq.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>kservice.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\src\kservice.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>memheap.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\src\memheap.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>mempool.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\src\mempool.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>object.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\src\object.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>scheduler_up.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\src\scheduler_up.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>thread.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\rt-thread\src\thread.c</FilePath>
             </File>
-          </Files>
-          <Files>
             <File>
               <FileName>timer.c</FileName>
               <FileType>1</FileType>
@@ -770,26 +681,41 @@
             </File>
           </Files>
         </Group>
+        <Group>
+          <GroupName>:Renesas RA Smart Configurator:Common Sources</GroupName>
+          <Files>
+            <File>
+              <FileName>hal_entry.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\hal_entry.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>::Flex Software</GroupName>
+        </Group>
       </Groups>
     </Target>
   </Targets>
+
   <RTE>
     <gpdscs>
       <gpdsc name="buildinfo.gpdsc">
         <targetInfos>
-          <targetInfo name="Target 1" />
+          <targetInfo name="Target 1"/>
         </targetInfos>
       </gpdsc>
     </gpdscs>
-    <apis />
+    <apis/>
     <components>
       <component Cclass="Flex Software" Cgroup="RA Configuration" Cvendor="Renesas" Cversion="1.0.0" condition="RA Device" generator="Renesas RA Smart Configurator">
-        <package name="RA8_DFP" schemaVersion="1.7.2" url="https://www2.renesas.eu/Keil_MDK_Packs/" vendor="Renesas" version="0.0.2" />
+        <package name="RA8_DFP" schemaVersion="1.7.2" url="https://www2.renesas.eu/Keil_MDK_Packs/" vendor="Renesas" version="0.0.2"/>
         <targetInfos>
-          <targetInfo name="Target 1" />
+          <targetInfo name="Target 1"/>
         </targetInfos>
       </component>
     </components>
-    <files />
+    <files/>
   </RTE>
+
 </Project>
