@@ -50,7 +50,7 @@
 #endif
 
 #if (NES_RAM_LACK == 1)
-#define NES_DRAW_SIZE         (NES_WIDTH * NES_HEIGHT / 2) 
+#define NES_DRAW_SIZE         (NES_WIDTH * NES_HEIGHT / 2)
 #else
 #define NES_DRAW_SIZE         (NES_WIDTH * NES_HEIGHT)
 #endif
@@ -76,7 +76,7 @@
 #endif
 
 #define M_PI 3.14159265358979323846
-#ifdef __cplusplus          
+#ifdef __cplusplus
     }
 #endif
 

@@ -148,13 +148,13 @@ byte *I_ZoneBase (int *size)
     {
         default_ram = atoi(myargv[p+1]);
         min_ram = default_ram;
-			rt_kprintf("@1 default_ram:%d\n", default_ram);
+            rt_kprintf("@1 default_ram:%d\n", default_ram);
     }
     else
     {
         default_ram = DEFAULT_RAM;
         min_ram = MIN_RAM;
-			rt_kprintf("@2 default_ram:%d\n", default_ram);
+            rt_kprintf("@2 default_ram:%d\n", default_ram);
     }
 
     zonemem = AutoAllocMemory(size, default_ram, min_ram);

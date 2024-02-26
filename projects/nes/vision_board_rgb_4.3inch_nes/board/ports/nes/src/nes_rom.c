@@ -41,7 +41,7 @@ nes_t* nes_load_file(const char* file_path ){
     FILE* nes_file = nes_fopen(file_path, "rb");
     if (!nes_file){
         goto error;
-    } 
+    }
     nes = &static_nes;
     if (nes == NULL) {
         goto error;

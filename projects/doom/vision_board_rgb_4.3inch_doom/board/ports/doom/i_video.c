@@ -18,7 +18,7 @@
 // $Log:$
 //
 // DESCRIPTION:
-//	DOOM graphics stuff for X11, UNIX.
+//  DOOM graphics stuff for X11, UNIX.
 //
 //-----------------------------------------------------------------------------
 #include "config.h"
@@ -99,7 +99,7 @@ static struct rt_device_graphic_info info;
 
 void I_InitGraphics(void)
 {
-	rt_err_t result = RT_EOK;
+    rt_err_t result = RT_EOK;
 
     lcd_device = rt_device_find("lcd");
     RT_ASSERT(lcd_device != RT_NULL);

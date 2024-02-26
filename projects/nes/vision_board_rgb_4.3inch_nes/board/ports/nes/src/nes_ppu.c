@@ -173,7 +173,7 @@ void nes_write_ppu_register(nes_t* nes,uint16_t address, uint8_t data){
 
 void nes_ppu_init(nes_t *nes){
     // four_screen
-    if (nes->nes_rom.four_screen) { 
+    if (nes->nes_rom.four_screen) {
         nes->nes_ppu.name_table[0] = nes->nes_ppu.ppu_vram0;
         nes->nes_ppu.name_table[1] = nes->nes_ppu.ppu_vram1;
         nes->nes_ppu.name_table[2] = nes->nes_ppu.ppu_vram2;

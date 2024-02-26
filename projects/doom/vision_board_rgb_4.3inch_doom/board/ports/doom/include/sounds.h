@@ -13,8 +13,8 @@
 // GNU General Public License for more details.
 //
 // DESCRIPTION:
-//	Created by the sound utility written by Dave Taylor.
-//	Kept as a sample, DOOM2  sounds. Frozen.
+//  Created by the sound utility written by Dave Taylor.
+//  Kept as a sample, DOOM2  sounds. Frozen.
 //
 
 #ifndef __SOUNDS__
@@ -23,10 +23,10 @@
 #include "i_sound.h"
 
 // the complete set of sound effects
-extern sfxinfo_t	S_sfx[];
+extern sfxinfo_t    S_sfx[];
 
 // the complete set of music
-extern musicinfo_t	S_music[];
+extern musicinfo_t  S_music[];
 
 //
 // Identifiers for all music in game.

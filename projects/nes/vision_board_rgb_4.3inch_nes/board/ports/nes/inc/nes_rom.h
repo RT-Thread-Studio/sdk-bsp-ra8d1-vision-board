@@ -52,7 +52,7 @@ typedef struct {
         uint8_t console_type:2;         /*  D0-1  Console type   0: Nintendo Entertainment System/Family Computer 1: Nintendo Vs. System 2: Nintendo Playchoice 10 3: Extended Console Type */
         uint8_t identifier2:2;          /*  D2-3  NES 2.0 identifier */
         uint8_t mapper_number_m:4;      /*  D4-7  Mapper Number D4..D7 */
-    }; 
+    };
     struct {
         uint8_t mapper_number_h:4;      /*  D0-3  Mapper number D8..D11 */
         uint8_t submapper:4;            /*  D4-7  Submapper number */
@@ -76,7 +76,7 @@ typedef struct {
                                             If the shift count is non-zero, the actual size is
                                             "64 << shift count" bytes, i.e. 8192 bytes for a shift count of 7. */
     struct {
-        uint8_t timing_mode :2;         /*  D0-1    CPU/PPU timing mode 
+        uint8_t timing_mode :2;         /*  D0-1    CPU/PPU timing mode
                                                     0: RP2C02 ("NTSC NES")
                                                     1: RP2C07 ("Licensed PAL NES")
                                                     2: Multiple-region
@@ -118,7 +118,7 @@ int nes_unload_file(nes_t* nes);
 nes_t* nes_load_rom(const uint8_t* nes_rom);
 int nes_unload_rom(nes_t* nes);
 
-#ifdef __cplusplus          
+#ifdef __cplusplus
     }
 #endif
 

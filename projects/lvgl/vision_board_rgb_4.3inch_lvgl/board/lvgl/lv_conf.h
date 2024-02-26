@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2023, RT-Thread Development Team
+ * Copyright (c) 2006-2024, RT-Thread Development Team
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -52,7 +52,7 @@
 
 /*Render test for LVGL*/
 #ifdef BSP_USING_LVGL_RENDER_DEMO
-	#define LV_USE_DEMO_RENDER 1
+    #define LV_USE_DEMO_RENDER 1
 #endif  /* BSP_USING_LVGL_RENDER_DEMO */
 
 /*Music player demo*/

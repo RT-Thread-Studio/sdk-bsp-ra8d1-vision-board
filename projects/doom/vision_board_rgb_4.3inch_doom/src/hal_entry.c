@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2023, RT-Thread Development Team
+ * Copyright (c) 2006-2024, RT-Thread Development Team
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -27,8 +27,8 @@ void hal_entry(void)
 }
 
 static void doom_thread_entry(void *param)
-{	
-	DG_Init();
+{
+    DG_Init();
     D_DoomMain();
 }
 

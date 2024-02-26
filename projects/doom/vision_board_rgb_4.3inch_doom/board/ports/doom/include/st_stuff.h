@@ -13,9 +13,9 @@
 // GNU General Public License for more details.
 //
 // DESCRIPTION:
-//	Status bar code.
-//	Does the face/direction indicator animatin.
-//	Does palette indicators as well (red pain/berserk, bright pickup)
+//  Status bar code.
+//  Does the face/direction indicator animatin.
+//  Does palette indicators as well (red pain/berserk, bright pickup)
 //
 
 #ifndef __STSTUFF_H__
@@ -27,9 +27,9 @@
 
 // Size of statusbar.
 // Now sensitive for scaling.
-#define ST_HEIGHT	32
-#define ST_WIDTH	SCREENWIDTH
-#define ST_Y		(SCREENHEIGHT - ST_HEIGHT)
+#define ST_HEIGHT   32
+#define ST_WIDTH    SCREENWIDTH
+#define ST_Y        (SCREENHEIGHT - ST_HEIGHT)
 
 
 //
@@ -58,7 +58,7 @@ typedef enum
 {
     AutomapState,
     FirstPersonState
-    
+
 } st_stateenum_t;
 
 
@@ -68,7 +68,7 @@ typedef enum
     StartChatState,
     WaitDestState,
     GetChatState
-    
+
 } st_chatstateenum_t;
 
 

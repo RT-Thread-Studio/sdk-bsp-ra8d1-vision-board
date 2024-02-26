@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2006-2023, RT-Thread Development Team
+ * Copyright (c) 2006-2024, RT-Thread Development Team
  *
  * SPDX-License-Identifier: Apache-2.0
  *
@@ -134,12 +134,12 @@ void lcd_fill_array(uint16_t x_start, uint16_t y_start, uint16_t x_end, uint16_t
 
 d2_device *d2_handle_obj_get(void)
 {
-	return *_d2_handle_user;
+    return *_d2_handle_user;
 }
 
 d2_renderbuffer *d2_renderbuffer_get(void)
 {
-	return renderbuffer;
+    return renderbuffer;
 }
 
 void lcd_draw_jpg(int32_t x, int32_t y, const void *p, int32_t xSize, int32_t ySize)
@@ -165,11 +165,11 @@ void lcd_draw_jpg(int32_t x, int32_t y, const void *p, int32_t xSize, int32_t yS
 
 void lcd_gpu_fill_array(size_t x1, size_t y1, size_t x2, size_t y2, uint16_t* color_data)
 {
-	uint32_t ModeSrc;
-	int32_t width;
+    uint32_t ModeSrc;
+    int32_t width;
     int32_t heigh;
-	
-	width = (x2 - x1) + 1;
+
+    width = (x2 - x1) + 1;
     heigh = (y2 - y1) + 1;
 
     ModeSrc = d2_mode_rgb565;
@@ -185,7 +185,7 @@ void lcd_gpu_fill_array(size_t x1, size_t y1, size_t x2, size_t y2, uint16_t* co
 
     // Execute render operations
     d2_executerenderbuffer(d2_handle_obj_get(), d2_renderbuffer_get(), 0);
-	// In single-buffered mode always wait for DRW to finish before returning
+    // In single-buffered mode always wait for DRW to finish before returning
     d2_flushframe(d2_handle_obj_get());
 }
 
@@ -202,7 +202,7 @@ void g2d_display_write_area(const void *pSrc, void *pDst, int WidthSrc, int Heig
     d2_setblitsrc(*_d2_handle_user, (void *) pSrc, WidthSrc, WidthSrc, HeightSrc, ModeSrc);
     d2_blitcopy(*_d2_handle_user, WidthSrc, HeightSrc, 0, 0, (d2_width)(WidthSrc << 4), (d2_width)(HeightSrc << 4),
                 (d2_point)(x << 4), (d2_point)(y << 4), 0);
-    
+
     /* End the current display list */
     d2_executerenderbuffer(*_d2_handle_user, renderbuffer, 0);
     d2_flushframe(*_d2_handle_user);
@@ -213,7 +213,7 @@ static int g2d_drv_hwInit(void)
     d2_s32 d2_err;
     uint32_t ModeSrc;
     ModeSrc = d2_mode_rgb565;
-    
+
     // Initialize D/AVE 2D driver
     *_d2_handle_user = d2_opendevice(0);
     d2_err = d2_inithw(*_d2_handle_user, 0);
@@ -371,7 +371,7 @@ int rt_hw_lcd_init(void)
 
     /* Initialize buffer pointers */
     gp_single_buffer = (uint16_t*) g_display0_cfg.input[0].p_base;
-    
+
     /* Double buffer for drawing color bands with good quality */
     gp_double_buffer = gp_single_buffer + LCD_BUF_SIZE;
 
@@ -401,7 +401,7 @@ int lcd_test(void)
     rect_info.y = 0;
     rect_info.width = LCD_WIDTH;
     rect_info.height = LCD_HEIGHT;
-    
+
     lcd = (struct drv_lcd_device *)rt_device_find("lcd");
 
     for (int i = 0; i < 2; i++)

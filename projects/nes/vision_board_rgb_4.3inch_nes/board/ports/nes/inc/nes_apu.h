@@ -35,7 +35,7 @@ typedef struct nes nes_t;
 uint8_t nes_read_apu_register(nes_t *nes,uint16_t address);
 void nes_write_apu_register(nes_t* nes,uint16_t address,uint8_t data);
 
-#ifdef __cplusplus          
+#ifdef __cplusplus
     }
 #endif
 

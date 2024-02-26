@@ -27,7 +27,7 @@
 
 
 
-#define NES_PPU_CPU_CLOCKS		113
+#define NES_PPU_CPU_CLOCKS      113
 
 int nes_init(nes_t *nes){
     nes_initex(nes);
@@ -108,7 +108,7 @@ static void nes_render_sprite_line(nes_t* nes,uint16_t scanline,nes_color_t* dra
     nes_color_t background_color = nes->nes_ppu.background_palette[0];
     uint8_t sprite_number = 0;
     uint8_t sprite_size = nes->nes_ppu.CTRL_H?16:8;
-    
+
     for (uint8_t i = 63; i > 0 ; i--){
         if (nes->nes_ppu.sprite_info[i].y >= 0xEF)
             continue;
@@ -228,7 +228,7 @@ sprite0:
             dy = sprite_size - dy - 1;
         }
     }
-    
+
     const uint8_t sprite_bit0 = sprite_bit0_p[dy];
     const uint8_t sprite_bit1 = sprite_bit1_p[dy];
 
@@ -248,7 +248,7 @@ sprite0:
     if (nes->nes_ppu.STATUS_O == 1){
         return;
     }
-    
+
     uint8_t p = nes->nes_ppu.sprite_info[0].x;
     if (nes->nes_ppu.sprite_info[0].flip_h){
         for (int8_t m = 0; m <= 7; m++){
@@ -312,7 +312,7 @@ void nes_run(nes_t* nes){
             }
 #endif
         }
-        
+
         for(scanline = 0; scanline < NES_HEIGHT; scanline++) { // 0-239 Visible frame
             if (nes->nes_ppu.MASK_b){
 #if (NES_RAM_LACK == 1)
@@ -348,7 +348,7 @@ void nes_run(nes_t* nes){
                 // v: ....A.. ...BCDEF <- t: ....A.. ...BCDEF
                 nes->nes_ppu.v_reg = (nes->nes_ppu.v_reg & (uint16_t)0xFBE0) | (nes->nes_ppu.t_reg & (uint16_t)0x041F);
             }
-            
+
 #if (NES_RAM_LACK == 1)
             if((frame_cnt % (NES_FRAME_SKIP+1))==0){
                 if (scanline == NES_HEIGHT/2-1){

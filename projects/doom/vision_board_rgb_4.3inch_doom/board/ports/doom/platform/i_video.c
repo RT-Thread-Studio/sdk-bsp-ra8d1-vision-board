@@ -18,7 +18,7 @@
 // $Log:$
 //
 // DESCRIPTION:
-//	DOOM graphics stuff for X11, UNIX.
+//  DOOM graphics stuff for X11, UNIX.
 //
 //-----------------------------------------------------------------------------
 #include "config.h"

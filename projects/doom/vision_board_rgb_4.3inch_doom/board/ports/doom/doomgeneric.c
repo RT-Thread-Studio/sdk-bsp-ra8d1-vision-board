@@ -3,6 +3,6 @@
 
 void dg_Create()
 {
-	DG_Init();
+    DG_Init();
 }
 
