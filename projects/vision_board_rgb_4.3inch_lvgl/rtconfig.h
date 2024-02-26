@@ -141,6 +141,15 @@
 /* Wiced WiFi */
 
 
+/* CYW43012 WiFi */
+
+
+/* BL808 WiFi */
+
+
+/* CYW43439 WiFi */
+
+
 /* IoT Cloud */
 
 
@@ -164,7 +173,7 @@
 #define PKG_LVGL_THREAD_STACK_SIZE 8192
 #define PKG_LVGL_DISP_REFR_PERIOD 10
 #define PKG_LVGL_USING_LATEST_VERSION
-#define PKG_LVGL_VER_NUM 0x99999
+#define PKG_LVGL_VER_NUM 0x999999
 #define PKG_USING_LV_MUSIC_DEMO
 
 /* u8g2: a monochrome graphic library */
@@ -285,6 +294,7 @@
 #define BSP_USING_LVGL
 #define BSP_USING_LCD_RGB
 #define BSP_USING_LVGL_DEMO
-#define BSP_USING_LVGL_STRESS_DEMO
+#define BSP_USING_LVGL_BENCHMARK_DEMO
+#define BSP_USING_LVGL_WIDGETS_DEMO
 
 #endif
