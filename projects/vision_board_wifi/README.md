@@ -90,3 +90,19 @@ ping www.baidu.com
 ```
 
 ![](docs/picture/3.png)
+
+## QA
+
+Q：遇到在使用 Dap-Link 时找不到目标芯片的情况并且无法下载：
+
+![](docs/picture/download1.png)
+
+![](docs/picture/download2.png)
+
+A1：方法一：**由于 JTAG/SWD 在芯片出厂时首次使用是加锁的**。请按住开发板的RST按键（正面右一）不松手。再次点击MDK下载按钮后，快速松开RST按键即可。后续无需重复以上操作。
+
+A2：方法二：使用  [Renesas Flash Programmer](https://www.renesas.com/us/en/software-tool/renesas-flash-programmer-programming-gui#documents) 烧录工具进行第一次烧录，操作方法如下：
+
+![](docs/picture/boot1.png)
+
+![](docs/picture/boot2.png)
