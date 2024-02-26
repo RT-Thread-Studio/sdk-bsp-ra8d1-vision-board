@@ -25,14 +25,14 @@ $ sdk-bsp-ra8d1-vision-board
 │   ├── HAL_Drivers
 ├── projects
 │   ├── lcd
-│	│	├── vision_board_mipi_7.0inch
-│	│	└── vision_board_rgb_4.3inch
+│   │   ├── vision_board_mipi_7.0inch
+│   │   └── vision_board_rgb_4.3inch
 │   ├── doom
-│	│	└── vision_board_rgb_4.3inch_doom
+│   │   └── vision_board_rgb_4.3inch_doom
 │   ├── nes
-│	│	└── vision_board_rgb_4.3inch_nes
+│   │   └── vision_board_rgb_4.3inch_nes
 │   ├── lvgl
-│	│	└── vision_board_rgb_4.3inch_lvgl
+│   │   └── vision_board_rgb_4.3inch_lvgl
 │   ├── vision_board_blink_led
 │   ├── vision_board_openmv
 │   └── vision_board_wifi
