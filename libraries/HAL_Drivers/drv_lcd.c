@@ -132,6 +132,16 @@ void lcd_fill_array(uint16_t x_start, uint16_t y_start, uint16_t x_end, uint16_t
     }
 }
 
+d2_device *d2_handle_obj_get(void)
+{
+	return *_d2_handle_user;
+}
+
+d2_renderbuffer *d2_renderbuffer_get(void)
+{
+	return renderbuffer;
+}
+
 void lcd_draw_jpg(int32_t x, int32_t y, const void *p, int32_t xSize, int32_t ySize)
 {
     uint32_t ModeSrc;
@@ -151,6 +161,32 @@ void lcd_draw_jpg(int32_t x, int32_t y, const void *p, int32_t xSize, int32_t yS
 
     // In single-buffered mode always wait for DRW to finish before returning
     d2_flushframe(*_d2_handle_user);
+}
+
+void lcd_gpu_fill_array(size_t x1, size_t y1, size_t x2, size_t y2, uint16_t* color_data)
+{
+	uint32_t ModeSrc;
+	int32_t width;
+    int32_t heigh;
+	
+	width = (x2 - x1) + 1;
+    heigh = (y2 - y1) + 1;
+
+    ModeSrc = d2_mode_rgb565;
+
+    // Generate render operations
+    d2_framebuffer(d2_handle_obj_get(), (uint16_t *)&fb_background[0], LCD_WIDTH, LCD_WIDTH, LCD_HEIGHT, ModeSrc);
+
+    d2_selectrenderbuffer(d2_handle_obj_get(), d2_renderbuffer_get());
+    d2_cliprect(d2_handle_obj_get(), 0, 0, LCD_WIDTH, LCD_HEIGHT);
+    d2_setblitsrc(d2_handle_obj_get(), (void *) color_data, width, width, heigh, ModeSrc);
+    d2_blitcopy(d2_handle_obj_get(), width, heigh, 0, 0, (d2_width)(LCD_WIDTH << 4), (d2_width)(LCD_HEIGHT << 4),
+                (d2_point)(x1 << 4), (d2_point)(y1 << 4), 0);
+
+    // Execute render operations
+    d2_executerenderbuffer(d2_handle_obj_get(), d2_renderbuffer_get(), 0);
+	// In single-buffered mode always wait for DRW to finish before returning
+    d2_flushframe(d2_handle_obj_get());
 }
 
 void g2d_display_write_area(const void *pSrc, void *pDst, int WidthSrc, int HeightSrc, int x, int y)
@@ -245,7 +281,7 @@ static rt_err_t ra_lcd_control(rt_device_t device, int cmd, void *args)
     case RTGRAPHIC_CTRL_RECT_UPDATE:
     {
         struct rt_device_rect_info *info = (struct rt_device_rect_info *)args;
-        
+
         SCB_CleanInvalidateDCache_by_Addr((uint32_t *)lcd->lcd_info.framebuffer, sizeof(fb_background[0]));
 
 #if defined(ENABLE_DOUBLE_BUFFER) && ENABLE_DOUBLE_BUFFER
