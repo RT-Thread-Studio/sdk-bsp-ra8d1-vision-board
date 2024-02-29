@@ -1,17 +1,17 @@
 board:
-  buy_url_cn: N/A
-  buy_url_global: N/A
+  buy_url_cn: https://item.taobao.com/item.htm?_u=t2dmg8j26111&id=765743204571&spm=a1z0k.7628869.0.0.3a2537deUOsDcE
+  buy_url_global: https://item.taobao.com/item.htm?_u=t2dmg8j26111&id=765743204571&spm=a1z0k.7628869.0.0.3a2537deUOsDcE
   debug_interface: SWD
   debugger: DAP-LINK
-  description_en: N/A
+  description_en: The Vision-Board development board is RT-Thread's RA8D1 chip based on the Renesas Cortex-M85 architecture, which provides engineers with a flexible and comprehensive development platform to help developers gain a deeper experience in the field of machine vision.
   description_zh: Vision-Board 开发板是 RT-Thread 推出基于瑞萨 Cortex-M85 架构 RA8D1 芯片，为工程师们提供了一个灵活、全面的开发平台，助力开发者在机器视觉领域获得更深层次的体验。
   emulator_machine: ''
   large_image: documents/images/big.png
   name: VISION-BOARD
-  price_cn: N/A CNY
+  price_cn: 229 CNY
   price_global: N/A USD
-  sale_contact_cn: N/A
-  sale_contact_global: N/A
+  sale_contact_cn: https://www.rt-thread.org/
+  sale_contact_global: https://www.rt-thread.org/
   small_image: documents/images/small.png
   vendor: Renesas
   version: 1.0.0
