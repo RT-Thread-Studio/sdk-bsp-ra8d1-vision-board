@@ -4,6 +4,8 @@
 #include <stdint.h>
 #include "bsp_api.h"
 #include "common_data.h"
+#include "r_capture_api.h"
+            #include "r_ceu.h"
 #include "r_dtc.h"
 #include "r_transfer_api.h"
 #include "r_spi_b.h"
@@ -17,11 +19,49 @@
 #include "r_sdmmc_api.h"
 #include "r_sci_b_uart.h"
             #include "r_uart_api.h"
-#include "r_capture_api.h"
-            #include "r_ceu.h"
 #include "r_flash_hp.h"
 #include "r_flash_api.h"
 FSP_HEADER
+/* CEU on CAPTURE instance */
+            extern const capture_instance_t g_ceu_hqvga_yuv;
+            /* Access the CEU instance using these structures when calling API functions directly (::p_api is not used). */
+            extern ceu_instance_ctrl_t g_ceu_hqvga_yuv_ctrl;
+            extern const capture_cfg_t g_ceu_hqvga_yuv_cfg;
+            #ifndef g_ceu_callback
+            void g_ceu_callback(capture_callback_args_t * p_args);
+            #endif
+/* CEU on CAPTURE instance */
+            extern const capture_instance_t g_ceu_qqqvga_yuv;
+            /* Access the CEU instance using these structures when calling API functions directly (::p_api is not used). */
+            extern ceu_instance_ctrl_t g_ceu_qqqvga_yuv_ctrl;
+            extern const capture_cfg_t g_ceu_qqqvga_yuv_cfg;
+            #ifndef g_ceu_callback
+            void g_ceu_callback(capture_callback_args_t * p_args);
+            #endif
+/* CEU on CAPTURE instance */
+            extern const capture_instance_t g_ceu_qqvga_yuv;
+            /* Access the CEU instance using these structures when calling API functions directly (::p_api is not used). */
+            extern ceu_instance_ctrl_t g_ceu_qqvga_yuv_ctrl;
+            extern const capture_cfg_t g_ceu_qqvga_yuv_cfg;
+            #ifndef g_ceu_callback
+            void g_ceu_callback(capture_callback_args_t * p_args);
+            #endif
+/* CEU on CAPTURE instance */
+            extern const capture_instance_t g_ceu_qvga_yuv;
+            /* Access the CEU instance using these structures when calling API functions directly (::p_api is not used). */
+            extern ceu_instance_ctrl_t g_ceu_qvga_yuv_ctrl;
+            extern const capture_cfg_t g_ceu_qvga_yuv_cfg;
+            #ifndef g_ceu_callback
+            void g_ceu_callback(capture_callback_args_t * p_args);
+            #endif
+/* CEU on CAPTURE instance */
+            extern const capture_instance_t g_ceu_vga_yuv;
+            /* Access the CEU instance using these structures when calling API functions directly (::p_api is not used). */
+            extern ceu_instance_ctrl_t g_ceu_vga_yuv_ctrl;
+            extern const capture_cfg_t g_ceu_vga_yuv_cfg;
+            #ifndef g_ceu_callback
+            void g_ceu_callback(capture_callback_args_t * p_args);
+            #endif
 /* Transfer on DTC Instance. */
 extern const transfer_instance_t g_transfer2;
 

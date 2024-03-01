@@ -191,22 +191,37 @@ int sensor_set_framesize(framesize_t framesize)
         gp_ceu_instance = (capture_instance_t *)&g_ceu_svga;
         break;
     case FRAMESIZE_VGA://640x480
-        gp_ceu_instance = (capture_instance_t *)&g_ceu_vga;
+        if (sensor.chip_id_w == MT9V0X4_ID)
+            gp_ceu_instance = (capture_instance_t *)&g_ceu_vga_yuv;
+        else
+            gp_ceu_instance = (capture_instance_t *)&g_ceu_vga;
         break;
     case FRAMESIZE_QVGA://320x240
-        gp_ceu_instance = (capture_instance_t *)&g_ceu_qvga;
+        if (sensor.chip_id_w == MT9V0X4_ID)
+            gp_ceu_instance = (capture_instance_t *)&g_ceu_qvga_yuv;
+        else
+            gp_ceu_instance = (capture_instance_t *)&g_ceu_qvga;
         break;
     case FRAMESIZE_QQVGA://160x120
-        gp_ceu_instance = (capture_instance_t *)&g_ceu_qqvga;
+        if (sensor.chip_id_w == MT9V0X4_ID)
+            gp_ceu_instance = (capture_instance_t *)&g_ceu_qqvga_yuv;
+        else
+            gp_ceu_instance = (capture_instance_t *)&g_ceu_qqvga;
         break;
     case FRAMESIZE_QQQVGA://80x60
-        gp_ceu_instance = (capture_instance_t *)&g_ceu_qqqvga;
+        if (sensor.chip_id_w == MT9V0X4_ID)
+            gp_ceu_instance = (capture_instance_t *)&g_ceu_qqqvga_yuv;
+        else
+            gp_ceu_instance = (capture_instance_t *)&g_ceu_qqqvga;
         break;
     case FRAMESIZE_HVGA://480x320
         gp_ceu_instance = (capture_instance_t *)&g_ceu_hvga;
         break;
     case FRAMESIZE_HQVGA://240x160
-        gp_ceu_instance = (capture_instance_t *)&g_ceu_hqvga;
+        if (sensor.chip_id_w == MT9V0X4_ID)
+            gp_ceu_instance = (capture_instance_t *)&g_ceu_hqvga_yuv;
+        else
+            gp_ceu_instance = (capture_instance_t *)&g_ceu_hqvga;
         break;
     case FRAMESIZE_HQQVGA://120x80
         gp_ceu_instance = (capture_instance_t *)&g_ceu_hqqvga;
@@ -435,7 +450,8 @@ int sensor_snapshot(sensor_t *sensor, image_t *image, uint32_t flags)
     {
     case PIXFORMAT_GRAYSCALE:
         MAIN_FB()->pixfmt = PIXFORMAT_GRAYSCALE;
-        write_raw_yuyv_to_gray(sensor, buffer->data, buffer->data, w * h * 2);
+        if (sensor->chip_id_w != MT9V0X4_ID)
+            write_raw_yuyv_to_gray(sensor, buffer->data, buffer->data, w * h * 2);
         break;
     case PIXFORMAT_RGB565:
         MAIN_FB()->pixfmt = PIXFORMAT_RGB565;
