@@ -24,7 +24,7 @@
 
 #include <math.h>
 #include "nes.h"
-#include "lcd_port.h"
+#include <ra8/lcd_config.h>
 #include "rt_key_scan.h"
 #include "hal_data.h"
 

@@ -10,7 +10,7 @@
 
 #include <rtthread.h>
 #include <rtdevice.h>
-#include <lcd_port.h>
+#include <ra8/lcd_config.h>
 
 #include "hal_data.h"
 #include "gt9147.h"

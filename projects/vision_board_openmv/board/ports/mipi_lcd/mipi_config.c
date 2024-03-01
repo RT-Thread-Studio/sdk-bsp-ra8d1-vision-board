@@ -1,7 +1,7 @@
 #include <rtthread.h>
 
 #if (defined(BSP_USING_LCD)) || (defined(SOC_SERIES_R7FA8M85))
-#include <lcd_port.h>
+#include <ra8/lcd_config.h>
 #include "hal_data.h"
 
 #define DRV_DEBUG

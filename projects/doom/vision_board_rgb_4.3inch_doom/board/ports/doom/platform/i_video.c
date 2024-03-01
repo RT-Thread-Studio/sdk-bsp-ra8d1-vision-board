@@ -41,7 +41,9 @@
 
 #include <sys/types.h>
 
-#include <lcd_port.h>
+#include "doomgeneric.h"
+#include <drv_lcd.h>
+#include <ra8/lcd_config.h>
 #include <hal_data.h>
 
 void I_GetEvent(void);
@@ -148,7 +150,7 @@ static inline void I_CopyFrameBufferRGB565(void)
             fb16_t[(SCREENWIDTH * 2) + pixel + 1] = rgb565_palette[index];
         }
     }
-
+	
     lcd_draw_jpg(0, 0, (uint8_t *)fb16_t, 640, 400);
 }
 
