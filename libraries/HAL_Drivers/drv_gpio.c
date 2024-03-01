@@ -21,7 +21,7 @@
 #endif /* DRV_DEBUG */
 
 #ifdef R_ICU_H
-#include "gpio_cfg.h"
+#include <drv_config.h>
 
 static rt_base_t ra_pin_get_irqx(rt_uint32_t pin)
 {

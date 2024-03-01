@@ -125,6 +125,10 @@ extern "C"
 #endif /* SOC_SERIES_R7FA4M2 */
 
 #ifdef SOC_SERIES_R7FA8M85
+#ifdef R_ICU_H
+#include "ra8/gpio_cfg.h"
+#endif
+
 #include "ra8/uart_config.h"
 
 #ifdef BSP_USING_PWM
