@@ -143,6 +143,9 @@ extern "C"
 #include "ra8/dac_config.h"
 #endif
 
+#ifdef BSP_USING_LCD
+#include "ra8/lcd_config.h"
+#endif
 #endif /* SOC_SERIES_R7FA8M85 */
 
 #ifdef __cplusplus

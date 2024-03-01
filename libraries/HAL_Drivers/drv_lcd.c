@@ -9,10 +9,12 @@
  */
 
 #include <rtthread.h>
+#include <rtdevice.h>
 
 #if (defined(BSP_USING_LCD)) || (defined(SOC_SERIES_R7FA8M85))
+#include <ra8/lcd_config.h>
+#include <drv_lcd.h>
 
-#include <lcd_port.h>
 #include "hal_data.h"
 
 #define DRV_DEBUG
@@ -248,30 +250,6 @@ static int g2d_drv_hwInit(void)
     return RT_EOK;
 }
 
-static rt_err_t ra_bsp_lcd_init(void)
-{
-    fsp_err_t error;
-
-    /* Set screen rotation to default view */
-    screen_rotation = ROTATION_ZERO;
-
-    /*  Display driver open */
-    error = R_GLCDC_Open(&g_display0_ctrl, &g_display0_cfg);
-    if (FSP_SUCCESS == error)
-    {
-        /* config mipi */
-        ra8_mipi_lcd_init();
-
-        /* Initialize g2d */
-        error = g2d_drv_hwInit();
-
-        /**  Display driver start */
-        error = R_GLCDC_Start(&g_display0_ctrl);
-    }
-
-    return error;
-}
-
 static rt_err_t ra_lcd_control(rt_device_t device, int cmd, void *args)
 {
     struct drv_lcd_device *lcd = (struct drv_lcd_device *)device;
@@ -334,6 +312,39 @@ static rt_err_t drv_lcd_init(struct rt_device *device)
     return RT_EOK;
 }
 
+static void reset_lcd_panel(void)
+{
+    rt_pin_mode(LCD_RST_PIN, PIN_MODE_OUTPUT);
+    rt_pin_write(LCD_RST_PIN, PIN_LOW);
+    rt_thread_mdelay(100);
+    rt_pin_write(LCD_RST_PIN, PIN_HIGH);
+    rt_thread_mdelay(100);
+}
+
+static rt_err_t ra_bsp_lcd_init(void)
+{
+    fsp_err_t error;
+
+    /* Set screen rotation to default view */
+    screen_rotation = ROTATION_ZERO;
+
+    /*  Display driver open */
+    error = R_GLCDC_Open(&g_display0_ctrl, &g_display0_cfg);
+    if (FSP_SUCCESS == error)
+    {
+        /* config mipi */
+        ra8_mipi_lcd_init();
+
+        /* Initialize g2d */
+        error = g2d_drv_hwInit();
+
+        /**  Display driver start */
+        error = R_GLCDC_Start(&g_display0_ctrl);
+    }
+
+    return error;
+}
+
 int rt_hw_lcd_init(void)
 {
     struct rt_device *device = &_lcd.parent;
@@ -374,6 +385,8 @@ int rt_hw_lcd_init(void)
 
     /* Double buffer for drawing color bands with good quality */
     gp_double_buffer = gp_single_buffer + LCD_BUF_SIZE;
+
+	reset_lcd_panel();
 
     ra_bsp_lcd_init();
 

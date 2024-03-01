@@ -41,7 +41,7 @@
 
 #include <sys/types.h>
 
-#include <lcd_port.h>
+#include <ra8/lcd_config.h>
 #include <hal_data.h>
 
 void I_GetEvent(void);

@@ -8,7 +8,7 @@
  * 2021-11-24     Rbb666       The first version
  */
 #include <lvgl.h>
-#include <lcd_port.h>
+#include "ra8/lcd_config.h"
 #include "hal_data.h"
 
 static rt_sem_t _SemaphoreVsync = RT_NULL;

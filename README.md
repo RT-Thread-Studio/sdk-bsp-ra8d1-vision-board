@@ -26,6 +26,7 @@ $ sdk-bsp-ra8d1-vision-board
 ├── projects
 │   ├── lcd
 │   │   ├── vision_board_mipi_7.0inch
+│   │   ├── vision_board_mipi_2.0inch
 │   │   └── vision_board_rgb_4.3inch
 │   ├── doom
 │   │   └── vision_board_rgb_4.3inch_doom
