@@ -21,7 +21,9 @@ static int Doom_run_start(void);
 
 void hal_entry(void)
 {
-    rt_kprintf("Doom&RT-Thread!\n");
+    rt_kprintf("======================================================\n");
+	rt_kprintf("This is rgb-4.3inch doom demo.\n");
+    rt_kprintf("======================================================\n");
     /* Start-up doom */
     Doom_run_start();
 }
