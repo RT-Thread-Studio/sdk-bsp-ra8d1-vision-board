@@ -4,6 +4,8 @@
 #include <stdint.h>
 #include "bsp_api.h"
 #include "dave_driver.h"
+#include "r_mipi_dsi.h"
+            #include "r_mipi_dsi_api.h"
 #include "r_glcdc.h"
             #include "r_display_api.h"
 #include "r_ioport.h"
@@ -12,6 +14,22 @@ FSP_HEADER
 #if DRW_CFG_CUSTOM_MALLOC
             void * d1_malloc(size_t size);
             void   d1_free(void * ptr);
+            #endif
+/* MIPI PHY on MIPI PHY Instance. */
+
+        extern const mipi_phy_instance_t g_mipi_phy0;
+
+        /* Access the MIPI DSI instance using these structures when calling API functions directly (::p_api is not used). */
+        extern mipi_phy_ctrl_t g_mipi_phy0_ctrl;
+        extern const mipi_phy_cfg_t g_mipi_phy0_cfg;
+/* MIPI DSI on MIPI DSI Instance. */
+
+            /* Access the MIPI DSI instance using these structures when calling API functions directly (::p_api is not used). */
+            extern mipi_dsi_instance_ctrl_t g_mipi_dsi0_ctrl;
+            extern const mipi_dsi_cfg_t g_mipi_dsi0_cfg;
+
+            #ifndef mipi_dsi0_callback
+              void mipi_dsi0_callback(mipi_dsi_callback_args_t * p_args);
             #endif
 #define GLCDC_CFG_LAYER_1_ENABLE (true)
             #define GLCDC_CFG_LAYER_2_ENABLE (false)
@@ -55,8 +73,8 @@ FSP_HEADER
             #else
             #define DISPLAY_BITS_PER_PIXEL_INPUT0 (1)
             #endif
-            #define DISPLAY_HSIZE_INPUT0                 (800)
-            #define DISPLAY_VSIZE_INPUT0                 (480)
+            #define DISPLAY_HSIZE_INPUT0                 (480)
+            #define DISPLAY_VSIZE_INPUT0                 (360)
             #define DISPLAY_BUFFER_STRIDE_BYTES_INPUT0   (((DISPLAY_HSIZE_INPUT0 * DISPLAY_BITS_PER_PIXEL_INPUT0 + 0x1FF) >> 9) << 6)
             #define DISPLAY_BUFFER_STRIDE_PIXELS_INPUT0  ((DISPLAY_BUFFER_STRIDE_BYTES_INPUT0 * 8) / DISPLAY_BITS_PER_PIXEL_INPUT0)
             #if GLCDC_CFG_LAYER_1_ENABLE

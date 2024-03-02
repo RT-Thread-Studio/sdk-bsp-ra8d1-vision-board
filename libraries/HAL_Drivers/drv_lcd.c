@@ -199,17 +199,17 @@ void g2d_display_write_area(const void *pSrc, void *pDst, int WidthSrc, int Heig
     ModeSrc = d2_mode_rgb565;
 
     /* Set the new buffer to the current draw buffer */
-    d2_framebuffer(*_d2_handle_user, (uint16_t *)pDst, LCD_WIDTH, LCD_WIDTH, LCD_HEIGHT, ModeSrc);
+    d2_framebuffer(d2_handle_obj_get(), (uint16_t *)pDst, LCD_WIDTH, LCD_WIDTH, LCD_HEIGHT, ModeSrc);
 
-    d2_selectrenderbuffer(*_d2_handle_user, renderbuffer);
-    d2_cliprect(*_d2_handle_user, 0, 0, LCD_WIDTH, LCD_HEIGHT);
-    d2_setblitsrc(*_d2_handle_user, (void *) pSrc, WidthSrc, WidthSrc, HeightSrc, ModeSrc);
-    d2_blitcopy(*_d2_handle_user, WidthSrc, HeightSrc, 0, 0, (d2_width)(WidthSrc << 4), (d2_width)(HeightSrc << 4),
+    d2_selectrenderbuffer(d2_handle_obj_get(), d2_renderbuffer_get());
+    d2_cliprect(d2_handle_obj_get(), 0, 0, LCD_WIDTH, LCD_HEIGHT);
+    d2_setblitsrc(d2_handle_obj_get(), (void *) pSrc, WidthSrc, WidthSrc, HeightSrc, ModeSrc);
+    d2_blitcopy(d2_handle_obj_get(), WidthSrc, HeightSrc, 0, 0, (d2_width)(WidthSrc << 4), (d2_width)(HeightSrc << 4),
                 (d2_point)(x << 4), (d2_point)(y << 4), 0);
 
     /* End the current display list */
-    d2_executerenderbuffer(*_d2_handle_user, renderbuffer, 0);
-    d2_flushframe(*_d2_handle_user);
+    d2_executerenderbuffer(d2_handle_obj_get(), d2_renderbuffer_get(), 0);
+    d2_flushframe(d2_handle_obj_get());
 }
 
 static int g2d_drv_hwInit(void)

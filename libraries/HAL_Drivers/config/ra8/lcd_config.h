@@ -1,15 +1,14 @@
 /*
- * Copyright (c) 2006-2023, RT-Thread Development Team
+ * Copyright (c) 2006-2024, RT-Thread Development Team
  *
  * SPDX-License-Identifier: Apache-2.0
  *
  * Change Logs:
- * Date           Author         Notes
- * 2018-07-28     liu2guang      the first version for STM32F469NI-Discovery.
+ * Date           Author       Notes
+ * 2024-03-01     Rbb666       the first version
  */
-
-#ifndef __DRV_LCD_H_
-#define __DRV_LCD_H_
+#ifndef __LCD_CONFIG_H_
+#define __LCD_CONFIG_H_
 
 typedef enum
 {

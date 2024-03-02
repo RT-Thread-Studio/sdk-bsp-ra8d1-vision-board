@@ -5,6 +5,9 @@
 #include "py_helper.h"
 #include "py_image.h"
 
+#include "drv_lcd.h"
+#include "drv_config.h"
+
 int omvhal_lcd_init(ovmhal_lcd_t *lcd, int lcdtype, int *o_width, int *o_height)
 {
     struct rt_device_graphic_info info;
@@ -77,14 +80,10 @@ void omvhal_lcd_draw(ovmhal_lcd_t *lcd, int x, int y, int w, int h, unsigned sho
     rect.y = y;
     rect.width = w;
     rect.height = h;
-
     rt_device_control(lcd->dev, RTGRAPHIC_CTRL_RECT_UPDATE, &rect);
 #endif
-#ifdef __DCACHE_PRESENT
 	SCB_CleanDCache_by_Addr((uint32_t *) p, w * h * 2);
-#endif	
-    void lcd_draw_jpg(int32_t x, int32_t y, const void *p, int32_t xSize, int32_t ySize);
-    lcd_draw_jpg(x, y, (uint8_t *)p, w, h);
+    lcd_draw_jpg(0, 0, (uint8_t *)p, w, h);
 }
 
 void omvhal_lcd_clear(ovmhal_lcd_t *lcd, int color)
