@@ -46,7 +46,7 @@ rt_err_t command_send(sdhi_instance_ctrl_t *p_ctrl, struct rt_mmcsd_cmd *cmd)
         {
             return -RT_ETIMEOUT;
         }
-        rt_hw_us_delay(1U);
+        R_BSP_SoftwareDelay(1U, BSP_DELAY_UNITS_MICROSECONDS);
         timeout--;
     }
     p_ctrl->p_reg->SD_INFO1 = 0U;
@@ -181,7 +181,7 @@ rt_err_t command_send(sdhi_instance_ctrl_t *p_ctrl, struct rt_mmcsd_cmd *cmd)
         }
 
         /* Wait 1 us for consistent loop timing. */
-        rt_hw_us_delay(1);
+        R_BSP_SoftwareDelay(1U, BSP_DELAY_UNITS_MICROSECONDS);
     }
 }
 
@@ -458,10 +458,34 @@ struct rt_mmcsd_host_ops ra_sdhi_ops =
     .enable_sdio_irq = ra_sdhi_enable_sdio_irq
 };
 
+/**
+  * @brief  This function interrupt process function.
+  * @param  host  rt_mmcsd_host
+  * @retval None
+  */
+void rthw_sdio_irq_process(struct rt_mmcsd_host *host)
+{
+    struct rthw_sdio *sdio = host->private_data;
+    rt_event_send(&sdio->event, 0xffffffff);
+}
+
 void sdhi_callback(sdmmc_callback_args_t *p_args)
 {
     /* enter interrupt */
     rt_interrupt_enter();
+
+	if ((SDMMC_EVENT_ERASE_COMPLETE | SDMMC_EVENT_TRANSFER_COMPLETE) & p_args->event)
+    {
+#ifdef BSP_USING_SDHI1
+       /* Process All SDIO Interrupt Sources */
+		rthw_sdio_irq_process(host1);
+#endif
+#ifdef BSP_USING_SDHI2
+       /* Process All SDIO Interrupt Sources */
+		rthw_sdio_irq_process(host2);
+#endif
+    }
+
     /* leave interrupt */
     rt_interrupt_leave();
 }

@@ -71,6 +71,7 @@
         <file category="header" name="ra/fsp/inc/api/r_flash_api.h" path=""/>
         <file category="header" name="ra/fsp/inc/api/r_i2c_master_api.h" path=""/>
         <file category="header" name="ra/fsp/inc/api/r_ioport_api.h" path=""/>
+        <file category="header" name="ra/fsp/inc/api/r_mipi_dsi_api.h" path=""/>
         <file category="header" name="ra/fsp/inc/api/r_sdmmc_api.h" path=""/>
         <file category="header" name="ra/fsp/inc/api/r_spi_api.h" path=""/>
         <file category="header" name="ra/fsp/inc/api/r_timer_api.h" path=""/>
@@ -85,6 +86,8 @@
         <file category="header" name="ra/fsp/inc/instances/r_glcdc.h" path=""/>
         <file category="header" name="ra/fsp/inc/instances/r_gpt.h" path=""/>
         <file category="header" name="ra/fsp/inc/instances/r_ioport.h" path=""/>
+        <file category="header" name="ra/fsp/inc/instances/r_mipi_dsi.h" path=""/>
+        <file category="header" name="ra/fsp/inc/instances/r_mipi_phy.h" path=""/>
         <file category="header" name="ra/fsp/inc/instances/r_sci_b_i2c.h" path=""/>
         <file category="header" name="ra/fsp/inc/instances/r_sci_b_uart.h" path=""/>
         <file category="header" name="ra/fsp/inc/instances/r_sdhi.h" path=""/>
@@ -134,6 +137,8 @@
         <file category="source" name="ra/fsp/src/r_glcdc/r_glcdc.c"/>
         <file category="source" name="ra/fsp/src/r_gpt/r_gpt.c"/>
         <file category="source" name="ra/fsp/src/r_ioport/r_ioport.c"/>
+        <file category="source" name="ra/fsp/src/r_mipi_dsi/r_mipi_dsi.c"/>
+        <file category="source" name="ra/fsp/src/r_mipi_phy/r_mipi_phy.c"/>
         <file category="source" name="ra/fsp/src/r_sci_b_i2c/r_sci_b_i2c.c"/>
         <file category="source" name="ra/fsp/src/r_sci_b_uart/r_sci_b_uart.c"/>
         <file category="source" name="ra/fsp/src/r_sdhi/r_sdhi.c"/>
@@ -215,6 +220,7 @@
         <file category="header" name="ra_cfg/fsp_cfg/r_glcdc_cfg.h" path=""/>
         <file category="header" name="ra_cfg/fsp_cfg/r_gpt_cfg.h" path=""/>
         <file category="header" name="ra_cfg/fsp_cfg/r_ioport_cfg.h" path=""/>
+        <file category="header" name="ra_cfg/fsp_cfg/r_mipi_dsi_cfg.h" path=""/>
         <file category="header" name="ra_cfg/fsp_cfg/r_sci_b_i2c_cfg.h" path=""/>
         <file category="header" name="ra_cfg/fsp_cfg/r_sci_b_uart_cfg.h" path=""/>
         <file category="header" name="ra_cfg/fsp_cfg/r_sdhi_cfg.h" path=""/>

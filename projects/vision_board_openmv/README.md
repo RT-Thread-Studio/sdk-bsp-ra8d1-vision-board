@@ -87,9 +87,33 @@ OpenMV 是由美国克里斯团队基于 MicroPython 发起的开源机器视觉
 
 **注：更多的示例以及教程可以详见 [OpenMV 文档中心](https://book.openmv.cc/)**
 
+## 使能TF-micro功能
+
+目前Vision-Board已经支持TF-micro（神经网络）功能，但默认没有开启，用户可以选择开启/关闭选项，接下来介绍如何开启此功能：
+
+1. 打开ENV终端，输入`menuconfig`进入配置界面
+2. 进入`Enable OpenMV for RT-Thread`菜单，使能`Enable tflite support`选项即可
+3. 退出ENV并保存配置
+4. 输入：`scons --target=mdk5`生成工程
+
+<img src="docs/picture/tf.png" style="zoom:80%;" />
+
+## 待办事项
+
+目前 OpenMV 待支持功能：
+
+- [ ] RW007 Wi-Fi 图传功能
+- [ ] MSC-USB 复合设备（虚拟U盘功能）
+
 ## QA
 
-Q：遇到在使用 Dap-Link 时找不到目标芯片的情况并且无法下载：
+### Q1：使用OpenMV IDE连接时传输摄像头画面偶尔“闪烁”一下：
+
+> 我们测试过有的电脑会确实出现这个问题，具体原因未知，但并不影响正常使用。欢迎有能力的小伙伴帮忙修复！
+
+A：解决办法：打开Vision Board的串口终端即可解决这个问题。
+
+### Q2：遇到在使用 Dap-Link 时找不到目标芯片的情况并且无法下载：
 
 ![](docs/picture/download1.png)
 
@@ -102,3 +126,4 @@ A2：方法二：使用  [Renesas Flash Programmer](https://www.renesas.com/us/e
 ![](docs/picture/boot1.png)
 
 ![](docs/picture/boot2.png)
+

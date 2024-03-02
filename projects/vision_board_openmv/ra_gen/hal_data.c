@@ -707,7 +707,7 @@ const dmac_extended_cfg_t g_transfer0_extend =
 #else
     .irq                 = FSP_INVALID_VECTOR,
 #endif
-    .ipl                 = (12),
+    .ipl                 = (6),
     .channel             = 0,
     .p_callback          = g_sdmmc1_dmac_callback,
     .p_context           = &g_sdmmc1_ctrl,
@@ -753,7 +753,7 @@ sdmmc_cfg_t g_sdmmc1_cfg =
     .p_extend               = NULL,
     .p_lower_lvl_transfer   = &g_transfer0,
 
-    .access_ipl             = (12),
+    .access_ipl             = (6),
     .sdio_ipl               = BSP_IRQ_DISABLED,
     .card_ipl               = (12),
     .dma_req_ipl            = (BSP_IRQ_DISABLED),
