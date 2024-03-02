@@ -34,11 +34,8 @@
 
 #include <stdbool.h>
 #include <stdlib.h>
-
 #include <fcntl.h>
-
 #include <stdarg.h>
-
 #include <sys/types.h>
 
 #include "doomgeneric.h"
@@ -150,8 +147,9 @@ static inline void I_CopyFrameBufferRGB565(void)
             fb16_t[(SCREENWIDTH * 2) + pixel + 1] = rgb565_palette[index];
         }
     }
-	
-    lcd_draw_jpg(0, 0, (uint8_t *)fb16_t, 640, 400);
+
+    SCB_CleanInvalidateDCache_by_Addr((uint32_t *)fb16_t, sizeof(fb_background[0]));
+    lcd_draw_jpg(0, 0, (uint8_t *)fb16_t, SCREENWIDTH * 2, SCREENHEIGHT * 2);
 }
 
 //

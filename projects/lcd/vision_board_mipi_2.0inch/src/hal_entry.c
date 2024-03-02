@@ -13,7 +13,7 @@
 
 void hal_entry(void)
 {
-    rt_kprintf("This is rgb-2.0inch lcd demo.\n\n");
+    rt_kprintf("This is mipi-2.0inch lcd demo.\n\n");
     rt_kprintf("======================================================\n");
     rt_kprintf("You can enter the lcd_test command to test the lcd.\n");
     rt_kprintf("======================================================\n");

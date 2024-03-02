@@ -52,10 +52,12 @@ jobs:
        legs:
          - {RTT_BSP: "vision_board_blink_led"}
          - {RTT_BSP: "vision_board_wifi"}
-         - {RTT_BSP: "lcd/vision_board_mipi_7.0inch"}
          - {RTT_BSP: "lcd/vision_board_mipi_2.0inch"}
          - {RTT_BSP: "lcd/vision_board_rgb_4.3inch"}
+         - {RTT_BSP: "lcd/vision_board_mipi_7.0inch"}
+         - {RTT_BSP: "doom/vision_board_mipi_2.0inch_doom"}
          - {RTT_BSP: "doom/vision_board_rgb_4.3inch_doom"}
+         - {RTT_BSP: "nes/vision_board_mipi_2.0inch_nes"}
          - {RTT_BSP: "nes/vision_board_rgb_4.3inch_nes"}
     steps:
       - uses: actions/checkout@v2

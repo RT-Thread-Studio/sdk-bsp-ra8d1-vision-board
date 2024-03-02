@@ -36,9 +36,11 @@ struct drv_lcd_device _lcd;
 static uint16_t screen_rotation;
 static struct rt_completion sync_completion;
 
+static uint16_t *gp_single_buffer = NULL;
+static uint16_t *gp_double_buffer = NULL;
 static uint16_t *lcd_current_working_buffer = (uint16_t *) &fb_background[0];
-static uint16_t * gp_single_buffer = NULL;
-static uint16_t * gp_double_buffer = NULL;
+
+static uint8_t lcd_framebuffer[LCD_BUF_SIZE] BSP_ALIGN_VARIABLE(64) BSP_PLACE_IN_SECTION(".sdram");
 
 // G2D
 extern d2_device *d2_handle;
@@ -150,22 +152,22 @@ void lcd_draw_jpg(int32_t x, int32_t y, const void *p, int32_t xSize, int32_t yS
     ModeSrc = d2_mode_rgb565;
 
     // Generate render operations
-    d2_framebuffer(*_d2_handle_user, (uint16_t *)&fb_background[0], LCD_WIDTH, LCD_WIDTH, LCD_HEIGHT, ModeSrc);
+    d2_framebuffer(d2_handle_obj_get(), (uint16_t *)&fb_background[0], LCD_WIDTH, LCD_WIDTH, LCD_HEIGHT, ModeSrc);
 
-    d2_selectrenderbuffer(*_d2_handle_user, renderbuffer);
-    d2_cliprect(*_d2_handle_user, 0, 0, LCD_WIDTH, LCD_HEIGHT);
-    d2_setblitsrc(*_d2_handle_user, (void *) p, xSize, xSize, ySize, ModeSrc);
-    d2_blitcopy(*_d2_handle_user, xSize, ySize, 0, 0, (d2_width)(LCD_WIDTH << 4), (d2_width)(LCD_HEIGHT << 4),
+    d2_selectrenderbuffer(d2_handle_obj_get(), d2_renderbuffer_get());
+    d2_cliprect(d2_handle_obj_get(), 0, 0, LCD_WIDTH, LCD_HEIGHT);
+    d2_setblitsrc(d2_handle_obj_get(), (void *) p, xSize, xSize, ySize, ModeSrc);
+    d2_blitcopy(d2_handle_obj_get(), xSize, ySize, 0, 0, (d2_width)(LCD_WIDTH << 4), (d2_width)(LCD_HEIGHT << 4),
                 (d2_point)(x << 4), (d2_point)(y << 4), 0);
 
     // Execute render operations
-    d2_executerenderbuffer(*_d2_handle_user, renderbuffer, 0);
+    d2_executerenderbuffer(d2_handle_obj_get(), d2_renderbuffer_get(), 0);
 
     // In single-buffered mode always wait for DRW to finish before returning
-    d2_flushframe(*_d2_handle_user);
+    d2_flushframe(d2_handle_obj_get());
 }
 
-void lcd_gpu_fill_array(size_t x1, size_t y1, size_t x2, size_t y2, uint16_t* color_data)
+void lcd_gpu_fill_array(size_t x1, size_t y1, size_t x2, size_t y2, uint16_t *color_data)
 {
     uint32_t ModeSrc;
     int32_t width;
@@ -271,7 +273,7 @@ static rt_err_t ra_lcd_control(rt_device_t device, int cmd, void *args)
                                info->width, info->height, info->x, info->y);
 #if defined(ENABLE_DOUBLE_BUFFER) && ENABLE_DOUBLE_BUFFER
         /* Now that the framebuffer is ready, update the GLCDC buffer pointer on the next Vsync */
-        fsp_err_t err = R_GLCDC_BufferChange (&g_display0_ctrl, (uint8_t*) lcd_current_working_buffer, DISPLAY_FRAME_LAYER_1);
+        fsp_err_t err = R_GLCDC_BufferChange(&g_display0_ctrl, (uint8_t *) lcd_current_working_buffer, DISPLAY_FRAME_LAYER_1);
         RT_ASSERT(err == 0);
 #endif
         /* wait for vsync interrupt */
@@ -358,7 +360,7 @@ int rt_hw_lcd_init(void)
     _lcd.lcd_info.bits_per_pixel = LCD_BITS_PER_PIXEL;
     _lcd.lcd_info.pixel_format = LCD_PIXEL_FORMAT;
 
-    _lcd.lcd_info.framebuffer = (uint8_t *)rt_malloc_align(LCD_BUF_SIZE, 32);
+    _lcd.lcd_info.framebuffer = (uint8_t *)lcd_framebuffer;
     if (_lcd.lcd_info.framebuffer == NULL)
     {
         LOG_E("alloc lcd framebuffer fail");
@@ -381,12 +383,12 @@ int rt_hw_lcd_init(void)
     rt_completion_init(&sync_completion);
 
     /* Initialize buffer pointers */
-    gp_single_buffer = (uint16_t*) g_display0_cfg.input[0].p_base;
+    gp_single_buffer = (uint16_t *) g_display0_cfg.input[0].p_base;
 
     /* Double buffer for drawing color bands with good quality */
     gp_double_buffer = gp_single_buffer + LCD_BUF_SIZE;
 
-	reset_lcd_panel();
+    reset_lcd_panel();
 
     ra_bsp_lcd_init();
 
