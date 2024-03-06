@@ -23,6 +23,8 @@
 #define LOG_TAG             "sensor"
 #include <drv_log.h>
 
+#define CEU_EVENT_FRAME_END_TIMEOUT 80
+
 sensor_t sensor = {0};
 capture_instance_t *gp_ceu_instance = NULL;
 
@@ -421,7 +423,7 @@ int sensor_snapshot(sensor_t *sensor, image_t *image, uint32_t flags)
 
     ceu_device_snapshot((vbuffer_t *)buffer);
 
-    rt_completion_wait(&ceu_completion, 200);
+    rt_completion_wait(&ceu_completion, CEU_EVENT_FRAME_END_TIMEOUT);
 
     /* Wait for the DMA to finish the transfer */
     for (mp_uint_t ticks = mp_hal_ticks_ms(); buffer == NULL;)

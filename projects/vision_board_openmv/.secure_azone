@@ -123,6 +123,7 @@
             <slot name="P904" secure="true"/>
             <slot name="P905" secure="true"/>
             <slot name="P906" secure="true"/>
+            <slot name="P907" secure="true"/>
             <slot name="P908" secure="true"/>
             <slot name="P909" secure="true"/>
             <slot name="P910" secure="true"/>
@@ -153,6 +154,9 @@
         <peripheral name="DMA_DMAC0" group="DMA_DMAC" security=""/>
         <peripheral name="GPT6" group="GPT" security=""/>
         <peripheral name="GPT7" group="GPT" security=""/>
+        <peripheral name="ICU_EXT_IRQ">
+            <slot name="ICU_EXT_IRQ10" secure="true"/>
+        </peripheral>
         <peripheral name="ICU">
             <slot name="IRQ0" secure="true"/>
             <slot name="IRQ1" secure="true"/>
@@ -180,6 +184,7 @@
             <slot name="IRQ23" secure="true"/>
             <slot name="IRQ24" secure="true"/>
             <slot name="IRQ25" secure="true"/>
+            <slot name="IRQ26" secure="true"/>
         </peripheral>
     </partition>
 </azone>

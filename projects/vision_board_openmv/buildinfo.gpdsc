@@ -22,6 +22,8 @@
         <file category="include" name="ra/fsp/inc/"/>
         <file category="include" name="ra/fsp/inc/api/"/>
         <file category="include" name="ra/fsp/inc/instances/"/>
+        <file category="include" name="ra/fsp/src/r_usb_basic/src/driver/inc/"/>
+        <file category="include" name="ra/fsp/src/r_usb_hcdc/src/inc/"/>
         <file category="include" name="ra/tes/dave2d/inc/"/>
         <file category="header" name="ra/arm/CMSIS_5/CMSIS/Core/Include/cachel1_armv7.h" path=""/>
         <file category="header" name="ra/arm/CMSIS_5/CMSIS/Core/Include/cmsis_armcc.h" path=""/>
@@ -68,6 +70,7 @@
         <file category="header" name="ra/fsp/inc/api/r_cgc_api.h" path=""/>
         <file category="header" name="ra/fsp/inc/api/r_display_api.h" path=""/>
         <file category="header" name="ra/fsp/inc/api/r_elc_api.h" path=""/>
+        <file category="header" name="ra/fsp/inc/api/r_external_irq_api.h" path=""/>
         <file category="header" name="ra/fsp/inc/api/r_flash_api.h" path=""/>
         <file category="header" name="ra/fsp/inc/api/r_i2c_master_api.h" path=""/>
         <file category="header" name="ra/fsp/inc/api/r_ioport_api.h" path=""/>
@@ -85,6 +88,7 @@
         <file category="header" name="ra/fsp/inc/instances/r_flash_hp.h" path=""/>
         <file category="header" name="ra/fsp/inc/instances/r_glcdc.h" path=""/>
         <file category="header" name="ra/fsp/inc/instances/r_gpt.h" path=""/>
+        <file category="header" name="ra/fsp/inc/instances/r_icu.h" path=""/>
         <file category="header" name="ra/fsp/inc/instances/r_ioport.h" path=""/>
         <file category="header" name="ra/fsp/inc/instances/r_mipi_dsi.h" path=""/>
         <file category="header" name="ra/fsp/inc/instances/r_mipi_phy.h" path=""/>
@@ -136,6 +140,7 @@
         <file category="source" name="ra/fsp/src/r_flash_hp/r_flash_hp.c"/>
         <file category="source" name="ra/fsp/src/r_glcdc/r_glcdc.c"/>
         <file category="source" name="ra/fsp/src/r_gpt/r_gpt.c"/>
+        <file category="source" name="ra/fsp/src/r_icu/r_icu.c"/>
         <file category="source" name="ra/fsp/src/r_ioport/r_ioport.c"/>
         <file category="source" name="ra/fsp/src/r_mipi_dsi/r_mipi_dsi.c"/>
         <file category="source" name="ra/fsp/src/r_mipi_phy/r_mipi_phy.c"/>
@@ -219,6 +224,7 @@
         <file category="header" name="ra_cfg/fsp_cfg/r_flash_hp_cfg.h" path=""/>
         <file category="header" name="ra_cfg/fsp_cfg/r_glcdc_cfg.h" path=""/>
         <file category="header" name="ra_cfg/fsp_cfg/r_gpt_cfg.h" path=""/>
+        <file category="header" name="ra_cfg/fsp_cfg/r_icu_cfg.h" path=""/>
         <file category="header" name="ra_cfg/fsp_cfg/r_ioport_cfg.h" path=""/>
         <file category="header" name="ra_cfg/fsp_cfg/r_mipi_dsi_cfg.h" path=""/>
         <file category="header" name="ra_cfg/fsp_cfg/r_sci_b_i2c_cfg.h" path=""/>
