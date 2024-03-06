@@ -416,6 +416,10 @@ const ioport_pin_cfg_t g_bsp_pin_cfg_data[] = {
         .pin_cfg = ((uint32_t) IOPORT_CFG_DRIVE_HIGH | (uint32_t) IOPORT_CFG_PERIPHERAL_PIN | (uint32_t) IOPORT_PERIPHERAL_BUS)
     },
     {
+        .pin = BSP_IO_PORT_09_PIN_07,
+        .pin_cfg = ((uint32_t) IOPORT_CFG_IRQ_ENABLE | (uint32_t) IOPORT_CFG_PORT_DIRECTION_INPUT)
+    },
+    {
         .pin = BSP_IO_PORT_09_PIN_08,
         .pin_cfg = ((uint32_t) IOPORT_CFG_DRIVE_HIGH | (uint32_t) IOPORT_CFG_PERIPHERAL_PIN | (uint32_t) IOPORT_PERIPHERAL_BUS)
     },

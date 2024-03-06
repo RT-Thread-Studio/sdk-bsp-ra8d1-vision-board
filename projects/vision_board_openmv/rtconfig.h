@@ -269,6 +269,15 @@
 #define RW007_NOT_USE_EXAMPLE_DRIVERS
 #define RW007_SPI_MAX_HZ 30000000
 
+/* CYW43012 WiFi */
+
+
+/* BL808 WiFi */
+
+
+/* CYW43439 WiFi */
+
+
 /* IoT Cloud */
 
 

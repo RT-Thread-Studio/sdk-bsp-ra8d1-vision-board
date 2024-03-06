@@ -6,7 +6,7 @@
         #endif
                 /* Number of interrupts allocated */
         #ifndef VECTOR_DATA_IRQ_COUNT
-        #define VECTOR_DATA_IRQ_COUNT    (33)
+        #define VECTOR_DATA_IRQ_COUNT    (34)
         #endif
         /* ISR prototypes */
         void sci_b_uart_rxi_isr(void);
@@ -31,6 +31,7 @@
         void spi_b_txi_isr(void);
         void spi_b_tei_isr(void);
         void spi_b_eri_isr(void);
+        void r_icu_isr(void);
         void usbfs_interrupt_handler(void);
         void usbfs_resume_handler(void);
         void usbfs_d0fifo_handler(void);
@@ -93,20 +94,22 @@
         #define SPI1_TEI_IRQn          ((IRQn_Type) 24) /* SPI1 TEI (Transmission complete event) */
         #define VECTOR_NUMBER_SPI1_ERI ((IRQn_Type) 25) /* SPI1 ERI (Error) */
         #define SPI1_ERI_IRQn          ((IRQn_Type) 25) /* SPI1 ERI (Error) */
-		#define VECTOR_NUMBER_USBFS_INT ((IRQn_Type) 26) /* USBFS INT (USBFS interrupt) */
-        #define USBFS_INT_IRQn          ((IRQn_Type) 26) /* USBFS INT (USBFS interrupt) */
-        #define VECTOR_NUMBER_USBFS_RESUME ((IRQn_Type) 27) /* USBFS RESUME (USBFS resume interrupt) */
-        #define USBFS_RESUME_IRQn          ((IRQn_Type) 27) /* USBFS RESUME (USBFS resume interrupt) */
-        #define VECTOR_NUMBER_USBFS_FIFO_0 ((IRQn_Type) 28) /* USBFS FIFO 0 (DMA transfer request 0) */
-        #define USBFS_FIFO_0_IRQn          ((IRQn_Type) 28) /* USBFS FIFO 0 (DMA transfer request 0) */
-        #define VECTOR_NUMBER_USBFS_FIFO_1 ((IRQn_Type) 29) /* USBFS FIFO 1 (DMA transfer request 1) */
-        #define USBFS_FIFO_1_IRQn          ((IRQn_Type) 29) /* USBFS FIFO 1 (DMA transfer request 1) */
-        #define VECTOR_NUMBER_USBHS_USB_INT_RESUME ((IRQn_Type) 30) /* USBHS USB INT RESUME (USBHS interr) */
-        #define USBHS_USB_INT_RESUME_IRQn          ((IRQn_Type) 30) /* USBHS USB INT RESUME (USBHS interr) */
-        #define VECTOR_NUMBER_USBHS_FIFO_0 ((IRQn_Type) 31) /* USBHS FIFO 0 (DMA transfer request 0) */
-        #define USBHS_FIFO_0_IRQn          ((IRQn_Type) 31) /* USBHS FIFO 0 (DMA transfer request 0) */
-        #define VECTOR_NUMBER_USBHS_FIFO_1 ((IRQn_Type) 32) /* USBHS FIFO 1 (DMA transfer request 1) */
-        #define USBHS_FIFO_1_IRQn          ((IRQn_Type) 32) /* USBHS FIFO 1 (DMA transfer request 1) */
+        #define VECTOR_NUMBER_ICU_IRQ10 ((IRQn_Type) 26) /* ICU IRQ10 (External pin interrupt 10) */
+        #define ICU_IRQ10_IRQn          ((IRQn_Type) 26) /* ICU IRQ10 (External pin interrupt 10) */
+        #define VECTOR_NUMBER_USBFS_INT ((IRQn_Type) 27) /* USBFS INT (USBFS interrupt) */
+        #define USBFS_INT_IRQn          ((IRQn_Type) 27) /* USBFS INT (USBFS interrupt) */
+        #define VECTOR_NUMBER_USBFS_RESUME ((IRQn_Type) 28) /* USBFS RESUME (USBFS resume interrupt) */
+        #define USBFS_RESUME_IRQn          ((IRQn_Type) 28) /* USBFS RESUME (USBFS resume interrupt) */
+        #define VECTOR_NUMBER_USBFS_FIFO_0 ((IRQn_Type) 29) /* USBFS FIFO 0 (DMA transfer request 0) */
+        #define USBFS_FIFO_0_IRQn          ((IRQn_Type) 29) /* USBFS FIFO 0 (DMA transfer request 0) */
+        #define VECTOR_NUMBER_USBFS_FIFO_1 ((IRQn_Type) 30) /* USBFS FIFO 1 (DMA transfer request 1) */
+        #define USBFS_FIFO_1_IRQn          ((IRQn_Type) 30) /* USBFS FIFO 1 (DMA transfer request 1) */
+        #define VECTOR_NUMBER_USBHS_USB_INT_RESUME ((IRQn_Type) 31) /* USBHS USB INT RESUME (USBHS interr) */
+        #define USBHS_USB_INT_RESUME_IRQn          ((IRQn_Type) 31) /* USBHS USB INT RESUME (USBHS interr) */
+        #define VECTOR_NUMBER_USBHS_FIFO_0 ((IRQn_Type) 32) /* USBHS FIFO 0 (DMA transfer request 0) */
+        #define USBHS_FIFO_0_IRQn          ((IRQn_Type) 32) /* USBHS FIFO 0 (DMA transfer request 0) */
+        #define VECTOR_NUMBER_USBHS_FIFO_1 ((IRQn_Type) 33) /* USBHS FIFO 1 (DMA transfer request 1) */
+        #define USBHS_FIFO_1_IRQn          ((IRQn_Type) 33) /* USBHS FIFO 1 (DMA transfer request 1) */
         #endif
 
         #ifdef __cplusplus
