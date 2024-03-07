@@ -160,7 +160,6 @@
 #define PKG_LVGL_DISP_REFR_PERIOD 10
 #define PKG_LVGL_USING_LATEST_VERSION
 #define PKG_LVGL_VER_NUM 0x99999
-#define PKG_USING_LV_MUSIC_DEMO
 
 /* u8g2: a monochrome graphic library */
 
@@ -264,7 +263,10 @@
 #define BSP_USING_SDRAM
 #define BSP_USING_SDRAM_SIZE 0x1FFFFFF
 #define BSP_USING_LVGL
-#define BSP_USING_LCD_RGB
+
+/* LVGL Internal Configuration */
+
+#define BSP_USING_LVGL_DAVE2D
 #define BSP_USING_LVGL_DEMO
 #define BSP_USING_LVGL_BENCHMARK_DEMO
 #define BSP_USING_LVGL_WIDGETS_DEMO

@@ -21,13 +21,17 @@
 #define LV_VER_RES_MAX          360
 #define LV_COLOR_16_SWAP        1
 
-#define LV_USE_DRAW_DAVE2D      0
+#ifdef BSP_USING_LVGL_DAVE2D
+    #define LV_USE_DRAW_DAVE2D      1
+#endif
 
 /*turn-on helium acceleration when Arm-2D and the Helium-powered device are detected */
-#if defined(__ARM_FEATURE_MVE) && __ARM_FEATURE_MVE
-    #define LV_USE_DRAW_SW_ASM  LV_DRAW_SW_ASM_HELIUM
-    #define LV_USE_DRAW_ARM2D       1
-    #define LV_USE_DRAW_ARM2D_SYNC  1
+#ifdef BSP_USING_LVGL_ARM2D
+    #if defined(__ARM_FEATURE_MVE) && __ARM_FEATURE_MVE
+        #define LV_USE_DRAW_SW_ASM  LV_DRAW_SW_ASM_HELIUM
+        #define LV_USE_DRAW_ARM2D       1
+        #define LV_USE_DRAW_ARM2D_SYNC  1
+    #endif
 #endif
 
 #ifdef BSP_USING_LVGL_WIDGETS_DEMO

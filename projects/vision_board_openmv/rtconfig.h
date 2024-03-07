@@ -508,6 +508,9 @@
 /* OpenMV Extra Peripheral Configure */
 
 #define OPENMV_USING_LCD
+#define OPENMV_USING_KEY
+#define USER_KEY_PIN_NAME "p907"
+#define OMV_ENABLE_TF
 #define SENSOR_USING_XCLK
 #define CAM_PWM_DEV_NAME "pwm7"
 #define SENSOR_BUS_NAME "i2c1"

@@ -243,6 +243,10 @@ soft_reset_exit:
 #ifdef RT_USING_DFS
     mp_sys_resource_gc(fd_table_bak);
 #endif
+#ifdef OPENMV_USING_KEY
+    rt_uint32_t pin = rt_pin_get(USER_KEY_PIN_NAME);
+    rt_pin_detach_irq(pin);
+#endif
     first_soft_reset = false;
     goto soft_reset;
 }

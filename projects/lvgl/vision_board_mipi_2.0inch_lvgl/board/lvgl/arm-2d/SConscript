@@ -9,6 +9,6 @@ path = [cwd]
 path += [cwd + '/Include']
 path += [cwd + '/Include/template']
 
-group = DefineGroup('LVGL-arm2d', src, depend = ['BSP_USING_LVGL'], CPPPATH = path)
+group = DefineGroup('LVGL-arm2d', src, depend = ['BSP_USING_LVGL', 'BSP_USING_LVGL_ARM2D'], CPPPATH = path)
 
 Return('group')
