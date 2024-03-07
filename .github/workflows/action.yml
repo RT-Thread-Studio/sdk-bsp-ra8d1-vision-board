@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     name: check-yaml-format
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set up Python
         uses: actions/setup-python@master
         with:
@@ -62,7 +62,7 @@ jobs:
          - {RTT_BSP: "lvgl/vision_board_rgb_4.3inch_lvgl"}
          - {RTT_BSP: "lvgl/vision_board_mipi_2.0inch_lvgl"}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set up Python
         uses: actions/setup-python@master
         with:
