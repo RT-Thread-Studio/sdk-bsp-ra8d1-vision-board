@@ -117,7 +117,6 @@
 
 /* Socket is in the 'Network' category */
 
-#define RT_USING_CPLUSPLUS
 
 /* Network */
 
@@ -139,15 +138,6 @@
 
 
 /* Wiced WiFi */
-
-
-/* CYW43012 WiFi */
-
-
-/* BL808 WiFi */
-
-
-/* CYW43439 WiFi */
 
 
 /* IoT Cloud */
@@ -173,20 +163,13 @@
 #define PKG_LVGL_THREAD_STACK_SIZE 8192
 #define PKG_LVGL_DISP_REFR_PERIOD 10
 #define PKG_LVGL_USING_LATEST_VERSION
-#define PKG_LVGL_VER_NUM 0x999999
-#define PKG_USING_LV_MUSIC_DEMO
+#define PKG_LVGL_VER_NUM 0x99999
 
 /* u8g2: a monochrome graphic library */
 
 
 /* tools packages */
 
-#define PKG_USING_CMBACKTRACE
-#define PKG_CMBACKTRACE_PLATFORM_M7
-#define PKG_CMBACKTRACE_DUMP_STACK
-#define PKG_CMBACKTRACE_PRINT_CHINESE_UTF8
-#define PKG_USING_CMBACKTRACE_V10401
-#define PKG_CMBACKTRACE_VER_NUM 0x10401
 
 /* system packages */
 
@@ -214,8 +197,6 @@
 
 /* Kendryte SDK */
 
-#define PKG_USING_I2C_TOOLS
-#define PKG_USING_I2C_TOOLS_V100
 
 /* AI packages */
 
@@ -293,6 +274,10 @@
 #define BSP_USING_SDRAM_SIZE 0x1FFFFFF
 #define BSP_USING_LVGL
 #define BSP_USING_LCD_RGB
+
+/* LVGL Internal Configuration */
+
+#define BSP_USING_LVGL_DAVE2D
 #define BSP_USING_LVGL_DEMO
 #define BSP_USING_LVGL_BENCHMARK_DEMO
 #define BSP_USING_LVGL_WIDGETS_DEMO

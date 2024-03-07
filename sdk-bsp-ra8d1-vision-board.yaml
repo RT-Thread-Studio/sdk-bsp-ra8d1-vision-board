@@ -65,6 +65,34 @@ pkg_type: Board_Support_Packages
 pkg_vendor: RealThread
 pkg_version: 1.0.0
 example_projects:
+- project_name: vision_board_rgb_4.3inch_lvgl
+  project_description: 4.3寸屏幕-LVGLV9.0.1工程
+  project_type: rt-thread|@full|@5.0.2
+  builtin_files:
+  - source_path_offset: projects/lvgl/vision_board_rgb_4.3inch_lvgl
+    target_path_offset: ''
+    files_and_folders:
+    - "*"
+  - source_path_offset: ''
+    target_path_offset: ''
+    files_and_folders:
+    - libraries
+    - rt-thread
+  external_files: []
+- project_name: vision_board_mipi_2.0inch_lvgl
+  project_description: 2.0寸屏幕-LVGLV9.0.1工程
+  project_type: rt-thread|@full|@5.0.2
+  builtin_files:
+  - source_path_offset: projects/lvgl/vision_board_mipi_2.0inch_lvgl
+    target_path_offset: ''
+    files_and_folders:
+    - "*"
+  - source_path_offset: ''
+    target_path_offset: ''
+    files_and_folders:
+    - libraries
+    - rt-thread
+  external_files: []
 - project_name: vision_board_mipi_2.0inch_nes
   project_description: 2.0寸屏幕-nes游戏移植工程
   project_type: rt-thread|@full|@5.0.2

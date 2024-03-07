@@ -675,6 +675,15 @@ menuconfig BSP_USING_OPENMV
                 bool "Enable LCD For OpenMV"
                 select BSP_USING_LCD
                 default y
+            menuconfig OPENMV_USING_KEY
+                bool "Enable USER KEY For OpenMV"
+                default n
+                select BSP_USING_GPIO
+                if OPENMV_USING_KEY
+                    config USER_KEY_PIN_NAME
+                        string "USER KEY Pin Name"
+                        default "p907"
+                endif
         endmenu
 
         config OMV_ENABLE_TF

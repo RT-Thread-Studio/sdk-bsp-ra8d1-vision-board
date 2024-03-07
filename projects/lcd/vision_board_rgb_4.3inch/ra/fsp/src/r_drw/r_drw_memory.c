@@ -339,6 +339,12 @@ d1_int_t d1_cacheblockflush (d1_device * handle, d1_int_t memtype, const void * 
     FSP_PARAMETER_NOT_USED(ptr);
     FSP_PARAMETER_NOT_USED(size);
 
+#if defined(RENESAS_CORTEX_M85)
+#if (BSP_CFG_DCACHE_ENABLED)
+    SCB_CleanInvalidateDCache_by_Addr((void *)ptr, (int32_t)size);
+#endif
+#endif
+
     return 1;
 }
 
