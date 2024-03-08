@@ -88,8 +88,12 @@
 #define RT_USING_SERIAL
 #define RT_USING_SERIAL_V2
 #define RT_SERIAL_USING_DMA
+#define RT_USING_I2C
+#define RT_USING_I2C_BITOPS
 #define RT_USING_PIN
 #define RT_USING_PWM
+#define RT_USING_TOUCH
+#define RT_TOUCH_PIN_IRQ
 
 /* Using USB */
 
@@ -136,6 +140,15 @@
 /* Wiced WiFi */
 
 
+/* CYW43012 WiFi */
+
+
+/* BL808 WiFi */
+
+
+/* CYW43439 WiFi */
+
+
 /* IoT Cloud */
 
 
@@ -159,7 +172,8 @@
 #define PKG_LVGL_THREAD_STACK_SIZE 8192
 #define PKG_LVGL_DISP_REFR_PERIOD 10
 #define PKG_LVGL_USING_LATEST_VERSION
-#define PKG_LVGL_VER_NUM 0x99999
+#define PKG_LVGL_VER_NUM 0x999999
+#define PKG_USING_LV_MUSIC_DEMO
 
 /* u8g2: a monochrome graphic library */
 
@@ -188,6 +202,8 @@
 
 /* touch drivers */
 
+#define PKG_USING_CST812T
+#define PKG_USING_CST812T_LATEST_VERSION
 
 /* Kendryte SDK */
 
@@ -256,6 +272,10 @@
 #define BSP_USING_UART9
 #define BSP_UART9_RX_BUFSIZE 256
 #define BSP_UART9_TX_BUFSIZE 0
+#define BSP_USING_SCI
+#define BSP_USING_SCIn_I2C
+#define BSP_USING_SCI3
+#define BSP_USING_SCI3_I2C
 #define BSP_USING_PWM
 #define BSP_USING_PWM6
 #define BSP_USING_LCD
@@ -263,12 +283,8 @@
 #define BSP_USING_SDRAM
 #define BSP_USING_SDRAM_SIZE 0x1FFFFFF
 #define BSP_USING_LVGL
-
-/* LVGL Internal Configuration */
-
-#define BSP_USING_LVGL_DAVE2D
+#define BSP_USING_LCD_RGB
 #define BSP_USING_LVGL_DEMO
-#define BSP_USING_LVGL_BENCHMARK_DEMO
-#define BSP_USING_LVGL_WIDGETS_DEMO
+#define BSP_USING_LVGL_MUSIC_DEMO
 
 #endif

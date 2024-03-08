@@ -4,11 +4,22 @@
 #include <stdint.h>
 #include "bsp_api.h"
 #include "common_data.h"
+#include "r_sci_b_i2c.h"
+#include "r_i2c_master_api.h"
 #include "r_gpt.h"
 #include "r_timer_api.h"
 #include "r_sci_b_uart.h"
             #include "r_uart_api.h"
 FSP_HEADER
+extern const i2c_master_cfg_t g_sci3_cfg;
+/* I2C on SCI Instance. */
+extern const i2c_master_instance_t g_sci3;
+#ifndef sci_i2c_irq_callback
+void sci_i2c_irq_callback(i2c_master_callback_args_t * p_args);
+#endif
+
+extern const sci_b_i2c_extended_cfg_t g_sci3_cfg_extend;
+extern sci_b_i2c_instance_ctrl_t g_sci3_ctrl;
 /** Timer on GPT Instance. */
 extern const timer_instance_t g_timer6;
 

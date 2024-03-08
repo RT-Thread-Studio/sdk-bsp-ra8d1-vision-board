@@ -65,7 +65,7 @@
     #define LV_DEMO_MUSIC_LANDSCAPE 0
     #define LV_DEMO_MUSIC_ROUND     0
     #define LV_DEMO_MUSIC_LARGE     0
-    #define LV_DEMO_MUSIC_AUTO_PLAY 1
+    #define LV_DEMO_MUSIC_AUTO_PLAY 0
     #define LV_FONT_MONTSERRAT_12   1
     #define LV_FONT_MONTSERRAT_16   1
 #endif  /* BSP_USING_LVGL_MUSIC_DEMO */

@@ -1,6 +1,60 @@
 /* generated HAL source file - do not edit */
 #include "hal_data.h"
 
+#include "r_sci_b_i2c_cfg.h"
+sci_b_i2c_instance_ctrl_t g_sci3_ctrl;
+const sci_b_i2c_extended_cfg_t g_sci3_cfg_extend =
+{
+    /* Actual calculated bitrate: 99992. Actual SDA delay: 258.33 ns. */ .clock_settings.clk_divisor_value = 0, .clock_settings.brr_value = 22, .clock_settings.mddr_value = 157, .clock_settings.bitrate_modulation = true, .clock_settings.cycles_value = 31,
+    .clock_settings.snfr_value     = (1),
+    .clock_settings.clock_source   = SCI_B_I2C_CLOCK_SOURCE_PCLK
+};
+
+const i2c_master_cfg_t g_sci3_cfg =
+{
+    .channel             = 3,
+    .rate                = I2C_MASTER_RATE_STANDARD,
+    .slave               = 0x00,
+    .addr_mode           = I2C_MASTER_ADDR_MODE_7BIT,
+#define RA_NOT_DEFINED (1)
+#if (RA_NOT_DEFINED == RA_NOT_DEFINED)
+    .p_transfer_tx       = NULL,
+#else
+    .p_transfer_tx       = &RA_NOT_DEFINED,
+#endif
+#if (RA_NOT_DEFINED == RA_NOT_DEFINED)
+    .p_transfer_rx       = NULL,
+#else
+    .p_transfer_rx       = &RA_NOT_DEFINED,
+#endif
+#undef RA_NOT_DEFINED
+    .p_callback          = sci_i2c_irq_callback,
+    .p_context           = NULL,
+#if defined(VECTOR_NUMBER_SCI3_RXI) && SCI_B_I2C_CFG_DTC_ENABLE
+    .rxi_irq             = VECTOR_NUMBER_SCI3_RXI,
+#else
+    .rxi_irq             = FSP_INVALID_VECTOR,
+#endif
+#if defined(VECTOR_NUMBER_SCI3_TXI)
+    .txi_irq             = VECTOR_NUMBER_SCI3_TXI,
+#else
+    .txi_irq             = FSP_INVALID_VECTOR,
+#endif
+#if defined(VECTOR_NUMBER_SCI3_TEI)
+    .tei_irq             = VECTOR_NUMBER_SCI3_TEI,
+#else
+    .tei_irq             = FSP_INVALID_VECTOR,
+#endif
+    .ipl                 = (12),    /* (BSP_IRQ_DISABLED) is unused */
+    .p_extend            = &g_sci3_cfg_extend,
+};
+/* Instance structure to use this module. */
+const i2c_master_instance_t g_sci3 =
+{
+    .p_ctrl        = &g_sci3_ctrl,
+    .p_cfg         = &g_sci3_cfg,
+    .p_api         = &g_i2c_master_on_sci_b
+};
 gpt_instance_ctrl_t g_timer6_ctrl;
 #if 0
 const gpt_extended_pwm_cfg_t g_timer6_pwm_extend =
