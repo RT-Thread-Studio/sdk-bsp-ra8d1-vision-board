@@ -40,6 +40,10 @@ const ioport_pin_cfg_t g_bsp_pin_cfg_data[] = {
         .pin_cfg = ((uint32_t) IOPORT_CFG_IRQ_ENABLE | (uint32_t) IOPORT_CFG_PORT_DIRECTION_INPUT)
     },
     {
+        .pin = BSP_IO_PORT_00_PIN_10,
+        .pin_cfg = ((uint32_t) IOPORT_CFG_IRQ_ENABLE | (uint32_t) IOPORT_CFG_PORT_DIRECTION_INPUT)
+    },
+    {
         .pin = BSP_IO_PORT_00_PIN_11,
         .pin_cfg = ((uint32_t) IOPORT_CFG_ANALOG_ENABLE)
     },

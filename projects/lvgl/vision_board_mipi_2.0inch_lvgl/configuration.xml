@@ -268,6 +268,14 @@
       <description>MIPI PHY Host</description>
       <originalPack>Renesas.RA.5.1.0.pack</originalPack>
     </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_icu" variant="" vendor="Renesas" version="5.1.0">
+      <description>External Interrupt</description>
+      <originalPack>Renesas.RA.5.1.0.pack</originalPack>
+    </component>
+    <component apiversion="" class="HAL Drivers" condition="" group="all" subgroup="r_sci_b_i2c" variant="" vendor="Renesas" version="5.1.0">
+      <description>SCI_B I2C Master Interface</description>
+      <originalPack>Renesas.RA.5.1.0.pack</originalPack>
+    </component>
   </raComponentSelection>
   <raElcConfiguration/>
   <raIcuConfiguration/>
@@ -605,6 +613,29 @@
       <property id="module.driver.mipi_phy.t_hs_exit_ns" value="100"/>
       <property id="module.driver.mipi_phy.t_hs_exit_ui" value="0"/>
     </module>
+    <module id="module.driver.external_irq_on_icu.290901480">
+      <property id="module.driver.external_irq.name" value="g_external_irq14"/>
+      <property id="module.driver.external_irq.channel" value="14"/>
+      <property id="module.driver.external_irq.trigger" value="module.driver.external_irq.trigger.trig_falling"/>
+      <property id="module.driver.external_irq.filter_enable" value="module.driver.external_irq.filter_enable.false"/>
+      <property id="module.driver.external_irq.clock_source_div" value="module.driver.external_irq.clock_source_div.clock_source_div_by_64"/>
+      <property id="module.driver.external_irq.p_callback" value="irq_callback"/>
+      <property id="module.driver.external_irq.ipl" value="board.icu.common.irq.priority12"/>
+    </module>
+    <module id="module.driver.i2c_on_sci_b_i2c.1269128911">
+      <property id="module.driver.i2c.name" value="g_sci3"/>
+      <property id="module.driver.i2c.channel" value="3"/>
+      <property id="module.driver.i2c.slave" value="0x00"/>
+      <property id="module.driver.i2c.addr_mode" value="module.driver.i2c.addr_mode.addr_mode_7bit"/>
+      <property id="module.driver.i2c.rate" value="module.driver.i2c.rate.rate_standard"/>
+      <property id="module.driver.i2c.sda_delay" value="300"/>
+      <property id="module.driver.i2c.snfr" value="module.driver.i2c.snfr.div_one"/>
+      <property id="module.driver.i2c.clock_source" value="module.driver.i2c.clock_source.pclk"/>
+      <property id="module.driver.i2c.bitrate_modulation" value="module.driver.i2c.bitrate_modulation.true"/>
+      <property id="module.driver.i2c.p_callback" value="sci_i2c_irq_callback"/>
+      <property id="module.driver.i2c.ipl" value="board.icu.common.irq.priority12"/>
+      <property id="module.driver.i2c.rx_ipl" value="_disabled"/>
+    </module>
     <context id="_hal.0">
       <stack module="module.driver.ioport_on_ioport.0"/>
       <stack module="module.driver.uart_on_sci_b_uart.1514241209"/>
@@ -617,6 +648,8 @@
         <stack module="module.driver.tes.dave2d.1483236869" requires="module.driver.drw.requires.dave2d_driver"/>
       </stack>
       <stack module="module.driver.timer_on_gpt.810631762"/>
+      <stack module="module.driver.external_irq_on_icu.290901480"/>
+      <stack module="module.driver.i2c_on_sci_b_i2c.1269128911"/>
     </context>
     <config id="config.driver.glcdc">
       <property id="config.driver.glcdc.param_checking_enable" value="config.driver.glcdc.param_checking_enable.bsp"/>
@@ -625,11 +658,19 @@
     <config id="config.driver.ioport">
       <property id="config.driver.ioport.checking" value="config.driver.ioport.checking.system"/>
     </config>
+    <config id="config.driver.icu">
+      <property id="config.driver.icu.param_checking_enable" value="config.driver.icu.param_checking_enable.bsp"/>
+    </config>
     <config id="config.driver.sci_b_uart">
       <property id="config.driver.sci_b_uart.param_checking_enable" value="config.driver.sci_b_uart.param_checking_enable.bsp"/>
       <property id="config.driver.sci_b_uart.fifo_support" value="config.driver.sci_b_uart.fifo_support.enabled"/>
       <property id="config.driver.sci_b_uart.dtc_support" value="config.driver.sci_b_uart.dtc_support.disabled"/>
       <property id="config.driver.sci_b_uart.flow_control" value="config.driver.sci_b_uart.flow_control.disabled"/>
+    </config>
+    <config id="config.driver.sci_b_i2c">
+      <property id="config.driver.sci_b_i2c.param_checking_enable" value="config.driver.sci_b_i2c.param_checking_enable.bsp"/>
+      <property id="config.driver.sci_b_i2c.dtc_enable" value="config.driver.sci_b_i2c.dtc_enable.disabled"/>
+      <property id="config.driver.sci_b_i2c.addr_mode_10_bit_enable" value="config.driver.sci_b_i2c.addr_mode_10_bit_enable.disabled"/>
     </config>
     <config id="config.driver.gpt">
       <property id="config.driver.gpt.param_checking_enable" value="config.driver.gpt.param_checking_enable.bsp"/>
@@ -654,7 +695,7 @@
     <symbolicName propertyId="p007.symbolic_name" value="ARDUINO_A004"/>
     <symbolicName propertyId="p008.symbolic_name" value="USER_S2"/>
     <symbolicName propertyId="p009.symbolic_name" value="USER_S1"/>
-    <symbolicName propertyId="p010.symbolic_name" value="MIKROBUS_IRQ14"/>
+    <symbolicName propertyId="p010.symbolic_name" value="CTP_IRQ14"/>
     <symbolicName propertyId="p011.symbolic_name" value="ARDUINO_A3"/>
     <symbolicName propertyId="p015.symbolic_name" value="ARDUINO_A5"/>
     <symbolicName propertyId="p100.symbolic_name" value="OSPI_DQ0"/>
@@ -858,6 +899,8 @@
       <configSetting altId="irq12.mode.custom.free" configurationId="irq12.mode"/>
       <configSetting altId="irq13.irq13_dash_ds.p009" configurationId="irq13.irq13_dash_ds"/>
       <configSetting altId="irq13.mode.custom.free" configurationId="irq13.mode"/>
+      <configSetting altId="irq14.irq14.p010" configurationId="irq14.irq14"/>
+      <configSetting altId="irq14.mode.custom.free" configurationId="irq14.mode"/>
       <configSetting altId="irq2.irq2.p509" configurationId="irq2.irq2"/>
       <configSetting altId="irq2.mode.custom.free" configurationId="irq2.mode"/>
       <configSetting altId="irq7.irq7_dash_ds.p001" configurationId="irq7.irq7_dash_ds"/>
@@ -893,6 +936,9 @@
       <configSetting altId="p009.irq13.irq13_dash_ds" configurationId="p009"/>
       <configSetting altId="p009.gpio_irq.gpio_irq_enabled" configurationId="p009.gpio_irq"/>
       <configSetting altId="p009.gpio_mode.gpio_mode_irq" configurationId="p009.gpio_mode"/>
+      <configSetting altId="p010.irq14.irq14" configurationId="p010"/>
+      <configSetting altId="p010.gpio_irq.gpio_irq_enabled" configurationId="p010.gpio_irq"/>
+      <configSetting altId="p010.gpio_mode.gpio_mode_irq" configurationId="p010.gpio_mode"/>
       <configSetting altId="p011.adc1.an106" configurationId="p011"/>
       <configSetting altId="p011.gpio_mode.gpio_mode_an" configurationId="p011.gpio_mode"/>
       <configSetting altId="p014.dac120.da0" configurationId="p014"/>
@@ -1272,6 +1318,7 @@
       <lockSetting id="glcd.lcd_data7" lock="true"/>
       <lockSetting id="glcd.lcd_data8" lock="true"/>
       <lockSetting id="glcd.lcd_data9" lock="true"/>
+      <lockSetting id="irq14.irq14" lock="true"/>
       <lockSetting id="sdram.a1" lock="true"/>
       <lockSetting id="sdram.a10" lock="true"/>
       <lockSetting id="sdram.a11" lock="true"/>

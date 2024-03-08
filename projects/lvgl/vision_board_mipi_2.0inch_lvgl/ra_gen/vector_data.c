@@ -17,6 +17,9 @@
             [9] = mipi_dsi_ferr, /* DSI FERR */
             [10] = mipi_dsi_ppi, /* DSI PPI */
             [11] = drw_int_isr, /* DRW INT (DRW interrupt) */
+            [12] = r_icu_isr, /* ICU IRQ14 (External pin interrupt 14) */
+            [13] = sci_b_i2c_txi_isr, /* SCI3 TXI (Transmit data empty) */
+            [14] = sci_b_i2c_tei_isr, /* SCI3 TEI (Transmit end) */
         };
         const bsp_interrupt_event_t g_interrupt_event_link_select[BSP_ICU_VECTOR_MAX_ENTRIES] =
         {
@@ -32,6 +35,9 @@
             [9] = BSP_PRV_IELS_ENUM(EVENT_MIPI_DSI_FERR), /* DSI FERR */
             [10] = BSP_PRV_IELS_ENUM(EVENT_MIPI_DSI_PPI), /* DSI PPI */
             [11] = BSP_PRV_IELS_ENUM(EVENT_DRW_INT), /* DRW INT (DRW interrupt) */
+            [12] = BSP_PRV_IELS_ENUM(EVENT_ICU_IRQ14), /* ICU IRQ14 (External pin interrupt 14) */
+            [13] = BSP_PRV_IELS_ENUM(EVENT_SCI3_TXI), /* SCI3 TXI (Transmit data empty) */
+            [14] = BSP_PRV_IELS_ENUM(EVENT_SCI3_TEI), /* SCI3 TEI (Transmit end) */
         };
         #elif __has_include("r_ioport_b.h")
         BSP_DONT_REMOVE const fsp_vector_t g_vector_table[BSP_IRQ_VECTOR_MAX_ENTRIES] BSP_PLACE_IN_SECTION(BSP_SECTION_APPLICATION_VECTORS) =
@@ -48,6 +54,9 @@
             [BSP_PRV_IELS_ENUM(MIPI_DSI_FERR)] = mipi_dsi_ferr, /* DSI FERR */
             [BSP_PRV_IELS_ENUM(MIPI_DSI_PPI)] = mipi_dsi_ppi, /* DSI PPI */
             [BSP_PRV_IELS_ENUM(DRW_INT)] = drw_int_isr, /* DRW INT (DRW interrupt) */
+            [BSP_PRV_IELS_ENUM(ICU_IRQ14)] = r_icu_isr, /* ICU IRQ14 (External pin interrupt 14) */
+            [BSP_PRV_IELS_ENUM(SCI3_TXI)] = sci_b_i2c_txi_isr, /* SCI3 TXI (Transmit data empty) */
+            [BSP_PRV_IELS_ENUM(SCI3_TEI)] = sci_b_i2c_tei_isr, /* SCI3 TEI (Transmit end) */
         };
         #endif
         #endif
