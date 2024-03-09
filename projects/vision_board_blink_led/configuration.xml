@@ -114,7 +114,7 @@
       <property id="config.bsp.fsp.mcu.canfd.max_data_rate_hz" value="8"/>
       <property id="config.bsp.fsp.mcu.adc_dmac.samples_per_channel" value="32767"/>
       <property id="config.bsp.fsp.mcu.sci_b_lin.max_baud" value="7500000"/>
-      <property id="config.bsp.fsp.dcache" value="config.bsp.fsp.dcache.enabled"/>
+      <property id="config.bsp.fsp.dcache" value="config.bsp.fsp.dcache.disabled"/>
     </config>
     <config id="config.bsp.ra">
       <property id="config.bsp.common.main" value="0x2000"/>
