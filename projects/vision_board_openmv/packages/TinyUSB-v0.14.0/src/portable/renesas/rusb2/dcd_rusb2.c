@@ -83,30 +83,11 @@ typedef struct
   uint8_t ep[2][16];   /* a lookup table for a pipe index from an endpoint address */
 } dcd_data_t;
 
-CFG_TUSB_MEM_SECTION TU_ATTR_ALIGNED(2048)
 static dcd_data_t _dcd;
 
 //--------------------------------------------------------------------+
 // INTERNAL OBJECT & FUNCTION DECLARATION
 //--------------------------------------------------------------------+
-
-#ifndef FIRST_BULK_PIPE
-#define FIRST_BULK_PIPE       3
-#endif
-
-#ifndef FIRST_INTERRUPT_PIPE
-#define FIRST_INTERRUPT_PIPE  6
-#endif
-
-#ifndef NUMBER_OF_PIPES
-#define NUMBER_OF_PIPES       10
-#endif
-
-#ifdef NO_ISOCRONOUS_PIPE
-  #define FIRST_PIPE            FIRST_BULK_PIPE
-#else
-  #define FIRST_PIPE            1
-#endif
 
 // Transfer conditions specifiable for each pipe:
 // - Pipe 0: Control transfer with 64-byte single buffer
@@ -116,9 +97,9 @@ static dcd_data_t _dcd;
 //   optional double buffer
 // - Pipes 6 to 9: Interrupt transfer with 64-byte single buffer
 enum {
-  PIPE_1ST_BULK = FIRST_BULK_PIPE,
-  PIPE_1ST_INTERRUPT = FIRST_INTERRUPT_PIPE,
-  PIPE_COUNT = NUMBER_OF_PIPES,
+  PIPE_1ST_BULK = 3,
+  PIPE_1ST_INTERRUPT = 6,
+  PIPE_COUNT = 10,
 };
 
 static unsigned find_pipe(unsigned xfer)
@@ -738,7 +719,10 @@ void dcd_init(uint8_t rhport)
     // Power and reset UTMI Phy
     uint16_t physet = (rusb->PHYSET | RUSB2_PHYSET_PLLRESET_Msk) & ~RUSB2_PHYSET_DIRPD_Msk;
     rusb->PHYSET = physet;
+
+#if defined(RENESAS_CORTEX_M85)
     rusb->PHYSET = (rusb->PHYSET & ~(1 << 4)) | (1 << 5);/*RA8 PHYSET-CLKSEL need set 20Mhz !!!*/
+#endif
 
     R_BSP_SoftwareDelay((uint32_t) 1, BSP_DELAY_UNITS_MILLISECONDS);
     rusb->PHYSET_b.PLLRESET = 0;

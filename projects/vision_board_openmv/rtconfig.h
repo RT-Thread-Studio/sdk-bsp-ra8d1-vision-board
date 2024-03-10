@@ -269,15 +269,6 @@
 #define RW007_NOT_USE_EXAMPLE_DRIVERS
 #define RW007_SPI_MAX_HZ 30000000
 
-/* CYW43012 WiFi */
-
-
-/* BL808 WiFi */
-
-
-/* CYW43439 WiFi */
-
-
 /* IoT Cloud */
 
 
@@ -479,6 +470,7 @@
 #define BSP_USING_SDHI1
 #define SDHI_USING_CD
 #define RA_SDHI_CD_PIN "p503"
+#define SDHI_USING_1_BIT
 #define BSP_USING_PWM
 #define BSP_USING_PWM6
 #define BSP_USING_PWM7

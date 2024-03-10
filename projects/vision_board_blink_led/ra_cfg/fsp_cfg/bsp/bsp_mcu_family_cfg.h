@@ -555,6 +555,6 @@
 #endif
 
 #ifndef BSP_CFG_DCACHE_ENABLED
-#define BSP_CFG_DCACHE_ENABLED (1)
+#define BSP_CFG_DCACHE_ENABLED (0)
 #endif
 #endif /* BSP_MCU_FAMILY_CFG_H_ */

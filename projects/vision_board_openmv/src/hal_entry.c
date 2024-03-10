@@ -7,7 +7,6 @@
  * Date           Author        Notes
  * 2023-12-10     Rbb666        first version
  */
-
 #include <rtthread.h>
 #include <rtdevice.h>
 #include "ra/board/ra8d1_ek/board_sdram.h"
@@ -90,7 +89,7 @@ void NORETURN __fatal_error(const char *msg)
         rt_thread_mdelay(100);
         if (i >= 16)
         {
-            // to conserve power
+            /* to conserve power */
             __WFI();
         }
     }
@@ -113,7 +112,9 @@ static void omv_entry(void *parameter)
 #endif
 #ifdef BSP_USING_FS
     /* wait sdcard mount */
-    rt_thread_mdelay(200);
+    extern struct rt_semaphore sem_mnt_lock;;
+	rt_sem_take(&sem_mnt_lock, 400);
+
     struct dfs_fdtable *fd_table_bak = NULL;
 #endif
     fmath_init();
@@ -206,11 +207,11 @@ soft_reset:
         nlr_buf_t nlr;
         if (nlr_push(&nlr) == 0)
         {
-            // Enable IDE interrupt
+            /* Enable IDE interrupt */
             usbdbg_set_irq_enabled(true);
-            // Execute the script.
+            /* Execute the script */
             pyexec_str(usbdbg_get_script());
-            // Disable IDE interrupts
+            /* Disable IDE interrupts */
             usbdbg_set_irq_enabled(false);
             nlr_pop();
         }
@@ -221,18 +222,18 @@ soft_reset:
 
         if (usbdbg_is_busy() && nlr_push(&nlr) == 0)
         {
-            // Enable IDE interrupt
+            /* Enable IDE interrupt */
             usbdbg_set_irq_enabled(true);
-            // Wait for the current command to finish.
+            /* Wait for the current command to finish */
             usbdbg_wait_for_command(1000);
-            // Disable IDE interrupts
+            /* Disable IDE interrupts */
             usbdbg_set_irq_enabled(false);
             nlr_pop();
         }
     }
 
 soft_reset_exit:
-    // soft reset
+    /* soft reset */
     mp_printf(&mp_plat_print, "MPY: soft reboot\n");
 
     gc_sweep_all();
@@ -257,14 +258,14 @@ static bool exec_boot_script(const char *path, bool interruptible)
     bool interrupted = false;
     if (nlr_push(&nlr) == 0)
     {
-        // Enable IDE interrupts if allowed.
+        /* Enable IDE interrupts if allowed */
         if (interruptible)
         {
             usbdbg_set_irq_enabled(true);
             usbdbg_set_script_running(true);
         }
 
-        // Parse, compile and execute the script.
+        /* Parse, compile and execute the script */
         pyexec_file_if_exists(path);
         nlr_pop();
     }
@@ -273,7 +274,7 @@ static bool exec_boot_script(const char *path, bool interruptible)
         interrupted = true;
     }
 
-    // Disable IDE interrupts
+    /* Disable IDE interrupts */
     usbdbg_set_irq_enabled(false);
     usbdbg_set_script_running(false);
 
@@ -299,7 +300,9 @@ static void omv_init_func(void)
 
 void hal_entry(void)
 {
-    LOG_I("\nHello RT-Thread & OpenMV!\n");
+	LOG_I("===================================");
+    LOG_I("This is OpenMV4.1.0 demo");
+    LOG_I("===================================");
 
 #ifdef BSP_USING_OPENMV
     omv_init_func();
