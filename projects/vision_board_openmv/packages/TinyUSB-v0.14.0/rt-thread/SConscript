@@ -34,7 +34,6 @@ if GetDepend(["SOC_RP2040"]):
 if GetDepend(["SOC_FAMILY_RENESAS"]):
     src += ["bsp/renesas/drv_tinyusb.c",
             "../src/portable/renesas/rusb2/dcd_rusb2.c",
-            "../src/portable/renesas/rusb2/hcd_rusb2.c",
             "../src/portable/renesas/rusb2/rusb2_common.c"]
 
 # Device class
