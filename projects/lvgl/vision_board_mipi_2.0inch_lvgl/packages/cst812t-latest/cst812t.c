@@ -40,7 +40,6 @@ rt_err_t cst816_i2c_read_reg8(uint8_t reg, uint8_t *p_data, uint8_t len)
     rt_int8_t res = 0;
     struct rt_i2c_msg msgs[2];
 
-
     msgs[0].addr = TOUCH_SLAVE_ADDRESS; /* Slave address */
     msgs[0].flags = RT_I2C_WR;          /* Read flag */
     msgs[0].buf = &reg;                 /* Read data pointer */
