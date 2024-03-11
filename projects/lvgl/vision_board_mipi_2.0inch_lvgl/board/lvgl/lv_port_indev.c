@@ -37,14 +37,13 @@ static rt_err_t touch_probe()
     return RT_EOK;
 }
 
-
 static void touchpad_read(lv_indev_t *indev_drv, lv_indev_data_t *data)
 {
     if (rt_device_read(touch_dev, 0, &read_data, 1) == 1)
     {
         data->point.x  = read_data.x_coordinate;
         data->point.y  = read_data.y_coordinate;
-
+        
         switch (read_data.event)
         {
         case TOUCH_EVENT_UP:
@@ -62,15 +61,15 @@ static void touchpad_read(lv_indev_t *indev_drv, lv_indev_data_t *data)
     }
 }
 
- #define RST_PIN   "p000"
- #define INT_PIN   "p010"
- #define TOUCH_DEVICE_NAME "sci3i"
+#define RST_PIN   "p000"
+#define INT_PIN   "p010"
+#define TOUCH_DEVICE_NAME "sci3i"
 
- int rt_hw_cst812t_register(void)
- {
-     struct rt_touch_config cfg;
-     rt_base_t int_pin = rt_pin_get(INT_PIN);
-     rt_base_t rst_pin = rt_pin_get(RST_PIN);
+int rt_hw_cst812t_register(void)
+{
+    struct rt_touch_config cfg;
+    rt_base_t int_pin = rt_pin_get(INT_PIN);
+    rt_base_t rst_pin = rt_pin_get(RST_PIN);
 
     cfg.dev_name = TOUCH_DEVICE_NAME;
     cfg.irq_pin.pin = int_pin;
@@ -82,8 +81,8 @@ static void touchpad_read(lv_indev_t *indev_drv, lv_indev_data_t *data)
     cst8xx_reset(20);
 
     return RT_EOK;
- }
- INIT_DEVICE_EXPORT(rt_hw_cst812t_register);
+}
+INIT_DEVICE_EXPORT(rt_hw_cst812t_register);
 
 void lv_port_indev_init(void)
 {
@@ -91,11 +90,17 @@ void lv_port_indev_init(void)
 
     if (touch_probe() != RT_EOK)
     {
-        rt_kprintf("probe gt9147 failed.\n");
+        rt_kprintf("probe cst812t failed.\n");
         return;
     }
     /*Register a touchpad input device*/
     indev_touchpad = lv_indev_create();
     lv_indev_set_type(indev_touchpad, LV_INDEV_TYPE_POINTER);
     lv_indev_set_read_cb(indev_touchpad, touchpad_read);
+
+    LV_IMAGE_DECLARE(mouse_cursor_icon);                /* Declare the image file. */
+    lv_obj_t *cursor_obj;
+    cursor_obj = lv_image_create(lv_screen_active());   /* Create an image object for the cursor */
+    lv_image_set_src(cursor_obj, &mouse_cursor_icon);   /* Set the image source*/
+    lv_indev_set_cursor(indev_touchpad, cursor_obj);    /* Connect the image  object to the driver*/
 }

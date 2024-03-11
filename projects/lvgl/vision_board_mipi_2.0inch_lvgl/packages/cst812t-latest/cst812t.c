@@ -57,7 +57,7 @@ rt_err_t cst816_i2c_read_reg8(uint8_t reg, uint8_t *p_data, uint8_t len)
     }
     else
     {
-        res = -RT_ERROR;
+        res = -1;
     }
     return res;
 }
@@ -188,7 +188,6 @@ static rt_err_t cst8xx_control(struct rt_touch_device *touch, int cmd, void *arg
     {
     case RT_TOUCH_CTRL_GET_ID:
     {
-
         break;
     }
 
