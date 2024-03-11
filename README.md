@@ -48,3 +48,45 @@ $ sdk-bsp-ra8d1-vision-board
 - libraries ：RA8D1 通用外设驱动
 - projects：示例工程文件夹，包含出厂程序，OpenMV 程序等
 - rt-thread： rt-thread 源码
+
+## 使用方式
+
+`sdk-bsp-ra8d1-vision-board` 支持 **RT-Thread Studio** 和 **MDK** 开发方式
+
+## **RT-Thread Studio 开发步骤**
+
+1. 打开RT-Thread Studio ，安装Vision Board 开发板支持包（如有最新建议安装最新版本，下图版本仅供参考）
+
+<img src="documents/figures/studio1.png" style="zoom:70%;" />
+
+2. 下载安装≥0.2.3版本的PyOCD烧录工具（用于烧录固件）
+
+<img src="documents/figures/studio2.png" style="zoom:70%;" />
+
+3. 新建Vision Board 工程，选择左上角文件->新建->RT-Thread 项目->基于开发板，可以创建示例工程和模板工程
+
+<img src="documents/figures/studio3.png" style="zoom:70%;" />
+
+4. 进行工程的编译和下载：
+
+<img src="documents/figures/studio4.png" style="zoom:70%;" />
+
+## MDK开发步骤
+
+1. 双击 mklinks.bat 文件，执行脚本后会生成 rt-thread、libraries 两个文件夹：
+
+![](documents/figures/mklinks.png)
+
+**注意：如果无法执行mklinks脚本，需要手动将 `sdk-bsp-ra8d1-vision-board` 目录下的 rt-thread、libraries 两个文件夹手动拷贝到工程目录**
+
+2. 双击 **project.uvprojx** 文件打开MDK工程
+
+![](documents/figures/uvprojx.png)
+
+3. 点击下图按钮进行项目全编译：
+
+![](documents/figures/build.png)
+
+4. 点击下图按钮进行固件烧录：
+
+![](documents/figures/download.png)
