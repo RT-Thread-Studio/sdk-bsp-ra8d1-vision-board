@@ -14,7 +14,7 @@ board:
   sale_contact_global: https://www.rt-thread.org/
   small_image: documents/images/small.png
   vendor: Renesas
-  version: 1.0.1
+  version: 1.0.0
 chip:
   chip_name: R7FA8D1BH
   clock_source: HSE
