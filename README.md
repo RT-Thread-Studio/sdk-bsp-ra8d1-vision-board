@@ -1,15 +1,18 @@
 # sdk-bsp-ra8d1-vision-board
-## 简介
 
-中文页
+**English** | [**中文**](./README_zh.md)
 
-sdk-bsp-ra8d1-vision-board 是 RT-Thread 团队对 Vision-Board 开发板所作的支持包，也可作为用户开发使用的软件SDK，让用户可以更简单方便的开发自己的应用程序。
+## Introduction
 
-Vision-Board 开发板是 RT-Thread 推出基于瑞萨 Cortex-M85 架构 RA8D1 芯片，为工程师们提供了一个灵活、全面的开发平台，助力开发者在机器视觉领域获得更深层次的体验。
+**sdk-bsp-ra8d1-vision-board** is the support package developed by the RT-Thread team for the Vision-Board development board. It serves as a software SDK for users to simplify their application development process.
 
-![](documents/images/big.png)
+The Vision-Board development board, based on the Renesas Cortex-M85 architecture RA8D1 chip, offers engineers a flexible and comprehensive development platform, empowering them to explore the realm of machine vision more deeply.
 
-## 目录结构
+[![img](https://github.com/RT-Thread-Studio/sdk-bsp-ra8d1-vision-board/raw/master/documents/images/big.png)](https://github.com/RT-Thread-Studio/sdk-bsp-ra8d1-vision-board/blob/master/documents/images/big.png)
+
+## Directory Structure
+
+
 
 ```
 $ sdk-bsp-ra8d1-vision-board
@@ -43,50 +46,52 @@ $ sdk-bsp-ra8d1-vision-board
 └── rt-thread
 ```
 
-- sdk-bsp-ra8d1-vision-board.yaml：描述 Vision-Board 的硬件信息
-- documents：图纸，文档，图片以及 datasheets 等
-- libraries ：RA8D1 通用外设驱动
-- projects：示例工程文件夹，包含出厂程序，OpenMV 程序等
-- rt-thread： rt-thread 源码
 
-## 使用方式
 
-`sdk-bsp-ra8d1-vision-board` 支持 **RT-Thread Studio** 和 **MDK** 开发方式
+- sdk-bsp-ra8d1-vision-board.yaml: Contains hardware information for Vision-Board.
+- documents: Includes drawings, documents, images, datasheets, etc.
+- libraries: Generic peripheral drivers for RA8D1.
+- projects: Consists of example project folders, including factory programs, OpenMV programs, etc.
+- rt-thread: Holds the RT-Thread source code.
 
-## **RT-Thread Studio 开发步骤**
+## Usage
 
-1. 打开RT-Thread Studio ，安装Vision Board 开发板支持包（如有最新建议安装最新版本，下图版本仅供参考）
+**sdk-bsp-ra8d1-vision-board** supports development using both RT-Thread Studio and MDK.
 
-<img src="documents/figures/studio1.png" style="zoom:70%;" />
+## RT-Thread Studio Development Steps
 
-2. 下载安装≥0.2.3版本的PyOCD烧录工具（用于烧录固件）
+1. Open RT-Thread Studio and install the Vision Board development board support package (it's recommended to install the latest version).
 
-<img src="documents/figures/studio2.png" style="zoom:70%;" />
+![](C:\Users\RT-Thread_User\Documents\WeChat Files\wxid_51ujxvwe3d5x22\FileStorage\File\2024-03\图片\1.png)
 
-3. 新建Vision Board 工程，选择左上角文件->新建->RT-Thread 项目->基于开发板，可以创建示例工程和模板工程
+2. Download and install PyOCD version ≥0.2.3 (required for firmware flashing).
 
-<img src="documents/figures/studio3.png" style="zoom:70%;" />
+![](C:\Users\RT-Thread_User\Documents\WeChat Files\wxid_51ujxvwe3d5x22\FileStorage\File\2024-03\图片\2.png)
 
-4. 进行工程的编译和下载：
+3. Create a new Vision Board project by selecting File -> New -> RT-Thread Project -> Based on Development Board. You can create example or template projects.
 
-<img src="documents/figures/studio4.png" style="zoom:70%;" />
+![](C:\Users\RT-Thread_User\Documents\WeChat Files\wxid_51ujxvwe3d5x22\FileStorage\File\2024-03\图片\3.png)
 
-## MDK开发步骤
+4. Compile and download the project.
 
-1. 双击 mklinks.bat 文件，执行脚本后会生成 rt-thread、libraries 两个文件夹：
+![](C:\Users\RT-Thread_User\Documents\WeChat Files\wxid_51ujxvwe3d5x22\FileStorage\File\2024-03\图片\4.png)
 
-![](documents/figures/mklinks.png)
+## MDK Development Steps
 
-**注意：如果无法执行mklinks脚本，需要手动将 `sdk-bsp-ra8d1-vision-board` 目录下的 rt-thread、libraries 两个文件夹手动拷贝到工程目录**
+1. Execute the mklinks.bat file to generate two folders: rt-thread and libraries.
 
-2. 双击 **project.uvprojx** 文件打开MDK工程
+![](C:\Users\RT-Thread_User\Documents\WeChat Files\wxid_51ujxvwe3d5x22\FileStorage\File\2024-03\图片\5.png)
 
-![](documents/figures/uvprojx.png)
+*Note: If the mklinks script cannot be executed, manually copy the rt-thread and libraries folders from the sdk-bsp-ra8d1-vision-board directory to the project directory.*
 
-3. 点击下图按钮进行项目全编译：
+2. Open the project.uvprojx file to launch the MDK project.
 
-![](documents/figures/build.png)
+[![img](https://github.com/RT-Thread-Studio/sdk-bsp-ra8d1-vision-board/raw/master/documents/figures/uvprojx.png)](https://github.com/RT-Thread-Studio/sdk-bsp-ra8d1-vision-board/blob/master/documents/figures/uvprojx.png)
 
-4. 点击下图按钮进行固件烧录：
+3. Click the build button to compile the project.
 
-![](documents/figures/download.png)
+![](C:\Users\RT-Thread_User\Documents\WeChat Files\wxid_51ujxvwe3d5x22\FileStorage\File\2024-03\图片\7.png)
+
+4. Click the download button to flash the firmware.
+
+![](C:\Users\RT-Thread_User\Documents\WeChat Files\wxid_51ujxvwe3d5x22\FileStorage\File\2024-03\图片\8.png)
