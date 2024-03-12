@@ -62,25 +62,25 @@ $ sdk-bsp-ra8d1-vision-board
 
 1. Open RT-Thread Studio and install the Vision Board development board support package (it's recommended to install the latest version).
 
-![](C:\Users\RT-Thread_User\Documents\WeChat Files\wxid_51ujxvwe3d5x22\FileStorage\File\2024-03\图片\1.png)
+![](documents/figures/1.png)
 
 2. Download and install PyOCD version ≥0.2.3 (required for firmware flashing).
 
-![](C:\Users\RT-Thread_User\Documents\WeChat Files\wxid_51ujxvwe3d5x22\FileStorage\File\2024-03\图片\2.png)
+![](documents/figures/2.png)
 
 3. Create a new Vision Board project by selecting File -> New -> RT-Thread Project -> Based on Development Board. You can create example or template projects.
 
-![](C:\Users\RT-Thread_User\Documents\WeChat Files\wxid_51ujxvwe3d5x22\FileStorage\File\2024-03\图片\3.png)
+![](documents/figures/3.png)
 
 4. Compile and download the project.
 
-![](C:\Users\RT-Thread_User\Documents\WeChat Files\wxid_51ujxvwe3d5x22\FileStorage\File\2024-03\图片\4.png)
+![](documents/figures/4.png)
 
 ## MDK Development Steps
 
 1. Execute the mklinks.bat file to generate two folders: rt-thread and libraries.
 
-![](C:\Users\RT-Thread_User\Documents\WeChat Files\wxid_51ujxvwe3d5x22\FileStorage\File\2024-03\图片\5.png)
+![](documents/figures/5.png)
 
 *Note: If the mklinks script cannot be executed, manually copy the rt-thread and libraries folders from the sdk-bsp-ra8d1-vision-board directory to the project directory.*
 
@@ -90,8 +90,8 @@ $ sdk-bsp-ra8d1-vision-board
 
 3. Click the build button to compile the project.
 
-![](C:\Users\RT-Thread_User\Documents\WeChat Files\wxid_51ujxvwe3d5x22\FileStorage\File\2024-03\图片\7.png)
+![](documents/figures/7.png)
 
 4. Click the download button to flash the firmware.
 
-![](C:\Users\RT-Thread_User\Documents\WeChat Files\wxid_51ujxvwe3d5x22\FileStorage\File\2024-03\图片\8.png)
+![](documents/figures/8.png)
