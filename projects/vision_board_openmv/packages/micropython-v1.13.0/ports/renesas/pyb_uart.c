@@ -281,22 +281,17 @@ STATIC mp_obj_t pyb_uart_writechar(mp_obj_t self_in, mp_obj_t char_in)
 }
 STATIC MP_DEFINE_CONST_FUN_OBJ_2(pyb_uart_writechar_obj, pyb_uart_writechar);
 
-#define UART_RX_EVENT (1 << 0)
-static struct rt_event event;
-
 STATIC mp_obj_t pyb_uart_readchar(mp_obj_t self_in)
 {
     pyb_uart_obj_t *self = self_in;
-    rt_uint32_t e;
     rt_uint8_t ch;
 
-    while (rt_device_read((struct rt_device *)(self->uart_device), 0, &ch, 1) != 1)
-    {
-        rt_event_recv(&event, UART_RX_EVENT, RT_EVENT_FLAG_AND |
-                      RT_EVENT_FLAG_CLEAR, RT_WAITING_FOREVER, &e);
-    }
+	if (rt_device_read((struct rt_device *)(self->uart_device), 0, &ch, 1) == 1)
+	{
+		return MP_OBJ_NEW_SMALL_INT(ch);
+	}
 
-    return MP_OBJ_NEW_SMALL_INT(ch);
+    return MP_OBJ_NEW_SMALL_INT(-1);
 }
 STATIC MP_DEFINE_CONST_FUN_OBJ_1(pyb_uart_readchar_obj, pyb_uart_readchar);
 

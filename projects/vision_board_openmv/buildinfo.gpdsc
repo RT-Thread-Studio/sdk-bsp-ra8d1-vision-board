@@ -22,8 +22,6 @@
         <file category="include" name="ra/fsp/inc/"/>
         <file category="include" name="ra/fsp/inc/api/"/>
         <file category="include" name="ra/fsp/inc/instances/"/>
-        <file category="include" name="ra/fsp/src/r_usb_basic/src/driver/inc/"/>
-        <file category="include" name="ra/fsp/src/r_usb_hcdc/src/inc/"/>
         <file category="include" name="ra/tes/dave2d/inc/"/>
         <file category="header" name="ra/arm/CMSIS_5/CMSIS/Core/Include/cachel1_armv7.h" path=""/>
         <file category="header" name="ra/arm/CMSIS_5/CMSIS/Core/Include/cmsis_armcc.h" path=""/>
