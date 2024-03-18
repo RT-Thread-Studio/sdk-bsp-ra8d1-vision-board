@@ -30,6 +30,7 @@
 #include "frogeye2020.h"
 #include "gc2145.h"
 #include "gc0328.h"
+#include "scc8660.h"
 #include "framebuffer.h"
 #include "omv_boardconfig.h"
 #include "omv_gpio.h"
@@ -182,6 +183,12 @@ static int sensor_detect() {
                 omv_i2c_readb(&sensor.i2c_bus, slv_addr, OV_CHIP_ID, &sensor.chip_id);
                 return slv_addr;
             #endif // (OMV_ENABLE_OV2640 == 1)
+			#if (OMV_ENABLE_SCC8660 == 1)
+        case SCC8660_SLV_ADDR: //
+            sensor.chip_id_w = scc8660_get_id();
+            slv_addr = SCC8660_SLV_ADDR;
+            return slv_addr;
+			#endif // (OMV_ENABLE_SCC8660 == 1)
 
             #if (OMV_ENABLE_OV5640 == 1)
             case OV5640_SLV_ADDR:
@@ -465,6 +472,11 @@ int sensor_probe_init(uint32_t bus_id, uint32_t bus_speed) {
         default:
             return SENSOR_ERROR_ISC_UNSUPPORTED;
             break;
+		#if (OMV_ENABLE_SCC8660 == 1)
+		case SCC8660_ID:
+			init_ret = SCC8660_init(&sensor);
+			break;
+#endif
     }
 
     if (init_ret != 0) {

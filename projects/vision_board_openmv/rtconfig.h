@@ -514,5 +514,5 @@
 #define SENSOR_OV7690 0
 #define SENSOR_OV9650 0
 #define SENSOR_GC0328 1
-
+#define SENSOR_SCC8660 1
 #endif
