@@ -46,7 +46,7 @@ STATIC mp_obj_t led_obj_make_new(const mp_obj_type_t *type, size_t n_args, size_
     const char *led_str = mp_obj_str_get_data(args[0], &len);
 
     uint8_t index;
-    if (!strcmp(led_str, "LED_RED"))
+    if (!strcmp(led_str, "LED_BLUE"))
     {
         index = 0;
     }
@@ -54,7 +54,7 @@ STATIC mp_obj_t led_obj_make_new(const mp_obj_type_t *type, size_t n_args, size_
     {
         index = 1;
     }
-    else if (!strcmp(led_str, "LED_BLUE"))
+    else if (!strcmp(led_str, "LED_RED"))
     {
         index = 2;
     }

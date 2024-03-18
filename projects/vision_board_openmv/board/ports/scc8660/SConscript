@@ -1,0 +1,18 @@
+Import('rtconfig')
+from building import *
+
+cwd = GetCurrentDir()
+
+LIBS    = []
+LIBPATH = []
+src = []
+
+LIBPATH = [cwd]
+if rtconfig.CROSS_TOOL == 'keil':
+    LIBS += ['scc8660']
+
+path = [cwd]
+
+group = DefineGroup('WICED', src, depend = [''], CPPPATH = path, LIBS = LIBS, LIBPATH = LIBPATH)
+
+Return('group')

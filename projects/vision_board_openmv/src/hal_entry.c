@@ -7,36 +7,38 @@
  * Date           Author        Notes
  * 2023-12-10     Rbb666        first version
  */
+
 #include <rtthread.h>
 #include <rtdevice.h>
 #include "ra/board/ra8d1_ek/board_sdram.h"
 #ifdef RT_USING_DFS
-    #include <unistd.h>
-    #include <fcntl.h>
+#include <unistd.h>
+#include <fcntl.h>
 #endif
 #ifdef BSP_USING_OPENMV
-    #include <py/compile.h>
-    #include <py/runtime.h>
-    #include <py/repl.h>
-    #include <py/gc.h>
-    #include <py/mperrno.h>
-    #include <py/stackctrl.h>
-    #include <py/frozenmod.h>
-    #include <py/mphal.h>
-    #include <lib/utils/pyexec.h>
-    #include <lib/mp-readline/readline.h>
-    #include <framebuffer.h>
-    #include <fb_alloc.h>
-    #include <ff_wrapper.h>
-    #include <usbdbg.h>
-    #include <sensor.h>
-    #include <tinyusb_debug.h>
-    #include <tusb.h>
-    #include <led.h>
-    #include <mpy_main.h>
+#include <py/compile.h>
+#include <py/runtime.h>
+#include <py/repl.h>
+#include <py/gc.h>
+#include <py/mperrno.h>
+#include <py/stackctrl.h>
+#include <py/frozenmod.h>
+#include <py/mphal.h>
+#include <lib/utils/pyexec.h>
+#include <lib/mp-readline/readline.h>
+#include <framebuffer.h>
+#include <fb_alloc.h>
+#include <ff_wrapper.h>
+#include <usbdbg.h>
+#include <sensor.h>
+#include <tinyusb_debug.h>
+#include <tusb.h>
+#include <led.h>
+#include <mpy_main.h>
+#include <scc8660.h>
 #endif /* BSP_USING_OPENMV */
 #ifdef RT_USING_FAL
-    #include "fal.h"
+#include "fal.h"
 #endif /* RT_USING_FAL */
 
 #define DRV_DEBUG
@@ -47,14 +49,14 @@
 #define MP_TASK_STACK_SIZE      (64 * 1024)
 
 #ifdef BSP_USING_OPENMV
-static void *stack_top = RT_NULL;
+static void* stack_top = RT_NULL;
 static char OMV_ATTR_SECTION(OMV_ATTR_ALIGNED(gc_heap[OMV_HEAP_SIZE], 4), ".data");
 
 extern int mount_init(void);
 extern void fmath_init(void);
-static bool exec_boot_script(const char *path, bool interruptible);
+static bool exec_boot_script(const char* path, bool interruptible);
 
-void *__signgam_addr(void)
+void* __signgam_addr(void)
 {
     return NULL;
 }
@@ -64,7 +66,7 @@ void flash_error(int n)
     led_state(LED_RED, 0);
     led_state(LED_GREEN, 0);
     led_state(LED_BLUE, 0);
-    for (int i = 0; i < n; i++)
+    for(int i = 0; i < n; i++)
     {
         led_state(LED_RED, 0);
         rt_thread_mdelay(100);
@@ -74,7 +76,7 @@ void flash_error(int n)
     led_state(LED_RED, 0);
 }
 
-void NORETURN __fatal_error(const char *msg)
+void NORETURN __fatal_error(const char* msg)
 {
     rt_thread_mdelay(100);
     led_state(1, 1);
@@ -83,23 +85,23 @@ void NORETURN __fatal_error(const char *msg)
     led_state(4, 1);
     mp_hal_stdout_tx_strn("\nFATAL ERROR:\n", 14);
     mp_hal_stdout_tx_strn(msg, strlen(msg));
-    for (uint i = 0;;)
+    for(uint i = 0;;)
     {
         led_toggle(((i++) & 3) + 1);
         rt_thread_mdelay(100);
-        if (i >= 16)
+        if(i >= 16)
         {
-            /* to conserve power */
+            // to conserve power
             __WFI();
         }
     }
 }
 
-static void omv_entry(void *parameter)
+static void omv_entry(void* parameter)
 {
     (void) parameter;
     int stack_dummy;
-    stack_top = (void *)&stack_dummy;
+    stack_top = (void*)&stack_dummy;
 
     bool first_soft_reset = true;
 
@@ -112,10 +114,8 @@ static void omv_entry(void *parameter)
 #endif
 #ifdef BSP_USING_FS
     /* wait sdcard mount */
-    extern struct rt_semaphore sem_mnt_lock;;
-	rt_sem_take(&sem_mnt_lock, 400);
-
-    struct dfs_fdtable *fd_table_bak = NULL;
+    rt_thread_mdelay(200);
+    struct dfs_fdtable* fd_table_bak = NULL;
 #endif
     fmath_init();
 #if MICROPY_PY_THREAD
@@ -151,8 +151,9 @@ soft_reset:
     file_buffer_init0();
     sensor_init0();
 
+
 #if MICROPY_PY_SENSOR
-    if (sensor_init() != 0 && first_soft_reset)
+    if(sensor_init() != 0 && first_soft_reset)
     {
         LOG_E("sensor init failed!");
     }
@@ -167,31 +168,31 @@ soft_reset:
     led_state(LED_BLUE, 0);
 
     /* Run main.py script on first soft-reset */
-    if (first_soft_reset && !interrupted)
+    if(first_soft_reset && !interrupted)
     {
         exec_boot_script("main.py", true);
         goto soft_reset_exit;
     }
 
     /* If there's no script ready, just re-exec REPL */
-    while (!usbdbg_script_ready())
+    while(!usbdbg_script_ready())
     {
         nlr_buf_t nlr;
-        if (nlr_push(&nlr) == 0)
+        if(nlr_push(&nlr) == 0)
         {
             /* enable IDE interrupt */
             usbdbg_set_irq_enabled(true);
             /* run REPL */
-            if (pyexec_mode_kind == PYEXEC_MODE_RAW_REPL)
+            if(pyexec_mode_kind == PYEXEC_MODE_RAW_REPL)
             {
-                if (pyexec_raw_repl() != 0)
+                if(pyexec_raw_repl() != 0)
                 {
                     break;
                 }
             }
             else
             {
-                if (pyexec_friendly_repl() != 0)
+                if(pyexec_friendly_repl() != 0)
                 {
                     break;
                 }
@@ -202,16 +203,16 @@ soft_reset:
 
     LOG_I("Exit from repy!");
 
-    if (usbdbg_script_ready())
+    if(usbdbg_script_ready())
     {
         nlr_buf_t nlr;
-        if (nlr_push(&nlr) == 0)
+        if(nlr_push(&nlr) == 0)
         {
-            /* Enable IDE interrupt */
+            // Enable IDE interrupt
             usbdbg_set_irq_enabled(true);
-            /* Execute the script */
+            // Execute the script.
             pyexec_str(usbdbg_get_script());
-            /* Disable IDE interrupts */
+            // Disable IDE interrupts
             usbdbg_set_irq_enabled(false);
             nlr_pop();
         }
@@ -220,20 +221,20 @@ soft_reset:
             mp_obj_print_exception(&mp_plat_print, (mp_obj_t) nlr.ret_val);
         }
 
-        if (usbdbg_is_busy() && nlr_push(&nlr) == 0)
+        if(usbdbg_is_busy() && nlr_push(&nlr) == 0)
         {
-            /* Enable IDE interrupt */
+            // Enable IDE interrupt
             usbdbg_set_irq_enabled(true);
-            /* Wait for the current command to finish */
+            // Wait for the current command to finish.
             usbdbg_wait_for_command(1000);
-            /* Disable IDE interrupts */
+            // Disable IDE interrupts
             usbdbg_set_irq_enabled(false);
             nlr_pop();
         }
     }
 
 soft_reset_exit:
-    /* soft reset */
+    // soft reset
     mp_printf(&mp_plat_print, "MPY: soft reboot\n");
 
     gc_sweep_all();
@@ -244,28 +245,24 @@ soft_reset_exit:
 #ifdef RT_USING_DFS
     mp_sys_resource_gc(fd_table_bak);
 #endif
-#ifdef OPENMV_USING_KEY
-    rt_uint32_t pin = rt_pin_get(USER_KEY_PIN_NAME);
-    rt_pin_detach_irq(pin);
-#endif
     first_soft_reset = false;
     goto soft_reset;
 }
 
-static bool exec_boot_script(const char *path, bool interruptible)
+static bool exec_boot_script(const char* path, bool interruptible)
 {
     nlr_buf_t nlr;
     bool interrupted = false;
-    if (nlr_push(&nlr) == 0)
+    if(nlr_push(&nlr) == 0)
     {
-        /* Enable IDE interrupts if allowed */
-        if (interruptible)
+        // Enable IDE interrupts if allowed.
+        if(interruptible)
         {
             usbdbg_set_irq_enabled(true);
             usbdbg_set_script_running(true);
         }
 
-        /* Parse, compile and execute the script */
+        // Parse, compile and execute the script.
         pyexec_file_if_exists(path);
         nlr_pop();
     }
@@ -274,11 +271,11 @@ static bool exec_boot_script(const char *path, bool interruptible)
         interrupted = true;
     }
 
-    /* Disable IDE interrupts */
+    // Disable IDE interrupts
     usbdbg_set_irq_enabled(false);
     usbdbg_set_script_running(false);
 
-    if (interrupted)
+    if(interrupted)
     {
         mp_obj_print_exception(&mp_plat_print, (mp_obj_t) nlr.ret_val);
     }
@@ -300,9 +297,7 @@ static void omv_init_func(void)
 
 void hal_entry(void)
 {
-	LOG_I("===================================");
-    LOG_I("This is OpenMV4.1.0 demo");
-    LOG_I("===================================");
+    LOG_I("\nHello RT-Thread & OpenMV!\n");
 
 #ifdef BSP_USING_OPENMV
     omv_init_func();

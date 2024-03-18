@@ -135,24 +135,6 @@ STATIC mp_obj_t pyb_uart_make_new(const mp_obj_type_t *type, size_t n_args, size
     return (mp_obj_t) self;
 }
 
-uint32_t uart_recv_size = 0;
-
-static rt_err_t uart_input(rt_device_t dev, rt_size_t size)
-{
-    uart_recv_size = size;
-    return RT_EOK;
-}
-
-mp_uint_t uart_rx_any(pyb_uart_obj_t *self) {
-    return uart_recv_size;
-}
-
-static mp_obj_t pyb_uart_any(mp_obj_t self_in) {
-    pyb_uart_obj_t *self = self_in;
-    return mp_obj_new_int(uart_rx_any(self));
-}
-STATIC MP_DEFINE_CONST_FUN_OBJ_1(pyb_uart_any_obj, pyb_uart_any);
-
 /// \method init(baudrate, bits=8, parity=None, stop=1, *, timeout=1000, timeout_char=0, flow=0, read_buf_len=64)
 ///
 /// Initialise the UART bus with the given parameters:
@@ -261,8 +243,6 @@ STATIC mp_obj_t pyb_uart_init_helper(pyb_uart_obj_t *self, size_t n_args, const 
         nlr_raise(mp_obj_new_exception_msg_varg(&mp_type_ValueError, "UART(%s) can't open", uart->config->name));
     }
 
-    rt_device_set_rx_indicate((struct rt_device *) serial, uart_input);
-
     sci_b_baud_setting_t baud_setting;
     R_SCI_B_UART_BaudCalculate(config.baud_rate, false, 5000u, &baud_setting);
     R_SCI_B_UART_BaudSet(uart->config->p_api_ctrl, (void *) &baud_setting);
@@ -301,17 +281,22 @@ STATIC mp_obj_t pyb_uart_writechar(mp_obj_t self_in, mp_obj_t char_in)
 }
 STATIC MP_DEFINE_CONST_FUN_OBJ_2(pyb_uart_writechar_obj, pyb_uart_writechar);
 
+#define UART_RX_EVENT (1 << 0)
+static struct rt_event event;
+
 STATIC mp_obj_t pyb_uart_readchar(mp_obj_t self_in)
 {
     pyb_uart_obj_t *self = self_in;
+    rt_uint32_t e;
     rt_uint8_t ch;
 
-	if (rt_device_read((struct rt_device *)(self->uart_device), 0, &ch, 1) == 1)
-	{
-		return MP_OBJ_NEW_SMALL_INT(ch);
-	}
+    while (rt_device_read((struct rt_device *)(self->uart_device), 0, &ch, 1) != 1)
+    {
+        rt_event_recv(&event, UART_RX_EVENT, RT_EVENT_FLAG_AND |
+                      RT_EVENT_FLAG_CLEAR, RT_WAITING_FOREVER, &e);
+    }
 
-    return MP_OBJ_NEW_SMALL_INT(-1);
+    return MP_OBJ_NEW_SMALL_INT(ch);
 }
 STATIC MP_DEFINE_CONST_FUN_OBJ_1(pyb_uart_readchar_obj, pyb_uart_readchar);
 
@@ -321,7 +306,7 @@ STATIC const mp_rom_map_elem_t pyb_uart_locals_dict_table[] =
 
     { MP_ROM_QSTR(MP_QSTR_init), MP_ROM_PTR(&pyb_uart_init_obj) },
     { MP_ROM_QSTR(MP_QSTR_deinit), MP_ROM_PTR(&pyb_uart_deinit_obj) },
-    { MP_ROM_QSTR(MP_QSTR_any), MP_ROM_PTR(&pyb_uart_any_obj) },
+//    { MP_ROM_QSTR(MP_QSTR_any), MP_ROM_PTR(&machine_uart_any_obj) },
 
     /// \method read([nbytes])
     { MP_ROM_QSTR(MP_QSTR_read), MP_ROM_PTR(&mp_stream_read_obj) },

@@ -24,13 +24,14 @@
 #define GC2145_SLV_ADDR         (0x78)
 #define FROGEYE2020_SLV_ADDR    (0x6E)
 #define GC0328_SLV_ADDR         (0x42)
-
+#define SCC8660_SLV_ADDR       (0x66)
 // Chip ID Registers
 #define OV5640_CHIP_ID          (0x300A)
 #define OV_CHIP_ID              (0x0A)
 #define ON_CHIP_ID              (0x00)
 #define HIMAX_CHIP_ID           (0x0001)
 #define GC_CHIP_ID              (0xF0)
+#define SCC8660_CHIP_ID        (0x8660)
 
 // Chip ID Values
 #define OV2640_ID               (0x26)
@@ -59,7 +60,7 @@
 #define PAJ6100_ID              (0x6100)
 #define FROGEYE2020_ID          (0x2020)
 #define GC0328_ID               (0x9d)
-
+#define SCC8660_ID             	(0x21D4)
 typedef enum {
     FRAMESIZE_INVALID = 0,
     // C/SIF Resolutions

@@ -10,7 +10,7 @@
 #include <rtdbg.h>
 
 #ifdef BSP_USING_OPENMV
-    #include "led.h"
+#include "led.h"
 #endif /* BSP_USING_OPENMV */
 
 #ifdef BSP_USING_ONCHIP_FS
@@ -30,7 +30,7 @@ static void sd_mount(void)
         rt_kprintf("Create a block device on the %s partition of flash successful.\n", FS_PARTITION_NAME);
     }
 
-    if (rt_device_find(FS_PARTITION_NAME) != RT_NULL)
+    if(rt_device_find(FS_PARTITION_NAME) != RT_NULL)
     {
         dfs_mkfs("elm", FS_PARTITION_NAME);
         if (dfs_mount(FS_PARTITION_NAME, "/", "elm", 0, 0) == RT_EOK)
@@ -52,12 +52,10 @@ static void sd_mount(void)
 #include <drv_sdhi.h>
 
 #ifdef SDHI_USING_CD
-    /* SD Card hot plug detection pin */
-    #define SD_CHECK_PIN  RA_SDHI_CD_PIN
-    static rt_base_t sd_check_pin = 0;
+/* SD Card hot plug detection pin */
+#define SD_CHECK_PIN  RA_SDHI_CD_PIN
+static rt_base_t sd_check_pin = 0;
 #endif
-
-struct rt_semaphore sem_mnt_lock;
 
 static void _sdcard_mount(void)
 {
@@ -78,7 +76,6 @@ static void _sdcard_mount(void)
         if (dfs_mount("sd", "/", "elm", 0, 0) == RT_EOK)
         {
             LOG_I("sd card mount to '/'");
-            rt_sem_release(&sem_mnt_lock);
         }
         else
         {
@@ -140,9 +137,6 @@ static void sd_mount(void)
     sd_check_pin = rt_pin_get(SD_CHECK_PIN);
     rt_pin_mode(sd_check_pin, PIN_MODE_INPUT_PULLUP);
 #endif  /* SDHI_USING_CD */
-
-    rt_sem_init(&sem_mnt_lock, "mnt_lock", 0, RT_IPC_FLAG_PRIO);
-
     tid = rt_thread_create("sd_mount", sd_auto_mount, RT_NULL,
                            2048, RT_THREAD_PRIORITY_MAX - 12, 20);
     if (tid != RT_NULL)

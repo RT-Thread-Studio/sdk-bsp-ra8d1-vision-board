@@ -269,6 +269,15 @@
 #define RW007_NOT_USE_EXAMPLE_DRIVERS
 #define RW007_SPI_MAX_HZ 30000000
 
+/* CYW43012 WiFi */
+
+
+/* BL808 WiFi */
+
+
+/* CYW43439 WiFi */
+
+
 /* IoT Cloud */
 
 
@@ -470,7 +479,6 @@
 #define BSP_USING_SDHI1
 #define SDHI_USING_CD
 #define RA_SDHI_CD_PIN "p503"
-#define SDHI_USING_1_BIT
 #define BSP_USING_PWM
 #define BSP_USING_PWM6
 #define BSP_USING_PWM7
@@ -500,11 +508,6 @@
 /* OpenMV Extra Peripheral Configure */
 
 #define OPENMV_USING_LCD
-#define OPENMV_USING_KEY
-#define USER_KEY_PIN_NAME "p907"
-#define OMV_ENABLE_TF
-#define SENSOR_USING_XCLK
-#define CAM_PWM_DEV_NAME "pwm7"
 #define SENSOR_BUS_NAME "i2c1"
 #define SENSOR_MT9V034 1
 #define SENSOR_OV2640 1
@@ -514,5 +517,6 @@
 #define SENSOR_OV7690 0
 #define SENSOR_OV9650 0
 #define SENSOR_GC0328 1
+#define SENSOR_SCC8660 1
 
 #endif

@@ -4,7 +4,7 @@
 #include "omv_i2c.h"
 #include "omv_boardconfig.h"
 #include "board.h"
-
+#include "scc8660.h"
 int omv_i2c_init(omv_i2c_t *bus, uint32_t bus_id, uint32_t speed)
 {
     bus->id = bus_id;
@@ -112,6 +112,7 @@ int omv_i2c_writeb(omv_i2c_t *bus, uint8_t slv_addr, uint8_t reg_addr, uint8_t r
 
     return (bytes == 2) ? 0 : -1;
 }
+
 
 int omv_i2c_readb2(omv_i2c_t *bus, uint8_t slv_addr, uint16_t reg_addr, uint8_t *reg_data)
 {
