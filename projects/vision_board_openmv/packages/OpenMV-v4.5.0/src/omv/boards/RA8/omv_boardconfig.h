@@ -65,6 +65,7 @@
 #define OMV_ENABLE_OV9650       (SENSOR_OV9650)
 #define OMV_ENABLE_MT9V0XX      (SENSOR_MT9V034)
 #define OMV_ENABLE_GC0328       (SENSOR_GC0328)
+#define OMV_ENABLE_SCC8660     	(SENSOR_SCC8660)
 
 // Set which OV767x sensor is used
 #define OMV_OV7670_VERSION      (70)
