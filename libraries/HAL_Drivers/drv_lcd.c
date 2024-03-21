@@ -40,7 +40,7 @@ static uint16_t *gp_single_buffer = NULL;
 static uint16_t *gp_double_buffer = NULL;
 static uint16_t *lcd_current_working_buffer = (uint16_t *) &fb_background[0];
 
-static uint8_t lcd_framebuffer[LCD_BUF_SIZE] BSP_ALIGN_VARIABLE(64) BSP_PLACE_IN_SECTION(".sdram");
+static uint8_t lcd_framebuffer[LCD_BUF_SIZE] BSP_ALIGN_VARIABLE(64) BSP_PLACE_IN_SECTION(".bss.sdram");
 
 // G2D
 extern d2_device *d2_handle;

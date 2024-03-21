@@ -963,10 +963,16 @@ LOAD_REGION_SDRAM SDRAM_START SDRAM_LENGTH
   {
   }
 
+;  SDRAM +0 FIXED
+;  {
+;    *(.sdram*)
+;    *(.frame*)
+;  }
+
   SDRAM +0 FIXED
   {
-    *(.sdram*)
-    *(.frame*)
+    *(.bss.sdram)
+    *(.bss.frame)
   }
 
   NOCACHE_SDRAM +0 UNINIT NOCOMPRESS ALIGN 32

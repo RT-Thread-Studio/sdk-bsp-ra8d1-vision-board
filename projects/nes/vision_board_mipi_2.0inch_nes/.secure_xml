@@ -140,7 +140,7 @@
       <configSetting altId="irq10.irq10.p907" configurationId="irq10.irq10"/>
       <configSetting altId="irq12.irq12_dash_ds.p008" configurationId="irq12.irq12_dash_ds"/>
       <configSetting altId="irq13.irq13_dash_ds.p009" configurationId="irq13.irq13_dash_ds"/>
-      <configSetting altId="irq14.irq14.p010" configurationId="irq14.irq14" isUsedByDriver="true"/>
+      <configSetting altId="irq14.irq14.p010" configurationId="irq14.irq14"/>
       <configSetting altId="irq2.irq2.p509" configurationId="irq2.irq2"/>
       <configSetting altId="irq7.irq7_dash_ds.p001" configurationId="irq7.irq7_dash_ds"/>
       <configSetting altId="jtag_fslash_swd.swclk.p211" configurationId="jtag_fslash_swd.swclk"/>
@@ -160,8 +160,8 @@
       <configSetting altId="pa13.output.high" configurationId="pa13"/>
       <configSetting altId="sci2.rxd2.pa02" configurationId="sci2.rxd2"/>
       <configSetting altId="sci2.txd2.pa03" configurationId="sci2.txd2"/>
-      <configSetting altId="sci3.rxd3.p408" configurationId="sci3.rxd3" isUsedByDriver="true"/>
-      <configSetting altId="sci3.txd3.p409" configurationId="sci3.txd3" isUsedByDriver="true"/>
+      <configSetting altId="sci3.rxd3.p408" configurationId="sci3.rxd3"/>
+      <configSetting altId="sci3.txd3.p409" configurationId="sci3.txd3"/>
       <configSetting altId="sci9.rxd9.p208" configurationId="sci9.rxd9" isUsedByDriver="true"/>
       <configSetting altId="sci9.txd9.p209" configurationId="sci9.txd9" isUsedByDriver="true"/>
       <configSetting altId="sdhi1.sd1cd.p503" configurationId="sdhi1.sd1cd" isUsedByDriver="true"/>

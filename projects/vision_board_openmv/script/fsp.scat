@@ -968,12 +968,17 @@ LOAD_REGION_SDRAM SDRAM_START SDRAM_LENGTH
   {
   }
 
+;  SDRAM +0 FIXED
+;  {
+;    *(.sdram*)
+;    *(.frame*)
+;  }
+
   SDRAM +0 FIXED
   {
-    *(.sdram*)
-    *(.frame*)
+    *(.bss.sdram)
+    *(.bss.frame)
   }
-
   /* OpenMV memory */
   OMV_FB_ALLOC_OVERLAY +0 EMPTY OMV_FB_ALLOC_OVERLAY_SIZE {}
   OMV_FB_ALLOC_OVERLAY_END +0 EMPTY 0 {}

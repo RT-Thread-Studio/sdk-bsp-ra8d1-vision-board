@@ -594,7 +594,7 @@
       <property id="module.driver.display.layer0.color.byte.b" value="255"/>
       <property id="module.driver.display.input0.buffer_name" value="fb_background"/>
       <property id="module.driver.display.input0.buffer_number" value="2"/>
-      <property id="module.driver.display.input0.section" value=".sdram"/>
+      <property id="module.driver.display.input0.section" value=".bss.sdram"/>
       <property id="module.driver.display.input0.format" value="module.driver.display.input0.format.in_format_16bits_rgb565"/>
       <property id="module.driver.display.input0.line_descending_enable" value="module.driver.display.input0.line_descending_enable.false"/>
       <property id="module.driver.display.input0.lines_repeat_enable" value="module.driver.display.input0.lines_repeat_enable.false"/>

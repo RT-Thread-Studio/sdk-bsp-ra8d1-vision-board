@@ -192,7 +192,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\libc\compilers\armlibc\syscall_mem.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\libc\compilers\armlibc\syscall_mem.c</PathWithFileName>
       <FilenameWithoutPath>syscall_mem.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -204,7 +204,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\libc\compilers\armlibc\syscalls.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\libc\compilers\armlibc\syscalls.c</PathWithFileName>
       <FilenameWithoutPath>syscalls.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -216,7 +216,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\libc\compilers\common\cctype.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\libc\compilers\common\cctype.c</PathWithFileName>
       <FilenameWithoutPath>cctype.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -228,7 +228,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\libc\compilers\common\cstdlib.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\libc\compilers\common\cstdlib.c</PathWithFileName>
       <FilenameWithoutPath>cstdlib.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -240,7 +240,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\libc\compilers\common\cstring.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\libc\compilers\common\cstring.c</PathWithFileName>
       <FilenameWithoutPath>cstring.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -252,7 +252,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\libc\compilers\common\ctime.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\libc\compilers\common\ctime.c</PathWithFileName>
       <FilenameWithoutPath>ctime.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -264,7 +264,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\libc\compilers\common\cunistd.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\libc\compilers\common\cunistd.c</PathWithFileName>
       <FilenameWithoutPath>cunistd.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -276,7 +276,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\libc\compilers\common\cwchar.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\libc\compilers\common\cwchar.c</PathWithFileName>
       <FilenameWithoutPath>cwchar.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -296,7 +296,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\libcpu\arm\common\atomic_arm.c</PathWithFileName>
+      <PathWithFileName>rt-thread\libcpu\arm\common\atomic_arm.c</PathWithFileName>
       <FilenameWithoutPath>atomic_arm.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -308,7 +308,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\libcpu\arm\common\div0.c</PathWithFileName>
+      <PathWithFileName>rt-thread\libcpu\arm\common\div0.c</PathWithFileName>
       <FilenameWithoutPath>div0.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -320,7 +320,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\libcpu\arm\common\showmem.c</PathWithFileName>
+      <PathWithFileName>rt-thread\libcpu\arm\common\showmem.c</PathWithFileName>
       <FilenameWithoutPath>showmem.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -332,7 +332,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\libcpu\arm\cortex-m85\context_gcc.S</PathWithFileName>
+      <PathWithFileName>rt-thread\libcpu\arm\cortex-m85\context_gcc.S</PathWithFileName>
       <FilenameWithoutPath>context_gcc.S</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -344,7 +344,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\libcpu\arm\cortex-m85\cpuport.c</PathWithFileName>
+      <PathWithFileName>rt-thread\libcpu\arm\cortex-m85\cpuport.c</PathWithFileName>
       <FilenameWithoutPath>cpuport.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -364,7 +364,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\drivers\core\device.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\drivers\core\device.c</PathWithFileName>
       <FilenameWithoutPath>device.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -376,7 +376,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\drivers\i2c\i2c-bit-ops.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\drivers\i2c\i2c-bit-ops.c</PathWithFileName>
       <FilenameWithoutPath>i2c-bit-ops.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -388,7 +388,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\drivers\i2c\i2c_core.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\drivers\i2c\i2c_core.c</PathWithFileName>
       <FilenameWithoutPath>i2c_core.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -400,7 +400,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\drivers\i2c\i2c_dev.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\drivers\i2c\i2c_dev.c</PathWithFileName>
       <FilenameWithoutPath>i2c_dev.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -412,7 +412,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\drivers\ipc\completion.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\drivers\ipc\completion.c</PathWithFileName>
       <FilenameWithoutPath>completion.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -424,7 +424,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\drivers\ipc\dataqueue.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\drivers\ipc\dataqueue.c</PathWithFileName>
       <FilenameWithoutPath>dataqueue.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -436,7 +436,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\drivers\ipc\pipe.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\drivers\ipc\pipe.c</PathWithFileName>
       <FilenameWithoutPath>pipe.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -448,7 +448,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\drivers\ipc\ringblk_buf.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\drivers\ipc\ringblk_buf.c</PathWithFileName>
       <FilenameWithoutPath>ringblk_buf.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -460,7 +460,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\drivers\ipc\ringbuffer.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\drivers\ipc\ringbuffer.c</PathWithFileName>
       <FilenameWithoutPath>ringbuffer.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -472,7 +472,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\drivers\ipc\waitqueue.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\drivers\ipc\waitqueue.c</PathWithFileName>
       <FilenameWithoutPath>waitqueue.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -484,7 +484,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\drivers\ipc\workqueue.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\drivers\ipc\workqueue.c</PathWithFileName>
       <FilenameWithoutPath>workqueue.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -496,7 +496,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\drivers\misc\pin.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\drivers\misc\pin.c</PathWithFileName>
       <FilenameWithoutPath>pin.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -508,7 +508,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\drivers\misc\rt_drv_pwm.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\drivers\misc\rt_drv_pwm.c</PathWithFileName>
       <FilenameWithoutPath>rt_drv_pwm.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -520,7 +520,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\drivers\serial\serial_v2.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\drivers\serial\serial_v2.c</PathWithFileName>
       <FilenameWithoutPath>serial_v2.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -532,7 +532,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\drivers\touch\touch.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\drivers\touch\touch.c</PathWithFileName>
       <FilenameWithoutPath>touch.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -576,7 +576,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\libraries\HAL_Drivers\drv_common.c</PathWithFileName>
+      <PathWithFileName>libraries\HAL_Drivers\drv_common.c</PathWithFileName>
       <FilenameWithoutPath>drv_common.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -588,7 +588,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\libraries\HAL_Drivers\drv_gpio.c</PathWithFileName>
+      <PathWithFileName>libraries\HAL_Drivers\drv_gpio.c</PathWithFileName>
       <FilenameWithoutPath>drv_gpio.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -600,7 +600,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\libraries\HAL_Drivers\drv_lcd.c</PathWithFileName>
+      <PathWithFileName>libraries\HAL_Drivers\drv_lcd.c</PathWithFileName>
       <FilenameWithoutPath>drv_lcd.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -612,7 +612,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\libraries\HAL_Drivers\drv_pwm.c</PathWithFileName>
+      <PathWithFileName>libraries\HAL_Drivers\drv_pwm.c</PathWithFileName>
       <FilenameWithoutPath>drv_pwm.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -624,7 +624,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\libraries\HAL_Drivers\drv_sci.c</PathWithFileName>
+      <PathWithFileName>libraries\HAL_Drivers\drv_sci.c</PathWithFileName>
       <FilenameWithoutPath>drv_sci.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -636,7 +636,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\libraries\HAL_Drivers\drv_usart_v2.c</PathWithFileName>
+      <PathWithFileName>libraries\HAL_Drivers\drv_usart_v2.c</PathWithFileName>
       <FilenameWithoutPath>drv_usart_v2.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -656,7 +656,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\finsh\shell.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\finsh\shell.c</PathWithFileName>
       <FilenameWithoutPath>shell.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -668,7 +668,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\finsh\msh.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\finsh\msh.c</PathWithFileName>
       <FilenameWithoutPath>msh.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -680,7 +680,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\finsh\msh_parse.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\finsh\msh_parse.c</PathWithFileName>
       <FilenameWithoutPath>msh_parse.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -692,7 +692,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\components\finsh\cmd.c</PathWithFileName>
+      <PathWithFileName>rt-thread\components\finsh\cmd.c</PathWithFileName>
       <FilenameWithoutPath>cmd.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -732,7 +732,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\src\clock.c</PathWithFileName>
+      <PathWithFileName>rt-thread\src\clock.c</PathWithFileName>
       <FilenameWithoutPath>clock.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -744,7 +744,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\src\components.c</PathWithFileName>
+      <PathWithFileName>rt-thread\src\components.c</PathWithFileName>
       <FilenameWithoutPath>components.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -756,7 +756,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\src\idle.c</PathWithFileName>
+      <PathWithFileName>rt-thread\src\idle.c</PathWithFileName>
       <FilenameWithoutPath>idle.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -768,7 +768,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\src\ipc.c</PathWithFileName>
+      <PathWithFileName>rt-thread\src\ipc.c</PathWithFileName>
       <FilenameWithoutPath>ipc.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -780,7 +780,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\src\irq.c</PathWithFileName>
+      <PathWithFileName>rt-thread\src\irq.c</PathWithFileName>
       <FilenameWithoutPath>irq.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -792,7 +792,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\src\kservice.c</PathWithFileName>
+      <PathWithFileName>rt-thread\src\kservice.c</PathWithFileName>
       <FilenameWithoutPath>kservice.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -804,7 +804,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\src\memheap.c</PathWithFileName>
+      <PathWithFileName>rt-thread\src\memheap.c</PathWithFileName>
       <FilenameWithoutPath>memheap.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -816,7 +816,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\src\mempool.c</PathWithFileName>
+      <PathWithFileName>rt-thread\src\mempool.c</PathWithFileName>
       <FilenameWithoutPath>mempool.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -828,7 +828,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\src\object.c</PathWithFileName>
+      <PathWithFileName>rt-thread\src\object.c</PathWithFileName>
       <FilenameWithoutPath>object.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -840,7 +840,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\src\scheduler_up.c</PathWithFileName>
+      <PathWithFileName>rt-thread\src\scheduler_up.c</PathWithFileName>
       <FilenameWithoutPath>scheduler_up.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -852,7 +852,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\src\thread.c</PathWithFileName>
+      <PathWithFileName>rt-thread\src\thread.c</PathWithFileName>
       <FilenameWithoutPath>thread.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -864,7 +864,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\rt-thread\src\timer.c</PathWithFileName>
+      <PathWithFileName>rt-thread\src\timer.c</PathWithFileName>
       <FilenameWithoutPath>timer.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
