@@ -700,6 +700,14 @@ SECTIONS
         __SDRAM_End = .;
     } > SDRAM
 
+    .bss.sdram (NOLOAD):
+    {
+        __SDRAM_Start = .;
+        KEEP(*(.sdram*))
+        KEEP(*(.frame*))
+        __SDRAM_End = .;
+    } > SDRAM
+
     . = .;
     __nocache_sdram_pre_location = .;
     .nocache_sdram ALIGN(32) (NOLOAD):
