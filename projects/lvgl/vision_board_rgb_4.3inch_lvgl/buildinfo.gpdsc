@@ -19,8 +19,6 @@
     <component Cclass="Flex Software" Cgroup="Components" Csub="ra">
       <files>
         <file category="include" name="ra/arm/CMSIS_5/CMSIS/Core/Include/"/>
-        <file category="include" name="ra/arm/CMSIS_5/CMSIS/DSP/Include/"/>
-        <file category="include" name="ra/arm/CMSIS_5/CMSIS/DSP/PrivateInclude/"/>
         <file category="include" name="ra/fsp/inc/"/>
         <file category="include" name="ra/fsp/inc/api/"/>
         <file category="include" name="ra/fsp/inc/instances/"/>

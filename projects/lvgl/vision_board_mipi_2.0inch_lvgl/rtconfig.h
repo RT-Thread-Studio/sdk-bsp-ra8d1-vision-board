@@ -171,9 +171,8 @@
 #define PKG_LVGL_THREAD_PRIO 20
 #define PKG_LVGL_THREAD_STACK_SIZE 8192
 #define PKG_LVGL_DISP_REFR_PERIOD 10
-#define PKG_LVGL_USING_LATEST_VERSION
-#define PKG_LVGL_VER_NUM 0x999999
-#define PKG_USING_LV_MUSIC_DEMO
+#define PKG_LVGL_USING_V09010
+#define PKG_LVGL_VER_NUM 0x009010
 
 /* u8g2: a monochrome graphic library */
 
@@ -197,6 +196,14 @@
 
 /* peripheral libraries and drivers */
 
+/* HAL & SDK Drivers */
+
+/* STM32 HAL & SDK Drivers */
+
+
+/* Kendryte SDK */
+
+
 /* sensors drivers */
 
 
@@ -204,9 +211,6 @@
 
 #define PKG_USING_CST812T
 #define PKG_USING_CST812T_LATEST_VERSION
-
-/* Kendryte SDK */
-
 
 /* AI packages */
 
@@ -288,6 +292,7 @@
 
 #define BSP_USING_LVGL_DAVE2D
 #define BSP_USING_LVGL_DEMO
-#define BSP_USING_LVGL_MUSIC_DEMO
+#define BSP_USING_LVGL_BENCHMARK_DEMO
+#define BSP_USING_LVGL_WIDGETS_DEMO
 
 #endif
