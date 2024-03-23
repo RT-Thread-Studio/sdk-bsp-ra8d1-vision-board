@@ -531,8 +531,8 @@ menu "Hardware Drivers Config"
                 config BSP_USING_PWM7
                     bool "Enable GPT7 (16-Bits) output PWM"
                     default n
-                config BSP_USING_PWM12
-                    bool "Enable GPT12 (16-Bits) output PWM"
+                config BSP_USING_PWM13
+                    bool "Enable GPT13 (16-Bits) output PWM"
                     default n
             endif
 
