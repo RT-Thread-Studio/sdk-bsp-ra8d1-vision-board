@@ -134,6 +134,7 @@
       <configSetting altId="glcd.lcd_tcon0.p805" configurationId="glcd.lcd_tcon0"/>
       <configSetting altId="glcd.lcd_tcon1.p807" configurationId="glcd.lcd_tcon1"/>
       <configSetting altId="glcd.lcd_tcon3.p515" configurationId="glcd.lcd_tcon3"/>
+      <configSetting altId="gpt13.gtioc13a.p804" configurationId="gpt13.gtioc13a" isUsedByDriver="true"/>
       <configSetting altId="gpt6.gtioc6a.pa11" configurationId="gpt6.gtioc6a" isUsedByDriver="true"/>
       <configSetting altId="gpt7.gtioc7b.pa06" configurationId="gpt7.gtioc7b" isUsedByDriver="true"/>
       <configSetting altId="iic1.scl1.p512" configurationId="iic1.scl1"/>

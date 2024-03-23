@@ -106,6 +106,7 @@
             <slot name="P801" secure="true"/>
             <slot name="P802" secure="true"/>
             <slot name="P803" secure="true"/>
+            <slot name="P804" secure="true"/>
             <slot name="P805" secure="true"/>
             <slot name="P806" secure="true"/>
             <slot name="P807" secure="true"/>
@@ -157,6 +158,7 @@
         <peripheral name="ICU_EXT_IRQ">
             <slot name="ICU_EXT_IRQ10" secure="true"/>
         </peripheral>
+        <peripheral name="GPT13" group="GPT" security=""/>
         <peripheral name="ICU">
             <slot name="IRQ0" secure="true"/>
             <slot name="IRQ1" secure="true"/>
