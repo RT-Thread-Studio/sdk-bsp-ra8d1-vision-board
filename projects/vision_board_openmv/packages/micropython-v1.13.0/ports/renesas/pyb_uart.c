@@ -43,50 +43,6 @@
     #error "Please define the RT_USING_SERIAL on 'rtconfig.h'"
 #endif
 
-static struct ra_uart_config uart_config[] =
-{
-#ifdef BSP_USING_UART0
-    UART0_CONFIG,
-#endif
-
-#ifdef BSP_USING_UART1
-    UART1_CONFIG,
-#endif
-
-#ifdef BSP_USING_UART2
-    UART2_CONFIG,
-#endif
-
-#ifdef BSP_USING_UART3
-    UART3_CONFIG,
-#endif
-
-#ifdef BSP_USING_UART4
-    UART4_CONFIG,
-#endif
-
-#ifdef BSP_USING_UART5
-    UART5_CONFIG,
-#endif
-
-#ifdef BSP_USING_UART6
-    UART6_CONFIG,
-#endif
-
-#ifdef BSP_USING_UART7
-    UART7_CONFIG,
-#endif
-
-#ifdef BSP_USING_UART8
-    UART8_CONFIG,
-#endif
-
-#ifdef BSP_USING_UART9
-    UART9_CONFIG,
-#endif
-};
-struct ra_uart uart_obj[sizeof(uart_config) / sizeof(uart_config[0])] = {0};
-
 typedef struct pyb_uart_obj_t
 {
     mp_obj_base_t base;
