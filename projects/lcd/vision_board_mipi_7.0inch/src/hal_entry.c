@@ -122,7 +122,7 @@ rt_err_t gt911_register(void)
     rt_base_t int_pin = rt_pin_get(INT_PIN);
     rt_base_t rst_pin = rt_pin_get(RST_PIN);
 
-    cfg.dev_name = "i2c1";
+    cfg.dev_name = "sci3i";
     cfg.irq_pin.pin = int_pin;
     cfg.irq_pin.mode = PIN_MODE_INPUT_PULLDOWN;
     cfg.user_data = &rst_pin;
