@@ -329,10 +329,10 @@
       <property id="module.driver.spi_b.ssl_negation_delay" value="module.driver.spi_b.ssl_negation_delay.one"/>
       <property id="module.driver.spi_b.next_access_delay" value="module.driver.spi_b.next_access_delay.one"/>
     </module>
-    <module id="module.driver.transfer_on_dtc.1549941522">
+    <module id="module.driver.transfer_on_dtc.1148100700">
       <property id="module.driver.transfer.name" value="g_transfer0"/>
       <property id="module.driver.transfer.mode" value="module.driver.transfer.mode.mode_normal"/>
-      <property id="module.driver.transfer.size" value="module.driver.transfer.size.size_2_byte"/>
+      <property id="module.driver.transfer.size" value="module.driver.transfer.size.size_1_byte"/>
       <property id="module.driver.transfer.dest_addr_mode" value="module.driver.transfer.dest_addr_mode.addr_mode_fixed"/>
       <property id="module.driver.transfer.src_addr_mode" value="module.driver.transfer.src_addr_mode.addr_mode_fixed"/>
       <property id="module.driver.transfer.repeat_area" value="module.driver.transfer.repeat_area.repeat_area_source"/>
@@ -342,10 +342,10 @@
       <property id="module.driver.transfer.number_of_descriptors" value="1"/>
       <property id="module.driver.transfer.activation_source" value="_disabled"/>
     </module>
-    <module id="module.driver.transfer_on_dtc.1209968636">
+    <module id="module.driver.transfer_on_dtc.488731276">
       <property id="module.driver.transfer.name" value="g_transfer1"/>
       <property id="module.driver.transfer.mode" value="module.driver.transfer.mode.mode_normal"/>
-      <property id="module.driver.transfer.size" value="module.driver.transfer.size.size_2_byte"/>
+      <property id="module.driver.transfer.size" value="module.driver.transfer.size.size_1_byte"/>
       <property id="module.driver.transfer.dest_addr_mode" value="module.driver.transfer.dest_addr_mode.addr_mode_fixed"/>
       <property id="module.driver.transfer.src_addr_mode" value="module.driver.transfer.src_addr_mode.addr_mode_fixed"/>
       <property id="module.driver.transfer.repeat_area" value="module.driver.transfer.repeat_area.repeat_area_source"/>
@@ -360,8 +360,8 @@
       <stack module="module.driver.uart_on_sci_b_uart.1514241209"/>
       <stack module="module.driver.external_irq_on_icu.680480155"/>
       <stack module="module.driver.spi_on_spi_b.1847546317">
-        <stack module="module.driver.transfer_on_dtc.1549941522" requires="module.driver.spi_on_spi_b.requires.transfer_tx"/>
-        <stack module="module.driver.transfer_on_dtc.1209968636" requires="module.driver.spi_on_spi_b.requires.transfer_rx"/>
+        <stack module="module.driver.transfer_on_dtc.1148100700" requires="module.driver.spi_on_spi_b.requires.transfer_tx"/>
+        <stack module="module.driver.transfer_on_dtc.488731276" requires="module.driver.spi_on_spi_b.requires.transfer_rx"/>
       </stack>
     </context>
     <config id="config.driver.ioport">

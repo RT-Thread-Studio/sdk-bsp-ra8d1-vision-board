@@ -1445,6 +1445,15 @@
       <property id="module.driver.timer.gtioca_disable_setting" value="module.driver.timer.gtioca_disable_setting.gtioc_disable_prohibited"/>
       <property id="module.driver.timer.gtiocb_disable_setting" value="module.driver.timer.gtiocb_disable_setting.gtioc_disable_prohibited"/>
     </module>
+    <module id="module.driver.external_irq_on_icu.1732425814">
+      <property id="module.driver.external_irq.name" value="g_external_irq11"/>
+      <property id="module.driver.external_irq.channel" value="11"/>
+      <property id="module.driver.external_irq.trigger" value="module.driver.external_irq.trigger.trig_rising"/>
+      <property id="module.driver.external_irq.filter_enable" value="module.driver.external_irq.filter_enable.false"/>
+      <property id="module.driver.external_irq.clock_source_div" value="module.driver.external_irq.clock_source_div.clock_source_div_by_64"/>
+      <property id="module.driver.external_irq.p_callback" value="irq_callback"/>
+      <property id="module.driver.external_irq.ipl" value="board.icu.common.irq.priority12"/>
+    </module>
     <context id="_hal.0">
       <stack module="module.driver.ioport_on_ioport.0"/>
       <stack module="module.driver.uart_on_sci_b_uart.1514241209"/>
@@ -1489,6 +1498,7 @@
       <stack module="module.driver.ceu_on_capture.2096075666"/>
       <stack module="module.driver.external_irq_on_icu.18620964"/>
       <stack module="module.driver.timer_on_gpt.1422485348"/>
+      <stack module="module.driver.external_irq_on_icu.1732425814"/>
     </context>
     <config id="config.driver.flash_hp">
       <property id="config.driver.flash_hp.param_checking_enable" value="config.flash_hp.param_checking_enable.bsp"/>
@@ -1746,6 +1756,8 @@
       <configSetting altId="iic1.sda1.p511" configurationId="iic1.sda1"/>
       <configSetting altId="irq10.irq10.p907" configurationId="irq10.irq10"/>
       <configSetting altId="irq10.mode.custom.free" configurationId="irq10.mode"/>
+      <configSetting altId="irq11.irq11.p800" configurationId="irq11.irq11"/>
+      <configSetting altId="irq11.mode.custom.free" configurationId="irq11.mode"/>
       <configSetting altId="irq12.irq12_dash_ds.p008" configurationId="irq12.irq12_dash_ds"/>
       <configSetting altId="irq12.mode.custom.free" configurationId="irq12.mode"/>
       <configSetting altId="irq13.irq13_dash_ds.p009" configurationId="irq13.irq13_dash_ds"/>
@@ -1986,6 +1998,9 @@
       <configSetting altId="p715.glcd.lcd_data14" configurationId="p715"/>
       <configSetting altId="p715.gpio_speed.gpio_speed_m" configurationId="p715.gpio_drivecapacity"/>
       <configSetting altId="p715.gpio_mode.gpio_mode_peripheral" configurationId="p715.gpio_mode"/>
+      <configSetting altId="p800.irq11.irq11" configurationId="p800"/>
+      <configSetting altId="p800.gpio_irq.gpio_irq_enabled" configurationId="p800.gpio_irq"/>
+      <configSetting altId="p800.gpio_mode.gpio_mode_irq" configurationId="p800.gpio_mode"/>
       <configSetting altId="p801.sci2.txd2" configurationId="p801"/>
       <configSetting altId="p801.gpio_mode.gpio_mode_peripheral" configurationId="p801.gpio_mode"/>
       <configSetting altId="p802.sci2.rxd2" configurationId="p802"/>

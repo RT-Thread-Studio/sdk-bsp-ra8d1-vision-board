@@ -140,6 +140,7 @@
       <configSetting altId="iic1.scl1.p512" configurationId="iic1.scl1"/>
       <configSetting altId="iic1.sda1.p511" configurationId="iic1.sda1"/>
       <configSetting altId="irq10.irq10.p907" configurationId="irq10.irq10" isUsedByDriver="true"/>
+      <configSetting altId="irq11.irq11.p800" configurationId="irq11.irq11" isUsedByDriver="true"/>
       <configSetting altId="irq12.irq12_dash_ds.p008" configurationId="irq12.irq12_dash_ds"/>
       <configSetting altId="irq13.irq13_dash_ds.p009" configurationId="irq13.irq13_dash_ds"/>
       <configSetting altId="jtag_fslash_swd.swclk.p211" configurationId="jtag_fslash_swd.swclk"/>

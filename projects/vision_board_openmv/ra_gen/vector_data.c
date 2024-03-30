@@ -32,13 +32,14 @@
             [24] = spi_b_tei_isr, /* SPI1 TEI (Transmission complete event) */
             [25] = spi_b_eri_isr, /* SPI1 ERI (Error) */
             [26] = r_icu_isr, /* ICU IRQ10 (External pin interrupt 10) */
-            [27] = usbfs_interrupt_handler, /* USBFS INT (USBFS interrupt) */
-            [28] = usbfs_resume_handler, /* USBFS RESUME (USBFS resume interrupt) */
-            [29] = usbfs_d0fifo_handler, /* USBFS FIFO 0 (DMA transfer request 0) */
-            [30] = usbfs_d1fifo_handler, /* USBFS FIFO 1 (DMA transfer request 1) */
-            [31] = usbhs_interrupt_handler, /* USBHS USB INT RESUME (USBHS interr) */
-            [32] = usbhs_d0fifo_handler, /* USBHS FIFO 0 (DMA transfer request 0) */
-            [33] = usbhs_d1fifo_handler, /* USBHS FIFO 1 (DMA transfer request 1) */
+            [27] = r_icu_isr, /* ICU IRQ11 (External pin interrupt 11) */
+            [28] = usbfs_interrupt_handler, /* USBFS INT (USBFS interrupt) */
+            [29] = usbfs_resume_handler, /* USBFS RESUME (USBFS resume interrupt) */
+            [30] = usbfs_d0fifo_handler, /* USBFS FIFO 0 (DMA transfer request 0) */
+            [31] = usbfs_d1fifo_handler, /* USBFS FIFO 1 (DMA transfer request 1) */
+            [32] = usbhs_interrupt_handler, /* USBHS USB INT RESUME (USBHS interr) */
+            [33] = usbhs_d0fifo_handler, /* USBHS FIFO 0 (DMA transfer request 0) */
+            [34] = usbhs_d1fifo_handler, /* USBHS FIFO 1 (DMA transfer request 1) */
         };
         const bsp_interrupt_event_t g_interrupt_event_link_select[BSP_ICU_VECTOR_MAX_ENTRIES] =
         {
@@ -69,13 +70,14 @@
             [24] = BSP_PRV_IELS_ENUM(EVENT_SPI1_TEI), /* SPI1 TEI (Transmission complete event) */
             [25] = BSP_PRV_IELS_ENUM(EVENT_SPI1_ERI), /* SPI1 ERI (Error) */
             [26] = BSP_PRV_IELS_ENUM(EVENT_ICU_IRQ10), /* ICU IRQ10 (External pin interrupt 10) */
-            [27] = BSP_PRV_IELS_ENUM(EVENT_USBFS_INT), /* USBFS INT (USBFS interrupt) */
-            [28] = BSP_PRV_IELS_ENUM(EVENT_USBFS_RESUME), /* USBFS RESUME (USBFS resume interrupt) */
-            [29] = BSP_PRV_IELS_ENUM(EVENT_USBFS_FIFO_0), /* USBFS FIFO 0 (DMA transfer request 0) */
-            [30] = BSP_PRV_IELS_ENUM(EVENT_USBFS_FIFO_1), /* USBFS FIFO 1 (DMA transfer request 1) */
-            [31] = BSP_PRV_IELS_ENUM(EVENT_USBHS_USB_INT_RESUME), /* USBHS USB INT RESUME (USBHS interr) */
-            [32] = BSP_PRV_IELS_ENUM(EVENT_USBHS_FIFO_0), /* USBHS FIFO 0 (DMA transfer request 0) */
-            [33] = BSP_PRV_IELS_ENUM(EVENT_USBHS_FIFO_1), /* USBHS FIFO 1 (DMA transfer request 1) */
+            [27] = BSP_PRV_IELS_ENUM(EVENT_ICU_IRQ11), /* ICU IRQ11 (External pin interrupt 11) */
+            [28] = BSP_PRV_IELS_ENUM(EVENT_USBFS_INT), /* USBFS INT (USBFS interrupt) */
+            [29] = BSP_PRV_IELS_ENUM(EVENT_USBFS_RESUME), /* USBFS RESUME (USBFS resume interrupt) */
+            [30] = BSP_PRV_IELS_ENUM(EVENT_USBFS_FIFO_0), /* USBFS FIFO 0 (DMA transfer request 0) */
+            [31] = BSP_PRV_IELS_ENUM(EVENT_USBFS_FIFO_1), /* USBFS FIFO 1 (DMA transfer request 1) */
+            [32] = BSP_PRV_IELS_ENUM(EVENT_USBHS_USB_INT_RESUME), /* USBHS USB INT RESUME (USBHS interr) */
+            [33] = BSP_PRV_IELS_ENUM(EVENT_USBHS_FIFO_0), /* USBHS FIFO 0 (DMA transfer request 0) */
+            [34] = BSP_PRV_IELS_ENUM(EVENT_USBHS_FIFO_1), /* USBHS FIFO 1 (DMA transfer request 1) */
         };
         #elif __has_include("r_ioport_b.h")
         BSP_DONT_REMOVE const fsp_vector_t g_vector_table[BSP_IRQ_VECTOR_MAX_ENTRIES] BSP_PLACE_IN_SECTION(BSP_SECTION_APPLICATION_VECTORS) =
@@ -107,6 +109,7 @@
             [BSP_PRV_IELS_ENUM(SPI1_TEI)] = spi_b_tei_isr, /* SPI1 TEI (Transmission complete event) */
             [BSP_PRV_IELS_ENUM(SPI1_ERI)] = spi_b_eri_isr, /* SPI1 ERI (Error) */
             [BSP_PRV_IELS_ENUM(ICU_IRQ10)] = r_icu_isr, /* ICU IRQ10 (External pin interrupt 10) */
+            [BSP_PRV_IELS_ENUM(ICU_IRQ11)] = r_icu_isr, /* ICU IRQ11 (External pin interrupt 11) */
             [BSP_PRV_IELS_ENUM(USBFS_INT)] = usbfs_interrupt_handler, /* USBFS INT (USBFS interrupt) */
             [BSP_PRV_IELS_ENUM(USBFS_RESUME)] = usbfs_resume_handler, /* USBFS RESUME (USBFS resume interrupt) */
             [BSP_PRV_IELS_ENUM(USBFS_FIFO_0)] = usbfs_d0fifo_handler, /* USBFS FIFO 0 (DMA transfer request 0) */
