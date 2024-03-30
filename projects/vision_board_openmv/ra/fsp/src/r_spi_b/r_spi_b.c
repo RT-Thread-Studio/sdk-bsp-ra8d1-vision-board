@@ -840,7 +840,7 @@ static fsp_err_t r_spi_b_write_read_common (spi_ctrl_t * const    p_api_ctrl,
         FSP_ERROR_RETURN(FSP_SUCCESS == err, err);
     }
 #endif
-
+	SCB_CleanInvalidateDCache();
     r_spi_b_bit_width_config(p_ctrl);
     r_spi_b_start_transfer(p_ctrl);
 
