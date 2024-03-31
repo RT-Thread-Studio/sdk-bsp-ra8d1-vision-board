@@ -27,7 +27,7 @@
 #ifndef _MPY_MAIN_H
 #define _MPY_MAIN_H
 
-#include "rtthread.h"
+#include <rtthread.h>
 
 int mp_sys_resource_bak(struct dfs_fdtable **table_bak);
 void mp_sys_resource_gc(struct dfs_fdtable *fd_table_bak);

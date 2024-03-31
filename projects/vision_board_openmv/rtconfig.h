@@ -179,6 +179,9 @@
 
 #define RT_USING_POSIX_FS
 #define RT_USING_POSIX_DEVIO
+#define RT_USING_POSIX_POLL
+#define RT_USING_POSIX_SELECT
+#define RT_USING_POSIX_SOCKET
 
 /* Interprocess Communication (IPC) */
 
@@ -292,6 +295,8 @@
 #define MICROPYTHON_USING_MACHINE_RTC
 #define MICROPYTHON_USING_MACHINE_PWM
 #define MICROPYTHON_USING_MACHINE_TIMER
+#define MICROPYTHON_USING_NETWORK
+#define MICROPYTHON_USING_WLAN
 
 /* System Module */
 
@@ -309,6 +314,7 @@
 
 /* Network Module */
 
+#define MICROPYTHON_USING_USOCKET
 
 /* User Extended Module */
 
@@ -383,8 +389,6 @@
 
 /* Kendryte SDK */
 
-#define PKG_USING_I2C_TOOLS
-#define PKG_USING_I2C_TOOLS_V100
 
 /* AI packages */
 

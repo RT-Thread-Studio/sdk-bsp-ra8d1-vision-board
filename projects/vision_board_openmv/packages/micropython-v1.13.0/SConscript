@@ -6,17 +6,18 @@ cwd     = GetCurrentDir()
 # The set of source files associated with this SConscript file.
 src     = Glob('py/*.c')
 src    += Glob('extmod/*.c')
-src    += Glob('port/*.c')
-src    += Glob('port/modules/*.c')
-src    += Glob('port/modules/user/*.c')
 src    += Glob('lib/utils/*.c')
 src    += Glob('lib/netutils/*.c')
 src    += Glob('lib/timeutils/*.c')
 src    += Glob('lib/mp-readline/*.c')
 src    += Glob('drivers/bus/*.c')
-src    += Glob('port/native/*.c')
 
-port_src = Glob('ports/renesas/*.c')
+modules_src  = Glob('port/*.c')
+modules_src  += Glob('port/native/*.c')
+modules_src  += Glob('port/modules/*.c')
+modules_src  += Glob('port/modules/user/*.c')
+
+ra_port_src = Glob('ports/renesas/*.c')
 machine_src = Glob('port/modules/machine/*.c')
 
 SrcRemove(src, ['extmod/vfs_*.c'])
@@ -41,7 +42,8 @@ if rtconfig.PLATFORM in ['gcc', 'armclang'] :
 elif rtconfig.PLATFORM == 'armcc':
     LOCAL_CCFLAGS += ' --c99 --gnu'
 
-group = DefineGroup('micropython/omv-port', port_src, depend = ['PKG_USING_MICROPYTHON'])
+group = DefineGroup('micropython/modules', modules_src, depend = ['PKG_USING_MICROPYTHON'])
+group = DefineGroup('micropython/ra-port', ra_port_src, depend = ['PKG_USING_MICROPYTHON'])
 group = DefineGroup('micropython/machine', machine_src, depend = ['PKG_USING_MICROPYTHON'])
 group = group + DefineGroup('micropython', src, depend = ['PKG_USING_MICROPYTHON'], CPPPATH = path, LOCAL_CCFLAGS = LOCAL_CCFLAGS, CPPDEFINES=CPPDEFINES)
 

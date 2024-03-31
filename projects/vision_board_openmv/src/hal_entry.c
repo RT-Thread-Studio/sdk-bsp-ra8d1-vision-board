@@ -95,6 +95,7 @@ void NORETURN __fatal_error(const char *msg)
     }
 }
 
+__attribute__((section(".itcm_data"))) 
 static void omv_entry(void *parameter)
 {
     (void) parameter;
