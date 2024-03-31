@@ -82,8 +82,8 @@ void omvhal_lcd_draw(ovmhal_lcd_t *lcd, int x, int y, int w, int h, unsigned sho
     rect.height = h;
     rt_device_control(lcd->dev, RTGRAPHIC_CTRL_RECT_UPDATE, &rect);
 #endif
+    lcd_draw_jpg(x, y, (uint8_t *)p, w, h);
 	SCB_CleanDCache_by_Addr((uint32_t *) p, w * h * 2);
-    lcd_draw_jpg(0, 0, (uint8_t *)p, w, h);
 }
 
 void omvhal_lcd_clear(ovmhal_lcd_t *lcd, int color)

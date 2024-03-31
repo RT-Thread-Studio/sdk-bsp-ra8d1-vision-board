@@ -9,6 +9,7 @@
  * LCD Python module.
  */
 #include <py/objstr.h>
+#include "py/runtime.h"
 #include <imlib.h>
 #include "fb_alloc.h"
 #include "py_assert.h"
@@ -125,51 +126,56 @@ static mp_obj_t py_lcd_get_backlight()
 }
 STATIC MP_DEFINE_CONST_FUN_OBJ_0(py_lcd_get_backlight_obj, py_lcd_get_backlight);
 
-static mp_obj_t py_lcd_display(size_t n_args, const mp_obj_t *args, mp_map_t *kw_args)
+STATIC mp_obj_t py_lcd_display(uint n_args, const mp_obj_t *args, mp_map_t *kw_args)
 {
-    image_t *arg_img = py_helper_arg_to_image_mutable(args[0]);
+    image_t *arg_img = py_image_cobj(args[0]);
 
-    rectangle_t rect;
-    py_helper_keyword_rectangle_roi(arg_img, n_args, args, 1, kw_args, &rect);
-
-    // Fit X.
-    int l_pad = 0, r_pad = 0;
-    if (rect.w > width)
+    int arg_x_off = 0;
+    int arg_y_off = 0;
+    uint offset = 1;
+    if (n_args > 1)
     {
-        int adjust = rect.w - width;
-        rect.w -= adjust;
-        rect.x += adjust / 2;
-    }
-    else if (rect.w < width)
-    {
-        int adjust = width - rect.w;
-        l_pad = adjust / 2;
-        r_pad = (adjust + 1) / 2;
-    }
-
-    // Fit Y.
-    int t_pad = 0, b_pad = 0;
-    if (rect.h > height)
-    {
-        int adjust = rect.h - height;
-        rect.h -= adjust;
-        rect.y += adjust / 2;
-    }
-    else if (rect.h < height)
-    {
-        int adjust = height - rect.h;
-        t_pad = adjust / 2;
-        b_pad = (adjust + 1) / 2;
+        if (MP_OBJ_IS_TYPE(args[1], &mp_type_tuple) || MP_OBJ_IS_TYPE(args[1], &mp_type_list))
+        {
+            mp_obj_t *arg_vec;
+            mp_obj_get_array_fixed_n(args[1], 2, &arg_vec);
+            arg_x_off = mp_obj_get_int(arg_vec[0]);
+            arg_y_off = mp_obj_get_int(arg_vec[1]);
+            offset = 2;
+        }
+        else if (n_args > 2)
+        {
+            arg_x_off = mp_obj_get_int(args[1]);
+            arg_y_off = mp_obj_get_int(args[2]);
+            offset = 3;
+        }
+        else if (n_args > 1)
+        {
+            mp_raise_msg(&mp_type_ValueError, MP_ERROR_TEXT("Expected x and y offset!"));
+        }
     }
 
-    switch (type)
+    rectangle_t arg_roi;
+    py_helper_keyword_rectangle_roi(arg_img, n_args, args, offset + 2, kw_args, &arg_roi);
+
+    int arg_rgb_channel = py_helper_keyword_int(n_args, args, offset + 3, kw_args, MP_OBJ_NEW_QSTR(MP_QSTR_rgb_channel), -1);
+    if ((arg_rgb_channel < -1) || (2 < arg_rgb_channel))
     {
-    case LCD_NONE:
-        return mp_const_none;
-    case LCD_SHIELD:
-        omvhal_lcd_draw(&lcddev, l_pad, t_pad, rect.w, rect.h, (uint16_t *)(arg_img->pixels));
-        return mp_const_none;
+        mp_raise_msg(&mp_type_ValueError, MP_ERROR_TEXT("-1 <= rgb_channel <= 2!"));
     }
+
+    int arg_alpha = py_helper_keyword_int(n_args, args, offset + 4, kw_args, MP_OBJ_NEW_QSTR(MP_QSTR_alpha), 256);
+    if ((arg_alpha < 0) || (256 < arg_alpha))
+    {
+        mp_raise_msg(&mp_type_ValueError, MP_ERROR_TEXT("0 <= alpha <= 256!"));
+    }
+
+    fb_alloc_mark();
+
+    omvhal_lcd_draw(&lcddev, arg_x_off, arg_y_off, arg_img->w, arg_img->h, (uint16_t *)(arg_img->pixels));
+
+    fb_alloc_free_till_mark();
+
     return mp_const_none;
 }
 STATIC MP_DEFINE_CONST_FUN_OBJ_KW(py_lcd_display_obj, 1, py_lcd_display);
@@ -187,6 +193,7 @@ static mp_obj_t py_lcd_clear(uint n_args, const mp_obj_t *args)
     return mp_const_none;
 }
 STATIC MP_DEFINE_CONST_FUN_OBJ_VAR_BETWEEN(py_lcd_clear_obj, 0, 1, py_lcd_clear);
+
 
 static const mp_map_elem_t globals_dict_table[] =
 {
