@@ -132,7 +132,6 @@ STATIC mp_obj_t py_lcd_display(uint n_args, const mp_obj_t *args, mp_map_t *kw_a
 
     int arg_x_off = 0;
     int arg_y_off = 0;
-    uint offset = 1;
     if (n_args > 1)
     {
         if (MP_OBJ_IS_TYPE(args[1], &mp_type_tuple) || MP_OBJ_IS_TYPE(args[1], &mp_type_list))
@@ -141,33 +140,16 @@ STATIC mp_obj_t py_lcd_display(uint n_args, const mp_obj_t *args, mp_map_t *kw_a
             mp_obj_get_array_fixed_n(args[1], 2, &arg_vec);
             arg_x_off = mp_obj_get_int(arg_vec[0]);
             arg_y_off = mp_obj_get_int(arg_vec[1]);
-            offset = 2;
         }
         else if (n_args > 2)
         {
             arg_x_off = mp_obj_get_int(args[1]);
             arg_y_off = mp_obj_get_int(args[2]);
-            offset = 3;
         }
         else if (n_args > 1)
         {
             mp_raise_msg(&mp_type_ValueError, MP_ERROR_TEXT("Expected x and y offset!"));
         }
-    }
-
-    rectangle_t arg_roi;
-    py_helper_keyword_rectangle_roi(arg_img, n_args, args, offset + 2, kw_args, &arg_roi);
-
-    int arg_rgb_channel = py_helper_keyword_int(n_args, args, offset + 3, kw_args, MP_OBJ_NEW_QSTR(MP_QSTR_rgb_channel), -1);
-    if ((arg_rgb_channel < -1) || (2 < arg_rgb_channel))
-    {
-        mp_raise_msg(&mp_type_ValueError, MP_ERROR_TEXT("-1 <= rgb_channel <= 2!"));
-    }
-
-    int arg_alpha = py_helper_keyword_int(n_args, args, offset + 4, kw_args, MP_OBJ_NEW_QSTR(MP_QSTR_alpha), 256);
-    if ((arg_alpha < 0) || (256 < arg_alpha))
-    {
-        mp_raise_msg(&mp_type_ValueError, MP_ERROR_TEXT("0 <= alpha <= 256!"));
     }
 
     fb_alloc_mark();
