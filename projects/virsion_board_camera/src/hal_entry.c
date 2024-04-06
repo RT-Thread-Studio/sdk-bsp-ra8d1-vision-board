@@ -20,7 +20,7 @@ uint8_t g_image_rgb565_sdram_buffer[CAM_WIDTH * CAM_HEIGHT * 2] BSP_PLACE_IN_SEC
 
 void hal_entry(void)
 {
-	rt_kprintf("This is a camera display demo.\n\n");
+    rt_kprintf("This is a camera display demo.\n\n");
     rt_kprintf("===========================================================================\n");
     rt_kprintf("The example will display the data captured by the camera on the LCD screen.\n");
     rt_kprintf("===========================================================================\n");

@@ -801,7 +801,7 @@ static int set_pixformat(sensor_t *sensor, pixformat_t pixformat) {
             ret |= omv_i2c_writeb2(&sensor->i2c_bus, sensor->slv_addr, FORMAT_CONTROL, 0x6F);
             ret |= omv_i2c_writeb2(&sensor->i2c_bus, sensor->slv_addr, FORMAT_CONTROL_MUX, 0x01);
             break;
-		case PIXFORMAT_GRAYSCALE:
+        case PIXFORMAT_GRAYSCALE:
         case PIXFORMAT_YUV422:
             ret |= omv_i2c_writeb2(&sensor->i2c_bus, sensor->slv_addr, FORMAT_CONTROL, 0x30);
             ret |= omv_i2c_writeb2(&sensor->i2c_bus, sensor->slv_addr, FORMAT_CONTROL_MUX, 0x00);

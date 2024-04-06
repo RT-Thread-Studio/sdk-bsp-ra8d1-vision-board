@@ -104,7 +104,7 @@ TU_ATTR_WEAK uint8_t const *tud_descriptor_configuration_cb(uint8_t index)
 //--------------------------------------------------------------------+
 
 // array of pointer to string descriptors
-static char _serial_number[32] = "123456";
+static char _serial_number[32] = "00000000000000000000";
 
 static char *string_desc_arr[] =
 {
