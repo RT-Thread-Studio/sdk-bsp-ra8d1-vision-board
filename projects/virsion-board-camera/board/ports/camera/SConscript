@@ -1,0 +1,16 @@
+import os
+from building import *
+
+objs = []
+cwd  = GetCurrentDir()
+CPPPATH = [cwd]
+
+sensor_src =  Glob('*.c')
+sensor_src += Glob('sensors/*.c')
+
+CPPPATH =  [cwd + '/']
+CPPPATH += [cwd + '/sensors']
+
+objs = DefineGroup('Camera', sensor_src, depend = ['BSP_USING_CAMERA'], CPPPATH = CPPPATH)
+
+Return('objs')
