@@ -1,4 +1,4 @@
-# virsion-board-camera 示例说明
+# virsion_board_camera 示例说明
 
 ## 简介
 

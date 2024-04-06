@@ -205,11 +205,11 @@ example_projects:
     - libraries
     - rt-thread
   external_files: []
-- project_name: virsion-board-camera
+- project_name: virsion_board_camera
   project_description: 摄像头+LCD显示工程,可以基于此工程创建最小摄像头捕获示例
   project_type: rt-thread|@full|@5.0.2
   builtin_files:
-  - source_path_offset: projects/virsion-board-camera
+  - source_path_offset: projects/virsion_board_camera
     target_path_offset: ''
     files_and_folders:
     - "*"
