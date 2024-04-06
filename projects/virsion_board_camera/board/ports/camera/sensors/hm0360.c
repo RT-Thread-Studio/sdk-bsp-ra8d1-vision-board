@@ -145,7 +145,7 @@ static const uint16_t default_regs[][2] = {
     {0x302E,            0x00},
     {0x302F,            0x00},
 
-    // Magic regs 🪄.
+    // Magic regs ðŸª„.
     {0x302B,            0x2A},
     {0x302C,            0x00},
     {0x302D,            0x03},
