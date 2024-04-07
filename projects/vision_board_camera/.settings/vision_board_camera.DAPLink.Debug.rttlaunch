@@ -12,7 +12,7 @@
 <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.pyocd.firstResetType" value="init"/>
 <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.pyocd.gdbClientOtherCommands" value="set mem inaccessible-by-default off"/>
 <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.pyocd.gdbClientOtherOptions" value=""/>
-<intAttribute key="ilg.gnumcueclipse.debug.gdbjtag.pyocd.gdbServerBusSpeed" value="1000000"/>
+<intAttribute key="ilg.gnumcueclipse.debug.gdbjtag.pyocd.gdbServerBusSpeed" value="12000000"/>
 <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.pyocd.gdbServerConnectionAddress" value=""/>
 <stringAttribute key="ilg.gnumcueclipse.debug.gdbjtag.pyocd.gdbServerDeviceName" value="R7FA8D1BH"/>
 <booleanAttribute key="ilg.gnumcueclipse.debug.gdbjtag.pyocd.gdbServerEnableSemihosting" value="false"/>
@@ -49,11 +49,11 @@
 <booleanAttribute key="org.eclipse.cdt.dsf.gdb.UPDATE_THREADLIST_ON_SUSPEND" value="false"/>
 <intAttribute key="org.eclipse.cdt.launch.ATTR_BUILD_BEFORE_LAUNCH_ATTR" value="0"/>
 <stringAttribute key="org.eclipse.cdt.launch.PROGRAM_NAME" value="Debug/rtthread.elf"/>
-<stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="virsion_board_camera"/>
+<stringAttribute key="org.eclipse.cdt.launch.PROJECT_ATTR" value="vision_board_camera"/>
 <booleanAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_AUTO_ATTR" value="false"/>
 <stringAttribute key="org.eclipse.cdt.launch.PROJECT_BUILD_CONFIG_ID_ATTR" value=""/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/virsion_board_camera"/>
+<listEntry value="/vision_board_camera"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
 <listEntry value="4"/>
