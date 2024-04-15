@@ -233,6 +233,20 @@ example_projects:
     - libraries
     - rt-thread
   external_files: []
+- project_name: vision_board_tinyusb_uvc
+  project_description: Tinyusb—UVC工程
+  project_type: rt-thread|@full|@5.0.2
+  builtin_files:
+  - source_path_offset: projects/vision_board_tinyusb_uvc
+    target_path_offset: ''
+    files_and_folders:
+    - "*"
+  - source_path_offset: ''
+    target_path_offset: ''
+    files_and_folders:
+    - libraries
+    - rt-thread
+  external_files: []
 template_projects:
 - project_name: hmi-board-led
   project_description: 实现 LED 闪烁功能,可作为二次开发的基础工程
