@@ -42,6 +42,7 @@ $ sdk-bsp-ra8d1-vision-board
 │   │   └── vision_board_rgb_4.3inch_lvgl
 │   ├── vision_board_blink_led
 │   ├── vision_board_tinyusb
+│   ├── vision_board_tinyusb_uvc
 │   ├── vision_board_camera
 │   ├── vision_board_openmv
 │   └── vision_board_wifi
