@@ -49,6 +49,11 @@ rtconfig.BSP_LIBRARY_TYPE = None
 # prepare building environment
 objs = PrepareBuilding(env, RTT_ROOT, has_libcpu=False)
 
+# lvgl package
+objs.extend(SConscript(os.path.join('../../../components/LVGL-v9.1.0', '', 'SConscript')))
+# cst812t package
+objs.extend(SConscript(os.path.join('../../../components/cst812t', '', 'SConscript')))
+
 # include drivers
 objs.extend(SConscript(os.path.join(libraries_path_prefix, 'HAL_Drivers', 'SConscript')))
 
