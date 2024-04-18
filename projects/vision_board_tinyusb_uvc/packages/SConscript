@@ -6,7 +6,9 @@ cwd  = GetCurrentDir()
 list = os.listdir(cwd)
 
 for item in list:
-    if os.path.isfile(os.path.join(cwd, item, 'SConscript')):
-        objs = objs + SConscript(os.path.join(item, 'SConscript'))
+    path = os.path.join(cwd, item)
+    if 'TinyUSB' not in path:
+        if os.path.isfile(os.path.join(path, 'SConscript')):
+            objs = objs + SConscript(os.path.join(item, 'SConscript'))
 
 Return('objs')
