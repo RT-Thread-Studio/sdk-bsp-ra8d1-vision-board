@@ -40,6 +40,6 @@ void hal_entry(void)
         {
             tud_video_n_frame_xfer(0, 0, (void *)g_image_yuv422_sdram_buffer, CAM_WIDTH * CAM_HEIGHT * 16 / 8);
         }
-        rt_thread_mdelay(20);
+        rt_thread_mdelay(10);
     }
 }

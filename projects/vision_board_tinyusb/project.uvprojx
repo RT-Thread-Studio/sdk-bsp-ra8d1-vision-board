@@ -340,7 +340,7 @@
               <MiscControls>-Wno-license-management -Wuninitialized -Wall -Wmissing-declarations -Wpointer-arith -Waggregate-return -Wfloat-equal</MiscControls>
               <Define>RT_USING_LIBC, RT_USING_ARMLIBC, __STDC_LIMIT_MACROS, __RTTHREAD__, __CLK_TCK=RT_TICK_PER_SECOND</Define>
               <Undefine></Undefine>
-              <IncludePath>rt-thread\components\drivers\include;rt-thread\components\libc\posix\ipc;rt-thread\libcpu\arm\common;rt-thread\components\libc\posix\io\epoll;board;rt-thread\components\libc\compilers\common\include;packages\TinyUSB-v0.14.0\rt-thread;libraries\HAL_Drivers\config;.;rt-thread\include;rt-thread\components\libc\posix\io\poll;rt-thread\components\drivers\include;rt-thread\components\drivers\include;rt-thread\components\finsh;rt-thread\components\libc\compilers\common\extension\fcntl\octal;rt-thread\components\drivers\include;packages\TinyUSB-v0.14.0\src;rt-thread\components\libc\compilers\common\extension;rt-thread\libcpu\arm\cortex-m85;rt-thread\components\libc\posix\io\eventfd;libraries\HAL_Drivers;board\ports</IncludePath>
+              <IncludePath>rt-thread\components\drivers\include;rt-thread\components\libc\posix\ipc;rt-thread\libcpu\arm\common;rt-thread\components\libc\posix\io\epoll;board;libraries\components\tinyusb\src;rt-thread\components\libc\compilers\common\include;libraries\HAL_Drivers\config;libraries\components\tinyusb\lib\rt-thread;.;rt-thread\include;rt-thread\components\libc\posix\io\poll;rt-thread\components\drivers\include;rt-thread\components\drivers\include;rt-thread\components\finsh;rt-thread\components\libc\compilers\common\extension\fcntl\octal;rt-thread\components\drivers\include;rt-thread\components\libc\compilers\common\extension;rt-thread\libcpu\arm\cortex-m85;rt-thread\components\libc\posix\io\eventfd;libraries\HAL_Drivers;board\ports</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -640,9 +640,9 @@
           <GroupName>TinyUSB</GroupName>
           <Files>
             <File>
-              <FileName>cdc_device.c</FileName>
+              <FileName>drv_tinyusb.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\TinyUSB-v0.14.0\src\class\cdc\cdc_device.c</FilePath>
+              <FilePath>board\tinyusb\drv_tinyusb.c</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -689,7 +689,7 @@
                       <MiscControls>  -std=c99</MiscControls>
                       <Define> </Define>
                       <Undefine> </Undefine>
-                      <IncludePath> </IncludePath>
+                      <IncludePath></IncludePath>
                     </VariousControls>
                   </Cads>
                 </FileArmAds>
@@ -698,7 +698,7 @@
             <File>
               <FileName>cdc_example.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\TinyUSB-v0.14.0\rt-thread\example\cdc_example.c</FilePath>
+              <FilePath>board\tinyusb\example\cdc_example.c</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -745,16 +745,16 @@
                       <MiscControls>  -std=c99</MiscControls>
                       <Define> </Define>
                       <Undefine> </Undefine>
-                      <IncludePath> </IncludePath>
+                      <IncludePath></IncludePath>
                     </VariousControls>
                   </Cads>
                 </FileArmAds>
               </FileOption>
             </File>
             <File>
-              <FileName>usbd.c</FileName>
+              <FileName>usb_descriptors.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\TinyUSB-v0.14.0\src\device\usbd.c</FilePath>
+              <FilePath>board\tinyusb\usb_descriptors.c</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -801,16 +801,16 @@
                       <MiscControls>  -std=c99</MiscControls>
                       <Define> </Define>
                       <Undefine> </Undefine>
-                      <IncludePath> </IncludePath>
+                      <IncludePath></IncludePath>
                     </VariousControls>
                   </Cads>
                 </FileArmAds>
               </FileOption>
             </File>
             <File>
-              <FileName>usb_descriptor.c</FileName>
+              <FileName>cdc_device.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\TinyUSB-v0.14.0\rt-thread\usb_descriptor.c</FilePath>
+              <FilePath>libraries\components\tinyusb\src\class\cdc\cdc_device.c</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -857,343 +857,7 @@
                       <MiscControls>  -std=c99</MiscControls>
                       <Define> </Define>
                       <Undefine> </Undefine>
-                      <IncludePath> </IncludePath>
-                    </VariousControls>
-                  </Cads>
-                </FileArmAds>
-              </FileOption>
-            </File>
-            <File>
-              <FileName>tinyusb_port.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\TinyUSB-v0.14.0\rt-thread\tinyusb_port.c</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>2</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>1</IncludeInBuild>
-                  <AlwaysBuild>0</AlwaysBuild>
-                  <GenerateAssemblyFile>0</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>0</AssembleAssemblyFile>
-                  <PublicsOnly>0</PublicsOnly>
-                  <StopOnExitCode>3</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
-                </CommonProperty>
-                <FileArmAds>
-                  <Cads>
-                    <interw>2</interw>
-                    <Optim>0</Optim>
-                    <oTime>2</oTime>
-                    <SplitLS>2</SplitLS>
-                    <OneElfS>2</OneElfS>
-                    <Strict>2</Strict>
-                    <EnumInt>2</EnumInt>
-                    <PlainCh>2</PlainCh>
-                    <Ropi>2</Ropi>
-                    <Rwpi>2</Rwpi>
-                    <wLevel>0</wLevel>
-                    <uThumb>2</uThumb>
-                    <uSurpInc>2</uSurpInc>
-                    <uC99>2</uC99>
-                    <uGnu>2</uGnu>
-                    <useXO>2</useXO>
-                    <v6Lang>0</v6Lang>
-                    <v6LangP>0</v6LangP>
-                    <vShortEn>2</vShortEn>
-                    <vShortWch>2</vShortWch>
-                    <v6Lto>2</v6Lto>
-                    <v6WtE>2</v6WtE>
-                    <v6Rtti>2</v6Rtti>
-                    <VariousControls>
-                      <MiscControls>  -std=c99</MiscControls>
-                      <Define> </Define>
-                      <Undefine> </Undefine>
-                      <IncludePath> </IncludePath>
-                    </VariousControls>
-                  </Cads>
-                </FileArmAds>
-              </FileOption>
-            </File>
-            <File>
-              <FileName>dcd_rusb2.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\TinyUSB-v0.14.0\src\portable\renesas\rusb2\dcd_rusb2.c</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>2</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>1</IncludeInBuild>
-                  <AlwaysBuild>0</AlwaysBuild>
-                  <GenerateAssemblyFile>0</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>0</AssembleAssemblyFile>
-                  <PublicsOnly>0</PublicsOnly>
-                  <StopOnExitCode>3</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
-                </CommonProperty>
-                <FileArmAds>
-                  <Cads>
-                    <interw>2</interw>
-                    <Optim>0</Optim>
-                    <oTime>2</oTime>
-                    <SplitLS>2</SplitLS>
-                    <OneElfS>2</OneElfS>
-                    <Strict>2</Strict>
-                    <EnumInt>2</EnumInt>
-                    <PlainCh>2</PlainCh>
-                    <Ropi>2</Ropi>
-                    <Rwpi>2</Rwpi>
-                    <wLevel>0</wLevel>
-                    <uThumb>2</uThumb>
-                    <uSurpInc>2</uSurpInc>
-                    <uC99>2</uC99>
-                    <uGnu>2</uGnu>
-                    <useXO>2</useXO>
-                    <v6Lang>0</v6Lang>
-                    <v6LangP>0</v6LangP>
-                    <vShortEn>2</vShortEn>
-                    <vShortWch>2</vShortWch>
-                    <v6Lto>2</v6Lto>
-                    <v6WtE>2</v6WtE>
-                    <v6Rtti>2</v6Rtti>
-                    <VariousControls>
-                      <MiscControls>  -std=c99</MiscControls>
-                      <Define> </Define>
-                      <Undefine> </Undefine>
-                      <IncludePath> </IncludePath>
-                    </VariousControls>
-                  </Cads>
-                </FileArmAds>
-              </FileOption>
-            </File>
-            <File>
-              <FileName>rusb2_common.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\TinyUSB-v0.14.0\src\portable\renesas\rusb2\rusb2_common.c</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>2</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>1</IncludeInBuild>
-                  <AlwaysBuild>0</AlwaysBuild>
-                  <GenerateAssemblyFile>0</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>0</AssembleAssemblyFile>
-                  <PublicsOnly>0</PublicsOnly>
-                  <StopOnExitCode>3</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
-                </CommonProperty>
-                <FileArmAds>
-                  <Cads>
-                    <interw>2</interw>
-                    <Optim>0</Optim>
-                    <oTime>2</oTime>
-                    <SplitLS>2</SplitLS>
-                    <OneElfS>2</OneElfS>
-                    <Strict>2</Strict>
-                    <EnumInt>2</EnumInt>
-                    <PlainCh>2</PlainCh>
-                    <Ropi>2</Ropi>
-                    <Rwpi>2</Rwpi>
-                    <wLevel>0</wLevel>
-                    <uThumb>2</uThumb>
-                    <uSurpInc>2</uSurpInc>
-                    <uC99>2</uC99>
-                    <uGnu>2</uGnu>
-                    <useXO>2</useXO>
-                    <v6Lang>0</v6Lang>
-                    <v6LangP>0</v6LangP>
-                    <vShortEn>2</vShortEn>
-                    <vShortWch>2</vShortWch>
-                    <v6Lto>2</v6Lto>
-                    <v6WtE>2</v6WtE>
-                    <v6Rtti>2</v6Rtti>
-                    <VariousControls>
-                      <MiscControls>  -std=c99</MiscControls>
-                      <Define> </Define>
-                      <Undefine> </Undefine>
-                      <IncludePath> </IncludePath>
-                    </VariousControls>
-                  </Cads>
-                </FileArmAds>
-              </FileOption>
-            </File>
-            <File>
-              <FileName>usbd_control.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\TinyUSB-v0.14.0\src\device\usbd_control.c</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>2</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>1</IncludeInBuild>
-                  <AlwaysBuild>0</AlwaysBuild>
-                  <GenerateAssemblyFile>0</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>0</AssembleAssemblyFile>
-                  <PublicsOnly>0</PublicsOnly>
-                  <StopOnExitCode>3</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
-                </CommonProperty>
-                <FileArmAds>
-                  <Cads>
-                    <interw>2</interw>
-                    <Optim>0</Optim>
-                    <oTime>2</oTime>
-                    <SplitLS>2</SplitLS>
-                    <OneElfS>2</OneElfS>
-                    <Strict>2</Strict>
-                    <EnumInt>2</EnumInt>
-                    <PlainCh>2</PlainCh>
-                    <Ropi>2</Ropi>
-                    <Rwpi>2</Rwpi>
-                    <wLevel>0</wLevel>
-                    <uThumb>2</uThumb>
-                    <uSurpInc>2</uSurpInc>
-                    <uC99>2</uC99>
-                    <uGnu>2</uGnu>
-                    <useXO>2</useXO>
-                    <v6Lang>0</v6Lang>
-                    <v6LangP>0</v6LangP>
-                    <vShortEn>2</vShortEn>
-                    <vShortWch>2</vShortWch>
-                    <v6Lto>2</v6Lto>
-                    <v6WtE>2</v6WtE>
-                    <v6Rtti>2</v6Rtti>
-                    <VariousControls>
-                      <MiscControls>  -std=c99</MiscControls>
-                      <Define> </Define>
-                      <Undefine> </Undefine>
-                      <IncludePath> </IncludePath>
-                    </VariousControls>
-                  </Cads>
-                </FileArmAds>
-              </FileOption>
-            </File>
-            <File>
-              <FileName>tusb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\TinyUSB-v0.14.0\src\tusb.c</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>2</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>1</IncludeInBuild>
-                  <AlwaysBuild>0</AlwaysBuild>
-                  <GenerateAssemblyFile>0</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>0</AssembleAssemblyFile>
-                  <PublicsOnly>0</PublicsOnly>
-                  <StopOnExitCode>3</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
-                </CommonProperty>
-                <FileArmAds>
-                  <Cads>
-                    <interw>2</interw>
-                    <Optim>0</Optim>
-                    <oTime>2</oTime>
-                    <SplitLS>2</SplitLS>
-                    <OneElfS>2</OneElfS>
-                    <Strict>2</Strict>
-                    <EnumInt>2</EnumInt>
-                    <PlainCh>2</PlainCh>
-                    <Ropi>2</Ropi>
-                    <Rwpi>2</Rwpi>
-                    <wLevel>0</wLevel>
-                    <uThumb>2</uThumb>
-                    <uSurpInc>2</uSurpInc>
-                    <uC99>2</uC99>
-                    <uGnu>2</uGnu>
-                    <useXO>2</useXO>
-                    <v6Lang>0</v6Lang>
-                    <v6LangP>0</v6LangP>
-                    <vShortEn>2</vShortEn>
-                    <vShortWch>2</vShortWch>
-                    <v6Lto>2</v6Lto>
-                    <v6WtE>2</v6WtE>
-                    <v6Rtti>2</v6Rtti>
-                    <VariousControls>
-                      <MiscControls>  -std=c99</MiscControls>
-                      <Define> </Define>
-                      <Undefine> </Undefine>
-                      <IncludePath> </IncludePath>
-                    </VariousControls>
-                  </Cads>
-                </FileArmAds>
-              </FileOption>
-            </File>
-            <File>
-              <FileName>drv_tinyusb.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>packages\TinyUSB-v0.14.0\rt-thread\bsp\renesas\drv_tinyusb.c</FilePath>
-              <FileOption>
-                <CommonProperty>
-                  <UseCPPCompiler>2</UseCPPCompiler>
-                  <RVCTCodeConst>0</RVCTCodeConst>
-                  <RVCTZI>0</RVCTZI>
-                  <RVCTOtherData>0</RVCTOtherData>
-                  <ModuleSelection>0</ModuleSelection>
-                  <IncludeInBuild>1</IncludeInBuild>
-                  <AlwaysBuild>0</AlwaysBuild>
-                  <GenerateAssemblyFile>0</GenerateAssemblyFile>
-                  <AssembleAssemblyFile>0</AssembleAssemblyFile>
-                  <PublicsOnly>0</PublicsOnly>
-                  <StopOnExitCode>3</StopOnExitCode>
-                  <CustomArgument></CustomArgument>
-                  <IncludeLibraryModules></IncludeLibraryModules>
-                  <ComprImg>1</ComprImg>
-                </CommonProperty>
-                <FileArmAds>
-                  <Cads>
-                    <interw>2</interw>
-                    <Optim>0</Optim>
-                    <oTime>2</oTime>
-                    <SplitLS>2</SplitLS>
-                    <OneElfS>2</OneElfS>
-                    <Strict>2</Strict>
-                    <EnumInt>2</EnumInt>
-                    <PlainCh>2</PlainCh>
-                    <Ropi>2</Ropi>
-                    <Rwpi>2</Rwpi>
-                    <wLevel>0</wLevel>
-                    <uThumb>2</uThumb>
-                    <uSurpInc>2</uSurpInc>
-                    <uC99>2</uC99>
-                    <uGnu>2</uGnu>
-                    <useXO>2</useXO>
-                    <v6Lang>0</v6Lang>
-                    <v6LangP>0</v6LangP>
-                    <vShortEn>2</vShortEn>
-                    <vShortWch>2</vShortWch>
-                    <v6Lto>2</v6Lto>
-                    <v6WtE>2</v6WtE>
-                    <v6Rtti>2</v6Rtti>
-                    <VariousControls>
-                      <MiscControls>  -std=c99</MiscControls>
-                      <Define> </Define>
-                      <Undefine> </Undefine>
-                      <IncludePath> </IncludePath>
+                      <IncludePath></IncludePath>
                     </VariousControls>
                   </Cads>
                 </FileArmAds>
@@ -1202,7 +866,7 @@
             <File>
               <FileName>tusb_fifo.c</FileName>
               <FileType>1</FileType>
-              <FilePath>packages\TinyUSB-v0.14.0\src\common\tusb_fifo.c</FilePath>
+              <FilePath>libraries\components\tinyusb\src\common\tusb_fifo.c</FilePath>
               <FileOption>
                 <CommonProperty>
                   <UseCPPCompiler>2</UseCPPCompiler>
@@ -1249,7 +913,343 @@
                       <MiscControls>  -std=c99</MiscControls>
                       <Define> </Define>
                       <Undefine> </Undefine>
-                      <IncludePath> </IncludePath>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>usbd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>libraries\components\tinyusb\src\device\usbd.c</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>1</IncludeInBuild>
+                  <AlwaysBuild>0</AlwaysBuild>
+                  <GenerateAssemblyFile>0</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>0</AssembleAssemblyFile>
+                  <PublicsOnly>0</PublicsOnly>
+                  <StopOnExitCode>3</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>0</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <uGnu>2</uGnu>
+                    <useXO>2</useXO>
+                    <v6Lang>0</v6Lang>
+                    <v6LangP>0</v6LangP>
+                    <vShortEn>2</vShortEn>
+                    <vShortWch>2</vShortWch>
+                    <v6Lto>2</v6Lto>
+                    <v6WtE>2</v6WtE>
+                    <v6Rtti>2</v6Rtti>
+                    <VariousControls>
+                      <MiscControls>  -std=c99</MiscControls>
+                      <Define> </Define>
+                      <Undefine> </Undefine>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>usbd_control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>libraries\components\tinyusb\src\device\usbd_control.c</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>1</IncludeInBuild>
+                  <AlwaysBuild>0</AlwaysBuild>
+                  <GenerateAssemblyFile>0</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>0</AssembleAssemblyFile>
+                  <PublicsOnly>0</PublicsOnly>
+                  <StopOnExitCode>3</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>0</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <uGnu>2</uGnu>
+                    <useXO>2</useXO>
+                    <v6Lang>0</v6Lang>
+                    <v6LangP>0</v6LangP>
+                    <vShortEn>2</vShortEn>
+                    <vShortWch>2</vShortWch>
+                    <v6Lto>2</v6Lto>
+                    <v6WtE>2</v6WtE>
+                    <v6Rtti>2</v6Rtti>
+                    <VariousControls>
+                      <MiscControls>  -std=c99</MiscControls>
+                      <Define> </Define>
+                      <Undefine> </Undefine>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>dcd_rusb2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>libraries\components\tinyusb\src\portable\renesas\rusb2\dcd_rusb2.c</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>1</IncludeInBuild>
+                  <AlwaysBuild>0</AlwaysBuild>
+                  <GenerateAssemblyFile>0</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>0</AssembleAssemblyFile>
+                  <PublicsOnly>0</PublicsOnly>
+                  <StopOnExitCode>3</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>0</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <uGnu>2</uGnu>
+                    <useXO>2</useXO>
+                    <v6Lang>0</v6Lang>
+                    <v6LangP>0</v6LangP>
+                    <vShortEn>2</vShortEn>
+                    <vShortWch>2</vShortWch>
+                    <v6Lto>2</v6Lto>
+                    <v6WtE>2</v6WtE>
+                    <v6Rtti>2</v6Rtti>
+                    <VariousControls>
+                      <MiscControls>  -std=c99</MiscControls>
+                      <Define> </Define>
+                      <Undefine> </Undefine>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>rusb2_common.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>libraries\components\tinyusb\src\portable\renesas\rusb2\rusb2_common.c</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>1</IncludeInBuild>
+                  <AlwaysBuild>0</AlwaysBuild>
+                  <GenerateAssemblyFile>0</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>0</AssembleAssemblyFile>
+                  <PublicsOnly>0</PublicsOnly>
+                  <StopOnExitCode>3</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>0</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <uGnu>2</uGnu>
+                    <useXO>2</useXO>
+                    <v6Lang>0</v6Lang>
+                    <v6LangP>0</v6LangP>
+                    <vShortEn>2</vShortEn>
+                    <vShortWch>2</vShortWch>
+                    <v6Lto>2</v6Lto>
+                    <v6WtE>2</v6WtE>
+                    <v6Rtti>2</v6Rtti>
+                    <VariousControls>
+                      <MiscControls>  -std=c99</MiscControls>
+                      <Define> </Define>
+                      <Undefine> </Undefine>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>tusb.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>libraries\components\tinyusb\src\tusb.c</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>1</IncludeInBuild>
+                  <AlwaysBuild>0</AlwaysBuild>
+                  <GenerateAssemblyFile>0</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>0</AssembleAssemblyFile>
+                  <PublicsOnly>0</PublicsOnly>
+                  <StopOnExitCode>3</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>0</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <uGnu>2</uGnu>
+                    <useXO>2</useXO>
+                    <v6Lang>0</v6Lang>
+                    <v6LangP>0</v6LangP>
+                    <vShortEn>2</vShortEn>
+                    <vShortWch>2</vShortWch>
+                    <v6Lto>2</v6Lto>
+                    <v6WtE>2</v6WtE>
+                    <v6Rtti>2</v6Rtti>
+                    <VariousControls>
+                      <MiscControls>  -std=c99</MiscControls>
+                      <Define> </Define>
+                      <Undefine> </Undefine>
+                      <IncludePath></IncludePath>
+                    </VariousControls>
+                  </Cads>
+                </FileArmAds>
+              </FileOption>
+            </File>
+            <File>
+              <FileName>tusb_rt_thread_port.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>libraries\components\tinyusb\lib\rt-thread\tusb_rt_thread_port.c</FilePath>
+              <FileOption>
+                <CommonProperty>
+                  <UseCPPCompiler>2</UseCPPCompiler>
+                  <RVCTCodeConst>0</RVCTCodeConst>
+                  <RVCTZI>0</RVCTZI>
+                  <RVCTOtherData>0</RVCTOtherData>
+                  <ModuleSelection>0</ModuleSelection>
+                  <IncludeInBuild>1</IncludeInBuild>
+                  <AlwaysBuild>0</AlwaysBuild>
+                  <GenerateAssemblyFile>0</GenerateAssemblyFile>
+                  <AssembleAssemblyFile>0</AssembleAssemblyFile>
+                  <PublicsOnly>0</PublicsOnly>
+                  <StopOnExitCode>3</StopOnExitCode>
+                  <CustomArgument></CustomArgument>
+                  <IncludeLibraryModules></IncludeLibraryModules>
+                  <ComprImg>1</ComprImg>
+                </CommonProperty>
+                <FileArmAds>
+                  <Cads>
+                    <interw>2</interw>
+                    <Optim>0</Optim>
+                    <oTime>2</oTime>
+                    <SplitLS>2</SplitLS>
+                    <OneElfS>2</OneElfS>
+                    <Strict>2</Strict>
+                    <EnumInt>2</EnumInt>
+                    <PlainCh>2</PlainCh>
+                    <Ropi>2</Ropi>
+                    <Rwpi>2</Rwpi>
+                    <wLevel>0</wLevel>
+                    <uThumb>2</uThumb>
+                    <uSurpInc>2</uSurpInc>
+                    <uC99>2</uC99>
+                    <uGnu>2</uGnu>
+                    <useXO>2</useXO>
+                    <v6Lang>0</v6Lang>
+                    <v6LangP>0</v6LangP>
+                    <vShortEn>2</vShortEn>
+                    <vShortWch>2</vShortWch>
+                    <v6Lto>2</v6Lto>
+                    <v6WtE>2</v6WtE>
+                    <v6Rtti>2</v6Rtti>
+                    <VariousControls>
+                      <MiscControls>  -std=c99</MiscControls>
+                      <Define> </Define>
+                      <Undefine> </Undefine>
+                      <IncludePath></IncludePath>
                     </VariousControls>
                   </Cads>
                 </FileArmAds>

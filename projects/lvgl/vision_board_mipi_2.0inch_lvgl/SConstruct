@@ -1,6 +1,9 @@
 import os
 import sys
 import rtconfig
+import platform
+import subprocess
+import uuid
 
 if os.path.exists('rt-thread'):
     RTT_ROOT = os.path.normpath(os.getcwd() + '/rt-thread')
@@ -49,10 +52,49 @@ rtconfig.BSP_LIBRARY_TYPE = None
 # prepare building environment
 objs = PrepareBuilding(env, RTT_ROOT, has_libcpu=False)
 
-# lvgl package
-objs.extend(SConscript(os.path.join('../../../components/LVGL-v9.1.0', '', 'SConscript')))
-# cst812t package
-objs.extend(SConscript(os.path.join('../../../components/cst812t', '', 'SConscript')))
+# set spawn
+def ourspawn(sh, escape, cmd, args, e):
+    filename = str(uuid.uuid4())
+    newargs = ' '.join(args[1:])
+    cmdline = cmd + " " + newargs
+    if (len(cmdline) > 16 * 1024):
+        f = open(filename, 'w')
+        f.write(' '.join(args[1:]).replace('\\', '/'))
+        f.close()
+        # exec
+        cmdline = cmd + " @" + filename
+    proc = subprocess.Popen(cmdline, stdin=subprocess.PIPE, stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE, shell = False, env = e)
+    data, err = proc.communicate()
+    rv = proc.wait()
+    def res_output(_output, _s):
+        if len(_s):
+            if isinstance(_s, str):
+                _output(_s)
+            elif isinstance(_s, bytes):
+                _output(str(_s, 'UTF-8'))
+            else:
+                _output(str(_s))
+    res_output(sys.stderr.write, err)
+    res_output(sys.stdout.write, data)
+    if os.path.isfile(filename):
+        os.remove(filename)
+    return rv
+
+# 解决env-scons不能链接长路径问题
+if platform.system() == 'Windows':
+    env['SPAWN'] = ourspawn
+
+if os.path.exists(os.path.join(os.getcwd(), "libraries")):
+    # lvgl package
+    objs.extend(SConscript(os.path.join('libraries/components/LVGL-v9.1.0', '', 'SConscript')))
+    # cst812t package
+    objs.extend(SConscript(os.path.join('libraries/components/cst812t', '', 'SConscript')))
+else:
+    # lvgl package
+    objs.extend(SConscript(os.path.join('../../../libraries/components/LVGL-v9.1.0', '', 'SConscript')))
+    # cst812t package
+    objs.extend(SConscript(os.path.join('../../../libraries/components/cst812t', '', 'SConscript')))
 
 # include drivers
 objs.extend(SConscript(os.path.join(libraries_path_prefix, 'HAL_Drivers', 'SConscript')))
