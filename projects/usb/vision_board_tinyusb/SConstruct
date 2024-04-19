@@ -8,7 +8,7 @@ import uuid
 if os.path.exists('rt-thread'):
     RTT_ROOT = os.path.normpath(os.getcwd() + '/rt-thread')
 else:
-    RTT_ROOT = os.path.normpath(os.getcwd() + '../../../rt-thread')
+    RTT_ROOT = os.path.normpath(os.getcwd() + '../../../../rt-thread')
 
 sys.path = sys.path + [os.path.join(RTT_ROOT, 'tools')]
 try:
@@ -42,7 +42,7 @@ SDK_ROOT = os.path.abspath('./')
 if os.path.exists(SDK_ROOT + '/libraries'):
     libraries_path_prefix = SDK_ROOT + '/libraries'
 else:
-    libraries_path_prefix = os.path.dirname(SDK_ROOT) + '/../libraries'
+    libraries_path_prefix = os.path.dirname(SDK_ROOT) + '/../../libraries'
 
 SDK_LIB = libraries_path_prefix
 Export('SDK_LIB')
@@ -90,7 +90,7 @@ if os.path.exists(os.path.join(os.getcwd(), "libraries")):
     objs.extend(SConscript(os.path.join('libraries/components/tinyusb', '', 'SConscript')))
 else:
     # tinyusb package
-    objs.extend(SConscript(os.path.join('../../libraries/components/tinyusb', '', 'SConscript')))
+    objs.extend(SConscript(os.path.join('../../../libraries/components/tinyusb', '', 'SConscript')))
 
 # include drivers
 objs.extend(SConscript(os.path.join(libraries_path_prefix, 'HAL_Drivers', 'SConscript')))

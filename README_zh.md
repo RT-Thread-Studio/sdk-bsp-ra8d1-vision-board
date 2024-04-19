@@ -34,6 +34,9 @@ $ sdk-bsp-ra8d1-vision-board
 │   ├── doom
 │   │   ├── vision_board_mipi_2.0inch_doom
 │   │   └── vision_board_rgb_4.3inch_doom
+│   ├── usb
+│   │   ├── vision_board_tinyusb
+│   │   └── vision_board_tinyusb_uvc
 │   ├── nes
 │   │   ├── vision_board_mipi_2.0inch_nes
 │   │   └── vision_board_rgb_4.3inch_nes
@@ -41,8 +44,6 @@ $ sdk-bsp-ra8d1-vision-board
 │   │   ├── vision_board_mipi_2.0inch_lvgl
 │   │   └── vision_board_rgb_4.3inch_lvgl
 │   ├── vision_board_blink_led
-│   ├── vision_board_tinyusb
-│   ├── vision_board_tinyusb_uvc
 │   ├── vision_board_camera
 │   ├── vision_board_openmv
 │   └── vision_board_wifi
