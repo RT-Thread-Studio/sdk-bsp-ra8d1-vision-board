@@ -52,6 +52,7 @@ static char OMV_ATTR_SECTION(OMV_ATTR_ALIGNED(gc_heap[OMV_HEAP_SIZE], 4), ".data
 
 extern int mount_init(void);
 extern void fmath_init(void);
+extern int tusb_board_init(void);
 static bool exec_boot_script(const char *path, bool interruptible);
 
 void *__signgam_addr(void)
@@ -95,7 +96,6 @@ void NORETURN __fatal_error(const char *msg)
     }
 }
 
-__attribute__((section(".itcm_data"))) 
 static void omv_entry(void *parameter)
 {
     (void) parameter;
@@ -108,6 +108,7 @@ static void omv_entry(void *parameter)
     /* Clean and enable cache */
     SCB_CleanDCache();
 #endif
+	tusb_board_init();
 #ifdef RT_USING_FAL
     fal_init();
 #endif
