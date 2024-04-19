@@ -223,7 +223,7 @@ example_projects:
   project_description: Tinyusb—CDC工程
   project_type: rt-thread|@full|@5.0.2
   builtin_files:
-  - source_path_offset: projects/vision_board_tinyusb
+  - source_path_offset: projects/usb/vision_board_tinyusb
     target_path_offset: ''
     files_and_folders:
     - "*"
@@ -237,7 +237,7 @@ example_projects:
   project_description: Tinyusb—UVC工程
   project_type: rt-thread|@full|@5.0.2
   builtin_files:
-  - source_path_offset: projects/vision_board_tinyusb_uvc
+  - source_path_offset: projects/usb/vision_board_tinyusb_uvc
     target_path_offset: ''
     files_and_folders:
     - "*"
