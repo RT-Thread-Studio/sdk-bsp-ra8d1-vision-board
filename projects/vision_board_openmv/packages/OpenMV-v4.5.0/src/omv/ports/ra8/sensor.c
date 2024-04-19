@@ -382,7 +382,6 @@ int write_raw_yuyv_to_gray(sensor_t *sensor, uint8_t *out, const uint8_t *in, si
 }
 
 /* This is the default snapshot function, which can be replaced in sensor_init functions. */
-__attribute__((section(".itcm_data"))) 
 int sensor_snapshot(sensor_t *sensor, image_t *image, uint32_t flags)
 {
     uint32_t w = MAIN_FB()->u;

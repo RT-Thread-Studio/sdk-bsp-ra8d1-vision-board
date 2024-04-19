@@ -103,6 +103,11 @@ static uint8_t const desc_fs_configuration[] =
 #if CFG_TUD_HID
     TUD_HID_DESCRIPTOR(ITF_NUM_HID, 6, HID_ITF_PROTOCOL_NONE, sizeof(desc_hid_report), EPNUM_HID, CFG_TUD_HID_EP_BUFSIZE, PKG_TINYUSB_DEVICE_HID_INT)
 #endif
+#if CFG_TUD_VIDEO
+    TUD_VIDEO_CAPTURE_DESCRIPTOR_UNCOMPR(4, 0x81,
+                                       PKG_VIDEO_FRAME_WIDTH, PKG_VIDEO_FRAME_HEIGHT, PKG_VIDEO_FRAME_RATE,
+                                       CFG_TUD_VIDEO_STREAMING_EP_BUFSIZE)
+#endif
 };
 
 // Invoked when received GET CONFIGURATION DESCRIPTOR
@@ -127,10 +132,17 @@ static char *string_desc_arr[] =
     (char[]) {0x09, 0x04},              // 0: is supported language is English (0x0409)
     PKG_TINYUSB_DEVICE_MANUFACTURER,    // 1: Manufacturer
     PKG_TINYUSB_DEVICE_PRODUCT,         // 2: Product
+#if CFG_TUD_VIDEO
+    NULL,
+#else
     _serial_number,                     // 3: Serials, should use chip ID
+#endif
     PKG_TINYUSB_DEVICE_CDC_STRING,
     PKG_TINYUSB_DEVICE_MSC_STRING,
     PKG_TINYUSB_DEVICE_HID_STRING,
+#if CFG_TUD_VIDEO
+    PKG_TINYUSB_DEVICE_UVC_STRING,
+#endif
 };
 
 static uint16_t desc_str[32];

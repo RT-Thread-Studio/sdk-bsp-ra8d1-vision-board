@@ -78,7 +78,11 @@
 // Enable WiFi debug
 #define OMV_ENABLE_WIFIDBG      (0)
 #define OMV_ENABLE_TUSBDBG      (1)
+#ifdef PKG_TINYUSB_FULL_SPEED
+#define OMV_TUSBDBG_PACKET      (64)
+#else
 #define OMV_TUSBDBG_PACKET      (512)
+#endif
 
 // Enable self-tests on first boot
 #define OMV_ENABLE_SELFTEST     (0)
