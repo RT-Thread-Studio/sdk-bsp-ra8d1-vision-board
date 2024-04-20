@@ -55,6 +55,7 @@ jobs:
          - {RTT_BSP: "vision_board_camera"}
          - {RTT_BSP: "usb/vision_board_tinyusb"}
          - {RTT_BSP: "usb/vision_board_tinyusb_uvc"}
+         - {RTT_BSP: "usb/vision_board_tinyusb_msc"}
          - {RTT_BSP: "lcd/vision_board_mipi_2.0inch"}
          - {RTT_BSP: "lcd/vision_board_rgb_4.3inch"}
          - {RTT_BSP: "lcd/vision_board_mipi_7.0inch"}
