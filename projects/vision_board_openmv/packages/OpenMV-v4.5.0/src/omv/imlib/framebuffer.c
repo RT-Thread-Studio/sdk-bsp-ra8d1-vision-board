@@ -17,19 +17,20 @@
 #define FB_ALIGN_SIZE_ROUND_UP(x)      FB_ALIGN_SIZE_ROUND_DOWN(((x) + FRAMEBUFFER_ALIGNMENT - 1))
 #define CONSERVATIVE_JPEG_BUF_SIZE     (OMV_JPEG_BUF_SIZE - 64)
 
-#if __ARMCOMPILER_VERSION >= 6000000
+#if defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
 extern char Image$$OMV_MAIN_FB$$Base;        
 extern char Image$$OMV_FB_END$$Base;
 #define _fb_base Image$$OMV_MAIN_FB$$Base
 #define _fb_end Image$$OMV_FB_END$$Base
+#endif
 
-extern char _fb_base, _fb_end;
-framebuffer_t *framebuffer = (framebuffer_t*) &_fb_base;
+extern char _fb_base;
+extern char _fb_end;
+framebuffer_t *framebuffer = (framebuffer_t *) &_fb_base;
 
 #define JPEG_BUF __attribute__((section(".data")))
 JPEG_BUF uint32_t _jpeg_buf[OMV_JPEG_BUF_SIZE];
 jpegbuffer_t *jpeg_framebuffer = (jpegbuffer_t *) &_jpeg_buf;
-#endif
 
 void fb_set_streaming_enabled(bool enable) {
     framebuffer->streaming_enabled = enable;

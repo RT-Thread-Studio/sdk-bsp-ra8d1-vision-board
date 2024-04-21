@@ -1,6 +1,8 @@
 from building import *
 import rtconfig
 
+group = []
+
 # get current directory
 cwd     = GetCurrentDir()
 # The set of source files associated with this SConscript file.
@@ -71,11 +73,11 @@ path   += [cwd + '/signal/src/kiss_fft_wrappers']
 
 CPPDEFINES = ['TF_LITE_STATIC_MEMORY']
 
-group = DefineGroup('tensorflow/lib', libtf_src, depend = ['OMV_ENABLE_TF'])
-group = DefineGroup('tensorflow/signal', signal_src, depend = ['OMV_ENABLE_TF'])
-group = DefineGroup('tensorflow/micro', micro_src, depend = ['OMV_ENABLE_TF'])
-group = DefineGroup('tensorflow/cmsis_nn', micro_nn_src, depend = ['OMV_ENABLE_TF'])
-group = DefineGroup('tensorflow/kernels', micro_kernels_src, depend = ['OMV_ENABLE_TF'])
+group = group + DefineGroup('tensorflow/lib', libtf_src, depend = ['OMV_ENABLE_TF'])
+group = group + DefineGroup('tensorflow/signal', signal_src, depend = ['OMV_ENABLE_TF'])
+group = group + DefineGroup('tensorflow/micro', micro_src, depend = ['OMV_ENABLE_TF'])
+group = group + DefineGroup('tensorflow/cmsis_nn', micro_nn_src, depend = ['OMV_ENABLE_TF'])
+group = group + DefineGroup('tensorflow/kernels', micro_kernels_src, depend = ['OMV_ENABLE_TF'])
 group = group + DefineGroup('tensorflow', src, depend = ['OMV_ENABLE_TF'], CPPPATH = path, CPPDEFINES = CPPDEFINES)
 
 Return('group')

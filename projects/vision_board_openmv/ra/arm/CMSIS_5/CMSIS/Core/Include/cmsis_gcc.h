@@ -1962,6 +1962,14 @@ __extension__ \
   __RES; \
  })
 
+#define __USAT_ASR(ARG1,ARG2,ARG3) \
+ __extension__ \
+({                          \
+  uint32_t __RES, __ARG1 = (ARG1); \
+  __ASM ("usat %0, %1, %2, asr %3" : "=r" (__RES) :  "I" (ARG2), "r" (__ARG1), "I" (ARG3) ); \
+  __RES; \
+ })
+
 __STATIC_FORCEINLINE uint32_t __UXTB16(uint32_t op1)
 {
   uint32_t result;
@@ -2205,6 +2213,20 @@ __STATIC_FORCEINLINE int32_t __SMMLA (int32_t op1, int32_t op2, int32_t op3)
 #endif /* (__ARM_FEATURE_DSP == 1) */
 /*@} end of group CMSIS_SIMD_intrinsics */
 
+__STATIC_FORCEINLINE uint32_t __UXTB(uint32_t op1)
+{
+  return op1 & 0xFF;
+}
+
+__STATIC_FORCEINLINE uint32_t __UXTB_RORn(uint32_t op1, uint32_t rotate)
+{
+  return (op1 >> rotate) & 0xFF;
+}
+
+__STATIC_FORCEINLINE uint32_t __UXTB16_RORn(uint32_t op1, uint32_t rotate)
+{
+  return (op1 >> rotate) & 0xFFFF;;
+}
 
 #pragma GCC diagnostic pop
 

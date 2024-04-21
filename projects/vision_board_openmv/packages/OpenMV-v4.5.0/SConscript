@@ -2,6 +2,8 @@ import os
 from building import *
 import rtconfig
 
+group = []
+
 # get current directory
 cwd     = GetCurrentDir()
 imlib_src = Glob('src/omv/imlib/*.c')
@@ -73,7 +75,7 @@ path += [cwd + '/src/omv/modules/ulab/code/utils']
 
 LOCAL_CCFLAGS = ''
 
-if rtconfig.PLATFORM in ['gcc', 'armclang'] :
+if rtconfig.PLATFORM in ['gcc', 'armclang']:
     LOCAL_CCFLAGS += ' -std=gnu99'
 elif rtconfig.PLATFORM == 'armcc':
     LOCAL_CCFLAGS += ' --c99 --gnu'
@@ -81,14 +83,14 @@ elif rtconfig.PLATFORM == 'armcc':
 CPPDEFINES = ['ARM_MATH_CM85', '__FPU_PRESENT']
 CPPDEFINES += ['MICROPY_PY_DISPLAY = 1']
 
-group = DefineGroup('openmv/alloc', alloc_src, depend = ['BSP_USING_OPENMV'])
-group = DefineGroup('openmv/common', common_src, depend = ['BSP_USING_OPENMV'])
-group = DefineGroup('openmv/modules', modules_src, depend = ['BSP_USING_OPENMV'])
-group = DefineGroup('openmv/dsp', dsp_src, depend = ['BSP_USING_OPENMV'])
-group = DefineGroup('openmv/ulab', ulab_src, depend = ['BSP_USING_OPENMV'])
-group = DefineGroup('openmv/ulab/scipy', ulab_scipy_src, depend = ['BSP_USING_OPENMV'])
-group = DefineGroup('openmv/port/ra8', port_src, depend = ['BSP_USING_OPENMV'])
-group = DefineGroup('openmv/sensor', sensor_src, depend = ['BSP_USING_OPENMV'])
+group = group + DefineGroup('openmv/alloc', alloc_src, depend = ['BSP_USING_OPENMV'])
+group = group + DefineGroup('openmv/common', common_src, depend = ['BSP_USING_OPENMV'])
+group = group + DefineGroup('openmv/modules', modules_src, depend = ['BSP_USING_OPENMV'])
+group = group + DefineGroup('openmv/dsp', dsp_src, depend = ['BSP_USING_OPENMV'])
+group = group + DefineGroup('openmv/ulab', ulab_src, depend = ['BSP_USING_OPENMV'])
+group = group + DefineGroup('openmv/ulab/scipy', ulab_scipy_src, depend = ['BSP_USING_OPENMV'])
+group = group + DefineGroup('openmv/port/ra8', port_src, depend = ['BSP_USING_OPENMV'])
+group = group + DefineGroup('openmv/sensor', sensor_src, depend = ['BSP_USING_OPENMV'])
 group = group + DefineGroup('openmv/imlib', imlib_src, depend = ['BSP_USING_OPENMV'], CPPPATH = path, LOCAL_CCFLAGS = LOCAL_CCFLAGS, CPPDEFINES = CPPDEFINES)
 
 Return('group')

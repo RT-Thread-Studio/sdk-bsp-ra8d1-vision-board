@@ -17,9 +17,13 @@
 #define LOG_TAG     "fb_alloc"
 #include <drv_log.h>
 
-#if __ARMCOMPILER_VERSION >= 6000000
+
+#if defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
 extern char Image$$OMV_FB_END$$Base;
 #define _fballoc Image$$OMV_FB_END$$Base
+static char *pointer = &_fballoc;
+#else
+extern char _fballoc;
 static char *pointer = &_fballoc;
 #endif
 
@@ -29,7 +33,7 @@ static uint32_t alloc_bytes_peak;
 #endif
 
 #if defined(OMV_FB_OVERLAY_MEMORY)
-#if __ARMCOMPILER_VERSION >= 6000000
+#if defined(__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050)
 extern char Image$$OMV_FB_ALLOC_OVERLAY$$Base;        
 extern char Image$$OMV_FB_ALLOC_OVERLAY_END$$Base;
 #define _fballoc_overlay_start Image$$OMV_FB_ALLOC_OVERLAY$$Base

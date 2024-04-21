@@ -24,8 +24,11 @@ void mutex_init0(omv_mutex_t *mutex)
     mutex->lock = 0;
     mutex->last_tid = 0;
 }
-#define __LDREXW        (rt_atomic_t)__builtin_arm_ldrex
-#define __STREXW        (rt_atomic_t)__builtin_arm_strex
+
+#if defined (__ARMCC_VERSION) && (__ARMCC_VERSION >= 6010050) /* ARM Compiler V6 */
+#define __LDREXW        (size_t)__builtin_arm_ldrex
+#define __STREXW        (size_t)__builtin_arm_strex
+#endif
 
 static void _mutex_lock(omv_mutex_t *mutex, uint32_t tid, bool blocking)
 {

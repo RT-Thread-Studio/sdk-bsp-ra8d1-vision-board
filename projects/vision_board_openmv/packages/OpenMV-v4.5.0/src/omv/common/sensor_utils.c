@@ -184,7 +184,7 @@ static int sensor_detect() {
                 return slv_addr;
             #endif // (OMV_ENABLE_OV2640 == 1)
 
-			#if (OMV_ENABLE_SCC8660 == 1)
+            #if defined (__ARMCC_VERSION) && (__ARMCC_VERSION >= 6100100) && (OMV_ENABLE_SCC8660 == 1)
             case SCC8660_SLV_ADDR: //
                 sensor.chip_id_w = scc8660_get_id();
                 slv_addr = SCC8660_SLV_ADDR;
@@ -470,7 +470,7 @@ int sensor_probe_init(uint32_t bus_id, uint32_t bus_speed) {
             break;
         #endif // (OMV_ENABLE_GC0328 == 1)
 
-		#if (OMV_ENABLE_SCC8660 == 1)
+		#if defined (__ARMCC_VERSION) && (__ARMCC_VERSION >= 6100100) && (OMV_ENABLE_SCC8660 == 1)
         case SCC8660_ID:
             init_ret = SCC8660_init(&sensor);
             break; // (OMV_ENABLE_SCC8660 == 1)
