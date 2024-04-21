@@ -47,6 +47,10 @@ OpenMV 是由美国克里斯团队基于 MicroPython 发起的开源机器视觉
 
 ### 编译
 
+双击 `mklinks.bat` 文件，执行脚本后会生成 `rt-thread`、`libraries` 两个文件夹：
+
+![](docs/picture/mklinks.png)
+
 双击 **project.uvprojx** 文件打开MDK工程
 
 ![](docs/picture/3.png)

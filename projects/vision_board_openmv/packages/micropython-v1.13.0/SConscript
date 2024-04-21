@@ -1,6 +1,8 @@
 from building import *
 import rtconfig
 
+group = []
+
 # get current directory
 cwd     = GetCurrentDir()
 # The set of source files associated with this SConscript file.
@@ -42,9 +44,9 @@ if rtconfig.PLATFORM in ['gcc', 'armclang'] :
 elif rtconfig.PLATFORM == 'armcc':
     LOCAL_CCFLAGS += ' --c99 --gnu'
 
-group = DefineGroup('micropython/modules', modules_src, depend = ['PKG_USING_MICROPYTHON'])
-group = DefineGroup('micropython/ra-port', ra_port_src, depend = ['PKG_USING_MICROPYTHON'])
-group = DefineGroup('micropython/machine', machine_src, depend = ['PKG_USING_MICROPYTHON'])
+group = group + DefineGroup('micropython/modules', modules_src, depend = ['PKG_USING_MICROPYTHON'])
+group = group + DefineGroup('micropython/ra-port', ra_port_src, depend = ['PKG_USING_MICROPYTHON'])
+group = group + DefineGroup('micropython/machine', machine_src, depend = ['PKG_USING_MICROPYTHON'])
 group = group + DefineGroup('micropython', src, depend = ['PKG_USING_MICROPYTHON'], CPPPATH = path, LOCAL_CCFLAGS = LOCAL_CCFLAGS, CPPDEFINES=CPPDEFINES)
 
 Return('group')

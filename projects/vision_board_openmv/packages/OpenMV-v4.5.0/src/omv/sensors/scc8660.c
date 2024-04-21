@@ -1,8 +1,9 @@
+#include "omv_boardconfig.h"
+#if defined (__ARMCC_VERSION) && (__ARMCC_VERSION >= 6100100) && (OMV_ENABLE_SCC8660 == 1)
 #include "scc8660.h"
 #include <stdio.h>
 #include "sensor.h"
 #include "omv_i2c.h"
-#include "omv_boardconfig.h"
 
 void scc8660_iic_read(unsigned char addr, unsigned char reg, unsigned char* data)
 {
@@ -127,3 +128,4 @@ int SCC8660_init(sensor_t* sensor)
 
     return 0;
 }
+#endif // (OMV_ENABLE_SCC8660 == 1)

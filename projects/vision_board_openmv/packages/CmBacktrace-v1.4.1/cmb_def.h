@@ -83,19 +83,19 @@
 #elif defined(__GNUC__)
     /* C stack block start address, defined on linker script file, default is _sstack */
     #ifndef CMB_CSTACK_BLOCK_START
-    #define CMB_CSTACK_BLOCK_START         _sstack
+    #define CMB_CSTACK_BLOCK_START         __StackLimit
     #endif
     /* C stack block end address, defined on linker script file, default is _estack */
     #ifndef CMB_CSTACK_BLOCK_END
-    #define CMB_CSTACK_BLOCK_END           _estack
+    #define CMB_CSTACK_BLOCK_END           __StackTopAll
     #endif
     /* code section start address, defined on linker script file, default is _stext */
     #ifndef CMB_CODE_SECTION_START
-    #define CMB_CODE_SECTION_START         _stext
+    #define CMB_CODE_SECTION_START         __ROM_Start
     #endif
     /* code section end address, defined on linker script file, default is _etext */
     #ifndef CMB_CODE_SECTION_END
-    #define CMB_CODE_SECTION_END           _etext
+    #define CMB_CODE_SECTION_END           __ROM_End
     #endif
 #else
     #error "not supported compiler"
