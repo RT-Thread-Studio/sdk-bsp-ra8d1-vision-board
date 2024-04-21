@@ -17,8 +17,8 @@ src += Glob('Source/SoftmaxFunctions/*.c')
 src += Glob('Source/SVDFunctions/*.c')
 
 path    = [cwd + '/']
-path    += [cwd + '/include']
-path    += [cwd + '/include/Internal']
+path    += [cwd + '/Include']
+path    += [cwd + '/Include/Internal']
 
 CPPDEFINES = ['CMSIS_NN']
 
