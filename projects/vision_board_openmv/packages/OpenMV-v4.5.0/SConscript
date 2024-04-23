@@ -80,8 +80,7 @@ if rtconfig.PLATFORM in ['gcc', 'armclang']:
 elif rtconfig.PLATFORM == 'armcc':
     LOCAL_CCFLAGS += ' --c99 --gnu'
 
-CPPDEFINES = ['ARM_MATH_CM85', '__FPU_PRESENT']
-CPPDEFINES += ['MICROPY_PY_DISPLAY = 1']
+CPPDEFINES = ['MICROPY_PY_DISPLAY = 1']
 
 group = group + DefineGroup('openmv/alloc', alloc_src, depend = ['BSP_USING_OPENMV'])
 group = group + DefineGroup('openmv/common', common_src, depend = ['BSP_USING_OPENMV'])
