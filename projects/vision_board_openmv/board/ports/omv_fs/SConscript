@@ -8,6 +8,8 @@ CPPPATH = [cwd]
 
 src = Glob('*.c')
 
-objs = DefineGroup('openmv/rtt-port', src, depend = ['BSP_USING_OPENMV'], CPPPATH = CPPPATH)
+CPPDEFINES = ['ARM_MATH_CM85', '__FPU_PRESENT = 1']
+
+objs = DefineGroup('openmv/rtt-port', src, depend = ['BSP_USING_OPENMV'], CPPPATH = CPPPATH, CPPDEFINES = CPPDEFINES)
 
 Return('objs')
