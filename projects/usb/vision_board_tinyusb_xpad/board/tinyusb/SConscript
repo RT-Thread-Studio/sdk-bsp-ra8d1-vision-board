@@ -1,0 +1,11 @@
+from building import *
+import os
+
+cwd = GetCurrentDir()
+group = []
+src = Glob('*.c')
+
+
+group = group + DefineGroup('TinyUSB', src, depend = ['PKG_USING_TINYUSB'])
+
+Return('group')
