@@ -244,8 +244,9 @@ STATIC mp_obj_t machine_pin_irq(size_t n_args, const mp_obj_t *pos_args, mp_map_
         // configure irq
         self->pin_isr_cb = args[ARG_handler].u_obj;
         uint32_t trigger = args[ARG_trigger].u_int;
-
+#ifndef SOC_FAMILY_RENESAS
         rt_pin_mode(self->pin, PIN_MODE_INPUT_PULLUP);
+#endif
         rt_pin_attach_irq(self->pin, trigger, machine_pin_isr_handler, (void*)self);
         rt_pin_irq_enable(self->pin, PIN_IRQ_ENABLE);
     }
