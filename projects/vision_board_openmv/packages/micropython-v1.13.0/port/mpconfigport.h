@@ -426,6 +426,9 @@ extern const struct _mp_obj_module_t lcd_module;
 extern const struct _mp_obj_module_t tf_module;
 extern const struct _mp_obj_module_t mjpeg_module;
 extern const struct _mp_obj_module_t gif_module;
+#ifdef OMV_ENABLE_ULAB
+extern const struct _mp_obj_module_t ulab_user_cmodule;
+#endif /* OMV_ENABLE_ULAB */
 
 #ifdef BSP_USING_OPENMV
 #define OMV_PORT_BUILTIN_MODULES { MP_ROM_QSTR(MP_QSTR_omv), MP_ROM_PTR(&omv_module) },
@@ -454,13 +457,13 @@ extern const struct _mp_obj_module_t gif_module;
 #ifdef BSP_USING_OPENMV
 #define GIF_PORT_BUILTIN_MODULES { MP_ROM_QSTR(MP_QSTR_gif), MP_ROM_PTR(&gif_module) },
 #else
-#define IMAGE_PORT_BUILTIN_MODULES
+#define GIF_PORT_BUILTIN_MODULES
 #endif /* BSP_USING_OPENMV */
 
 #ifdef BSP_USING_OPENMV
 #define JPEG_PORT_BUILTIN_MODULES { MP_ROM_QSTR(MP_QSTR_mjpeg), MP_ROM_PTR(&mjpeg_module) },
 #else
-#define IMAGE_PORT_BUILTIN_MODULES
+#define JPEG_PORT_BUILTIN_MODULES
 #endif /* BSP_USING_OPENMV */
 
 #if defined (BSP_USING_OPENMV) && defined(OMV_ENABLE_TF)
@@ -468,6 +471,13 @@ extern const struct _mp_obj_module_t gif_module;
 #else
 #define TF_PORT_BUILTIN_MODULES
 #endif /* BSP_USING_OPENMV && OMV_ENABLE_TF*/
+
+#if defined (BSP_USING_OPENMV) && defined(OMV_ENABLE_ULAB)
+#define ULAB_PORT_BUILTIN_MODULES { MP_ROM_QSTR(MP_QSTR_ulab), MP_ROM_PTR(&ulab_user_cmodule) },
+#else
+#define ULAB_PORT_BUILTIN_MODULES
+#endif /* BSP_USING_OPENMV */
+
 #endif /* BSP_USING_OPENMV */
 ////////////////////////////////////////////////////////////////////////
 
@@ -611,6 +621,7 @@ extern const struct _mp_obj_module_t gif_module;
     JPEG_PORT_BUILTIN_MODULES   \
     GIF_PORT_BUILTIN_MODULES    \
     TF_PORT_BUILTIN_MODULES     \
+    ULAB_PORT_BUILTIN_MODULES   \
     LCD_PORT_BUILTIN_MODULES    \
     RTTHREAD_PORT_BUILTIN_MODULES \
     MODUOS_PORT_BUILTIN_MODULES \

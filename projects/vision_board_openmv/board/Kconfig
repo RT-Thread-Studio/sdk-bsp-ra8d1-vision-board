@@ -690,6 +690,10 @@ menuconfig BSP_USING_OPENMV
             bool "Enable tflite support"
             default n
 
+        config OMV_ENABLE_ULAB
+            bool "Enable ulab micropython support"
+            default n
+
         menuconfig SENSOR_USING_XCLK
             bool "Enable SENSOR XCLK"
             default n
