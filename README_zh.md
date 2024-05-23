@@ -35,7 +35,8 @@ $ sdk-bsp-ra8d1-vision-board
 │   │   ├── vision_board_mipi_2.0inch_doom
 │   │   └── vision_board_rgb_4.3inch_doom
 │   ├── usb
-│   │   ├── vision_board_tinyusb
+│   │   ├── vision_board_tinyusb_cdc
+│   │   ├── vision_board_tinyusb_hid
 │   │   ├── vision_board_tinyusb_msc
 │   │   └── vision_board_tinyusb_uvc
 │   ├── nes
