@@ -65,6 +65,28 @@ OpenMV 是由美国克里斯团队基于 MicroPython 发起的开源机器视觉
 
 ![](docs/picture/5.png)
 
+
+
+## RT-Thread Studio 编译说明
+
+如果您想使用 RT-Thread Studio 创建并编译 OpenMV 工程，需要严格按照以下步骤进行：
+
+1. 在 Studio 的 SDK-Manager 中下载最新的 Vision Board 开发板支持包（必须≥1.1.0版本）
+
+2. 需要在 Studio 中切换到 Github 下载源
+
+   ![](docs/picture/omv1.png)
+
+3. 下载V13.2.1版本GCC工具链
+
+   ![](docs/picture/omv2.png)
+
+4. 使能解除命令行长度限制：
+
+   ![](docs/picture/omv3.png)
+
+5. 接下来就可以愉快的编译烧录了
+
 ## OpenMV 使用说明
 
 到目前为止，Vision Board 已经成为了可以运行 OpenMV 的开发板，接下来介绍下如何使用它连接 OpenMV IDE 运行我们第一个Hello World 程序。
@@ -115,7 +137,7 @@ OpenMV 是由美国克里斯团队基于 MicroPython 发起的开源机器视觉
 
 > 我们测试过有的电脑会确实出现这个问题，具体原因未知，但并不影响正常使用。欢迎有能力的小伙伴帮忙修复！
 
-A：解决办法：打开Vision Board的串口终端即可解决这个问题。
+A：解决办法：请更新github的最新固件。
 
 ### Q2：遇到在使用 Dap-Link 时找不到目标芯片的情况并且无法下载：
 
