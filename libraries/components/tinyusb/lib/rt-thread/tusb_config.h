@@ -113,6 +113,7 @@ extern "C" {
 //--------------------------------------------------------------------
 // DEVICE CONFIGURATION
 //--------------------------------------------------------------------
+#ifdef PKG_TINYUSB_DEVICE_ENABLE
 #if defined(PKG_TINYUSB_DEVICE_ENABLE)
   #define CFG_TUD_ENABLED             (1)
 #else
@@ -142,10 +143,12 @@ extern "C" {
 #ifndef PKG_TINYUSB_DEVICE_HID_STRING
 #define PKG_TINYUSB_DEVICE_HID_STRING ""
 #endif
+#endif /* PKG_TINYUSB_DEVICE_ENABLE */
 
 //--------------------------------------------------------------------
 // HOST CONFIGURATION
 //--------------------------------------------------------------------
+#ifdef PKG_TINYUSB_HOST_ENABLE
 #if defined(PKG_TINYUSB_HOST_ENABLE)
   #define CFG_TUH_ENABLED             (1)
 #else
@@ -207,8 +210,7 @@ extern "C" {
 // Set Line Coding on enumeration/mounted, value for cdc_line_coding_t
 // bit rate = 115200, 1 stop bit, no parity, 8 bit data width
 #define CFG_TUH_CDC_LINE_CODING_ON_ENUM   { 115200, CDC_LINE_CODING_STOP_BITS_1, CDC_LINE_CODING_PARITY_NONE, 8 }
-
-
+#endif /* PKG_TINYUSB_HOST_ENABLE */
 
 #ifdef __cplusplus
 }
