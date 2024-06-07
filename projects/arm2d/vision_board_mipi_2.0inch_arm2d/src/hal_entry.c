@@ -18,6 +18,10 @@
  */
 
 /*============================ INCLUDES ======================================*/
+#if defined(_RTE_)
+#   include "RTE_Components.h"
+#endif
+
 #include <stdio.h>
 #ifdef RTE_Acceleration_Arm_2D
 #include "arm_2d_helper.h"
@@ -27,6 +31,14 @@
 #ifdef RTE_Acceleration_Arm_2D_Extra_Benchmark
     #include "arm_2d_benchmark.h"
 #endif
+
+#include "arm_2d_scene_meter.h"
+#include "arm_2d_scene_watch.h"
+#include "arm_2d_scene_fitness.h"
+#include "arm_2d_scene_alarm_clock.h"
+#include "arm_2d_scene_histogram.h"
+#include "arm_2d_scene_fan.h"
+#include "arm_2d_scene_bubble_charging.h"
 
 #include "arm_2d_demos.h"
 
@@ -63,64 +75,116 @@
 /*============================ PROTOTYPES ====================================*/
 /*============================ LOCAL VARIABLES ===============================*/
 /*============================ IMPLEMENTATION ================================*/
-void scene_audiomark_loader(void)
+void scene_meter_loader(void) 
 {
-    arm_2d_scene_player_set_switching_mode(&DISP0_ADAPTER,
-                                           ARM_2D_SCENE_SWITCH_MODE_SLIDE_RIGHT);
+    arm_2d_scene_player_set_switching_mode( &DISP0_ADAPTER,
+                                            ARM_2D_SCENE_SWITCH_MODE_SLIDE_LEFT);
+    arm_2d_scene_player_set_switching_period(&DISP0_ADAPTER, 500);
+
+    arm_2d_scene_meter_init(&DISP0_ADAPTER);
+}
+
+void scene_watch_loader(void) 
+{
+    arm_2d_scene_player_set_switching_mode( &DISP0_ADAPTER,
+                                            ARM_2D_SCENE_SWITCH_MODE_SLIDE_RIGHT);
+    arm_2d_scene_player_set_switching_period(&DISP0_ADAPTER, 500);
+
+    arm_2d_scene_watch_init(&DISP0_ADAPTER);
+}
+
+void scene_fitness_loader(void) 
+{
+    arm_2d_scene_player_set_switching_mode( &DISP0_ADAPTER,
+                                            ARM_2D_SCENE_SWITCH_MODE_SLIDE_RIGHT);
+    arm_2d_scene_player_set_switching_period(&DISP0_ADAPTER, 500);
+    arm_2d_scene_fitness_init(&DISP0_ADAPTER);
+}
+
+void scene_alarm_clock_loader(void) 
+{
+    arm_2d_scene_player_set_switching_mode( &DISP0_ADAPTER,
+                                            ARM_2D_SCENE_SWITCH_MODE_SLIDE_LEFT);
+    arm_2d_scene_player_set_switching_period(&DISP0_ADAPTER, 500);
+    arm_2d_scene_alarm_clock_init(&DISP0_ADAPTER);
+}
+
+void scene_histogram_loader(void) 
+{
+    arm_2d_scene_player_set_switching_mode( &DISP0_ADAPTER,
+                                            ARM_2D_SCENE_SWITCH_MODE_ERASE_LEFT);
+    arm_2d_scene_player_set_switching_period(&DISP0_ADAPTER, 1000);
+    arm_2d_scene_histogram_init(&DISP0_ADAPTER);
+}
+
+void scene_audiomark_loader(void) 
+{
+    arm_2d_scene_player_set_switching_mode( &DISP0_ADAPTER,
+                                            ARM_2D_SCENE_SWITCH_MODE_SLIDE_RIGHT);
     arm_2d_scene_player_set_switching_period(&DISP0_ADAPTER, 500);
 
     arm_2d_scene_audiomark_init(&DISP0_ADAPTER);
 }
 
-void scene_atom_loader(void)
+void scene_atom_loader(void) 
 {
     arm_2d_scene_atom_init(&DISP0_ADAPTER);
 }
 
-void scene_basics_loader(void)
+void scene_basics_loader(void) 
 {
-    arm_2d_scene_player_set_switching_mode(&DISP0_ADAPTER,
-                                           ARM_2D_SCENE_SWITCH_MODE_FADE_WHITE);
+    arm_2d_scene_player_set_switching_mode( &DISP0_ADAPTER,
+                                            ARM_2D_SCENE_SWITCH_MODE_FADE_WHITE);
     //arm_2d_scene_player_set_switching_period(&DISP0_ADAPTER, 3000);
 
     arm_2d_scene_basics_init(&DISP0_ADAPTER);
 }
 
-void scene_progress_status_loader(void)
+void scene_progress_status_loader(void) 
 {
     arm_2d_scene_progress_status_init(&DISP0_ADAPTER);
 }
 
-void scene_panel_loader(void)
+void scene_panel_loader(void) 
 {
-    arm_2d_scene_player_set_switching_mode(&DISP0_ADAPTER,
-                                           ARM_2D_SCENE_SWITCH_MODE_SLIDE_RIGHT);
+    arm_2d_scene_player_set_switching_mode( &DISP0_ADAPTER,
+                                            ARM_2D_SCENE_SWITCH_MODE_SLIDE_RIGHT);
     arm_2d_scene_player_set_switching_period(&DISP0_ADAPTER, 500);
 
     arm_2d_scene_panel_init(&DISP0_ADAPTER);
 }
 
-void scene_gas_gauge_loader(void)
+void scene_gas_gauge_loader(void) 
 {
-    arm_2d_scene_player_set_switching_mode(&DISP0_ADAPTER,
-                                           ARM_2D_SCENE_SWITCH_MODE_SLIDE_DOWN);
+    arm_2d_scene_player_set_switching_mode( &DISP0_ADAPTER,
+                                            ARM_2D_SCENE_SWITCH_MODE_SLIDE_DOWN);
     arm_2d_scene_player_set_switching_period(&DISP0_ADAPTER, 500);
     arm_2d_scene_gas_gauge_init(&DISP0_ADAPTER);
 }
 
-void scene_listview_loader(void)
+void scene_listview_loader(void) 
 {
     arm_2d_scene_listview_init(&DISP0_ADAPTER);
 }
 
-void scene_menu_loader(void)
+void scene_menu_loader(void) 
 {
     arm_2d_scene_menu_init(&DISP0_ADAPTER);
+}
+
+void scene_fan_loader(void) 
+{
+    arm_2d_scene_fan_init(&DISP0_ADAPTER);
 }
 
 void scene_console_window_loader(void)
 {
     arm_2d_scene_console_window_init(&DISP0_ADAPTER);
+}
+
+void scene_bubble_charging_loader(void) 
+{
+    arm_2d_scene_bubble_charging_init(&DISP0_ADAPTER);
 }
 
 typedef void scene_loader_t(void);
@@ -131,16 +195,20 @@ static scene_loader_t *const c_SceneLoaders[] =
 #if 1
     scene_basics_loader,
     scene_progress_status_loader,
+    scene_fan_loader,
     scene_console_window_loader,
+    scene_meter_loader,
+    scene_alarm_clock_loader,
+    scene_atom_loader,
+    scene_histogram_loader,
+    scene_bubble_charging_loader,
     scene_gas_gauge_loader,
     scene_listview_loader,
     scene_menu_loader,
-    scene_atom_loader,
+
     scene_panel_loader,
-#if __DISP0_CFG_VIRTUAL_RESOURCE_HELPER__
-    virtual_resource_demo_loader,
-#endif
-    //scene_audiomark_loader,
+    scene_fitness_loader,
+    scene_audiomark_loader,
 #else
     scene_bubble_charging_loader,
 #endif
@@ -153,8 +221,7 @@ void before_scene_switching_handler(void *pTarget,
 {
     static uint_fast8_t s_chIndex = 0;
 
-    if (s_chIndex >= dimof(c_SceneLoaders))
-    {
+    if (s_chIndex >= dimof(c_SceneLoaders)) {
         s_chIndex = 0;
     }
 
@@ -162,7 +229,7 @@ void before_scene_switching_handler(void *pTarget,
     c_SceneLoaders[s_chIndex]();
     s_chIndex++;
 }
-#endif	/* RTE_Acceleration_Arm_2D */
+#endif  /* RTE_Acceleration_Arm_2D */
 
 /*----------------------------------------------------------------------------
   Main function
@@ -170,12 +237,9 @@ void before_scene_switching_handler(void *pTarget,
 void hal_entry(void)
 {
 #ifdef RTE_Acceleration_Arm_2D
-    arm_irq_safe
-    {
+    arm_irq_safe {
         arm_2d_init();
     }
-
-    printf("\r\nArm-2D Bare-metal Template\r\n");
 
     disp_adapter0_init();
 
@@ -193,8 +257,7 @@ void hal_entry(void)
     arm_2d_scene_player_switch_to_next_scene(&DISP0_ADAPTER);
 #endif
 
-    while (1)
-    {
+    while (1) {
 #ifdef RTE_Acceleration_Arm_2D_Extra_Benchmark
         disp_adapter0_task();
 #else
@@ -202,7 +265,7 @@ void hal_entry(void)
         disp_adapter0_task(LCD_TARGET_FPS);
 #endif
     }
-#endif	/* RTE_Acceleration_Arm_2D */
+#endif  /* RTE_Acceleration_Arm_2D */
 }
 
 #if defined(__clang__)
