@@ -13,3 +13,7 @@ rtthread.hex
 rtthread.elf
 rtthread.map
 
+*.uvguix.*
+*@*
+*.0???
+*.d
