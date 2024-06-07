@@ -22,6 +22,8 @@
 #   include "RTE_Components.h"
 #endif
 
+#include <rtthread.h>
+
 #include <stdio.h>
 #ifdef RTE_Acceleration_Arm_2D
 #include "arm_2d_helper.h"
@@ -261,8 +263,13 @@ void hal_entry(void)
 #ifdef RTE_Acceleration_Arm_2D_Extra_Benchmark
         disp_adapter0_task();
 #else
-        /* lock framerate */
-        disp_adapter0_task(LCD_TARGET_FPS);
+        rt_tick_t tTick = rt_tick_get();
+        
+        while(arm_fsm_rt_cpl != disp_adapter0_task(LCD_TARGET_FPS)) __NOP();
+        
+        rt_thread_delay_until(  
+                        &tTick, 
+                        rt_tick_from_millisecond( (1000 / LCD_TARGET_FPS)));
 #endif
     }
 #endif  /* RTE_Acceleration_Arm_2D */
