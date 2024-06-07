@@ -17,3 +17,5 @@ rtthread.map
 *@*
 *.0???
 *.d
+RTE_Components.h
+Pre_Include_Global.h
