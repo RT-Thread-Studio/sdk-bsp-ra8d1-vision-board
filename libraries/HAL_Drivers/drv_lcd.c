@@ -408,6 +408,18 @@ rt_weak void ra8_mipi_lcd_init(void)
     LOG_E("please Implementation function %s", __func__);
 }
 
+void Disp0_DrawBitmap (uint32_t x, uint32_t y, uint32_t width, uint32_t height, const uint8_t *bitmap) 
+{
+    volatile uint16_t *phwDes = lcd_current_working_buffer + y * LCD_WIDTH + x;
+    uint16_t *pwSrc = (uint16_t *)bitmap;
+    for (int_fast16_t i = 0; i < height; i++) {
+        memcpy ((uint32_t *)phwDes, pwSrc, width * 2);
+        SCB_CleanDCache_by_Addr(phwDes, width * 2);
+        pwSrc += width;
+        phwDes += LCD_WIDTH;
+    }
+}
+
 int lcd_test(void)
 {
     struct drv_lcd_device *lcd;
