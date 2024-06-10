@@ -460,7 +460,7 @@ LOAD_REGION_FLASH FLASH_ORIGIN ALIGN 0x80 LIMITED_FLASH_LENGTH
   {
     *(.dtcm_data*)
   }
-  
+
   DTCM_NO_INIT_DATA +0 UNINIT {
     *(.bss.noinit.arm_2d_pfb_pool)
   }
