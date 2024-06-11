@@ -122,7 +122,7 @@ extern "C" {
 //     <7=>   128 pixel
 // <i> Make sure the y and height of the PFB is always aligned to 2^n pixels
 #ifndef __DISP0_CFG_PFB_PIXEL_ALIGN_HEIGHT__
-#   define __DISP0_CFG_PFB_PIXEL_ALIGN_HEIGHT__                    0
+#   define __DISP0_CFG_PFB_PIXEL_ALIGN_HEIGHT__                    3
 #endif
 
 // <o>PFB Block Count <1-65535>

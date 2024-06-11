@@ -461,6 +461,10 @@ LOAD_REGION_FLASH FLASH_ORIGIN ALIGN 0x80 LIMITED_FLASH_LENGTH
     *(.dtcm_data*)
   }
 
+  DTCM_NO_INIT_DATA +0 UNINIT {
+    *(.bss.noinit.arm_2d_pfb_pool)
+  }
+
   ; The required minimum ending alignment is an 8 byte boundary for ECC compatibility.
   ; There is no way to control the ending alignment of DTCM_DATA, so this dedicated section acts as padding and as the true load and execution section limit of DTCM_DATA.
   ; "Load Addr" will show "-" in the map file making it seem as if no padding is actually in the binary, but "Load base:" will show otherwise.
