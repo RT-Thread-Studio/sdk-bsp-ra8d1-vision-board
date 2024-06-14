@@ -4,6 +4,7 @@
 /* Rotated : 0.0 deg */
 
 
+#ifdef RTE_Acceleration_Arm_2D
 
 #include "arm_2d.h"
 
@@ -17968,4 +17969,4 @@ const arm_2d_tile_t c_tileMeterPanelA4Mask = {
 #   pragma diag_warning=1296
 #endif
 
-
+#endif
