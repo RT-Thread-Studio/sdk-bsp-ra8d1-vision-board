@@ -13,6 +13,6 @@ if rtconfig.CROSS_TOOL == 'keil':
 
 path = [cwd]
 
-group = DefineGroup('WICED', src, depend = [''], CPPPATH = path, LIBS = LIBS, LIBPATH = LIBPATH)
+group = DefineGroup('WICED', src, depend = ['BSP_USING_OPENMV'], CPPPATH = path, LIBS = LIBS, LIBPATH = LIBPATH)
 
 Return('group')
