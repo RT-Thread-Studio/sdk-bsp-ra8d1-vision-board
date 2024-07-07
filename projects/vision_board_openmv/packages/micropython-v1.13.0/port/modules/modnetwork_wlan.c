@@ -43,6 +43,9 @@
 #include <netdev.h>     
 #include "modnetwork.h"
 
+#define DEFAULT_AP_SSID	"OPENMV_AP"
+#define DEFAULT_AP_KEY	"1234567890"
+
 extern struct netdev *netdev_default;
 
 typedef struct _wlan_if_obj_t {
@@ -114,7 +117,17 @@ STATIC mp_obj_t wlan_active(size_t n_args, const mp_obj_t *args) {
         {
             if (mp_obj_get_int(args[1]) == RT_TRUE)
             {
-                error_check(rt_wlan_start_ap((char *)&_ap_info.ssid.val, _ap_password) == RT_EOK, "Cannot start AP");
+				if (rt_wlan_ap_is_active() == 1)
+					error_check(rt_wlan_ap_stop() == RT_EOK, "Cannot stop AP");
+				
+				if (rt_strlen((char *)&_ap_info.ssid.val) == 0 || rt_strlen(_ap_password) == 0) 
+				{
+					error_check(rt_wlan_start_ap(DEFAULT_AP_SSID, DEFAULT_AP_KEY) == RT_EOK, "Cannot start default AP");
+				}
+				else
+				{
+					error_check(rt_wlan_start_ap((char *)&_ap_info.ssid.val, _ap_password) == RT_EOK, "Cannot start AP");
+				}
             }
             else
             {
@@ -412,6 +425,11 @@ STATIC mp_obj_t wlan_ifconfig(size_t n_args, const mp_obj_t *args) {
     }
 
     if (n_args == 1) {
+		 while (!rt_wlan_is_ready()) {
+			 if (rt_wlan_ap_is_active())
+				 break;
+			 rt_thread_mdelay(200);
+		 }
         // get
         mp_obj_t tuple[4] = {
             mp_obj_new_str((const char *)inet_ntoa(netdev->ip_addr), strlen((char *)(inet_ntoa(netdev->ip_addr)))),
@@ -496,10 +514,9 @@ STATIC mp_obj_t wlan_config(size_t n_args, const mp_obj_t *args, mp_map_t *kwarg
                             mp_raise_ValueError("invalid buffer length");
                         }
                         error_check(rt_wlan_set_mac((rt_uint8_t *)bufinfo.buf) == RT_EOK, "can't set MAC");
-
                         break;
                     }
-                    case QS(MP_QSTR_essid): { 
+                    case QS(MP_QSTR_ssid): { 
                         req_if = SOFTAP_IF;
                         size_t len;
                         const char *s = mp_obj_str_get_data(kwargs->table[i].value, &len);
@@ -518,7 +535,7 @@ STATIC mp_obj_t wlan_config(size_t n_args, const mp_obj_t *args, mp_map_t *kwarg
 //                        cfg.ap.authmode = mp_obj_get_int(kwargs->table[i].value);
 //                        break;
 //                    }
-                    case QS(MP_QSTR_password): {
+                    case QS(MP_QSTR_key): {
                         req_if = SOFTAP_IF;
                         size_t len;
                         const char *s = mp_obj_str_get_data(kwargs->table[i].value, &len);
@@ -569,7 +586,7 @@ STATIC mp_obj_t wlan_config(size_t n_args, const mp_obj_t *args, mp_map_t *kwarg
             error_check(rt_wlan_get_mac(mac) == RT_EOK, "can't get mac config");
             return mp_obj_new_bytes(mac, sizeof(mac));
         }
-        case MP_QSTR_essid:
+        case MP_QSTR_ssid:
             if (self->if_id == STATION_IF) {
                 val = mp_obj_new_str((char*)cfg.ssid.val, strlen((char*)cfg.ssid.val));
             } else {

@@ -48,7 +48,7 @@
 
 #ifdef BSP_USING_OPENMV
 static void *stack_top = RT_NULL;
-static char OMV_ATTR_SECTION(OMV_ATTR_ALIGNED(gc_heap[OMV_HEAP_SIZE], 4), ".data");
+static char OMV_ATTR_SECTION(OMV_ATTR_ALIGNED(gc_heap[OMV_HEAP_SIZE], 4), ".sdram");
 
 extern int mount_init(void);
 extern void fmath_init(void);

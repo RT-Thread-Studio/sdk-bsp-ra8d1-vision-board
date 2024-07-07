@@ -9,6 +9,7 @@ import time
 import lcd
 
 sensor.reset()
+sensor.set_vflip(True)
 sensor.set_pixformat(sensor.RGB565)
 sensor.set_framesize(sensor.QVGA)
 lcd.init()

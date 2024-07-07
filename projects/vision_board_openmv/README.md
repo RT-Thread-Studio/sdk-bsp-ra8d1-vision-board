@@ -124,6 +124,73 @@ OpenMV 是由美国克里斯团队基于 MicroPython 发起的开源机器视觉
 
 <img src="docs/picture/tf.png" style="zoom:80%;" />
 
+## OpenMV-WiFi 图传功能
+
+目前固件支持了两种使用 HTTP 协议图传方式
+
+* STA 模式
+* AP 模式
+
+### STA模式
+
+打开 openmv ide，选择文件—>示例—>WiFi—>mjpeg_streamer.py
+
+<img src="docs/picture/wf_sta.png" style="zoom: 60%;" />
+
+* SSID ：填写要连接的wifi名称信息（**只能是2.4G频段的wifi**）
+
+* KEY  ：填写要连接的wifi密码信息
+
+<img src="docs/picture/wf2.png" style="zoom: 60%;" />
+
+* 最后点击运行脚本，然后确保查看图像的设备和 vision board 处于同一网段（即：可以相互 ping 通）；
+* 当 vision board 成功连接到热点后，会打印获取到的ip地址；
+
+<img src="docs/picture/wf3.png" style="zoom: 60%;" />
+
+当然在 vision board 的串口终端中也可以同样查看到ip地址等信息：
+
+<img src="docs/picture/wf4.png" style="zoom: 60%;" />
+
+* 复制这个ip地址到浏览器中打开，端口号为 8080。例如：http://192.168.31.182:8080，就可以查看到图像数据啦
+
+<img src="docs/picture/wf5.png" style="zoom: 60%;" />
+
+### AP 模式
+
+打开 openmv ide，选择文件—>示例—>WiFi—>mjpeg_streamer_ap.py
+
+<img src="docs/picture/wf_ap.png" style="zoom: 60%;" />
+
+* 最后点击运行脚本，然后将要查看图像的设备连接名称为 `OPENMV_AP` 的wifi热点，密码为：`1234567890`：
+
+<img src="docs/picture/wf6.png" style="zoom: 60%;" />
+
+连接成功后，会弹出无法访问 Internet，这是正常现象因为 vision board 的网卡此时是作为AP设备：
+
+<img src="docs/picture/wf7.png" style="zoom: 60%;" />
+
+* 此时在浏览器访问默认 http://192.168.1.1:8080 ，就可以查看到图像数据啦
+
+## 如何使能虚拟U盘功能
+
+进入  `RT-Thread online packages → system packages → TinyUSB: an open source cross-platform USB stack for embedded system → Using USB device` 路径下，使能 **Using Mass Storage Class (MSC)**
+
+<img src="docs/picture/usb1.png" style="zoom: 60%;" />
+
+进入 Using Mass Storage Class (MSC) ，将最后一项改成 sd；
+
+<img src="docs/picture/usb2.png" style="zoom: 60%;" />
+
+* 退出menuconfig菜单，并保存配置，然后使用 scons --target=mdk5 （如果是mdk方式）重新生成工程；
+
+* 编译，烧录固件到开发板中；
+* 硬件上：需要插入SD卡到开发板中
+
+**注意：（已知问题）使能USB复合设备后，每次第一次上电需要先等待弹出U盘后再连接 OpenMV IDE！！否则会卡死！！**
+
+
+
 ## 待办事项
 
 目前 OpenMV 待支持功能：
