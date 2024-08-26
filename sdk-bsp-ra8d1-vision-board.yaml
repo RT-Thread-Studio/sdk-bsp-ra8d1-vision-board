@@ -78,7 +78,21 @@ example_projects:
     files_and_folders:
     - libraries
     - rt-thread
-  external_files: []
+  external_files:
+  - package_name: GNU_Tools_for_ARM_Embedded_Processors
+    package_type: ToolChain_Support_Packages
+    package_vendor: 'ARM'
+    package_version: 10.2.1
+    source_path_offset: '.'
+    target_path_offset: '.'
+    files_and_folders: []
+  - package_name: PyOCD
+    package_type: Debugger_Support_Packages
+    package_vendor: 'RealThread'
+    package_version: 0.2.3
+    source_path_offset: ''
+    target_path_offset: ''
+    files_and_folders: []
 - project_name: vision_board_mipi_2.0inch_lvgl
   project_description: 2.0寸屏幕-LVGLV9.0.1工程
   project_type: rt-thread|@full|@5.0.2
@@ -92,7 +106,21 @@ example_projects:
     files_and_folders:
     - libraries
     - rt-thread
-  external_files: []
+  external_files:
+  - package_name: GNU_Tools_for_ARM_Embedded_Processors
+    package_type: ToolChain_Support_Packages
+    package_vendor: 'ARM'
+    package_version: 10.2.1
+    source_path_offset: '.'
+    target_path_offset: '.'
+    files_and_folders: []
+  - package_name: PyOCD
+    package_type: Debugger_Support_Packages
+    package_vendor: 'RealThread'
+    package_version: 0.2.3
+    source_path_offset: ''
+    target_path_offset: ''
+    files_and_folders: []
 - project_name: vision_board_mipi_2.0inch_nes
   project_description: 2.0寸屏幕-nes游戏移植工程
   project_type: rt-thread|@full|@5.0.2
@@ -106,7 +134,21 @@ example_projects:
     files_and_folders:
     - libraries
     - rt-thread
-  external_files: []
+  external_files:
+  - package_name: GNU_Tools_for_ARM_Embedded_Processors
+    package_type: ToolChain_Support_Packages
+    package_vendor: 'ARM'
+    package_version: 10.2.1
+    source_path_offset: '.'
+    target_path_offset: '.'
+    files_and_folders: []
+  - package_name: PyOCD
+    package_type: Debugger_Support_Packages
+    package_vendor: 'RealThread'
+    package_version: 0.2.3
+    source_path_offset: ''
+    target_path_offset: ''
+    files_and_folders: []
 - project_name: vision_board_rgb_4.3inch_nes
   project_description: 4.3寸屏幕-nes游戏移植工程
   project_type: rt-thread|@full|@5.0.2
@@ -120,7 +162,21 @@ example_projects:
     files_and_folders:
     - libraries
     - rt-thread
-  external_files: []
+  external_files:
+  - package_name: GNU_Tools_for_ARM_Embedded_Processors
+    package_type: ToolChain_Support_Packages
+    package_vendor: 'ARM'
+    package_version: 10.2.1
+    source_path_offset: '.'
+    target_path_offset: '.'
+    files_and_folders: []
+  - package_name: PyOCD
+    package_type: Debugger_Support_Packages
+    package_vendor: 'RealThread'
+    package_version: 0.2.3
+    source_path_offset: ''
+    target_path_offset: ''
+    files_and_folders: []
 - project_name: vision_board_mipi_2.0inch_doom
   project_description: 2.0寸屏幕-毁灭战士(Doom)游戏移植工程
   project_type: rt-thread|@full|@5.0.2
@@ -134,7 +190,21 @@ example_projects:
     files_and_folders:
     - libraries
     - rt-thread
-  external_files: []
+  external_files:
+  - package_name: GNU_Tools_for_ARM_Embedded_Processors
+    package_type: ToolChain_Support_Packages
+    package_vendor: 'ARM'
+    package_version: 10.2.1
+    source_path_offset: '.'
+    target_path_offset: '.'
+    files_and_folders: []
+  - package_name: PyOCD
+    package_type: Debugger_Support_Packages
+    package_vendor: 'RealThread'
+    package_version: 0.2.3
+    source_path_offset: ''
+    target_path_offset: ''
+    files_and_folders: []
 - project_name: vision_board_rgb_4.3inch_doom
   project_description: 4.3寸屏幕-毁灭战士(Doom)游戏移植工程
   project_type: rt-thread|@full|@5.0.2
@@ -148,7 +218,21 @@ example_projects:
     files_and_folders:
     - libraries
     - rt-thread
-  external_files: []
+  external_files:
+  - package_name: GNU_Tools_for_ARM_Embedded_Processors
+    package_type: ToolChain_Support_Packages
+    package_vendor: 'ARM'
+    package_version: 10.2.1
+    source_path_offset: '.'
+    target_path_offset: '.'
+    files_and_folders: []
+  - package_name: PyOCD
+    package_type: Debugger_Support_Packages
+    package_vendor: 'RealThread'
+    package_version: 0.2.3
+    source_path_offset: ''
+    target_path_offset: ''
+    files_and_folders: []
 - project_name: vision_board_mipi_7.0inch
   project_description: 7.0寸mipi屏幕显示+触摸测试工程
   project_type: rt-thread|@full|@5.0.2
@@ -162,7 +246,21 @@ example_projects:
     files_and_folders:
     - libraries
     - rt-thread
-  external_files: []
+  external_files:
+  - package_name: GNU_Tools_for_ARM_Embedded_Processors
+    package_type: ToolChain_Support_Packages
+    package_vendor: 'ARM'
+    package_version: 10.2.1
+    source_path_offset: '.'
+    target_path_offset: '.'
+    files_and_folders: []
+  - package_name: PyOCD
+    package_type: Debugger_Support_Packages
+    package_vendor: 'RealThread'
+    package_version: 0.2.3
+    source_path_offset: ''
+    target_path_offset: ''
+    files_and_folders: []
 - project_name: vision_board_mipi_2.0inch
   project_description: 2.0寸MIPI屏幕显示测试工程
   project_type: rt-thread|@full|@5.0.2
@@ -176,7 +274,21 @@ example_projects:
     files_and_folders:
     - libraries
     - rt-thread
-  external_files: []
+  external_files:
+  - package_name: GNU_Tools_for_ARM_Embedded_Processors
+    package_type: ToolChain_Support_Packages
+    package_vendor: 'ARM'
+    package_version: 10.2.1
+    source_path_offset: '.'
+    target_path_offset: '.'
+    files_and_folders: []
+  - package_name: PyOCD
+    package_type: Debugger_Support_Packages
+    package_vendor: 'RealThread'
+    package_version: 0.2.3
+    source_path_offset: ''
+    target_path_offset: ''
+    files_and_folders: []
 - project_name: vision_board_rgb_4.3inch
   project_description: 4.3寸RGB屏幕显示+触摸测试工程
   project_type: rt-thread|@full|@5.0.2
@@ -190,7 +302,21 @@ example_projects:
     files_and_folders:
     - libraries
     - rt-thread
-  external_files: []
+  external_files:
+  - package_name: GNU_Tools_for_ARM_Embedded_Processors
+    package_type: ToolChain_Support_Packages
+    package_vendor: 'ARM'
+    package_version: 10.2.1
+    source_path_offset: '.'
+    target_path_offset: '.'
+    files_and_folders: []
+  - package_name: PyOCD
+    package_type: Debugger_Support_Packages
+    package_vendor: 'RealThread'
+    package_version: 0.2.3
+    source_path_offset: ''
+    target_path_offset: ''
+    files_and_folders: []
 - project_name: vision_board_wifi
   project_description: Wi-Fi 测试工程,提供基础的扫描、联网功能
   project_type: rt-thread|@full|@5.0.2
@@ -204,7 +330,21 @@ example_projects:
     files_and_folders:
     - libraries
     - rt-thread
-  external_files: []
+  external_files:
+  - package_name: GNU_Tools_for_ARM_Embedded_Processors
+    package_type: ToolChain_Support_Packages
+    package_vendor: 'ARM'
+    package_version: 10.2.1
+    source_path_offset: '.'
+    target_path_offset: '.'
+    files_and_folders: []
+  - package_name: PyOCD
+    package_type: Debugger_Support_Packages
+    package_vendor: 'RealThread'
+    package_version: 0.2.3
+    source_path_offset: ''
+    target_path_offset: ''
+    files_and_folders: []
 - project_name: vision_board_camera
   project_description: 摄像头+LCD显示工程,可以基于此工程创建最小摄像头捕获示例
   project_type: rt-thread|@full|@5.0.2
@@ -218,7 +358,21 @@ example_projects:
     files_and_folders:
     - libraries
     - rt-thread
-  external_files: []
+  external_files:
+  - package_name: GNU_Tools_for_ARM_Embedded_Processors
+    package_type: ToolChain_Support_Packages
+    package_vendor: 'ARM'
+    package_version: 10.2.1
+    source_path_offset: '.'
+    target_path_offset: '.'
+    files_and_folders: []
+  - package_name: PyOCD
+    package_type: Debugger_Support_Packages
+    package_vendor: 'RealThread'
+    package_version: 0.2.3
+    source_path_offset: ''
+    target_path_offset: ''
+    files_and_folders: []
 - project_name: vision_board_tinyusb_cdc
   project_description: Tinyusb—CDC工程
   project_type: rt-thread|@full|@5.0.2
@@ -232,7 +386,21 @@ example_projects:
     files_and_folders:
     - libraries
     - rt-thread
-  external_files: []
+  external_files:
+  - package_name: GNU_Tools_for_ARM_Embedded_Processors
+    package_type: ToolChain_Support_Packages
+    package_vendor: 'ARM'
+    package_version: 10.2.1
+    source_path_offset: '.'
+    target_path_offset: '.'
+    files_and_folders: []
+  - package_name: PyOCD
+    package_type: Debugger_Support_Packages
+    package_vendor: 'RealThread'
+    package_version: 0.2.3
+    source_path_offset: ''
+    target_path_offset: ''
+    files_and_folders: []
 - project_name: vision_board_tinyusb_hid
   project_description: Tinyusb—HID工程
   project_type: rt-thread|@full|@5.0.2
@@ -246,7 +414,21 @@ example_projects:
     files_and_folders:
     - libraries
     - rt-thread
-  external_files: []
+  external_files:
+  - package_name: GNU_Tools_for_ARM_Embedded_Processors
+    package_type: ToolChain_Support_Packages
+    package_vendor: 'ARM'
+    package_version: 10.2.1
+    source_path_offset: '.'
+    target_path_offset: '.'
+    files_and_folders: []
+  - package_name: PyOCD
+    package_type: Debugger_Support_Packages
+    package_vendor: 'RealThread'
+    package_version: 0.2.3
+    source_path_offset: ''
+    target_path_offset: ''
+    files_and_folders: []
 - project_name: vision_board_tinyusb_uvc
   project_description: Tinyusb—UVC工程
   project_type: rt-thread|@full|@5.0.2
@@ -260,7 +442,21 @@ example_projects:
     files_and_folders:
     - libraries
     - rt-thread
-  external_files: []
+  external_files:
+  - package_name: GNU_Tools_for_ARM_Embedded_Processors
+    package_type: ToolChain_Support_Packages
+    package_vendor: 'ARM'
+    package_version: 10.2.1
+    source_path_offset: '.'
+    target_path_offset: '.'
+    files_and_folders: []
+  - package_name: PyOCD
+    package_type: Debugger_Support_Packages
+    package_vendor: 'RealThread'
+    package_version: 0.2.3
+    source_path_offset: ''
+    target_path_offset: ''
+    files_and_folders: []
 - project_name: vision_board_tinyusb_msc
   project_description: Tinyusb—UVC工程
   project_type: rt-thread|@full|@5.0.2
@@ -274,7 +470,21 @@ example_projects:
     files_and_folders:
     - libraries
     - rt-thread
-  external_files: []
+  external_files:
+  - package_name: GNU_Tools_for_ARM_Embedded_Processors
+    package_type: ToolChain_Support_Packages
+    package_vendor: 'ARM'
+    package_version: 10.2.1
+    source_path_offset: '.'
+    target_path_offset: '.'
+    files_and_folders: []
+  - package_name: PyOCD
+    package_type: Debugger_Support_Packages
+    package_vendor: 'RealThread'
+    package_version: 0.2.3
+    source_path_offset: ''
+    target_path_offset: ''
+    files_and_folders: []
 - project_name: vision_board_openmv
   project_description: OpenMV 工程
   project_type: rt-thread|@full|@5.0.2
@@ -288,7 +498,21 @@ example_projects:
     files_and_folders:
     - libraries
     - rt-thread
-  external_files: []
+  external_files:
+  - package_name: GNU_Tools_for_ARM_Embedded_Processors
+    package_type: ToolChain_Support_Packages
+    package_vendor: 'ARM'
+    package_version: 13.2.1
+    source_path_offset: '.'
+    target_path_offset: '.'
+    files_and_folders: []
+  - package_name: PyOCD
+    package_type: Debugger_Support_Packages
+    package_vendor: 'RealThread'
+    package_version: 0.2.3
+    source_path_offset: ''
+    target_path_offset: ''
+    files_and_folders: []
 template_projects:
 - project_name: hmi-board-led
   project_description: 实现 LED 闪烁功能,可作为二次开发的基础工程
@@ -303,5 +527,19 @@ template_projects:
     files_and_folders:
     - libraries
     - rt-thread
-  external_files: []
+  external_files:
+  - package_name: GNU_Tools_for_ARM_Embedded_Processors
+    package_type: ToolChain_Support_Packages
+    package_vendor: 'ARM'
+    package_version: 10.2.1
+    source_path_offset: '.'
+    target_path_offset: '.'
+    files_and_folders: []
+  - package_name: PyOCD
+    package_type: Debugger_Support_Packages
+    package_vendor: 'RealThread'
+    package_version: 0.2.3
+    source_path_offset: ''
+    target_path_offset: ''
+    files_and_folders: []
 yaml_version: 3
