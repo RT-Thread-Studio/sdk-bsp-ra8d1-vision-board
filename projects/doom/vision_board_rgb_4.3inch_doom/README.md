@@ -43,6 +43,48 @@
 
 ![](docs/picture/download.png)
 
+
+
+
+
+#### RT-Thread Studio方式
+
+双击mklinks.bat，会产生两个文件夹libraries和rt-rthread
+
+![](docs/picture/rt-thread_studio1.png)
+
+
+
+在当前项目路径下打开env，在env中输入scons --target=eclipse
+
+![](docs/picture/rt-thread_studio2.png)
+
+
+
+打开RT-Thread Studio，左上角菜单栏，文件-->导入
+
+![](docs/picture/rt-thread_studio3.png)
+
+![](docs/picture/rt-thread_studio4.png)
+
+
+
+![](docs/picture/rt-thread_studio5.png)
+
+
+
+![](docs/picture/rt-thread_studio6.png)
+
+
+
+
+
+
+
+
+
+
+
 ## 运行效果
 
 系统会等待SD卡挂载成功，成功后会自动启动运行游戏：
@@ -64,3 +106,54 @@ A2：方法二：使用  [Renesas Flash Programmer](https://www.renesas.com/us/e
 ![](docs/picture/boot1.png)
 
 ![](docs/picture/boot2.png)
+
+
+
+
+
+
+
+**Q:  遇到编译报错（MDK）：**
+
+![](docs/picture/MDK1.png)
+
+问题：找不到hal_entry函数
+
+**A:**  解决方法：hal_entry函数定义在src文件夹下，在mdk中从新把这个文件添加进去后编译即可解决
+
+![](docs/picture/MDK2.png)
+
+![](docs/picture/MDK3.png)
+
+![](docs/picture/MDK4.png)
+
+
+
+**Q:  下载报错（MDK）：**
+
+![](docs/picture/MDK5.png)
+
+![](docs/picture/MDK6.png)
+
+
+
+**A:**  解决方法：
+
+![](docs/picture/MDK7.png)
+
+![](docs/picture/MDK8.png)
+
+![](docs/picture/MDK9.png)
+
+![](docs/picture/MDK10.png)
+
+![](docs/picture/MDK11.png)
+
+![](docs/picture/MDK12.png)
+
+
+
+
+
+
+
