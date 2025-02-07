@@ -87,12 +87,18 @@ def MDK4AddGroupForFN(ProjectFiles, parent, name, filename, project_path):
     if ProjectFiles.count(obj_name):
         name = basename + '_' + name
     ProjectFiles.append(obj_name)
-    file_name.text = name.decode(fs_encoding)
+    try: # python 2
+        file_name.text = name.decode(fs_encoding)
+    except: # python 3
+        file_name.text = name
     file_type = SubElement(file, 'FileType')
     file_type.text = '%d' % _get_filetype(name)
     file_path = SubElement(file, 'FilePath')
+    try: # python 2
+        file_path.text = path.decode(fs_encoding)
+    except: # python 3
+        file_path.text = path
 
-    file_path.text = path.decode(fs_encoding)
 
     return group
 
@@ -186,7 +192,7 @@ def MDK4AddGroup(ProjectFiles, parent, name, files, project_path, group_scons):
             MiscControls_text = MiscControls_text + group_scons['LOCAL_CXXFLAGS']
         if 'LOCAL_CCFLAGS' in group_scons:
             MiscControls_text = MiscControls_text + group_scons['LOCAL_CCFLAGS']
-        if MiscControls_text != ' ':
+        if MiscControls_text != ' ' or ('LOCAL_CPPDEFINES' in group_scons):
             FileOption     = SubElement(file,  'FileOption')
             FileArmAds     = SubElement(FileOption, 'FileArmAds')
             Cads            = SubElement(FileArmAds, 'Cads')
